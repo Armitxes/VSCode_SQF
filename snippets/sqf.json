@@ -1,0 +1,86 @@
+{
+	"Call-Function Statement": {
+		"prefix": "callfnc",
+		"body": [
+			"[${params}] call \"${fnc_name}\";"
+		],
+		"description": "Call Function Statement"
+	},
+	"Spawn-Function Statement": {
+		"prefix": "spawnfnc",
+		"body": [
+			"[${params}] spawn \"${fnc_name}\";"
+		],
+		"description": "Spawn Function Statement"
+	},
+	"Execute Script Statement": {
+		"prefix": "execVM",
+		"body": [
+			"[${params}] spaexecVM \"${somepath\\file.sqf}\";"
+		],
+		"description": "Executes a script under the given path"
+	},
+	"If-Then Statement": {
+		"prefix": "ifthen",
+		"body": [
+			"if (${condition}) then {",
+			"\t$0",
+			"};"
+		],
+		"description": "If-Then Statement"
+	},
+	"If-Exit Statement": {
+		"prefix": "ifexit",
+		"body": [
+			"if (${condition}) exitWith {",
+			"\t$0",
+			"};"
+		],
+		"description": "If-Exit Statement"
+	},
+	"If-Else Statement": {
+		"prefix": "ifelse",
+		"body": [
+			"if (${condition}) then {",
+			"\t$0",
+			"} else {",
+			"\t",
+			"};"
+		],
+		"description": "If-Else Statement"
+	},
+	"Switch Statement": {
+		"prefix": "switch",
+		"body": [
+			"switch (${key}) do {",
+			"\tcase \"${value}\": { };",
+			"\tdefault { };",
+			"};"
+		],
+		"description": "Switch Statement"
+	},
+	"While-Do Statement": {
+		"prefix": "while",
+		"body": [
+			"while (${condition}) do {",
+			"\t$0",
+			"};"
+		],
+		"description": "While-Do Statement"
+	},
+	"Sleep Function": {
+		"prefix": "sleep",
+		"body": ["sleep 60;"],
+		"description": "sleep [int seconds]; - Suspend execution for given time in seconds."
+	},
+	"Wait-Until Function": {
+		"prefix": "waitUntil",
+		"body": ["waitUntil { ${condition}; };"],
+		"description": "waitUntil { [bool finished] }; - Suspend futher execution until 'true' is returned."
+	},
+	"scriptDone Function": {
+		"prefix": "scriptDone",
+		"body": ["scriptDone _storedCode;"],
+		"description": "[bool] scriptDone _storedCode; - Wait until function, code or script reaches endpoint"
+	}
+}
