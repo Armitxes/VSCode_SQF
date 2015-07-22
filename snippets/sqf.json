@@ -2,21 +2,21 @@
 	"Call-Function Statement": {
 		"prefix": "callfnc",
 		"body": [
-			"[${params}] call \"${fnc_name}\";"
+			"[${params}] call ${fnc_name};"
 		],
 		"description": "Call Function Statement"
 	},
 	"Spawn-Function Statement": {
 		"prefix": "spawnfnc",
 		"body": [
-			"[${params}] spawn \"${fnc_name}\";"
+			"[${params}] spawn ${fnc_name};"
 		],
 		"description": "Spawn Function Statement"
 	},
 	"Execute Script Statement": {
 		"prefix": "execVM",
 		"body": [
-			"[${params}] spaexecVM \"${somepath\\file.sqf}\";"
+			"[${param1},${param2}] execVM \"${somepath\\file.sqf}\";"
 		],
 		"description": "Executes a script under the given path"
 	},
@@ -59,14 +59,41 @@
 		],
 		"description": "Switch Statement"
 	},
-	"While-Do Statement": {
+	"While-Do Loop": {
 		"prefix": "while",
 		"body": [
 			"while (${condition}) do {",
 			"\t$0",
 			"};"
 		],
-		"description": "While-Do Statement"
+		"description": "While-Do Loop"
+	},
+	"For Loop": {
+		"prefix": "for",
+		"body": [
+			"for [${BEGIN}, ${CONDITION}, ${STEP}] do {",
+			"\t$0",
+			"};"
+		],
+		"description": "for Loop (Recommended)"
+	},
+	"For-From-To Loop": {
+		"prefix": "forFromTo",
+		"body": [
+			"for \"VARNAME\" from STARTVALUE to ENDVALUE do {",
+			"\t$0",
+			"};"
+		],
+		"description": "for-From-To Loop"
+	},
+	"For-From-To-Step Loop": {
+		"prefix": "forFromToStep",
+		"body": [
+			"for \"VARNAME\" from STARTVALUE to ENDVALUE step STEP do {",
+			"\t$0",
+			"};"
+		],
+		"description": "for-From-To-Step Loop"
 	},
 	"Sleep Function": {
 		"prefix": "sleep",

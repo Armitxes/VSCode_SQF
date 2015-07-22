@@ -117,7 +117,7 @@
       "name": "comment.line.ts"
     },
     "control-statement": {
-      "match": "\\b(then|do|else|exitWith|call|spawn|execVM|for|if|return|switch|while)\\b",
+      "match": "\\b(then|do|else|exitWith|call|spawn|execVM|for|if|return|switch|while|from|to|step)\\b",
       "name": "keyword.control.sqf"
     },
     "decl-block": {
@@ -147,7 +147,10 @@
           "include": "#function-declaration"
         },
         {
-          "include": "#object-declaration"
+          "include": "#fnc-declaration"
+        },
+        {
+          "include": "#fnc-call"
         },
         {
           "include": "#type-declaration"
@@ -166,7 +169,7 @@
           "name": "storage.type.ts"
         },
         "3": {
-          "name": "entity.name.class.ts"
+          "name": "entity.name.class.sqf"
         }
       },
       "match": "(?:\\b(const)\\s+)?\\b(enum)\\s+([a-zA-Z_$][\\w$]*)",
@@ -513,40 +516,33 @@
         }
       ]
     },
-    "object-declaration": {
-      "begin": "\\b(?:(export)\\s+)?\\b(class|interface)\\b(?:\\s+([a-zA-Z_$][\\w$]*))",
+    "fnc-declaration": {
+      "begin": "([a-zA-Z_$][\\w$]*)\\b(\\s*|)=(\\s*|){",
       "beginCaptures": {
-        "1": {
-          "name": "storage.modifier.ts"
-        },
-        "2": {
-          "name": "storage.type.ts"
-        },
-        "3": {
-          "name": "entity.name.class.ts"
-        }
+        "1": { "name": "entity.name.class.sqf" },
+        "2": { "name": "keyword.operator.sqf" }
       },
-      "end": "(?<=\\})",
+      "end": " |;|{|}",
       "endCaptures": {
         "1": {
-          "name": "brace.curly.ts"
+          "name": "keyword.operator.sqf"
         }
       },
-      "name": "meta.declaration.object.ts",
-      "patterns": [
-        {
-          "include": "#type-parameters"
-        },
-        {
-          "include": "#object-heritage"
-        },
-        {
-          "include": "#object-body"
-        },
-        {
-          "include": "#comment"
+      "name": "meta.declaration.object.sqf"
+    },
+    "fnc-call": {
+      "begin": "(call|spawn)(\\s*|)\\b([a-zA-Z_$][\\w$]*)",
+      "beginCaptures": {
+        "1": { "name": "keyword.control.sqf" },
+        "2": { "name": "entity.name.class.sqf" }
+      },
+      "end": " |;|{|}",
+      "endCaptures": {
+        "1": {
+          "name": "keyword.operator.sqf"
         }
-      ]
+      },
+      "name": "meta.declaration.object.sqf"
     },
     "object-heritage": {
       "captures": {
@@ -899,36 +895,6 @@
         }
       ]
     },
-    "type-paren-or-function-type-parameters": {
-      "begin": "(?:\\b(new)\\b)?\\s*\\(",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.control.sqf"
-        }
-      },
-      "end": "\\)",
-      "name": "meta.type.paren.cover.ts",
-      "patterns": [
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#type"
-        },
-        {
-          "include": "#function-type-parameters"
-        }
-      ]
-    },
-    "type-primitive": {
-      "captures": {
-        "1": {
-          "name": "storage.type.ts"
-        }
-      },
-      "match": "\\b(string|number|boolean|symbol|any|void)\\b",
-      "name": "meta.type.primitive.ts"
-    },
     "type-tuple": {
       "begin": "\\[",
       "beginCaptures": {
@@ -955,24 +921,6 @@
     "undefined-literal": {
       "match": "\\b(undefined)\\b",
       "name": "constant.language.ts"
-    },
-    "var-expr": {
-      "begin": "(?<!\\()\\s*\\b(var|let|const(?!\\s+enum))\\s+([a-zA-Z_$][\\w$]*)",
-      "beginCaptures": {
-        "1": {
-          "name": "storage.type.ts"
-        },
-        "2": {
-          "name": "variable.ts"
-        }
-      },
-      "end": "(?=$|[;=\\}\\{])|(?<=\\})",
-      "name": "meta.var.expr.ts",
-      "patterns": [
-        {
-          "include": "#type-annotation"
-        }
-      ]
     },
     "variable-initializer": {
       "begin": "(=)",
