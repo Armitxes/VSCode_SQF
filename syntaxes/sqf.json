@@ -14,7 +14,7 @@
       "name": "storage.modifier.ts"
     },
     "arithmetic-operator": {
-      "match": "\\*|/|\\-\\-|\\-|\\+\\+|\\+|%",
+      "match": "\\*|/|\\-|\\+|%|\\^",
       "name": "keyword.operator.arithmetic.ts"
     },
     "array-literal": {
