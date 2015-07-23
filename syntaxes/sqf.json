@@ -14,21 +14,21 @@
       "name": "storage.modifier.ts"
     },
     "arithmetic-operator": {
-      "match": "\\*|/|\\-|\\+|%|\\^",
-      "name": "keyword.operator.arithmetic.ts"
+      "match": "\\*|/|\\-|\\+|%|\\^|greater|greater=|less|less=|or|plus|:",
+      "name": "keyword.operator.arithmetic.sqf"
+    },
+    "assignment-operator": {
+      "match": "=",
+      "name": "keyword.operator.assignment.sqf"
     },
     "array-literal": {
       "begin": "\\[",
       "beginCaptures": {
-        "0": {
-          "name": "meta.brace.square.ts"
-        }
+        "0": { "name": "meta.brace.square.sqf" }
       },
       "end": "\\]",
       "endCaptures": {
-        "0": {
-          "name": "meta.brace.square.ts"
-        }
+        "0": { "name": "meta.brace.square.sqf" }
       },
       "name": "meta.array.literal.ts",
       "patterns": [
@@ -36,10 +36,6 @@
           "include": "#expression"
         }
       ]
-    },
-    "assignment-operator": {
-      "match": "<<=|>>=|>>>=|\\*=|(?<!\\()/=|%=|\\+=|\\-=|&=|\\^=",
-      "name": "keyword.operator.assignment.ts"
     },
     "block": {
       "begin": "\\{",
