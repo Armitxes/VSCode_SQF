@@ -11,7 +11,7 @@
   "repository": {
     "access-modifier": {
       "match": "\\b(public|protected|private)\\b",
-      "name": "storage.modifier.ts"
+      "name": "storage.modifier.sqf"
     },
     "arithmetic-operator": {
       "match": "\\*|/|\\-|\\+|%|\\^|greater|greater=|less|less=|or|plus|:",
@@ -30,7 +30,7 @@
       "endCaptures": {
         "0": { "name": "meta.brace.square.sqf" }
       },
-      "name": "meta.array.literal.ts",
+      "name": "meta.array.literal.sqf",
       "patterns": [
         {
           "include": "#expression"
@@ -41,16 +41,16 @@
       "begin": "\\{",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.curly.ts"
+          "name": "meta.brace.curly.sqf"
         }
       },
       "end": "\\}",
       "endCaptures": {
         "0": {
-          "name": "meta.brace.curly.ts"
+          "name": "meta.brace.curly.sqf"
         }
       },
-      "name": "meta.block.ts",
+      "name": "meta.block.sqf",
       "patterns": [
         {
           "include": "#expression"
@@ -62,22 +62,22 @@
     },
     "boolean-literal": {
       "match": "\\b(false|true)\\b",
-      "name": "constant.language.boolean.ts"
+      "name": "constant.language.boolean.sqf"
     },
     "cast": {
       "begin": "(?:(?<=return|throw|yield|[=(,:>]))\\s*(<)(?!<?\\=)",
       "beginCaptures": {
         "1": {
-          "name": "keyword.operator.type.ts"
+          "name": "keyword.operator.type.sqf"
         }
       },
       "end": ">",
       "endCaptures": {
         "0": {
-          "name": "keyword.operator.type.ts"
+          "name": "keyword.operator.type.sqf"
         }
       },
-      "name": "cast.expr.ts",
+      "name": "cast.expr.sqf",
       "patterns": [
         {
           "include": "#type"
@@ -85,7 +85,7 @@
       ]
     },
     "comment": {
-      "name": "comment.ts",
+      "name": "comment.sqf",
       "patterns": [
         {
           "include": "#comment-block-doc"
@@ -101,16 +101,16 @@
     "comment-block": {
       "begin": "/\\*",
       "end": "\\*/",
-      "name": "comment.block.ts"
+      "name": "comment.block.sqf"
     },
     "comment-block-doc": {
       "begin": "/\\*\\*(?!/)",
       "end": "\\*/",
-      "name": "comment.block.documentation.ts"
+      "name": "comment.block.documentation.sqf"
     },
     "comment-line": {
       "match": "(//).*$\\n?",
-      "name": "comment.line.ts"
+      "name": "comment.line.sqf"
     },
     "control-statement": {
       "match": "\\b(then|do|else|exitWith|call|spawn|execVM|for|if|return|switch|while|from|to|step)\\b",
@@ -120,16 +120,16 @@
       "begin": "\\{",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.curly.ts"
+          "name": "meta.brace.curly.sqf"
         }
       },
       "end": "\\}",
       "endCaptures": {
         "0": {
-          "name": "meta.brace.curly.ts"
+          "name": "meta.brace.curly.sqf"
         }
       },
-      "name": "meta.decl.block.ts",
+      "name": "meta.decl.block.sqf",
       "patterns": [
         {
           "include": "#expression"
@@ -137,7 +137,7 @@
       ]
     },
     "declaration": {
-      "name": "meta.declaration.ts",
+      "name": "meta.declaration.sqf",
       "patterns": [
         {
           "include": "#function-declaration"
@@ -159,24 +159,21 @@
     "enum-declaration": {
       "captures": {
         "1": {
-          "name": "storage.modifier.ts"
+          "name": "storage.modifier.sqf"
         },
         "2": {
-          "name": "storage.type.ts"
+          "name": "storage.type.sqf"
         },
         "3": {
           "name": "entity.name.class.sqf"
         }
       },
       "match": "(?:\\b(const)\\s+)?\\b(enum)\\s+([a-zA-Z_$][\\w$]*)",
-      "name": "meta.enum.declaration.ts"
+      "name": "meta.enum.declaration.sqf"
     },
     "expression": {
-      "name": "meta.expression.ts",
+      "name": "meta.expression.sqf",
       "patterns": [
-        {
-          "include": "#for-in-simple"
-        },
         {
           "include": "#string"
         },
@@ -205,13 +202,7 @@
           "include": "#cast"
         },
         {
-          "include": "#new-expr"
-        },
-        {
           "include": "#block"
-        },
-        {
-          "include": "#expression-operator"
         },
         {
           "include": "#relational-operator"
@@ -236,111 +227,21 @@
         }
       ]
     },
-    "expression-operator": {
-      "match": "=>|\\b(delete|export|import|in|instanceof|module|new|typeof|void)\\b",
-      "name": "keyword.operator.sqf"
-    },
     "field-declaration": {
       "begin": "(?<!\\()\\s*\\b([a-zA-Z_$][\\w$]*)\\s*(\\?\\s*)?(?=(=|:))",
       "beginCaptures": {
         "1": {
-          "name": "variable.ts"
+          "name": "variable.sqf"
         },
         "2": {
           "name": "keyword.operator.sqf"
         }
       },
       "end": "(?=\\}|;|,|\\n)|(?<=\\})",
-      "name": "meta.field.declaration.ts",
+      "name": "meta.field.declaration.sqf",
       "patterns": [
         {
           "include": "#expression"
-        }
-      ]
-    },
-    "for-in-simple": {
-      "captures": {
-        "1": {
-          "name": "storage.type.ts"
-        },
-        "3": {
-          "name": "keyword.operator.sqf"
-        }
-      },
-      "match": "(?<=\\()\\s*\\b(var|let|const)\\s+([a-zA-Z_$][\\w$]*)\\s+(in|of)\\b",
-      "name": "forin.expr.ts"
-    },
-    "function-declaration": {
-      "begin": "\\b(function)\\b(?:\\s+([a-zA-Z_$][\\w$]*))?\\s*",
-      "beginCaptures": {
-        "1": {
-          "name": "storage.type.function.ts"
-        },
-        "2": {
-          "name": "entity.name.function.ts"
-        }
-      },
-      "end": "(?=;|\\})|(?<=\\})",
-      "name": "meta.function.ts",
-      "patterns": [
-        {
-          "include": "#function-overload-declaration"
-        },
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#type-parameters"
-        },
-        {
-          "include": "#function-type-parameters"
-        },
-        {
-          "include": "#return-type"
-        },
-        {
-          "include": "#decl-block"
-        }
-      ]
-    },
-    "function-overload-declaration": {
-      "captures": {
-        "1": {
-          "name": "storage.type.function.ts"
-        },
-        "2": {
-          "name": "entity.name.function.ts"
-        }
-      },
-      "match": "\\b(function)\\b(?:\\s+([a-zA-Z_$][\\w$]*))?\\s*",
-      "name": "meta.function.overload.ts"
-    },
-    "function-type-parameters": {
-      "begin": "\\(",
-      "beginCaptures": {
-        "0": {
-          "name": "meta.brace.round.ts"
-        }
-      },
-      "end": "\\)",
-      "endCaptures": {
-        "0": {
-          "name": "meta.brace.round.ts"
-        }
-      },
-      "name": "meta.function.type.parameter.ts",
-      "patterns": [
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#parameter-name"
-        },
-        {
-          "include": "#type-annotation"
-        },
-        {
-          "include": "#variable-initializer"
         }
       ]
     },
@@ -348,19 +249,19 @@
       "begin": "\\[",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.square.ts"
+          "name": "meta.brace.square.sqf"
         }
       },
       "end": "(\\])\\s*(\\?\\s*)?|$",
       "endCaptures": {
         "1": {
-          "name": "meta.brace.square.ts"
+          "name": "meta.brace.square.sqf"
         },
         "2": {
           "name": "keyword.operator.sqf"
         }
       },
-      "name": "meta.indexer.declaration.ts",
+      "name": "meta.indexer.declaration.sqf",
       "patterns": [
         {
           "include": "#type-annotation"
@@ -376,14 +277,14 @@
     "indexer-parameter": {
       "captures": {
         "1": {
-          "name": "variable.parameter.ts"
+          "name": "variable.parameter.sqf"
         }
       },
       "match": "([a-zA-Z_$][\\w$]*)(?=\\:)",
-      "name": "meta.indexer.parameter.ts"
+      "name": "meta.indexer.parameter.sqf"
     },
     "literal": {
-      "name": "literal.ts",
+      "name": "literal.sqf",
       "patterns": [
         {
           "include": "#numeric-literal"
@@ -395,9 +296,6 @@
           "include": "#null-literal"
         },
         {
-          "include": "#undefined-literal"
-        },
-        {
           "include": "#array-literal"
         },
         {
@@ -407,90 +305,36 @@
     },
     "logic-operator": {
       "match": "\\!|&|~|\\||&&|\\|\\|",
-      "name": "keyword.operator.arithmetic.ts"
-    },
-    "method-declaration": {
-      "begin": "(?:\\b(get|set)\\s+)?(?:(new)|(?:([a-zA-Z_$][\\.\\w$]*)\\s*(\\??)))?\\s*(?=\\(|\\<)",
-      "beginCaptures": {
-        "1": {
-          "name": "storage.type.property.ts"
-        },
-        "2": {
-          "name": "keyword.operator.sqf"
-        },
-        "3": {
-          "name": "entity.name.function.ts"
-        },
-        "4": {
-          "name": "keyword.operator.sqf"
-        }
-      },
-      "end": "(?=\\}|;|,|\\n)|(?<=\\})",
-      "name": "meta.method.declaration.ts",
-      "patterns": [
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#type-parameters"
-        },
-        {
-          "include": "#function-type-parameters"
-        },
-        {
-          "include": "#type-annotation"
-        },
-        {
-          "include": "#decl-block"
-        }
-      ]
-    },
-    "new-expr": {
-      "begin": "\\b(new)\\b",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.operator.sqf"
-        }
-      },
-      "end": "(?=[<(;]|$)",
-      "name": "new.expr.ts",
-      "patterns": [
-        {
-          "include": "#type"
-        }
-      ]
+      "name": "keyword.operator.arithmetic.sqf"
     },
     "null-literal": {
       "match": "\\b(null)\\b",
-      "name": "constant.language.null.ts"
+      "name": "constant.language.null.sqf"
     },
     "numeric-literal": {
       "match": "\\b(?<=[^$])((0(x|X)[0-9a-fA-F]+)|([0-9]+(\\.[0-9]+)?))\\b",
-      "name": "constant.numeric.ts"
+      "name": "constant.numeric.sqf"
     },
     "object-body": {
       "begin": "\\{",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.curly.ts"
+          "name": "meta.brace.curly.sqf"
         }
       },
       "end": "\\}",
       "endCaptures": {
         "0": {
-          "name": "meta.brace.curly.ts"
+          "name": "meta.brace.curly.sqf"
         }
       },
-      "name": "meta.object.body.ts",
+      "name": "meta.object.body.sqf",
       "patterns": [
         {
           "include": "#comment"
         },
         {
           "include": "#field-declaration"
-        },
-        {
-          "include": "#method-declaration"
         },
         {
           "include": "#indexer-declaration"
@@ -513,10 +357,10 @@
       ]
     },
     "fnc-declaration": {
-      "begin": "([a-zA-Z_$][\\w$]*)\\b(\\s*|)=(\\s*|){",
+      "begin": "([a-zA-Z_$][\\w$]*)\\b(\\s*)=(\\s*){",
       "beginCaptures": {
         "1": { "name": "entity.name.class.sqf" },
-        "2": { "name": "keyword.operator.sqf" }
+        "2": { "name": "keyword.operator.assignment.sqf" }
       },
       "end": " |;|{|}",
       "endCaptures": {
@@ -527,7 +371,7 @@
       "name": "meta.declaration.object.sqf"
     },
     "fnc-call": {
-      "begin": "(call|spawn)(\\s*|)\\b([a-zA-Z_$][\\w$]*)",
+      "begin": "(call|spawn)(\\s+[a-zA-Z_$][\\w$]*)",
       "beginCaptures": {
         "1": { "name": "keyword.control.sqf" },
         "2": { "name": "entity.name.class.sqf" }
@@ -540,57 +384,17 @@
       },
       "name": "meta.declaration.object.sqf"
     },
-    "object-heritage": {
-      "captures": {
-        "1": {
-          "name": "keyword.other.ts"
-        },
-        "2": {
-          "name": "storage.type.ts"
-        }
-      },
-      "match": "(?:\\b(extends|implements)\\b|,)(?:\\s+([a-zA-Z_$][.\\w$]*))",
-      "name": "meta.object.heritage.ts"
-    },
-    "object-member": {
-      "begin": "[a-zA-Z_$][\\w$]*\\s*:",
-      "end": "(?=,|\\})",
-      "name": "meta.object.member.ts",
-      "patterns": [
-        {
-          "include": "#expression"
-        }
-      ]
-    },
-    "parameter-name": {
-      "captures": {
-        "1": {
-          "name": "storage.modifier.ts"
-        },
-        "2": {
-          "name": "keyword.operator.sqf"
-        },
-        "3": {
-          "name": "variable.parameter.ts"
-        },
-        "4": {
-          "name": "keyword.operator.sqf"
-        }
-      },
-      "match": "(?:\\s*\\b(public|private)\\b\\s+)?(\\.\\.\\.)?\\s*([a-zA-Z_$][\\w$]*)\\s*(\\??)",
-      "name": "parameter.name.ts"
-    },
     "paren-expression": {
       "begin": "\\(",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.paren.ts"
+          "name": "meta.brace.paren.sqf"
         }
       },
       "end": "\\)",
       "endCaptures": {
         "0": {
-          "name": "meta.brace.paren.ts"
+          "name": "meta.brace.paren.sqf"
         }
       },
       "patterns": [
@@ -601,12 +405,12 @@
     },
     "property-accessor": {
       "match": "\\b(get|set)\\b",
-      "name": "storage.type.property.ts"
+      "name": "storage.type.property.sqf"
     },
     "qstring-double": {
       "begin": "\"",
       "end": "\"|(?=$)",
-      "name": "string.double.ts",
+      "name": "string.double.sqf",
       "patterns": [
         {
           "include": "#string-character-escape"
@@ -616,7 +420,7 @@
     "qstring-single": {
       "begin": "'",
       "end": "'|(?=$)",
-      "name": "string.single.ts",
+      "name": "string.single.sqf",
       "patterns": [
         {
           "include": "#string-character-escape"
@@ -626,26 +430,26 @@
     "regex": {
       "begin": "(?<=[=(:,\\[]|^|return|&&|\\|\\||!)\\s*(/)(?![/*+{}?])",
       "end": "$|(/)[igm]*",
-      "name": "string.regex.ts",
+      "name": "string.regex.sqf",
       "patterns": [
         {
           "match": "\\\\.",
-          "name": "constant.character.escape.ts"
+          "name": "constant.character.escape.sqf"
         },
         {
           "match": "\\[(\\\\\\]|[^\\]])*\\]",
-          "name": "constant.character.class.ts"
+          "name": "constant.character.class.sqf"
         }
       ]
     },
     "relational-operator": {
       "match": "===|==|=|!=|!==|<=|>=|<>|<|>",
-      "name": "keyword.operator.comparison.ts"
+      "name": "keyword.operator.comparison.sqf"
     },
     "return-type": {
       "begin": "(?<=\\))\\s*:",
       "end": "(?=$)|(?=\\{|;|//)",
-      "name": "meta.return.type.ts",
+      "name": "meta.return.type.sqf",
       "patterns": [
         {
           "include": "#type"
@@ -654,14 +458,14 @@
     },
     "static-modifier": {
       "match": "\\b(static)\\b",
-      "name": "keyword.other.ts"
+      "name": "keyword.other.sqf"
     },
     "storage-keyword": {
       "match": "\\b(number|boolean|string|var|let|function|const)\\b",
-      "name": "storage.type.ts"
+      "name": "storage.type.sqf"
     },
     "string": {
-      "name": "string.ts",
+      "name": "string.sqf",
       "patterns": [
         {
           "include": "#qstring-single"
@@ -683,7 +487,7 @@
         }
       },
       "end": ":",
-      "name": "case.expr.ts",
+      "name": "case.expr.sqf",
       "patterns": [
         {
           "include": "#expression"
@@ -694,16 +498,16 @@
       "begin": "`",
       "beginCaptures": {
         "0": {
-          "name": "string.template.ts"
+          "name": "string.template.sqf"
         }
       },
       "end": "`",
       "endCaptures": {
         "0": {
-          "name": "string.template.ts"
+          "name": "string.template.sqf"
         }
       },
-      "name": "meta.template.ts",
+      "name": "meta.template.sqf",
       "patterns": [
         {
           "include": "#template-substitution-element"
@@ -716,7 +520,7 @@
     "template-string-contents": {
       "begin": ".*?",
       "end": "(?=(\\$\\{|`))",
-      "name": "string.template.ts",
+      "name": "string.template.sqf",
       "patterns": [
         {
           "include": "#string-character-escape"
@@ -736,7 +540,7 @@
           "name": "keyword.operator.sqf"
         }
       },
-      "name": "template.element.ts",
+      "name": "template.element.sqf",
       "patterns": [
         {
           "include": "#expression"
@@ -745,10 +549,10 @@
     },
     "this-literal": {
       "match": "\\b(this)\\b",
-      "name": "constant.language.this.ts"
+      "name": "constant.language.this.sqf"
     },
     "type": {
-      "name": "meta.type.ts",
+      "name": "meta.type.sqf",
       "patterns": [
         {
           "include": "#type-primitive"
@@ -766,12 +570,6 @@
           "include": "#type-operator"
         },
         {
-          "include": "#type-paren-or-function-type-parameters"
-        },
-        {
-          "include": "#type-function-return-type"
-        },
-        {
           "include": "#type-name"
         }
       ]
@@ -779,7 +577,7 @@
     "type-annotation": {
       "begin": ":",
       "end": "(?=$|[,);\\}\\]]|//)|(?==[^>])|(?<=[\\}>\\]\\)]|[a-zA-Z_$])\\s*(?=\\{)",
-      "name": "meta.type.annotation.ts",
+      "name": "meta.type.annotation.sqf",
       "patterns": [
         {
           "include": "#type"
@@ -790,29 +588,14 @@
       "begin": "\\b(type)\\b\\s+([a-zA-Z_$][\\w$]*)\\s*=\\s*",
       "beginCaptures": {
         "1": {
-          "name": "keyword.other.ts"
+          "name": "keyword.other.sqf"
         },
         "2": {
-          "name": "storage.type.ts"
+          "name": "storage.type.sqf"
         }
       },
       "end": "(?=[,);>]|var|type|function|class|interface)",
-      "name": "meta.type.declaration.ts",
-      "patterns": [
-        {
-          "include": "#type"
-        }
-      ]
-    },
-    "type-function-return-type": {
-      "begin": "=>",
-      "beginCaptures": {
-        "0": {
-          "name": "keyword.operator.sqf"
-        }
-      },
-      "end": "(?=\\s*[,\\)\\{=;]|//|$)",
-      "name": "meta.type.function.return.ts",
+      "name": "meta.type.declaration.sqf",
       "patterns": [
         {
           "include": "#type"
@@ -822,35 +605,32 @@
     "type-name": {
       "captures": {
         "1": {
-          "name": "entity.name.type.ts"
+          "name": "entity.name.type.sqf"
         }
       },
       "match": "[a-zA-Z_$][.\\w$]*",
-      "name": "meta.type.name.ts"
+      "name": "meta.type.name.sqf"
     },
     "type-object": {
       "begin": "\\{",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.curly.ts"
+          "name": "meta.brace.curly.sqf"
         }
       },
       "end": "\\}",
       "endCaptures": {
         "0": {
-          "name": "meta.brace.curly.ts"
+          "name": "meta.brace.curly.sqf"
         }
       },
-      "name": "meta.object.type.ts",
+      "name": "meta.object.type.sqf",
       "patterns": [
         {
           "include": "#comment"
         },
         {
           "include": "#field-declaration"
-        },
-        {
-          "include": "#method-declaration"
         },
         {
           "include": "#indexer-declaration"
@@ -862,26 +642,26 @@
     },
     "type-operator": {
       "match": "[.|]",
-      "name": "keyword.operator.type.ts"
+      "name": "keyword.operator.type.sqf"
     },
     "type-parameters": {
       "begin": "<",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.angle.ts"
+          "name": "meta.brace.angle.sqf"
         }
       },
       "end": "(?=$)|(>)",
       "endCaptures": {
         "2": {
-          "name": "meta.brace.angle.ts"
+          "name": "meta.brace.angle.sqf"
         }
       },
-      "name": "meta.type.parameters.ts",
+      "name": "meta.type.parameters.sqf",
       "patterns": [
         {
           "match": "\\b(extends)\\b",
-          "name": "keyword.other.ts"
+          "name": "keyword.other.sqf"
         },
         {
           "include": "#comment"
@@ -895,16 +675,16 @@
       "begin": "\\[",
       "beginCaptures": {
         "0": {
-          "name": "meta.brace.square.ts"
+          "name": "meta.brace.square.sqf"
         }
       },
       "end": "\\]",
       "endCaptures": {
         "0": {
-          "name": "meta.brace.square.ts"
+          "name": "meta.brace.square.sqf"
         }
       },
-      "name": "meta.type.tuple.ts",
+      "name": "meta.type.tuple.sqf",
       "patterns": [
         {
           "include": "#type"
@@ -913,25 +693,7 @@
           "include": "#comment"
         }
       ]
-    },
-    "undefined-literal": {
-      "match": "\\b(undefined)\\b",
-      "name": "constant.language.ts"
-    },
-    "variable-initializer": {
-      "begin": "(=)",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.operator.sqf"
-        }
-      },
-      "end": "(?=$|[,);=])",
-      "patterns": [
-        {
-          "include": "#expression"
-        }
-      ]
     }
   },
-  "scopeName": "source.ts"
+  "scopeName": "source.sqf"
 }
