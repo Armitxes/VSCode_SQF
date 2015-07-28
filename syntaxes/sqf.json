@@ -3,23 +3,27 @@
     "ts"
   ],
   "name": "sqf",
-  "patterns": [
-    {
-      "include": "#expression"
-    }
-  ],
+  "patterns": [{"include": "#expression"}],
   "repository": {
     "access-modifier": {
-      "match": "\\b(public|protected|private)\\b",
+      "match": "\\b(private)\\b",
       "name": "storage.modifier.sqf"
     },
-    "arithmetic-operator": {
-      "match": "\\*|/|\\-|\\+|%|\\^|greater|greater=|less|less=|or|plus|:",
-      "name": "keyword.operator.arithmetic.sqf"
+    "manipulative-operator": {
+      "match": "\\*|/|\\-|\\+|%|\\^|plus|\\%",
+      "name": "keyword.operator.manipulative.sqf"
     },
     "assignment-operator": {
       "match": "=",
       "name": "keyword.operator.assignment.sqf"
+    },
+    "comparsion-operator": {
+      "match": "==|!=|>|<|greater|greater=|less|less=",
+      "name": "keyword.operator.comparison.sqf"
+    },
+    "condition-operator": {
+      "match": "!|&&|\\|\\||:|or",
+      "name": "keyword.operator.condition.sqf"
     },
     "array-literal": {
       "begin": "\\[",
@@ -63,26 +67,6 @@
     "boolean-literal": {
       "match": "\\b(false|true)\\b",
       "name": "constant.language.boolean.sqf"
-    },
-    "cast": {
-      "begin": "(?:(?<=return|throw|yield|[=(,:>]))\\s*(<)(?!<?\\=)",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.operator.type.sqf"
-        }
-      },
-      "end": ">",
-      "endCaptures": {
-        "0": {
-          "name": "keyword.operator.type.sqf"
-        }
-      },
-      "name": "cast.expr.sqf",
-      "patterns": [
-        {
-          "include": "#type"
-        }
-      ]
     },
     "comment": {
       "name": "comment.sqf",
@@ -139,92 +123,28 @@
     "declaration": {
       "name": "meta.declaration.sqf",
       "patterns": [
-        {
-          "include": "#function-declaration"
-        },
-        {
-          "include": "#fnc-declaration"
-        },
-        {
-          "include": "#fnc-call"
-        },
-        {
-          "include": "#type-declaration"
-        },
-        {
-          "include": "#enum-declaration"
-        }
+        {"include": "#fnc-declaration"},
+        {"include": "#fnc-call"}
       ]
-    },
-    "enum-declaration": {
-      "captures": {
-        "1": {
-          "name": "storage.modifier.sqf"
-        },
-        "2": {
-          "name": "storage.type.sqf"
-        },
-        "3": {
-          "name": "entity.name.class.sqf"
-        }
-      },
-      "match": "(?:\\b(const)\\s+)?\\b(enum)\\s+([a-zA-Z_$][\\w$]*)",
-      "name": "meta.enum.declaration.sqf"
     },
     "expression": {
       "name": "meta.expression.sqf",
       "patterns": [
-        {
-          "include": "#string"
-        },
-        {
-          "include": "#regex"
-        },
-        {
-          "include": "#template"
-        },
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#literal"
-        },
-        {
-          "include": "#paren-expression"
-        },
-        {
-          "include": "#var-expr"
-        },
-        {
-          "include": "#declaration"
-        },
-        {
-          "include": "#cast"
-        },
-        {
-          "include": "#block"
-        },
-        {
-          "include": "#relational-operator"
-        },
-        {
-          "include": "#arithmetic-operator"
-        },
-        {
-          "include": "#logic-operator"
-        },
-        {
-          "include": "#assignment-operator"
-        },
-        {
-          "include": "#storage-keyword"
-        },
-        {
-          "include": "#control-statement"
-        },
-        {
-          "include": "#switch-case"
-        }
+        {"include": "#string"},
+        {"include": "#template"},
+        {"include": "#comment"},
+        {"include": "#literal"},
+        {"include": "#paren-expression"},
+        {"include": "#var-expr"},
+        {"include": "#declaration"},
+        {"include": "#block"},
+        {"include": "#comparsion-operator"},
+        {"include": "#condition-operator"},
+        {"include": "#manipulative-operator"},
+        {"include": "#assignment-operator"},
+        {"include": "#storage-keyword"},
+        {"include": "#control-statement"},
+        {"include": "#switch-case"}
       ]
     },
     "field-declaration": {
@@ -240,35 +160,6 @@
       "end": "(?=\\}|;|,|\\n)|(?<=\\})",
       "name": "meta.field.declaration.sqf",
       "patterns": [
-        {
-          "include": "#expression"
-        }
-      ]
-    },
-    "indexer-declaration": {
-      "begin": "\\[",
-      "beginCaptures": {
-        "0": {
-          "name": "meta.brace.square.sqf"
-        }
-      },
-      "end": "(\\])\\s*(\\?\\s*)?|$",
-      "endCaptures": {
-        "1": {
-          "name": "meta.brace.square.sqf"
-        },
-        "2": {
-          "name": "keyword.operator.sqf"
-        }
-      },
-      "name": "meta.indexer.declaration.sqf",
-      "patterns": [
-        {
-          "include": "#type-annotation"
-        },
-        {
-          "include": "#indexer-parameter"
-        },
         {
           "include": "#expression"
         }
@@ -303,12 +194,8 @@
         }
       ]
     },
-    "logic-operator": {
-      "match": "\\!|&|~|\\||&&|\\|\\|",
-      "name": "keyword.operator.arithmetic.sqf"
-    },
     "null-literal": {
-      "match": "\\b(null)\\b",
+      "match": "\\b(null|nil)\\b",
       "name": "constant.language.null.sqf"
     },
     "numeric-literal": {
@@ -330,30 +217,12 @@
       },
       "name": "meta.object.body.sqf",
       "patterns": [
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#field-declaration"
-        },
-        {
-          "include": "#indexer-declaration"
-        },
-        {
-          "include": "#type-annotation"
-        },
-        {
-          "include": "#variable-initializer"
-        },
-        {
-          "include": "#access-modifier"
-        },
-        {
-          "include": "#static-modifier"
-        },
-        {
-          "include": "#property-accessor"
-        }
+        {"include": "#comment"},
+        {"include": "#field-declaration"},
+        {"include": "#type-annotation"},
+        {"include": "#variable-initializer"},
+        {"include": "#access-modifier"},
+        {"include": "#property-accessor"}
       ]
     },
     "fnc-declaration": {
@@ -387,20 +256,14 @@
     "paren-expression": {
       "begin": "\\(",
       "beginCaptures": {
-        "0": {
-          "name": "meta.brace.paren.sqf"
-        }
+        "0": { "name": "meta.brace.paren.sqf" }
       },
       "end": "\\)",
       "endCaptures": {
-        "0": {
-          "name": "meta.brace.paren.sqf"
-        }
+        "0": { "name": "meta.brace.paren.sqf" }
       },
       "patterns": [
-        {
-          "include": "#expression"
-        }
+        { "include": "#expression" }
       ]
     },
     "property-accessor": {
@@ -426,39 +289,6 @@
           "include": "#string-character-escape"
         }
       ]
-    },
-    "regex": {
-      "begin": "(?<=[=(:,\\[]|^|return|&&|\\|\\||!)\\s*(/)(?![/*+{}?])",
-      "end": "$|(/)[igm]*",
-      "name": "string.regex.sqf",
-      "patterns": [
-        {
-          "match": "\\\\.",
-          "name": "constant.character.escape.sqf"
-        },
-        {
-          "match": "\\[(\\\\\\]|[^\\]])*\\]",
-          "name": "constant.character.class.sqf"
-        }
-      ]
-    },
-    "relational-operator": {
-      "match": "===|==|=|!=|!==|<=|>=|<>|<|>",
-      "name": "keyword.operator.comparison.sqf"
-    },
-    "return-type": {
-      "begin": "(?<=\\))\\s*:",
-      "end": "(?=$)|(?=\\{|;|//)",
-      "name": "meta.return.type.sqf",
-      "patterns": [
-        {
-          "include": "#type"
-        }
-      ]
-    },
-    "static-modifier": {
-      "match": "\\b(static)\\b",
-      "name": "keyword.other.sqf"
     },
     "storage-keyword": {
       "match": "\\b(number|boolean|string|var|let|function|const)\\b",
@@ -527,26 +357,6 @@
         }
       ]
     },
-    "template-substitution-element": {
-      "begin": "\\$\\{",
-      "beginCaptures": {
-        "0": {
-          "name": "keyword.operator.sqf"
-        }
-      },
-      "end": "\\}",
-      "endCaptures": {
-        "0": {
-          "name": "keyword.operator.sqf"
-        }
-      },
-      "name": "template.element.sqf",
-      "patterns": [
-        {
-          "include": "#expression"
-        }
-      ]
-    },
     "this-literal": {
       "match": "\\b(this)\\b",
       "name": "constant.language.this.sqf"
@@ -559,9 +369,6 @@
         },
         {
           "include": "#type-parameters"
-        },
-        {
-          "include": "#type-tuple"
         },
         {
           "include": "#type-object"
@@ -578,24 +385,6 @@
       "begin": ":",
       "end": "(?=$|[,);\\}\\]]|//)|(?==[^>])|(?<=[\\}>\\]\\)]|[a-zA-Z_$])\\s*(?=\\{)",
       "name": "meta.type.annotation.sqf",
-      "patterns": [
-        {
-          "include": "#type"
-        }
-      ]
-    },
-    "type-declaration": {
-      "begin": "\\b(type)\\b\\s+([a-zA-Z_$][\\w$]*)\\s*=\\s*",
-      "beginCaptures": {
-        "1": {
-          "name": "keyword.other.sqf"
-        },
-        "2": {
-          "name": "storage.type.sqf"
-        }
-      },
-      "end": "(?=[,);>]|var|type|function|class|interface)",
-      "name": "meta.type.declaration.sqf",
       "patterns": [
         {
           "include": "#type"
@@ -633,9 +422,6 @@
           "include": "#field-declaration"
         },
         {
-          "include": "#indexer-declaration"
-        },
-        {
           "include": "#type-annotation"
         }
       ]
@@ -653,44 +439,15 @@
       },
       "end": "(?=$)|(>)",
       "endCaptures": {
-        "2": {
-          "name": "meta.brace.angle.sqf"
-        }
+        "2": {"name": "meta.brace.angle.sqf"}
       },
       "name": "meta.type.parameters.sqf",
       "patterns": [
         {
-          "match": "\\b(extends)\\b",
-          "name": "keyword.other.sqf"
-        },
-        {
           "include": "#comment"
         },
         {
           "include": "#type"
-        }
-      ]
-    },
-    "type-tuple": {
-      "begin": "\\[",
-      "beginCaptures": {
-        "0": {
-          "name": "meta.brace.square.sqf"
-        }
-      },
-      "end": "\\]",
-      "endCaptures": {
-        "0": {
-          "name": "meta.brace.square.sqf"
-        }
-      },
-      "name": "meta.type.tuple.sqf",
-      "patterns": [
-        {
-          "include": "#type"
-        },
-        {
-          "include": "#comment"
         }
       ]
     }

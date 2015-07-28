@@ -102,7 +102,7 @@
 	},
 	"Wait-Until Function": {
 		"prefix": "waitUntil",
-		"body": ["waitUntil { ${condition}; };"],
+		"body": ["waitUntil { ${true}; };"],
 		"description": "waitUntil { [bool finished] }; - Suspend futher execution until 'true' is returned."
 	},
 	"scriptDone Function": {
