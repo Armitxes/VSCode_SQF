@@ -17,7 +17,7 @@
       "match": "=",
       "name": "keyword.operator.assignment.sqf"
     },
-    "comparsion-operator": {
+    "comparison-operator": {
       "match": "==|!=|>|<|greater|greater=|less|less=",
       "name": "keyword.operator.comparison.sqf"
     },
@@ -138,7 +138,7 @@
         {"include": "#var-expr"},
         {"include": "#declaration"},
         {"include": "#block"},
-        {"include": "#comparsion-operator"},
+        {"include": "#comparison-operator"},
         {"include": "#condition-operator"},
         {"include": "#manipulative-operator"},
         {"include": "#assignment-operator"},
