@@ -27,11 +27,10 @@ define(["require", "exports", 'monaco', './features/extraInfoSupport', './featur
         });
         monaco.Modes.ElectricCharacterSupport.register(MODE_ID, {
             brackets: [
-                { tokenType: 'delimiter.curly.ts', open: '{', close: '}', isElectric: true },
-                { tokenType: 'delimiter.square.ts', open: '[', close: ']', isElectric: true },
-                { tokenType: 'delimiter.paren.ts', open: '(', close: ')', isElectric: true }
-            ],
-            docComment: { scope: 'comment.documentation', open: '/**', lineStart: ' * ', close: ' */' }
+                { tokenType: 'delimiter.curly.sqf', open: '{', close: '}', isElectric: true },
+                { tokenType: 'delimiter.square.sqf', open: '[', close: ']', isElectric: true },
+                { tokenType: 'delimiter.paren.sqf', open: '(', close: ')', isElectric: true }
+            ]
         });
         monaco.Modes.CharacterPairSupport.register(MODE_ID, {
             autoClosingPairs: [
