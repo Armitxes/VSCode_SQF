@@ -18,7 +18,7 @@
 			"properties": {
 				"sqf.useCodeSnippetsOnMethodSuggest": {
 					"type": "boolean",
-					"default": false,
+					"default": true,
 					"description": "Complete functions with their parameter signature."
 				},
 				"sqf.tsdk": {

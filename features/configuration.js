@@ -5,7 +5,7 @@
 'use strict';
 define(["require", "exports"], function (require, exports) {
     exports.defaultConfiguration = {
-        useCodeSnippetsOnMethodSuggest: false
+        useCodeSnippetsOnMethodSuggest: true
     };
     function load(myPluginId, configurationService) {
         return configurationService.loadConfiguration(myPluginId).then(function (config) {

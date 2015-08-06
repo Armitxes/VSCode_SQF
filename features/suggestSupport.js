@@ -13,9 +13,7 @@ define(["require", "exports", 'monaco', './previewer', '../protocol.const', './c
             this.client = client;
             this.config = Configuration.defaultConfiguration;
         }
-        SuggestSupport.prototype.setConfiguration = function (config) {
-            this.config = config;
-        };
+        SuggestSupport.prototype.setConfiguration = function (config) { this.config = config; };
         SuggestSupport.prototype.suggest = function (resource, position) {
             var _this = this;
             var filepath = this.client.asAbsolutePath(resource);
@@ -25,9 +23,7 @@ define(["require", "exports", 'monaco', './previewer', '../protocol.const', './c
                 line: position.lineNumber,
                 offset: position.column
             };
-            if (!args.file) {
-                return monaco.Promise.as([]);
-            }
+            if (!args.file) { return monaco.Promise.as([]); }
             // Need to capture the word at position before we send the request.
             // The model can move forward while the request is evaluated.
             var wordAtPosition = model.getWordAtPosition(position);
@@ -35,9 +31,7 @@ define(["require", "exports", 'monaco', './previewer', '../protocol.const', './c
                 // This info has to come from the tsserver. See https://github.com/Microsoft/sqf/issues/2831
                 var isMemberCompletion = false;
                 var requestColumn = position.column;
-                if (wordAtPosition) {
-                    requestColumn = wordAtPosition.startColumn;
-                }
+                if (wordAtPosition) { requestColumn = wordAtPosition.startColumn; }
                 if (requestColumn > 0) {
                     var value = model.getValueInRange({
                         startLineNumber: position.lineNumber,
@@ -73,16 +67,12 @@ define(["require", "exports", 'monaco', './previewer', '../protocol.const', './c
         };
         SuggestSupport.prototype.getSuggestionDetails = function (resource, position, suggestion) {
             var _this = this;
-            if (suggestion.type === 'snippet') {
-                return monaco.Promise.as(suggestion);
-            }
+            if (suggestion.type === 'snippet') { return monaco.Promise.as(suggestion); }
             var args = {
                 file: this.client.asAbsolutePath(resource),
                 line: position.lineNumber,
                 offset: position.column,
-                entryNames: [
-                    suggestion.label
-                ]
+                entryNames: [ suggestion.label ]
             };
             return this.client.execute('completionEntryDetails', args).then(function (response) {
                 var details = response.body;
@@ -94,12 +84,8 @@ define(["require", "exports", 'monaco', './previewer', '../protocol.const', './c
                 if (_this.config.useCodeSnippetsOnMethodSuggest && _this.monacoTypeFromEntryKind(detail.kind) === 'function') {
                     var codeSnippet = detail.name, suggestionArgumentNames;
                     suggestionArgumentNames = detail.displayParts.filter(function (part) { return part.kind === 'parameterName'; }).map(function (part) { return ("{{" + part.text + "}}"); });
-                    if (suggestionArgumentNames.length > 0) {
-                        codeSnippet += '(' + suggestionArgumentNames.join(', ') + '){{}}';
-                    }
-                    else {
-                        codeSnippet += '()';
-                    }
+                    if (suggestionArgumentNames.length > 0) { codeSnippet += '(' + suggestionArgumentNames.join(', ') + '){{}}'; }
+                    else { codeSnippet += '()'; }
                     suggestion.codeSnippet = codeSnippet;
                 }
                 return suggestion;
