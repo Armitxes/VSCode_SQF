@@ -77,6 +77,16 @@
 		],
 		"description": "for Loop (Recommended)"
 	},
+	"ForEach Loop": {
+		"prefix": "forEach",
+		"body": [
+			"{",
+			"\t// Current result is saved in variable _x"
+			"\t$0",
+			"} forEach ${array};"
+		],
+		"description": "forEach Loop (Recommended)"
+	},
 	"For-From-To Loop": {
 		"prefix": "forFromTo",
 		"body": [
