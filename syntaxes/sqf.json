@@ -204,12 +204,12 @@
 			"name": "meta.declaration.object.sqf"
 		},
 		"fnc-declaration": {
-			"begin": "([a-zA-Z_$][\\w$]*)\\b(\\s*)=(\\s*){",
+			"begin": "([a-zA-Z_$][\\w$]*)\\b(\\s*)=(\\s*)({|compile)",
 			"beginCaptures": {
 				"1": { "name": "entity.name.class.sqf" },
 				"2": { "name": "keyword.operator.assignment.sqf" }
 			},
-			"end": " |;|{|}",
+			"end": " |;|{|}|\t",
 			"endCaptures": {
 				"1": {
 					"name": "meta.brace.curly.sqf"
