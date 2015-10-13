@@ -81,7 +81,7 @@
 		"prefix": "forEach",
 		"body": [
 			"{",
-			"\t// Current result is saved in variable _x"
+			"\t// Current result is saved in variable _x",
 			"\t$0",
 			"} forEach ${array};"
 		],
