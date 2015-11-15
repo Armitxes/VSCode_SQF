@@ -300,22 +300,12 @@
 		"qstring-double": {
 			"begin": "\"",
 			"end": "\"|(?=$)",
-			"name": "string.double.sqf",
-			"patterns": [
-				{
-					"include": "#string-character-escape"
-				}
-			]
+			"name": "string.double.sqf"
 		},
 		"qstring-single": {
 			"begin": "'",
 			"end": "'|(?=$)",
-			"name": "string.single.sqf",
-			"patterns": [
-				{
-					"include": "#string-character-escape"
-				}
-			]
+			"name": "string.single.sqf"
 		},
 		"string": {
 			"name": "string.sqf",
@@ -323,10 +313,6 @@
 				{ "include": "#qstring-single" },
 				{ "include": "#qstring-double" }
 			]
-		},
-		"string-character-escape": {
-			"match": "\\\\(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.|$)",
-			"name": "constant.character.escape"
 		},
 		"switch-case": {
 			"begin": "\\b(case|default)\\b",

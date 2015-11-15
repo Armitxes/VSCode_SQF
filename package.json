@@ -21,18 +21,22 @@
     },
     "categories": ["Languages", "Snippets"],
     "engines": {
-        "vscode": ">=0.9.0-pre.1"
+        "vscode": "0.10.x"
     },
     "contributes": {
         "languages": [{
             "id": "sqf",
-            "aliases": ["SQF", "sqf"],
+            "aliases": ["SQF", "sqf","Status Quo Function"],
             "extensions": [".sqf",".sqm"]
         }],
         "grammars": [{
             "language": "sqf",
 			"scopeName":"source.sqf",
 			"path":"./syntaxes/sqf.json"
-        }]
+        }],
+		"snippets": [{
+			"language": "sqf",
+			"path": "./snippets/sqf.json"
+		}]
     }
 }
