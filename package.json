@@ -1,10 +1,28 @@
 {
-    "name": "SQF",
-    "version": "0.1",
+	"name": "SQF",
+    "displayName": "SQF Language",
+    "description": "Full SQF Language support for VS Code.",
+    "icon": "./img/logo.svg",
+    "version": "0.3.1",
+    "publisher": "Armitxes",
+    "galleryBanner": {
+        "color": "#0000FF",
+        "theme": "dark"
+    },
+    "license": "LICENSE.htm",
+    "bugs": {
+        "url": "https://github.com/Armitxes/VSCode_SQF/issues",
+        "email": "4rmitxes@gmail.com"
+    },
+    "homepage": "https://forums.bistudio.com/topic/182917-vs-code-sqf-visual-studio-code-sqf-language-release-arma-3-arma-2/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Armitxes/VSCode_SQF.git"
+    },
+    "categories": ["Languages", "Snippets"],
     "engines": {
         "vscode": ">=0.9.0-pre.1"
     },
-    "publisher": "armitxes",
     "contributes": {
         "languages": [{
             "id": "sqf",
@@ -13,8 +31,8 @@
         }],
         "grammars": [{
             "language": "sqf",
-            "scopeName": "source.sqf",
-            "path": "./syntaxes/sqf.json"
+			"scopeName":"source.sqf",
+			"path":"./syntaxes/sqf.json"
         }]
     }
 }
