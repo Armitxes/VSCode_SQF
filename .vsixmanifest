@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-  <Metadata>
-    <Identity Language="en-US" Id="SQF" Version="0.3.1" Publisher="Armitxes"/>
-    <DisplayName>SQF Language</DisplayName>
-    <Description xml:space="preserve">Full SQF Language support for VS Code.</Description>
-    <Tags>vscode</Tags>
-    <GalleryFlags>Public</GalleryFlags>
-    
-    <Properties>
-    </Properties>
-  </Metadata>
-  <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.Code"/>
-  </Installation>
-  <Dependencies/>
-  <Assets>
-    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
-    
-  </Assets>
+	<Metadata>
+		<Identity Language="en-US" Id="SQF" Version="0.3.3" Publisher="Armitxes"/>
+		<DisplayName>SQF Language</DisplayName>
+		<Description xml:space="preserve">Full SQF Language support for VS Code.</Description>
+		<Tags>vscode,sqf,arma,armitxes</Tags>
+		<Categories>Languages,Snippets,Linters</Categories>
+		<GalleryFlags>Public</GalleryFlags>
+		<Properties>
+			<Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/Armitxes/VSCode_SQF.git" />
+			<Property Id="Microsoft.VisualStudio.Services.Links.Repository" Value="https://github.com/Armitxes/VSCode_SQF.git" />
+			<Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/Armitxes/VSCode_SQF/issues" />
+			<Property Id="Microsoft.VisualStudio.Services.Branding.Color" Value="#5c2d91" />
+			<Property Id="Microsoft.VisualStudio.Services.Branding.Theme" Value="dark" />
+		</Properties>
+		<License>extension/LICENSE.htm</License>
+		<Icon>extension/img/logo.svg</Icon>
+	</Metadata>
+	<Installation>
+		<InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+	</Installation>
+	<Dependencies/>
+	<Assets>
+		<Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+		<Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" />
+		<Asset Type="Microsoft.VisualStudio.Services.Content.License" Path="extension/LICENSE.htm" Addressable="true" />
+		<Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/img/logo.svg" Addressable="true" />
+	</Assets>
 </PackageManifest>

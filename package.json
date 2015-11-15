@@ -3,7 +3,7 @@
     "displayName": "SQF Language",
     "description": "Full SQF Language support for VS Code.",
     "icon": "./img/logo.svg",
-    "version": "0.3.1",
+    "version": "0.3.3",
     "publisher": "Armitxes",
     "galleryBanner": {
         "color": "#0000FF",
@@ -19,7 +19,7 @@
         "type": "git",
         "url": "https://github.com/Armitxes/VSCode_SQF.git"
     },
-    "categories": ["Languages", "Snippets"],
+    "categories": ["Languages","Snippets","Linters"],
     "engines": {
         "vscode": "0.10.x"
     },
