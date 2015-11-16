@@ -9,20 +9,21 @@ It's simple and easy to learn even without any knowledge in scripting or program
 ## Manual Installation
 
 Use this guide if the installation over the marketplace isn't possible.
-* Download VS Code & the master.zip
-* Install Visual Studio Code
-* Navigate to your VS Code extensions folder
-* -> Windows: %USERPROFILE%\.vscode\extensions
-* -> Mac/Linux: $HOME/.vscode/extensions
+* Download VS Code & the master.zip.
+* Install Visual Studio Code.
+* Navigate to your VS Code extensions folder.
+* -> Windows: `%USERPROFILE%/.vscode/extensions`.
+* -> Mac/Linux: `$HOME/.vscode/extensions`.
 
-* In the extensions folder, you create a folder called `Armitxes.SQF`
-* Extract the master.zip inside the `Armitxes.SQF` folder
+* In the extensions folder, you create a folder called `Armitxes.SQF`.
+* Extract the master.zip inside the `Armitxes.SQF` folder.
 
 
 
 ## Links & Downloads
 
 * [Visual Studio Code](https://code.visualstudio.com/)
+
 * [GitHub Project](https://github.com/Armitxes/VSCode_SQF)
 * [GitHub Project Files (master.zip)](https://github.com/Armitxes/VSCode_SQF/archive/master.zip) [(or older releases)](https://github.com/Armitxes/VSCode_SQF/releases)
 
