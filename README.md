@@ -2,7 +2,7 @@
 
 This extension integrates the SQF Language into Visual Studio Code.
 The SQF Syntax was created by [Bohemia Interactive](https://www.bistudio.com/) for its games & simulators.
-It's simple and easy to learn even without any knowledge in scripting or programming, for more infomation visit the [wiki](https://community.bistudio.com/wiki/Scripting_Commands_by_Functionality).
+It's simple and easy to learn even without any knowledge in scripting or programming, for more information visit the [wiki](https://community.bistudio.com/wiki/Scripting_Commands_by_Functionality).
 
 
 
