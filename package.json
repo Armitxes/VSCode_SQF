@@ -1,12 +1,12 @@
 {
-	"name": "SQF",
+	"name": "sqf",
 	"displayName": "SQF Language",
 	"description": "Full SQF Language support for VS Code.",
-	"icon": "./img/logo.svg",
+	"icon": "img/logo.svg",
 	"version": "0.3.4",
 	"publisher": "Armitxes",
 	"galleryBanner": {
-		"color": "#0000EE",
+		"color": "#6600CC",
 		"theme": "dark"
 	},
 	"license": "LICENSE.htm",
