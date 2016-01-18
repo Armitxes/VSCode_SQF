@@ -299,12 +299,12 @@
 		},
 		"qstring-double": {
 			"begin": "\"",
-			"end": "\"|(?=$)",
+			"end": "\"",
 			"name": "string.double.sqf"
 		},
 		"qstring-single": {
 			"begin": "'",
-			"end": "'|(?=$)",
+			"end": "'",
 			"name": "string.single.sqf"
 		},
 		"string": {
