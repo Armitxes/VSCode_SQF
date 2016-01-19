@@ -195,7 +195,7 @@
 				"1": { "name": "keyword.control.sqf" },
 				"2": { "name": "entity.name.class.sqf" }
 			},
-			"end": " |;|{|}",
+			"end": " |;|{|}|(|)",
 			"endCaptures": {
 				"1": {
 					"name": "keyword.operator.sqf"
