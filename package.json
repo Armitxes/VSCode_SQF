@@ -37,6 +37,13 @@
 		"snippets": [{
 			"language": "sqf",
 			"path": "./snippets/sqf.json"
-		}]
+		}],
+		"themes": [
+			{
+				"label": "[SQF] Dark Theme",
+				"uiTheme": "vs-dark",
+				"path": "./themes/sqf.tmTheme"
+			}
+		]
     }
 }
