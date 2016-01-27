@@ -3,7 +3,7 @@
 	"displayName": "SQF Language",
 	"description": "Full SQF Language support for VS Code.",
 	"icon": "img/logo.svg",
-	"version": "0.3.4",
+	"version": "0.4.6",
 	"publisher": "Armitxes",
 	"galleryBanner": {
 		"color": "#6600CC",
@@ -19,25 +19,38 @@
 		"type": "git",
 		"url": "https://github.com/Armitxes/VSCode_SQF.git"
 	},
-	"categories": ["Languages","Snippets"],
+	"categories": ["Languages","Snippets","Themes"],
 	"engines": {
 		"vscode": "0.10.x"
 	},
-    "contributes": {
-        "languages": [{
-            "id": "sqf",
-            "aliases": ["SQF", "sqf","Status Quo Function"],
-            "extensions": [".sqf",".sqm"]
-        }],
-		"grammars": [{
-			"language": "sqf",
-			"scopeName":"source.sqf",
-			"path":"./syntaxes/sqf.json"
-        }],
-		"snippets": [{
-			"language": "sqf",
-			"path": "./snippets/sqf.json"
-		}],
+	"contributes": {
+		"languages": [
+			{
+				"id": "sqf",
+				"aliases": [
+					"SQF",
+					"sqf",
+					"Status Quo Function"
+				],
+				"extensions": [
+					".sqf",
+					".sqm"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "sqf",
+				"scopeName": "source.sqf",
+				"path": "./syntaxes/sqf.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "sqf",
+				"path": "./snippets/sqf.json"
+			}
+		],
 		"themes": [
 			{
 				"label": "[SQF] Dark Theme",
@@ -45,5 +58,5 @@
 				"path": "./themes/sqf.tmTheme"
 			}
 		]
-    }
+	}
 }
