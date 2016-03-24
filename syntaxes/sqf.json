@@ -212,11 +212,11 @@
 			"name": "meta.declaration.object.sqf"
 		},
 		"fnc-declaration": {
-			"begin": "([_a-zA-Z_0-9]+)(\\s*)(=)(\\s*)({|compile)",
+			"begin": "(\\s*)([_a-zA-Z_0-9]+)(\\s*)(=)(\\s*)({|compile)",
 			"beginCaptures": {
-				"1": { "name": "support.function.sqf" },
-				"3": { "name": "keyword.operator.assignment.sqf" },
-				"5": { "name": "meta.brace.curly.sqf" }
+				"2": { "name": "support.function.sqf" },
+				"4": { "name": "keyword.operator.assignment.sqf" },
+				"6": { "name": "meta.brace.curly.sqf" }
 			},
 			"end": " |;|{|}|\t",
 			"endCaptures": {
