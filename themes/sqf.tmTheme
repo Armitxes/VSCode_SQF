@@ -9,6 +9,22 @@
 	<key>colorSpaceName</key><string>sRGB</string>
 	<key>settings</key>
 	<array>
+    <dict>
+      <key>name</key><string>Other Variables</string>
+      <key>scope</key><string>variable.other</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key><string>#7D9EC0</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Other Variables</string>
+      <key>scope</key><string>variable.other.private</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key><string>#647e99</string>
+      </dict>
+    </dict>
 		<dict>
 			<key>name</key><string>Variables: Bool</string>
 			<key>scope</key><string>constant.language.boolean</string>
@@ -35,7 +51,7 @@
     </dict>
     <dict>
       <key>name</key><string>Operators</string>
-      <key>scope</key><string>keyword.operator,meta.brace</string>
+      <key>scope</key><string>keyword.operator</string>
       <key>settings</key>
       <dict>
         <key>foreground</key><string>#525252</string>
@@ -50,8 +66,8 @@
       </dict>
     </dict>
     <dict>
-      <key>name</key><string>Control Statements</string>
-      <key>scope</key><string>variable.language.reserved,variable.language.vobject</string>
+      <key>name</key><string>Predefined vars</string>
+      <key>scope</key><string>variable.language</string>
       <key>settings</key>
       <dict>
         <key>foreground</key><string>#FF9D00</string>

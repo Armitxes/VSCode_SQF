@@ -3,10 +3,10 @@
 	"displayName": "SQF Language",
 	"description": "Full SQF Language support for VS Code.",
 	"icon": "img/logo.svg",
-	"version": "0.4.6",
+	"version": "0.5.0",
 	"publisher": "Armitxes",
 	"galleryBanner": {
-		"color": "#6600CC",
+		"color": "#647e99",
 		"theme": "dark"
 	},
 	"license": "LICENSE.htm",
