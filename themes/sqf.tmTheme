@@ -9,22 +9,22 @@
 	<key>colorSpaceName</key><string>sRGB</string>
 	<key>settings</key>
 	<array>
-    <dict>
-      <key>name</key><string>Other Variables</string>
-      <key>scope</key><string>variable.other</string>
-      <key>settings</key>
-      <dict>
-        <key>foreground</key><string>#7D9EC0</string>
-      </dict>
-    </dict>
-    <dict>
-      <key>name</key><string>Other Variables</string>
-      <key>scope</key><string>variable.other.private</string>
-      <key>settings</key>
-      <dict>
-        <key>foreground</key><string>#647e99</string>
-      </dict>
-    </dict>
+		<dict>
+			<key>name</key><string>Other Variables</string>
+			<key>scope</key><string>variable.other</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key><string>#7D9EC0</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Other Variables</string>
+			<key>scope</key><string>variable.other.private</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key><string>#647e99</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>name</key><string>Variables: Bool</string>
 			<key>scope</key><string>constant.language.boolean</string>
@@ -33,46 +33,46 @@
 				<key>foreground</key><string>#A6D996</string>
 			</dict>
 		</dict>
-    <dict>
-      <key>name</key><string>Base Functions</string>
-      <key>scope</key><string>entity.name.function,meta.function-call</string>
-      <key>settings</key>
-      <dict>
-        <key>foreground</key><string>#47A9FF</string>
-      </dict>
-    </dict>
-    <dict>
-      <key>name</key><string>Custom Functions</string>
-      <key>scope</key><string>support.function</string>
-      <key>settings</key>
-      <dict>
-        <key>foreground</key><string>#20D6D6</string>
-      </dict>
-    </dict>
-    <dict>
-      <key>name</key><string>Operators</string>
-      <key>scope</key><string>keyword.operator</string>
-      <key>settings</key>
-      <dict>
-        <key>foreground</key><string>#525252</string>
-      </dict>
-    </dict>
-    <dict>
-      <key>name</key><string>Control Statements</string>
-      <key>scope</key><string>keyword.control</string>
-      <key>settings</key>
-      <dict>
-        <key>foreground</key><string>#C72828</string>
-      </dict>
-    </dict>
-    <dict>
-      <key>name</key><string>Predefined vars</string>
-      <key>scope</key><string>variable.language</string>
-      <key>settings</key>
-      <dict>
-        <key>foreground</key><string>#FF9D00</string>
-      </dict>
-    </dict>
+		<dict>
+			<key>name</key><string>Base Functions</string>
+			<key>scope</key><string>entity.name.function,meta.function-call</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key><string>#47A9FF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Custom Functions</string>
+			<key>scope</key><string>support.function</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key><string>#20D6D6</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Operators</string>
+			<key>scope</key><string>keyword.operator</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key><string>#525252</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Control Statements</string>
+			<key>scope</key><string>keyword.control</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key><string>#C72828</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Predefined vars</string>
+			<key>scope</key><string>variable.language</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key><string>#FF9D00</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>
