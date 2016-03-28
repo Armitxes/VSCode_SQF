@@ -83,7 +83,7 @@
 			"name": "keyword.operator.condition.sqf"
 		},
 		"control-statement": {
-			"match": "\\s*(then|do|else|exit|exitWith|for|forEach|if|return|switch|while|from|to|step)\\b",
+			"match": "\\s*(?i)(then|do|else|exit|exitWith|for|forEach|if|return|switch|while|from|to|step)\\b",
 			"name": "keyword.control.sqf"
 		},
 		"decl-block": {
