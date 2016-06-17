@@ -54,10 +54,6 @@
 			"match": "\\b(false|true)\\b",
 			"name": "constant.language.boolean.sqf"
 		},
-		"code-managers": {
-			"match": "\\b(compile|exec|execFSM|execVM|callExtension)\\b",
-			"name": "meta.function-call.sqf"
-		},
 		"comment": {
 			"name": "comment.sqf",
 			"patterns": [
@@ -119,7 +115,7 @@
 			"name": "entity.name.function.sqf"
 		},
 		"c-key-statements": {
-			"match": "\\s*(?i)(cadetMode|camCommand|camCommit|camCommitPrepared|camCommitted|camConstuctionSetParams|camCreate|camDestroy|cameraEffect|cameraEffectEnableHUD|cameraInterest|cameraOn|cameraView|campaignConfigFile|camPreload|camPreloaded|camPrepareBank|camPrepareDir|camPrepareDive|camPrepareFocus|camPrepareFov|camPrepareFovRange|camPreparePos|camPrepareRelPos|camPrepareTarget|camSetBank|camSetDir|camSetDive|camSetFocus|camSetFov|camSetFovRange|camSetPos|camSetRelPos|camSetTarget|camTarget|camUseNVG|canAdd|canAddItemToBackpack|canAddItemToUniform|canAddItemToVest|cancelSimpleTaskDestination|canFire|canMove|canSlingLoad|canStand|canUnloadInCombat|captive|captiveNum|case|catch|cbChecked|cbSetChecked|ceil|cheatsEnabled|checkAIFeature|civilian|className|clearAllItemsFromBackpack|clearBackpackCargo|clearBackpackCargoGlobal|clearGroupIcons|clearItemCargo|clearItemCargoGlobal|clearItemPool|clearMagazineCargo|clearMagazineCargoGlobal|clearMagazinePool|clearOverlay|clearRadio|clearWeaponCargo|clearWeaponCargoGlobal|clearWeaponPool|closeDialog|closeDisplay|closeOverlay|collapseObjectTree|combatMode|commandArtilleryFire|commandChat|commander|commandFire|commandFollow|commandFSM|commandGetOut|commandingMenu|commandMove|commandRadio|commandStop|commandTarget|commandWatch|comment|commitOverlay|compile|compileFinal|completedFSM|composeText|configClasses|configFile|configName|configProperties|configSourceMod|configSourceModList|connectTerminalToUAV|controlNull|controlsGroupCtrl|copyFromClipboard|copyToClipboard|copyWaypoints|cos|count|countEnemy|countFriendly|countSide|countType|countUnknown|createAgent|createCenter|createDialog|createDiaryLink|createDiaryRecord|createDiarySubject|createDisplay|createGearDialog|createGroup|createGuardedPoint|createLocation|createMarker|createMarkerLocal|createMenu|createMine|createMissionDisplay|createSimpleTask|createSite|createSoundSource|createTask|createTeam|createTrigger|createUnit|createUnit|array|createVehicle|createVehicle|array|createVehicleCrew|createVehicleLocal|crew|ctrlActivate|ctrlAddEventHandler|ctrlAutoScrollDelay|ctrlAutoScrollRewind|ctrlAutoScrollSpeed|ctrlChecked|ctrlClassName|ctrlCommit|ctrlCommitted|ctrlCreate|ctrlDelete|ctrlEnable|ctrlEnabled|ctrlFade|ctrlHTMLLoaded|ctrlIDC|ctrlIDD|ctrlMapAnimAdd|ctrlMapAnimClear|ctrlMapAnimCommit|ctrlMapAnimDone|ctrlMapCursor|ctrlMapMouseOver|ctrlMapScale|ctrlMapScreenToWorld|ctrlMapWorldToScreen|ctrlModel|ctrlModelDirAndUp|ctrlModelScale|ctrlParent|ctrlPosition|ctrlRemoveAllEventHandlers|ctrlRemoveEventHandler|ctrlScale|ctrlSetActiveColor|ctrlSetAutoScrollDelay|ctrlSetAutoScrollRewind|ctrlSetAutoScrollSpeed|ctrlSetBackgroundColor|ctrlSetChecked|ctrlSetEventHandler|ctrlSetFade|ctrlSetFocus|ctrlSetFont|ctrlSetFontH1|ctrlSetFontH1B|ctrlSetFontH2|ctrlSetFontH2B|ctrlSetFontH3|ctrlSetFontH3B|ctrlSetFontH4|ctrlSetFontH4B|ctrlSetFontH5|ctrlSetFontH5B|ctrlSetFontH6|ctrlSetFontH6B|ctrlSetFontHeight|ctrlSetFontHeightH1|ctrlSetFontHeightH2|ctrlSetFontHeightH3|ctrlSetFontHeightH4|ctrlSetFontHeightH5|ctrlSetFontHeightH6|ctrlSetFontP|ctrlSetFontPB|ctrlSetForegroundColor|ctrlSetModel|ctrlSetModelDirAndUp|ctrlSetModelScale|ctrlSetPosition|ctrlSetScale|ctrlSetStructuredText|ctrlSetText|ctrlSetTextColor|ctrlSetTooltip|ctrlSetTooltipColorBox|ctrlSetTooltipColorShade|ctrlSetTooltipColorText|ctrlShow|ctrlShown|ctrlText|ctrlTextHeight|ctrlType|ctrlVisible|curatorAddons|curatorCamera|curatorCameraArea|curatorCameraAreaCeiling|curatorCoef|curatorEditableObjects|curatorEditingArea|curatorEditingAreaType|curatorMouseOver|curatorPoints|curatorRegisteredObjects|curatorSelected|curatorWaypointCost|currentCommand|currentMagazine|currentMagazineDetail|currentMagazineDetailTurret|currentMagazineTurret|currentMuzzle|currentTask|currentTasks|currentVisionMode|currentWaypoint|currentWeapon|currentWeaponMode|currentWeaponTurret|currentZeroing|customChat|customRadio|cutFadeOut|cutObj|cutRsc|cutText)\\b",
+			"match": "\\s*(?i)(cadetMode|camCommand|camCommit|camCommitPrepared|camCommitted|camConstuctionSetParams|camCreate|camDestroy|cameraEffect|cameraEffectEnableHUD|cameraInterest|cameraOn|cameraView|campaignConfigFile|camPreload|camPreloaded|camPrepareBank|camPrepareDir|camPrepareDive|camPrepareFocus|camPrepareFov|camPrepareFovRange|camPreparePos|camPrepareRelPos|camPrepareTarget|camSetBank|camSetDir|camSetDive|camSetFocus|camSetFov|camSetFovRange|camSetPos|camSetRelPos|camSetTarget|camTarget|camUseNVG|canAdd|canAddItemToBackpack|canAddItemToUniform|canAddItemToVest|cancelSimpleTaskDestination|canFire|canMove|canSlingLoad|canStand|canUnloadInCombat|captive|captiveNum|case|catch|cbChecked|cbSetChecked|ceil|cheatsEnabled|checkAIFeature|civilian|className|clearAllItemsFromBackpack|clearBackpackCargo|clearBackpackCargoGlobal|clearGroupIcons|clearItemCargo|clearItemCargoGlobal|clearItemPool|clearMagazineCargo|clearMagazineCargoGlobal|clearMagazinePool|clearOverlay|clearRadio|clearWeaponCargo|clearWeaponCargoGlobal|clearWeaponPool|closeDialog|closeDisplay|closeOverlay|collapseObjectTree|combatMode|commandArtilleryFire|commandChat|commander|commandFire|commandFollow|commandFSM|commandGetOut|commandingMenu|commandMove|commandRadio|commandStop|commandTarget|commandWatch|comment|commitOverlay|completedFSM|composeText|configClasses|configFile|configName|configProperties|configSourceMod|configSourceModList|connectTerminalToUAV|controlNull|controlsGroupCtrl|copyFromClipboard|copyToClipboard|copyWaypoints|cos|count|countEnemy|countFriendly|countSide|countType|countUnknown|createAgent|createCenter|createDialog|createDiaryLink|createDiaryRecord|createDiarySubject|createDisplay|createGearDialog|createGroup|createGuardedPoint|createLocation|createMarker|createMarkerLocal|createMenu|createMine|createMissionDisplay|createSimpleTask|createSite|createSoundSource|createTask|createTeam|createTrigger|createUnit|createUnit|array|createVehicle|createVehicle|array|createVehicleCrew|createVehicleLocal|crew|ctrlActivate|ctrlAddEventHandler|ctrlAutoScrollDelay|ctrlAutoScrollRewind|ctrlAutoScrollSpeed|ctrlChecked|ctrlClassName|ctrlCommit|ctrlCommitted|ctrlCreate|ctrlDelete|ctrlEnable|ctrlEnabled|ctrlFade|ctrlHTMLLoaded|ctrlIDC|ctrlIDD|ctrlMapAnimAdd|ctrlMapAnimClear|ctrlMapAnimCommit|ctrlMapAnimDone|ctrlMapCursor|ctrlMapMouseOver|ctrlMapScale|ctrlMapScreenToWorld|ctrlMapWorldToScreen|ctrlModel|ctrlModelDirAndUp|ctrlModelScale|ctrlParent|ctrlPosition|ctrlRemoveAllEventHandlers|ctrlRemoveEventHandler|ctrlScale|ctrlSetActiveColor|ctrlSetAutoScrollDelay|ctrlSetAutoScrollRewind|ctrlSetAutoScrollSpeed|ctrlSetBackgroundColor|ctrlSetChecked|ctrlSetEventHandler|ctrlSetFade|ctrlSetFocus|ctrlSetFont|ctrlSetFontH1|ctrlSetFontH1B|ctrlSetFontH2|ctrlSetFontH2B|ctrlSetFontH3|ctrlSetFontH3B|ctrlSetFontH4|ctrlSetFontH4B|ctrlSetFontH5|ctrlSetFontH5B|ctrlSetFontH6|ctrlSetFontH6B|ctrlSetFontHeight|ctrlSetFontHeightH1|ctrlSetFontHeightH2|ctrlSetFontHeightH3|ctrlSetFontHeightH4|ctrlSetFontHeightH5|ctrlSetFontHeightH6|ctrlSetFontP|ctrlSetFontPB|ctrlSetForegroundColor|ctrlSetModel|ctrlSetModelDirAndUp|ctrlSetModelScale|ctrlSetPosition|ctrlSetScale|ctrlSetStructuredText|ctrlSetText|ctrlSetTextColor|ctrlSetTooltip|ctrlSetTooltipColorBox|ctrlSetTooltipColorShade|ctrlSetTooltipColorText|ctrlShow|ctrlShown|ctrlText|ctrlTextHeight|ctrlType|ctrlVisible|curatorAddons|curatorCamera|curatorCameraArea|curatorCameraAreaCeiling|curatorCoef|curatorEditableObjects|curatorEditingArea|curatorEditingAreaType|curatorMouseOver|curatorPoints|curatorRegisteredObjects|curatorSelected|curatorWaypointCost|currentCommand|currentMagazine|currentMagazineDetail|currentMagazineDetailTurret|currentMagazineTurret|currentMuzzle|currentTask|currentTasks|currentVisionMode|currentWaypoint|currentWeapon|currentWeaponMode|currentWeaponTurret|currentZeroing|customChat|customRadio|cutFadeOut|cutObj|cutRsc|cutText)\\b",
 			"name": "entity.name.function.sqf"
 		},
 		"defg-key-statements": {
@@ -156,7 +152,6 @@
 				{ "include": "#assignment-operator" },
 				{ "include": "#control-statement" },
 				{ "include": "#code-managers" },
-				{ "include": "#tuvw-key-statements" },
 				{ "include": "#switch-case" },
 				{ "include": "#statements" },
 				{ "include": "#declaration" }
@@ -172,7 +167,8 @@
 				{ "include": "#defg-key-statements" },
 				{ "include": "#hijklmn-key-statements" },
 				{ "include": "#opqr-key-statements" },
-				{ "include": "#s-key-statements" }
+				{ "include": "#s-key-statements" },
+				{ "include": "#tuvw-key-statements" }
 			]
 		},
 		"declaration": {
@@ -180,6 +176,7 @@
 			"patterns": [
 				{ "include": "#fnc-call" },
 				{ "include": "#fnc-declaration" },
+				{ "include": "#fnc-declaration-compile" },
 				{ "include": "#var-declaration-priv" },
 				{ "include": "#var-declaration" },
 				{ "include": "#var-call-priv" },
@@ -212,7 +209,7 @@
 			"name": "meta.declaration.object.sqf"
 		},
 		"fnc-declaration": {
-			"begin": "(\\s*)([_a-zA-Z_0-9]+)(\\s*)(=)(\\s*)({|compile)",
+			"begin": "(\\s*)([_a-zA-Z_0-9]+)(\\s*)(=)(\\s*)({)",
 			"beginCaptures": {
 				"2": { "name": "support.function.sqf" },
 				"4": { "name": "keyword.operator.assignment.sqf" },
@@ -225,6 +222,25 @@
 				}
 			},
 			"name": "meta.declaration.object.sqf"
+		},
+		"fnc-declaration-compile": {
+			"begin": "(\\s*)([_a-zA-Z_0-9]+)(\\s*)(=)(\\s*)(compileFinal|compile)",
+			"beginCaptures": {
+				"2": { "name": "support.function.sqf" },
+				"4": { "name": "keyword.operator.assignment.sqf" },
+				"6": { "name": "meta.function-call.sqf" }
+			},
+			"end": " |;|{|}|\t",
+			"endCaptures": {
+				"1": {
+					"name": "meta.brace.curly.sqf"
+				}
+			},
+			"name": "meta.declaration.object.sqf"
+		},
+		"code-managers": {
+			"match": "\\b(compile|compileFinal|exec|execFSM|execVM|callExtension)\\b",
+			"name": "meta.function-call.sqf"
 		},
 		"fnc-call": {
 			"begin": "(\\s*)(call|spawn)(\\s+)([a-zA-Z_0-9]+)",

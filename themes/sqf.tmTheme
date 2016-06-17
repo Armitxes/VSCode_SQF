@@ -73,6 +73,50 @@
 				<key>foreground</key><string>#FF9D00</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>Comments</string>
+			<key>scope</key>
+			<string>comment</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#5AA641</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Digits</string>
+			<key>scope</key>
+			<string>constant.numeric</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#91C77F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Digits</string>
+			<key>scope</key>
+			<string>string</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#D97E5F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Function Manipulation</string>
+			<key>scope</key>
+			<string>meta.function-call</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#AB58C4</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>
