@@ -51,7 +51,7 @@
 			]
 		},
 		"boolean-literal": {
-			"match": "\\b(false|true)\\b",
+			"match": "(\\s*)(false|true)\\b",
 			"name": "constant.language.boolean.sqf"
 		},
 		"comment": {
@@ -275,27 +275,19 @@
 			"name": "meta.declaration.object.sqf"
 		},
 		"var-call": {
-			"begin": "(\\s*)([a-zA-Z_0-9]+)(\\s+|[^a-zA-Z_0-9])",
+			"begin": "(\\s*)([a-zA-Z_0-9]+)([^a-zA-Z_0-9]|\\s+)",
 			"beginCaptures": {
 				"2": { "name": "variable.other.sqf" }
 			},
-			"end": " |;|{|}|(|)",
+			"end": " |;|{|}|(|)|[|]",
 			"endCaptures": {
 				"1": { "name": "keyword.operator.sqf" }
 			},
 			"name": "meta.declaration.object.sqf"
 		},
 		"var-call-priv": {
-			"begin": "(\\s*)(_+)([a-zA-Z_0-9]+)(\\s+|[^a-zA-Z_0-9])",
-			"beginCaptures": {
-				"2": { "name": "variable.other.private.sqf" },
-				"3": { "name": "variable.other.private.sqf" }
-			},
-			"end": " |;|{|}|(|)",
-			"endCaptures": {
-				"1": { "name": "keyword.operator.sqf" }
-			},
-			"name": "meta.declaration.object.sqf"
+			"match": "(\\s*)(_+[a-zA-Z_0-9]+)",
+			"name": "variable.other.private.sqf"
 		},
 		"indexer-parameter": {
 			"captures": {
