@@ -259,7 +259,7 @@
 			"name": "meta.declaration.object.sqf"
 		},
 		"code-managers": {
-			"match": "\\b(compile|compileFinal|exec|execFSM|execVM|callExtension)\\b",
+			"match": "(\\s*)(compile|compileFinal|exec|execFSM|execVM|callExtension)\\b",
 			"name": "meta.function-call.sqf"
 		},
 		"fnc-call": {
