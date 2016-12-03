@@ -3,7 +3,7 @@
 	"displayName": "SQF Language",
 	"description": "Full SQF Language support for VS Code.",
 	"icon": "img/logo.svg",
-	"version": "0.5.6",
+	"version": "0.5.8",
 	"publisher": "Armitxes",
 	"galleryBanner": {
 		"color": "#647e99",
@@ -14,7 +14,8 @@
 		"url": "https://github.com/Armitxes/VSCode_SQF/issues",
 		"email": "4rmitxes@gmail.com"
 	},
-	"homepage": "https://forums.bistudio.com/topic/182917-vs-code-sqf-visual-studio-code-sqf-language-release-arma-3-arma-2/",
+	"homepage": "https://armitxes.net/Projects/VSCodeSQF/",
+	"BI Forum": "https://forums.bistudio.com/topic/182917-vs-code-sqf-visual-studio-code-sqf-language-release-arma-3-arma-2/",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Armitxes/VSCode_SQF.git"

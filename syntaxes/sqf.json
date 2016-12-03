@@ -154,6 +154,14 @@
 			"match": "\\s*(?i)(addOwnedMine|addPlayerScores|BIS fnc isThrowable|canVehicleCargo|createMPCampaignDisplay|ctrlSetAngle|ctrlSetFontHeightSecondary|ctrlSetFontSecondary|enableAimPrecision|enableVehicleCargo|flyInHeightASL|forcedMap|getAimingCoef|getAllOwnedMines|getCustomAimingCoef|getMissionDLCs|getShotParents|getVehicleCargo|getWeaponSway|isVehicleCargo|missionDifficulty|modParams|openDLCPage|pixelGridBase|pixelGridNoUIScale|registerRemoteExecFunc|removeAllOwnedMines|removeOwnedMine|setVehicleCargo|tvSetPictureColorDisabled|tvSetPictureColorSelected|tvSetPictureRight|tvSetPictureRightColor|tvSetPictureRightColorDisabled|tvSetPictureRightColorSelected|vehicleCargoEnabled|useAISteeringComponent)\\b",
 			"name": "entity.name.function.sqf"
 		},
+		"ArmA3_1-64_1-66": {
+			"match": "\\s*(?i)(getPilotCameraDirection|getPilotCameraPosition|getPilotCameraRotation|getPilotCameraTarget|hasPilotCamera|setPilotCameraDirection|setPilotCameraRotation|setPilotCameraTarget|inAreaArray|selectMax|selectMin|toFixed)\\b",
+			"name": "entity.name.function.sqf"
+		},
+		"ArmA3_dev": {
+			"match": "\\s*(?i)(actionIDs|actionParams|allCutLayers|diag_activeScripts|diag_drawMode|diag_list|diag_mergeConfigFile|diag_recordTurretLimits|enableAudioFeature|getAllEnvSoundControllers|getAllSoundControllers|getEnvSoundController|getSoundController|getSoundControllerResult|isMultiplayerSolo|isRemoteExecuted|isRemoteExecutedJIP|setShotParents|unitAimPosition|unitAimPositionVisual|unitIsUAV|visibleScoretable)\\b",
+			"name": "entity.name.function.sqf"
+		},
 		"expression": {
 			"name": "meta.expression.sqf",
 			"patterns": [
@@ -188,7 +196,9 @@
 				{ "include": "#ArmA3_1-56" },
 				{ "include": "#ArmA3_1-58" },
 				{ "include": "#ArmA3_1-60" },
-				{ "include": "#ArmA3_1-62" }
+				{ "include": "#ArmA3_1-62" },
+				{ "include": "#ArmA3_1-64_1-66" },
+				{ "include": "#ArmA3_dev" }
 			]
 		},
 		"declaration": {
@@ -391,7 +401,7 @@
 			]
 		},
 		"reserved-literal": {
-			"match": "(this|_this|_x|_forEachIndex|_exception|_thisScript|_thisFSM|thisList|thisTrigger)",
+			"match": "\\s*(?i)(this|_this|_x|_forEachIndex|_exception|_thisScript|_thisFSM|thisList|thisTrigger)\\b",
 			"name": "variable.language.reserved.sqf"
 		},
 		"type": {
