@@ -10,6 +10,13 @@
 	<key>settings</key>
 	<array>
 		<dict>
+			<key>settings</key>
+			<dict>
+				<key>background</key><string>#1E1E1E</string>
+				<key>foreground</key><string>#ececec</string>
+			</dict>
+		</dict>
+		<dict>
 			<key>name</key><string>Other Variables</string>
 			<key>scope</key><string>variable.other</string>
 			<key>settings</key>
