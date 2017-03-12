@@ -11,7 +11,7 @@ For more information please visit the [wiki](https://community.bistudio.com/wiki
 	* [Wiki: OFP: Resistance Commands](https://community.bistudio.com/wiki/Category:Introduced_with_Operation_Flashpoint:_Resistance)
 * Take On Helicopters [ToH]
 	* Enable/Disable commands from ToH via "sqf.enableTOH". Default: disabled
-	* [Wiki: OFP Commands](https://community.bistudio.com/wiki/Category:Introduced_with_Operation_Flashpoint)
+	* [Wiki: ToH Commands](https://community.bistudio.com/wiki/Category:Introduced_with_Take_On_Helicopters)
 * Armed Assault [ArmA]
 	* Enable/Disable commands from ArmA via "sqf.enableARMA". Default: enabled (needed for all futher ArmA versions)
 	* [Wiki: ArmA Commands](https://community.bistudio.com/wiki/Category:Introduced_with_Armed_Assault)
