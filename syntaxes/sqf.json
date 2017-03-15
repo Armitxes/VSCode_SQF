@@ -156,6 +156,7 @@
 		"statements": {
 			"name": "meta.expression.sqf",
 			"patterns": [
+				{"include":"#vObject-statements"},
 				{ "include": "#OFP" },
 				{ "include": "#ARMA" },
 				{ "include": "#ARMA2" },
