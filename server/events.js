@@ -51,13 +51,11 @@ class EventFunctions {
         }
         ;
         // Protect CBA namespace
-        variables_1.connection.console.log(settings_1.Settings.sqf.enableCBA.toString());
         if (!settings_1.Settings.sqf.enableCBA) {
             variables_1.sqf.issueCommands.push({ 'cmd': 'CBA_', 'regex': /(\b)(CBA_)/g, 'msg': 'The "CBA_" namespace is reserved for the Community Based Addons. Please enable CBA commands in the settings.' });
         }
         ;
         // Protect ACE namespace
-        variables_1.connection.console.log(settings_1.Settings.sqf.enableACE3.toString());
         if (!settings_1.Settings.sqf.enableACE3) {
             variables_1.sqf.issueCommands.push({ 'cmd': 'ACE_', 'regex': /(\b)(ACE_)/g, 'msg': 'The "ACE_" namespace is reserved. Please enable ACE commands in the settings.' });
         }
