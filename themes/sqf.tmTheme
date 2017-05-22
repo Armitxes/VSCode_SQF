@@ -42,7 +42,7 @@
 		</dict>
 		<dict>
 			<key>name</key><string>Base Functions</string>
-			<key>scope</key><string>entity.name.function,meta.function-call</string>
+			<key>scope</key><string>entity.name.function,storage.type.property,meta.function-call</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key><string>#47A9FF</string>
@@ -74,7 +74,7 @@
 		</dict>
 		<dict>
 			<key>name</key><string>Predefined vars</string>
-			<key>scope</key><string>variable.language</string>
+			<key>scope</key><string>variable.language,storage.modifier</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key><string>#FF9D00</string>
