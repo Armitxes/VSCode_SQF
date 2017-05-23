@@ -48,18 +48,16 @@ class EventFunctions {
         // ArmA 1 -> ArmA 3
         if (settings_1.Settings.sqf.enableARMA && settings_1.Settings.sqf.enableARMA3) {
             variables_1.sqf.issueCommands.push({ 'cmd': 'difficultyEnabled', 'regex': /(\b)(difficultyEnabled)(\b)/g, 'msg': '[ArmA 3] difficultyEnabled is deprecated. Use "difficultyOption" instead.' });
+            variables_1.sqf.issueCommands.push({ 'cmd': 'private', 'regex': /\b(private)\s*(\[|\")/g, 'msg': '[ArmA 3] "private <array>" and "private <string>" are deprecated. Consider using the private modifier directly at variable initialization i.e.: private _var = "value";' });
         }
-        ;
         // Protect CBA namespace
         if (!settings_1.Settings.sqf.enableCBA) {
             variables_1.sqf.issueCommands.push({ 'cmd': 'CBA_', 'regex': /(\b)(CBA_)/g, 'msg': 'The "CBA_" namespace is reserved for the Community Based Addons. Please enable CBA commands in the settings.' });
         }
-        ;
         // Protect ACE namespace
         if (!settings_1.Settings.sqf.enableACE3) {
             variables_1.sqf.issueCommands.push({ 'cmd': 'ACE_', 'regex': /(\b)(ACE_)/g, 'msg': 'The "ACE_" namespace is reserved. Please enable ACE commands in the settings.' });
         }
-        ;
         variables_1.documents.all().forEach(new files_1.File().validateSqfFile);
     }
 }
