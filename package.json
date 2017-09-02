@@ -2,8 +2,8 @@
 	"name": "sqf",
 	"displayName": "SQF Language",
 	"description": "Full SQF Language support for VS Code.",
-	"icon": "img/logo.svg",
-	"version": "1.0.0",
+	"icon": "img/logo.png",
+	"version": "1.0.4",
 	"publisher": "Armitxes",
 	"galleryBanner": {
 		"color": "#647e99",
@@ -140,5 +140,10 @@
 	"dependencies": {
 		"vscode-languageclient": "^3.1.0",
 		"vscode-languageserver": "^3.1.0"
+	},
+	"__metadata": {
+		"id": "c612fc7d-8fe9-43d0-9b8f-1203df49b649",
+		"publisherId": "78a546a4-7ba3-4cc1-804a-d6dec5a34789",
+		"publisherDisplayName": "Armitxes"
 	}
 }
