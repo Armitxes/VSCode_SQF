@@ -48,7 +48,7 @@ class EventFunctions {
         // ArmA 1 -> ArmA 3
         if (settings_1.Settings.sqf.enableARMA && settings_1.Settings.sqf.enableARMA3) {
             variables_1.sqf.issueCommands.push({ 'cmd': 'difficultyEnabled', 'regex': /(\b)(difficultyEnabled)(\b)/g, 'msg': '[ArmA 3] difficultyEnabled is deprecated. Use "difficultyOption" instead.' });
-            variables_1.sqf.issueCommands.push({ 'cmd': 'private', 'regex': /\b(private)\s*(\[|\")/g, 'msg': '[ArmA 3] "private <array>" and "private <string>" are deprecated. Consider using the private modifier directly at variable initialization i.e.: private _var = "value";' });
+            variables_1.sqf.issueCommands.push({ 'cmd': 'private', 'regex': /\b(private)\s*(\")/g, 'msg': '[ArmA 3] "private <string>" is deprecated. Consider using the private modifier directly at variable initialization i.e.: private _var = "value";' });
         }
         // Protect CBA namespace
         if (!settings_1.Settings.sqf.enableCBA) {
