@@ -62,7 +62,7 @@
 	"While-Do Loop": {
 		"prefix": "while",
 		"body": [
-			"while (${condition}) do {",
+			"while {${condition}} do {",
 			"\t$0",
 			"};"
 		],
