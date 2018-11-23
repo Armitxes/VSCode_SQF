@@ -1,7 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 
-// const vsc_variables = require('../../server/init/variables');
 const vsc_variables = require('../../server/init/variables');
 
 exports.onHover = (params) => {
@@ -13,10 +12,13 @@ exports.onHover = (params) => {
 			-> (int) character
 	*/
 
+	let sqfFile = new vsc_variables.sqfProject(vsc_variables.connection);
+	// vsc_variables.connection.console.log(sqfFile.fileContent);
+
 	return {
 		contents: {
 			language: "sqf",
-			value: "Hover 2"
+			value: ""
 		}
 	};
 }

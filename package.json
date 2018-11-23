@@ -160,19 +160,9 @@
 		"update-vscode": "node ./node_modules/vscode/bin/install",
 		"postinstall": "node ./node_modules/vscode/bin/install"
 	},
-	"devDependencies": {
-		"@types/mocha": "^2.2.33",
-		"@types/node": "^6.0.52",
-		"typescript": "^2.1.5",
-		"vscode": "^1.0.5"
-	},
 	"dependencies": {
-		"vscode-languageclient": "^3.1.0",
-		"vscode-languageserver": "^3.1.0"
-	},
-	"__metadata": {
-		"id": "c612fc7d-8fe9-43d0-9b8f-1203df49b649",
-		"publisherDisplayName": "Armitxes",
-		"publisherId": "78a546a4-7ba3-4cc1-804a-d6dec5a34789"
+		"vscode": "^1.1.18",
+		"vscode-languageclient": "^4.1.4",
+		"vscode-languageserver": "^4.1.3"
 	}
 }

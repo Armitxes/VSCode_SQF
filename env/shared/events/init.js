@@ -9,5 +9,6 @@ if (is_client) {
 	exports.requestRestart = require('./requestRestart').requestRestart;
 };
 
+exports.onInitialize = require('./onInitialize').onInitialize;
 exports.onHover = require('./onHover').onHover;
 exports.configurationChanged = require('./configurationChanged').configurationChanged;
