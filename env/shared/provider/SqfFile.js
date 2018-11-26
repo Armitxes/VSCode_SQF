@@ -1,7 +1,6 @@
 'use strict';
-Object.defineProperty(exports, "__esModule", { value: true });
 
-const vsc_languageserver = require('vscode-languageserver');
+Object.defineProperty(exports, "__esModule", { value: true });
 
 class SqfFile {
 	constructor(sqfProject, fUri) {
@@ -38,24 +37,14 @@ class SqfFile {
             let line = lines[i];
             let lineIssues = this.validateFileLine(i, line);
 
-            if (lineIssues.length > 0) { this.fileIssues.push(lineIssues); }
+            if (lineIssues.length > 0) { this.fileIssues = this.fileIssues.concat(lineIssues); }
 
             this.fileLines[i] = {
                 'content': line
             };
         }
 
-        this.sqfProject.connection.console.log(this.fileIssues.length);
         this.sqfProject.connection.sendDiagnostics({uri: this.fileObject.uri, diagnostics: this.fileIssues});
-        // this.sqfProject.globalVariables
-        // this.sqfProject.connection.console.log(this.fileLines);
-        // for (let cl=0; cl=lines.length; cl++) {
-        //     // this.sqfProject.connection.console.log(lineContent.match(/([A-Za-z0-9]+)(\s*)=/g));
-        //     let lineContent = lines[cl];
-        //     this.fileLines[cl] = {
-        //         'content': lineContent
-        //     };
-        // };
     }
 
     validateFileLine(line, line_content) {
@@ -66,7 +55,7 @@ class SqfFile {
 
             if (index > -1) {
                 lineDiagnostics.push({
-                    severity: vsc_languageserver.DiagnosticSeverity.Warning,
+                    severity: 2,
                     range: {
                         start: { line: line, character: index },
                         end: { line: line, character: index + command.cmd.length }
