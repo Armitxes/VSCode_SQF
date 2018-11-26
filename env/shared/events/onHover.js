@@ -11,14 +11,14 @@ exports.onHover = (params) => {
 			-> (int) line
 			-> (int) character
 	*/
-
-	let sqfFile = new vsc_variables.sqfProject(vsc_variables.connection);
-	// vsc_variables.connection.console.log(sqfFile.fileContent);
+	let hoverPosition = params.position;
+	let sqfProject = vsc_variables.sqfProject;
+	let sqfFile = sqfProject.getSqfFile(params.textDocument.uri);
 
 	return {
 		contents: {
 			language: "sqf",
-			value: ""
+			value: "Test Output"
 		}
 	};
 }

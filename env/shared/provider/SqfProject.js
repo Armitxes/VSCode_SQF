@@ -16,22 +16,28 @@ class SqfProject {
 		this.workspaceFolders = vars.workspaceFolders;
 		this.workspaces = {}
 
-		this.consoleIssues = [];
-		this.consoleOutput = [];
-		this.consoleDebug = [];
-	
+		// Diagnostics
+		this.validationRegExPatterns = [];
+
 		this.sqfSettings = vars.settings.sqf;
 		this.sqfFiles = {};
 		this.sqfWorkspaces = {};
 		this.sqfCommands = new sqf_commands.SqfCommands();
+
+		// Runtime
+		this.globalVariables = {};
+
 		this.connection.console.log('SQF Language: Environment initialized.');
 	};
 
-	getSqfFile(document) {
-		if (!(document in this.sqfFiles)) {
-			this.sqfFiles[document] = new sqf_file.SqfFile(document);
+	getSqfFile(documentUri, update=false) {
+		if (!(documentUri in this.sqfFiles)) {
+			this.connection.console.log('Loading ' + documentUri);
+			this.sqfFiles[documentUri] = new sqf_file.SqfFile(this, documentUri);
+			return this.sqfFiles[documentUri];
 		}
-		return this.sqfFiles[document];
+		if (update) { this.sqfFiles[documentUri].update(); }
+		return this.sqfFiles[documentUri];
 	};
 }
 exports.SqfProject = SqfProject;

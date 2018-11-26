@@ -22,6 +22,6 @@ exports.connection.listen();
 
 exports.settings = new vsc_settings.Settings(exports);
 exports.sqfProject = new sqf_project.SqfProject(exports);
-exports.documents.onDidChangeContent((change) => exports.sqfProject.getSqfFile(change.document).validateFile());
+exports.documents.onDidChangeContent((change) => exports.sqfProject.getSqfFile(change.document.uri, true));
 
 //# sourceMappingURL=variables.js.map

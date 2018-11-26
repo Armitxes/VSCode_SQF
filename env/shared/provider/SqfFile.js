@@ -2,55 +2,82 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 
 const vsc_languageserver = require('vscode-languageserver');
-const vsc_variables = require('../../server/init/variables');
 
 class SqfFile {
-	constructor(fPath) {
-		this.fileObject = fPath;
+	constructor(sqfProject, fUri) {
+        this.sqfProject = sqfProject;
+        this.fileUri = fUri;
+		this.fileObject = null;
 		this.fileContent = null;
-		this.fileContentLines = [];
-		this.fileWorkspace = null;
-		this.lastUpdate = null;
+		this.fileLines = [];
+        this.fileWorkspace = null;
+        this.lastUpdate = null;
 
-		if (this.fileObject != null) {
-			this.fileContent = this.fileObject.getText();
-			this.loadFileLines();
+        // Runtime
+        this.fileVariables = {};
+        this.fileIssues = [];
+
+        this.update();
+	}
+
+    update() {
+		if (this.fileUri != null) {
+            this.fileObject = this.sqfProject.documents.get(this.fileUri);
+            if (this.fileObject != null) {
+                this.fileContent = this.fileObject.getText();
+                this.parseFile();
+            }
 		}
-	}
+    }
 
-	reloadFile() { this.loadFile(this.fileObject); }
-	loadFileLines() { this.fileContentLines = this.fileContent.split(/\r?\n/g); }
+    parseFile() {
+        this.fileIssues = [];
+        let lines = this.fileContent.split(/\r?\n/g);
 
-	getLine(index) {
-		if (index < this.fileContentLines.length) {
-			return this.fileContentLines[index]
-		} else { return ''; }
-	}
+        for (var i = 0; i < lines.length; i++) {
+            let line = lines[i];
+            let lineIssues = this.validateFileLine(i, line);
 
-    validateFile() {
-        let diagnostics = [];
-        let issues = 0;
-        let sqfProject = vsc_variables.sqfProject;
+            if (lineIssues.length > 0) { this.fileIssues.push(lineIssues); }
 
-        for (var i = 0; i < this.fileContentLines.length && issues < sqfProject.sqfSettings.maxNumberOfProblems; i++) {
-            let line = this.fileContentLines[i];
-            sqfProject.consoleIssues.forEach(function (command) {
-                let index = line.search(command.regex);
-                if (index > -1) {
-                    diagnostics.push({
-                        severity: vsc_languageserver.DiagnosticSeverity.Warning,
-                        range: {
-                            start: { line: i, character: index },
-                            end: { line: i, character: index + command.cmd.length }
-                        },
-                        message: command.msg,
-                        source: 'sqf'
-                    });
-                }
-                ;
-            });
+            this.fileLines[i] = {
+                'content': line
+            };
         }
-        sqfProject.connection.sendDiagnostics({ uri: this.fileObject.uri, diagnostics });
+
+        this.sqfProject.connection.console.log(this.fileIssues.length);
+        this.sqfProject.connection.sendDiagnostics({uri: this.fileObject.uri, diagnostics: this.fileIssues});
+        // this.sqfProject.globalVariables
+        // this.sqfProject.connection.console.log(this.fileLines);
+        // for (let cl=0; cl=lines.length; cl++) {
+        //     // this.sqfProject.connection.console.log(lineContent.match(/([A-Za-z0-9]+)(\s*)=/g));
+        //     let lineContent = lines[cl];
+        //     this.fileLines[cl] = {
+        //         'content': lineContent
+        //     };
+        // };
+    }
+
+    validateFileLine(line, line_content) {
+        let lineDiagnostics = [];
+
+        this.sqfProject.validationRegExPatterns.forEach(function (command) {
+            let index = line_content.search(command.regex);
+
+            if (index > -1) {
+                lineDiagnostics.push({
+                    severity: vsc_languageserver.DiagnosticSeverity.Warning,
+                    range: {
+                        start: { line: line, character: index },
+                        end: { line: line, character: index + command.cmd.length }
+                    },
+                    message: command.msg,
+                    source: 'sqf'
+                });
+            };
+        });
+
+        return lineDiagnostics
     }
 }
 exports.SqfFile = SqfFile;

@@ -1,10 +1,11 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+const vsc_languageserver = require('vscode-languageserver');
 
-exports.onInitialize = (vars) => {
+exports.onInitialize = (event) => {
 	return {
         capabilities: {
-            textDocumentSync: vars.documents.syncKind,
+            textDocumentSync: new vsc_languageserver.TextDocuments().syncKind,
             hoverProvider: true
         }
     };
