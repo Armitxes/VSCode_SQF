@@ -46,6 +46,17 @@
 					".sqm"
 				],
 				"configuration": "./configs/sqf.configuration.json"
+			},
+			{
+				"id": "ext",
+				"aliases": [
+					"Arma header file"
+				],
+				"extensions": [
+					".ext",
+					".hpp"
+				],
+				"configuration": "./languages/config/ext.json"
 			}
 		],
 		"grammars": [
@@ -53,6 +64,11 @@
 				"language": "sqf",
 				"scopeName": "source.sqf",
 				"path": "./syntaxes/sqf.min.json"
+			},
+			{
+				"language": "ext",
+				"scopeName": "description.ext",
+				"path": "./syntaxes/ext.json"
 			}
 		],
 		"snippets": [
@@ -116,6 +132,14 @@
 		},
 		"configurationDefaults": {
 			"[sqf]": {
+				"editor.quickSuggestions": true,
+				"editor.tabSize": 4,
+				"editor.insertSpaces": false,
+				"editor.detectIndentation": true,
+				"editor.trimAutoWhitespace": true,
+				"editor.autoClosingBrackets": true
+			},
+			"[ext]": {
 				"editor.quickSuggestions": true,
 				"editor.tabSize": 4,
 				"editor.insertSpaces": false,
