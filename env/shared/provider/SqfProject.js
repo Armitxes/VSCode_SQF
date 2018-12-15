@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 const sqf_commands = require('../commands/sqfCommands');
 const sqf_file = require('../provider/SqfFile');
+const sqf_vars = require('../provider/SqfVariables');
 
 class SqfProject {
 	// 1 SqfProject
@@ -19,13 +20,12 @@ class SqfProject {
 		// Diagnostics
 		this.validationRegExPatterns = [];
 
-		this.sqfSettings = vars.settings.sqf;
 		this.sqfFiles = {};
 		this.sqfWorkspaces = {};
 		this.sqfCommands = new sqf_commands.SqfCommands();
 
 		// Runtime
-		this.globalVariables = {};
+		this.sqfVariables = {};
 
 		this.connection.console.log('SQF Language: Environment initialized.');
 	};
@@ -39,5 +39,12 @@ class SqfProject {
 		if (update) { this.sqfFiles[documentUri].update(); }
 		return this.sqfFiles[documentUri];
 	};
+
+	sqfVariable(varName) {
+		if (!(varName in this.sqfVariables)) {
+			this.sqfVariables[varName] = new sqf_vars.SqfVariable(varName);
+		}
+		return this.sqfVariables[varName]; 
+	}
 }
 exports.SqfProject = SqfProject;

@@ -6,9 +6,9 @@ const vsc_variables = require('../../server/init/variables');
 class SqfCommands {
 	constructor() {
 		this.availableCommands = {}
-		//this.sqfSettings = vsc_variables.settings.Settings.sqf;
+		this.sqfSettings = vsc_variables.settings.sqf;
 
-		//if (this.sqfSettings.enableOFP) { Object.assign(this.availableCommands, this.getOFPCommands()); }
+		if (this.sqfSettings.enableOFP) { Object.assign(this.availableCommands, this.getOFPCommands()); }
 	}
 	
 	getOFPCommands() { return {

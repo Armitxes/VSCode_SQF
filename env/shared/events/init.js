@@ -11,4 +11,4 @@ if (is_client) {
 
 exports.onInitialize = require('./onInitialize').onInitialize;
 exports.onHover = require('./onHover').onHover;
-exports.configurationChanged = require('./configurationChanged').configurationChanged;
+exports.onDidChangeConfiguration = require('./onDidChangeConfiguration').onDidChangeConfiguration;

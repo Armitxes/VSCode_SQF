@@ -1,17 +1,14 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-const vsc_settings = require("../../server/init/settings");
 const vsc_variables = require("../../server/init/variables");
 const fs = require("fs");
 
-exports.configurationChanged = (change) => {
-	vsc_settings.Settings.sqf = change.settings.sqf;
-	let settings = vsc_settings.Settings.sqf;
-	vsc_settings.Settings.sqf.maxNumberOfProblems = settings.maxNumberOfProblems || 50;
+exports.onDidChangeConfiguration = (change) => {
+	vsc_variables.settings = change.settings;
+	let settings = vsc_variables.settings;
+	vsc_variables.settings.sqf.maxNumberOfProblems = settings.maxNumberOfProblems || 50;
 
 	let sqfProject = vsc_variables.sqfProject;
-	sqfProject.sqfSettings = settings;
-
 	sqfProject.validationRegExPatterns = [];
 	sqfProject.validationRegExPatterns.push({ 'cmd': 'BIS_fnc_MP', 'regex': /(\b)(BIS_fnc_MP)(\b)/g, 'msg': '[ArmA 3] BIS_fnc_MP is deprecated use the engine based commands "remoteExec" or "remoteExecCall" instead.' });
 
