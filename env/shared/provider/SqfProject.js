@@ -22,12 +22,12 @@ class SqfProject {
 
 		this.sqfFiles = {};
 		this.sqfWorkspaces = {};
-		this.sqfCommands = new sqf_commands.SqfCommands();
+		this.refreshSqfCommands();
 
 		// Runtime
 		this.sqfVariables = {};
 
-		this.connection.console.log('SQF Language: Environment initialized.');
+		this.connection.console.info('SQF Language: Environment initialized.');
 	};
 
 	getSqfFile(documentUri, update=false) {
@@ -46,5 +46,7 @@ class SqfProject {
 		}
 		return this.sqfVariables[varName]; 
 	}
+
+	refreshSqfCommands() { this.sqfCommands = new sqf_commands.SqfCommands(); }
 }
 exports.SqfProject = SqfProject;

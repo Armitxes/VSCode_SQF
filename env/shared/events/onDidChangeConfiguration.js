@@ -47,5 +47,6 @@ exports.onDidChangeConfiguration = (change) => {
 	if (!settings.enableACE3) {
 		sqfProject.validationRegExPatterns.push({ 'cmd': 'ACE_', 'regex': /(\b)(ACE_)/g, 'msg': 'The "ACE_" namespace is reserved. Please enable ACE commands in the settings.' });
 	}
+	vsc_variables.sqfProject.refreshSqfCommands();
 	vsc_variables.documents.all().forEach((param) => sqfProject.getSqfFile(param.uri, true));
 }

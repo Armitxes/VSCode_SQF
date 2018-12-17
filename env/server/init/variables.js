@@ -15,9 +15,10 @@ exports.sqfEvents = sqf_events;
 exports.connection.onInitialize(exports.sqfEvents.onInitialize);
 exports.connection.onDidChangeConfiguration(exports.sqfEvents.onDidChangeConfiguration);
 exports.connection.onHover(exports.sqfEvents.onHover);
-
 exports.documents.listen(exports.connection);
 exports.connection.listen();
+
+// SQF specific part
 exports.sqfProject = new sqf_project.SqfProject(exports);
 exports.documents.onDidChangeContent((change) => exports.sqfProject.getSqfFile(change.document.uri, true));
 

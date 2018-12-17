@@ -28,12 +28,27 @@ exports.onHover = (params) => {
 		}
 	}
 
+	let cmds = sqfProject.sqfCommands.availableCommands;
 	if (!!hoverWord) {
-		return {
-			contents: {
-				language: "sqf",
-				value: hoverWord
-			}
-		};
+
+		if (cmds.hasOwnProperty(hoverWord)) {
+            let cmd = cmds[hoverWord];
+            let hoverVal = '';
+            if (cmd.server) { hoverVal += '[SE] ' };
+            if (cmd.local) { hoverVal += '[AL] ' } else { hoverVal += '[AG] ' };
+            if (cmd.broadcasted) {hoverVal += '[EG] '} else { hoverVal += '[EL] ' };
+
+            hoverVal += '\n' +
+                        cmd.description + '\n\r' +
+                        cmd.example + '\n' +
+                        cmd.syntax;
+
+			return {
+				contents: {
+					language: "sqf",
+					value: hoverVal
+				}
+			};
+		}
 	}
 }

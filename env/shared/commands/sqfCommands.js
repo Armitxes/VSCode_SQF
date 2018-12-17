@@ -6,18 +6,10 @@ const vsc_variables = require('../../server/init/variables');
 class SqfCommands {
 	constructor() {
 		this.availableCommands = {}
-		this.sqfSettings = vsc_variables.settings.sqf;
+		let sqfSettings = vsc_variables.settings.sqf;
 
-		if (this.sqfSettings.enableOFP) { Object.assign(this.availableCommands, this.getOFPCommands()); }
+		if (sqfSettings.enableOFP) { Object.assign(this.availableCommands, require('./sqfOFPCommands').OFPCommands); }
 	}
-	
-	getOFPCommands() { return {
-		'abs': {
-			'description': 'Absolute value of a real number',
-			'example': '_n = abs -3;  // returns 3',
-			'local': true, 'broadcasted': false
-		}	
-	}}
 };
 
 exports.SqfCommands = SqfCommands;
