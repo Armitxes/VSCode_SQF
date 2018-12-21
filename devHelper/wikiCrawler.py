@@ -17,21 +17,29 @@ for versionCommand in versionCommands:
 	json_obj[versionCommand] = {}
 
 	for command in versionCommands[versionCommand]:
+		json_obj[versionCommand][command] = dict()
+		json_cmd = json_obj[versionCommand][command]
+
 		uri = 'https://community.bistudio.com/wiki?title={cmd}&printable=yes'.format(
 			cmd=command
 		)
-		sc = requests.get(uri).text
-		pq_sc = pq(sc)
-		pq_sc_cmd = pq_sc('div._description.cmd')
+		pq_all = pq(requests.get(uri).text)
+		pq_rev = pq_all('div._description.cmd')
+		pq_dt = pq_rev('dt,dd')
 
-		json_obj[versionCommand][command] = {
-			'description': pq_sc_cmd('dt:contains("Description:")').next().text().strip(),
-			'example': pq_sc_cmd('dd.example code').text().strip(),
-			'syntax': pq_sc_cmd('dt:contains("Syntax:")').next().text().strip(),
-			'local': bool(pq_sc_cmd('a[href="/wiki/Category:Commands_utilizing_local_arguments"]')),
-			'broadcasted': bool(pq_sc_cmd('a[href="/wiki/Category:Commands_with_global_effects"]')),
-			'server': bool(pq_sc_cmd('a[href="/wiki/Category:Commands_utilizing_global_arguments"]')),
-		}
+		json_cmd.update({
+			'description': pq_dt('dt:contains("Description:")').next().text().strip(),
+			'example': pq_dt('dd.example code').text().strip(),
+			'syntax': pq_dt('dt:contains("Syntax:")').next().text().strip(),
+		})
+
+		pq_rev.remove('dt,dd')
+
+		json_cmd.update({
+			'local': bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_local_arguments"]')),
+			'broadcasted': bool(pq_rev('a[href="/wiki/Category:Commands_with_global_effects"]')),
+			'server': bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_global_arguments"]')),
+		})
 
 		break
 	break
