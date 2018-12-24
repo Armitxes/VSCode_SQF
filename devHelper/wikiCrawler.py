@@ -6,6 +6,7 @@ import json
 import os
 from pyquery import PyQuery as pq
 import requests
+import xmltodict
 
 versionCommands = {
 	'OFP': ['abs', 'accTime', 'acos', 'action', 'addMagazine', 'addMagazineCargo', 'addRating', 'addScore', 'addWeapon', 'addWeaponCargo', 'alive', 'allowDammage', 'allowFleeing', 'allowGetIn', 'ammo', 'and', 'asin', 'assignAsCargo', 'assignAsCommander', 'assignAsDriver', 'assignAsGunner', 'atan', 'atan2', 'atg', 'behaviour', 'benchmark', 'buildingPos', 'cadetMode', 'camCommand', 'camCommit', 'camCommitted', 'camCreate', 'camDestroy', 'cameraEffect', 'camSetBank', 'camSetDir', 'camSetDive', 'camSetFov', 'camSetFovRange', 'camSetPos', 'camSetRelPos', 'camSetTarget', 'canFire', 'canMove', 'canStand', 'captive', 'clearMagazineCargo', 'clearWeaponCargo', 'combatMode', 'commander', 'commandFire', 'commandFollow', 'commandMove', 'commandStop', 'commandTarget', 'commandWatch', 'cos', 'count', 'countEnemy', 'countFriendly', 'countSide', 'countType', 'countUnknown', 'crew', 'cutObj', 'cutRsc', 'cutText', 'daytime', 'debugLog', 'deg', 'direction', 'disableAI', 'disableUserInput', 'distance', 'doFire', 'doFollow', 'doMove', 'doStop', 'doTarget', 'doWatch', 'driver', 'enableEndDialog', 'enableRadio', 'exp', 'fadeMusic', 'fadeSound', 'false', 'fire', 'flag', 'flagOwner', 'fleeing', 'flyInHeight', 'forceEnd', 'format', 'formation', 'formLeader', 'fuel', 'getDammage', 'getDir', 'getMarkerPos', 'getPos', 'globalChat', 'globalRadio', 'goto', 'group', 'groupChat', 'groupRadio', 'gunner', 'handsHit', 'hasWeapon', 'hint', 'hintC', 'hintCadet', 'in', 'inflame', 'isNull', 'knowsAbout', 'land', 'leader', 'list', 'ln', 'local', 'localize', 'lock', 'locked', 'lockWP', 'log', 'mod', 'move', 'moveInCargo', 'moveInCommander', 'moveInDriver', 'moveInGunner', 'musicVolume', 'name', 'nearestBuilding', 'nearestObject', 'objStatus', 'or', 'orderGetIn', 'pi', 'playMove', 'playMusic', 'playSound', 'plus', 'rad', 'random', 'rating', 'removeAllWeapons', 'removeMagazine', 'removeMagazines', 'removeWeapon', 'reveal', 'saveGame', 'saveVar', 'score', 'setAccTime', 'setAmmoCargo', 'setBehaviour', 'setCaptive', 'setCombatMode', 'setDammage', 'setDir', 'setFace', 'setFaceAnimation', 'setFlagOwner', 'setFlagSide', 'setFlagTexture', 'setFog', 'setFormation', 'setFormDir', 'setFuel', 'setFuelCargo', 'setGroupId', 'setIdentity', 'setMarkerPos', 'setMarkerType', 'setMimic', 'setOvercast', 'setPos', 'setRadioMsg', 'setRepairCargo', 'setSpeedMode', 'setUnitPos', 'setViewDistance', 'showCinemaBorder', 'showCompass', 'showGPS', 'showMap', 'shownCompass', 'shownGPS', 'shownMap', 'shownPad', 'shownRadio', 'shownWarrant', 'shownWatch', 'showPad', 'showRadio', 'showWarrant', 'showWatch', 'side', 'sideRadio', 'sin', 'skipTime', 'someAmmo', 'soundVolume', 'speed', 'speedMode', 'sqrt', 'stop', 'stopped', 'switchCamera', 'switchLight', 'switchMove', 'tan', 'textLog', 'tg', 'time', 'titleCut', 'titleObj', 'titleRsc', 'titleText', 'true', 'unassignVehicle', 'unitReady', 'units', 'vehicle', 'vehicleRadio', 'addMagazinePool', 'addWeaponPool', 'animate', 'animationPhase', 'cheatsEnabled', 'clearMagazinePool', 'clearWeaponPool', 'deleteIdentity', 'deleteStatus', 'fillWeaponsFromPool', 'loadIdentity', 'loadStatus', 'magazines', 'object', 'onBriefingGear', 'onBriefingGroup', 'onBriefingNotes', 'onBriefingPlan', 'pickWeaponPool', 'primaryWeapon', 'putWeaponPool', 'queryMagazinePool', 'queryWeaponPool', 'resize', 'saveIdentity', 'saveStatus', 'say', 'secondaryWeapon', 'setObjectTexture', 'setRain', 'setSkill', 'setTerrainGrid', 'skill', 'weapons', 'inflamed', 'lightIsOn', 'addAction', 'removeAction', 'getMarkerColor', 'getMarkerSize', 'getMarkerType', 'getWPPos', 'requiredVersion', 'setMarkerColor', 'setMarkerSize', 'setWPPos', 'forceMap', 'mapAnimAdd', 'mapAnimClear', 'mapAnimCommit', 'mapAnimDone', 'selectWeapon', 'scudState', 'createUnit', 'createVehicle', 'deleteVehicle', 'estimatedTimeLeft', 'join', 'publicVariable', 'sideChat', 'vehicleChat', 'buttonAction', 'buttonSetAction', 'closeDialog', 'createDialog', 'ctrlEnable', 'ctrlEnabled', 'ctrlSetText', 'ctrlShow', 'ctrlText', 'ctrlVisible', 'damage', 'drop', 'lbAdd', 'lbClear', 'lbColor', 'lbCurSel', 'lbData', 'lbDelete', 'lbPicture', 'lbSetColor', 'lbSetCurSel', 'lbSetData', 'lbSetPicture', 'lbSetValue', 'lbSize', 'lbText', 'lbValue', 'markerColor', 'markerPos', 'markerSize', 'markerType', 'position', 'setDamage', 'waypointPosition', 'getWorld', 'dialog', 'enemy', 'friendly', 'sideEnemy', 'sideFriendly', 'missionName', 'missionStart', 'playersNumber', 'setVelocity', 'velocity', 'addEventHandler', 'comment', 'onMapSingleClick', 'preprocessFile', 'removeAllEventHandlers', 'removeEventHandler', 'sliderPosition', 'sliderRange', 'sliderSetPosition', 'sliderSetRange', 'sliderSetSpeed', 'sliderSpeed', 'engineOn', 'isEngineOn', 'loadFile', 'sideLogic', 'typeOf'],
@@ -16,7 +17,7 @@ versionCommands = {
 }
 
 json_obj = {
-	'duplicates': []
+	'review': []
 }
 
 cmds = []
@@ -24,31 +25,49 @@ for versionCommand in versionCommands:
 	json_obj[versionCommand] = {}
 
 	for command in versionCommands[versionCommand]:
-		json_obj[versionCommand][command] = dict()
-		json_cmd = json_obj[versionCommand][command]
+		json_cmd = json_obj[versionCommand][command] = dict()
+		review = ''
 
 		if command in cmds:
-			json_obj['duplicates'].append(command)
+			review += ' DOUBLE'
 		cmds.append(command)
-		print(command)
 
 		uri = 'https://community.bistudio.com/wiki?title={cmd}&printable=yes'.format(cmd=command)
 		pq_all = pq(requests.get(uri).text)
-		pq_rev = pq_all('div._description.cmd')
-		pq_dt = pq_rev('dt,dd')
+		pq_all(
+			'head,script,style,h1#firstHeading,div#mw-navigation,div.suggestions,div#bohemia-header,' +
+			'div.printfooter,div.catlinks,div.visualClear,div#footer,div#siteSub,div#contentSub,div#jump-to-nav,' +
+			'div.noprint'
+		).remove()
 
-		json_cmd.update({
-			'description': pq_dt('dt:contains("Description:")').next().text().strip(),
-			'example': pq_dt('dd.example code').text().strip(),
-			'syntax': pq_dt('dt:contains("Syntax:")').next().text().strip(),
-		})
-		pq_rev.remove('dt,dd')
+		if versionCommand not in ['TOH']:
+			pq_rev = pq_all('div._description.cmd')
+			json_cmd.update({
+				'local': bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_local_arguments"]')),
+				'broadcasted': bool(pq_rev('a[href="/wiki/Category:Commands_with_global_effects"]')),
+				'server': bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_global_arguments"]')),
+			})
 
-		json_cmd.update({
-			'local': bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_local_arguments"]')),
-			'broadcasted': bool(pq_rev('a[href="/wiki/Category:Commands_with_global_effects"]')),
-			'server': bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_global_arguments"]')),
-		})
+		bi_wiki = pq_all.text().strip().split('\n')
+		if 'Description:' in bi_wiki:
+			json_cmd.update({ 'description': bi_wiki[bi_wiki.index('Description:') + 1] })
+		else:
+			review += ' DESC'
+
+		if 'Example 1:' in bi_wiki:
+			json_cmd.update({ 'example': bi_wiki[bi_wiki.index('Example 1:') + 1] })
+		else:
+			review += ' EXMP'
+
+		if 'Syntax:' in bi_wiki:
+			json_cmd.update({ 'syntax': bi_wiki[bi_wiki.index('Syntax:') + 1] })
+		else:
+			review += ' SYTX'
+
+		print(command, review)
+
+		if review:
+			json_obj['review'].append(command)
 	break
 
 path = os.path.dirname(os.path.realpath(__file__)) + '/output/sqfCmd.json'
