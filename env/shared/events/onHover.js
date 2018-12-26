@@ -14,7 +14,7 @@ exports.onHover = (params) => {
 	let hoverPosition = params.position;
 	let sqfProject = vsc_variables.sqfProject;
 	let sqfFile = sqfProject.getSqfFile(params.textDocument.uri);
-	
+
 	// Get current hover word
 	let hoverWord = null;
 	for (let word in sqfFile.fileLines[hoverPosition.line].words) {
@@ -38,10 +38,10 @@ exports.onHover = (params) => {
             if (cmd.local) { hoverVal += '[AL] ' } else { hoverVal += '[AG] ' };
             if (cmd.broadcasted) {hoverVal += '[EG] '} else { hoverVal += '[EL] ' };
 
-            hoverVal += '\n' +
-                        cmd.description + '\n\r' +
-                        cmd.example + '\n' +
-                        cmd.syntax;
+            hoverVal += '\n'
+			if (cmd.description != '') { hoverVal += cmd.description + '\n\r'; }
+			if (cmd.syntax != '') { hoverVal += cmd.syntax + '\n'; }
+			if (cmd.example != '') { hoverVal += cmd.example; }
 
 			return {
 				contents: {
