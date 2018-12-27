@@ -14,6 +14,7 @@ class SqfFile {
 
         // Runtime
         this.fileIssues = [];
+        this.fileVariables = {};
 
         this.update();
 	}
@@ -31,10 +32,6 @@ class SqfFile {
     parseFile() {
         this.fileIssues = [];
         let lines = this.fileContent.split(/\r?\n/g);
-
-        function addLineOccurrence(SqfFileWord, i, line) {
-
-        }
 
         for (var i = 0; i < lines.length; i++) {
             let line = lines[i];
@@ -57,7 +54,7 @@ class SqfFile {
                             occurrences: {}
                         };
                     }
-        
+
                     this.fileLines[i].words[SqfFileWord].occurrences[c_start] = {
                         additional_lines: 0,
                         column_start: c_start,

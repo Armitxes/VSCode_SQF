@@ -22,7 +22,7 @@ class SqfProject {
 
 		this.sqfFiles = {};
 		this.sqfWorkspaces = {};
-		this.refreshSqfCommands();
+		this.sqfCommands = {};
 
 		// Runtime
 		this.sqfVariables = {};
@@ -44,7 +44,7 @@ class SqfProject {
 		if (!(varName in this.sqfVariables)) {
 			this.sqfVariables[varName] = new sqf_vars.SqfVariable(varName);
 		}
-		return this.sqfVariables[varName]; 
+		return this.sqfVariables[varName];
 	}
 
 	refreshSqfCommands() { this.sqfCommands = new sqf_commands.SqfCommands(); }
