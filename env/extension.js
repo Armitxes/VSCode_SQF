@@ -4,12 +4,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vsc_core = require('vscode');
 const vsc_lang_client = require('vscode-languageclient');
 const sqf_commands = require('./shared/commands/init');
-const sqf_provider_hover = require('./shared/provider/SqfHoverProvider');
 
 exports.activate = (context) => {
     sqf_commands.registerCommands(context);
-
-    context.subscriptions.push(vsc_core.languages.registerHoverProvider('sqf', sqf_provider_hover.provideHover));
+    vsc_core.languages.registerCompletionItemProvider('sqf');
 
     // Server Options
     let serverModule = context.asAbsolutePath('env/server/init.js');

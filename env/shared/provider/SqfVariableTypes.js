@@ -19,7 +19,10 @@ any:
 */
 
 class SqfVariableType {
-    constructor(type) {
+    constructor(type, children=[]) {
+        this.parents = [];
+        this.children = children;
+
         switch (type) {
             case 'objUnit': { this.name = "Unit"; this.varPrototype = require('./variableTypes/objUnit').prototype; };
             case 'objVehicle': { this.name = "Vehicle"; this.varPrototype = require('./variableTypes/objVehicle').prototype; };
@@ -27,6 +30,7 @@ class SqfVariableType {
             case 'objMagazine': { this.name = "Magazine"; this.varPrototype = require('./variableTypes/objMagazine').prototype; };
             case 'objMarker': { this.name = "Marker"; this.varPrototype = require('./variableTypes/objMarker').prototype; };
             case 'objWeapon': { this.name = "Weapon"; this.varPrototype = require('./variableTypes/objWeapon').prototype; };
+            case 'object': { this.name = "Object"; this.varPrototype = require('./variableTypes/object').prototype; };
         }
     }
 };
@@ -37,8 +41,10 @@ let objGroup = new SqfVariableType('objGroup');
 let objMagazine = new SqfVariableType('objMagazine');
 let objMarker = new SqfVariableType('objMarker');
 let objWeapon = new SqfVariableType('objWeapon');
+let obj = new SqfVariableType('object', [objVehicle, objGroup, objMagazine, objMarker, objWeapon]);
 
 exports.SqfVariableTypes = {
+    'object': obj,
     'objUnit': objUnit,
     'objVehicle': objVehicle,
     'objGroup': objGroup,

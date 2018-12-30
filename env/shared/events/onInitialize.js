@@ -1,7 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 const vsc_languageserver = require('vscode-languageserver');
-const qqq = require('../../server/init/variables');
 
 exports.onInitialize = (event) => {
     /*
