@@ -4,10 +4,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vsc_core = require('vscode');
 const vsc_lang_client = require('vscode-languageclient');
 const sqf_commands = require('./shared/commands/init');
+const sqf_completion = require('./shared/provider/SqfCompletion');
 
 exports.activate = (context) => {
     sqf_commands.registerCommands(context);
-    vsc_core.languages.registerCompletionItemProvider('sqf');
+    vsc_core.languages.registerCompletionItemProvider('sqf', sqf_completion.provider);
 
     // Server Options
     let serverModule = context.asAbsolutePath('env/server/init.js');
@@ -38,6 +39,11 @@ exports.activate = (context) => {
                     vsc_core.commands.executeCommand('workbench.action.reloadWindow');
                 }
             });
+        });
+
+        lc.onRequest('serverSync', (params) => {
+            // ToDo: Promise
+            vsc_core.window.showErrorMessage(params);
         });
         context.subscriptions.push(disposable);
     });

@@ -27,7 +27,12 @@ class SqfProject {
 		// Runtime
 		this.sqfVariables = {};
 
+		this.connection.sendRequest('serverSync', this.getServerSync());
 		this.connection.console.info('SQF Language: Environment initialized.');
+	};
+
+	getServerSync() {
+		return 'ServerSync Debug';
 	};
 
 	getSqfFile(documentUri, update=false) {
@@ -45,8 +50,8 @@ class SqfProject {
 			this.sqfVariables[varName] = new sqf_vars.SqfVariable(varName);
 		}
 		return this.sqfVariables[varName];
-	}
+	};
 
-	refreshSqfCommands() { this.sqfCommands = new sqf_commands.SqfCommands(); }
+	refreshSqfCommands() { this.sqfCommands = new sqf_commands.SqfCommands(); };
 }
 exports.SqfProject = SqfProject;
