@@ -3,9 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 const vsc_core = require('vscode');
 const vsc_lang_client = require('vscode-languageclient');
-const sqf_commands = require('./shared/commands/init');
-const sqf_completion = require('./shared/provider/SqfCompletion');
+const sqf_commands = require('../shared/commands/init');
+const sqf_completion = require('./provider/SqfCompletion');
+const events = require('./events/init');
 
+exports.languageClient = false;
 exports.activate = (context) => {
     sqf_commands.registerCommands(context);
     vsc_core.languages.registerCompletionItemProvider('sqf', sqf_completion.provider);
@@ -33,19 +35,12 @@ exports.activate = (context) => {
     let lc = new vsc_lang_client.LanguageClient('sqfLanguageServer', 'SQF Language Server', serverOptions, clientOptions);
     let disposable = lc.start();
     lc.onReady().then(() => {
-        lc.onRequest('requestRestart', (params) => {
-            vsc_core.window.showInformationMessage(params, 'Reload').then(selected => {
-                if (selected === 'Reload') {
-                    vsc_core.commands.executeCommand('workbench.action.reloadWindow');
-                }
-            });
-        });
-
-        lc.onRequest('serverSync', (params) => {
-            // ToDo: Promise
-            vsc_core.window.showErrorMessage(params);
-        });
+        lc.onNotification('syncFromServer', (params) => events.onSyncFromServer(params));
+        lc.onNotification('requestRestart', (params) => events.onRestartRequest(params));
+        lc.sendNotification('clientReady');
         context.subscriptions.push(disposable);
     });
+
+    this.languageClient = lc;
 }
 //# sourceMappingURL=extension.js.map

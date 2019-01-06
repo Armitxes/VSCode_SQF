@@ -1,9 +1,10 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 
-const sqf_commands = require('../commands/sqfCommands');
+const sqf_commands = require('../../shared/commands/sqfCommands');
 const sqf_file = require('../provider/SqfFile');
 const sqf_vars = require('../provider/SqfVariables');
+const events = require('../events/init');
 
 class SqfProject {
 	// 1 SqfProject
@@ -26,13 +27,7 @@ class SqfProject {
 
 		// Runtime
 		this.sqfVariables = {};
-
-		this.connection.sendRequest('serverSync', this.getServerSync());
-		this.connection.console.info('SQF Language: Environment initialized.');
-	};
-
-	getServerSync() {
-		return 'ServerSync Debug';
+		this.connection.onNotification('clientReady', (params) => events.onClientReady(params));
 	};
 
 	getSqfFile(documentUri, update=false) {
@@ -51,6 +46,13 @@ class SqfProject {
 		}
 		return this.sqfVariables[varName];
 	};
+
+	syncToClients() {
+		let clientObj = {
+			commandList: this.sqfCommands
+		}
+		this.connection.sendNotification('syncFromServer', clientObj);
+	}
 
 	refreshSqfCommands() { this.sqfCommands = new sqf_commands.SqfCommands(); };
 }

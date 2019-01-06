@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-const sqfVarTypes = require('./SqfVariableTypes');
+const sqfVarTypes = require('../../shared/provider/SqfVariableTypes');
 
 class SqfVariable {
 	constructor(name, dict) {

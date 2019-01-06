@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-const vsc_variables = require("../../server/init/variables");
+const vsc_variables = require('../init/variables');
 const fs = require("fs");
 
 exports.onDidChangeConfiguration = (change) => {
@@ -28,7 +28,7 @@ exports.onDidChangeConfiguration = (change) => {
 		fs.truncate(__dirname + "/../../../syntaxes/sqf.min.json", 0, function () {
 			fs.writeFile(__dirname + "/../../../syntaxes/sqf.min.json", JSON.stringify(sqfGrammarFile));
 		});
-		vsc_variables.connection.sendRequest('requestRestart', 'SQF Language configuration updated. Please restart Visual Studio Code to apply the changes');
+		vsc_variables.connection.sendNotification('requestRestart', 'SQF Language configuration updated. Please restart Visual Studio Code to apply the changes');
 	}
 
 	sqfProject.validationRegExPatterns.push({ 'cmd': 'BIS_', 'regex': /(\b)(BIS_)([A-z0-9]*)(\s*)=/g, 'msg': 'The "BIS_" function should not be overwritten. "BIS_" is an reserved namespace for functions by Bohemia Interactive' });

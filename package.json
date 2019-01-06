@@ -30,7 +30,7 @@
 		"onLanguage:sqf",
 		"onDebugResolve:sqf"
 	],
-	"main": "./env/extension",
+	"main": "./env/client/init",
 	"engines": {
 		"vscode": "^1.26.0"
 	},
@@ -107,7 +107,7 @@
 			{
 				"type": "sqf",
 				"label": "SQF Debugger",
-				"program": "./env/client/debugAdapter.js",
+				"program": "./env/client/provider/debugAdapter.js",
 				"runtime": "node"
 			}
 		],

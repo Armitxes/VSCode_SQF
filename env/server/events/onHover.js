@@ -1,7 +1,7 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 
-const vsc_variables = require('../../server/init/variables');
+const vsc_variables = require('../init/variables');
 
 exports.onHover = (params) => {
 	/* params
