@@ -10,12 +10,20 @@ any:
         objMarker
         objWeapon
         objMagazine
+        objMap
+        objTask
+        objItem
+        objSide
+        objCurator
+        objTrigger
     string
     bool
     scalar
     array
     function
     code
+
+    uiControl
 */
 
 class SqfVariableType {
@@ -31,6 +39,7 @@ class SqfVariableType {
             case 'objMarker': { this.name = "Marker"; this.varPrototype = require('./variableTypes/objMarker').prototype; };
             case 'objWeapon': { this.name = "Weapon"; this.varPrototype = require('./variableTypes/objWeapon').prototype; };
             case 'object': { this.name = "Object"; this.varPrototype = require('./variableTypes/object').prototype; };
+            case 'string': { this.name = "String"; this.varPrototype = require('./variableTypes/string').prototype; };
         }
     }
 };

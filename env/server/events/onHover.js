@@ -40,7 +40,7 @@ exports.onHover = (params) => {
 
             hoverVal += '\n'
 			if (cmd.description != '') { hoverVal += cmd.description + '\n\r'; }
-			if (cmd.syntax != '') { hoverVal += cmd.syntax + '\n'; }
+			if (cmd.docSyntax != '') { hoverVal += cmd.docSyntax + '\n'; }
 			if (cmd.example != '') { hoverVal += cmd.example; }
 
 			return {
