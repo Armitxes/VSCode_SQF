@@ -20,7 +20,7 @@ versionCommands = {
 
 try:
 	# Try to obtain existing wiki information
-	biWiki = json.load(open('./env/shared/commands/sqfCommands.json'))
+	biWiki = json.load(open('./env/shared/commands/sqfCommands.min.json'))
 except:
 	pass
 

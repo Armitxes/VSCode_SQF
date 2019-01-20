@@ -7,7 +7,7 @@ class SqfCommands {
 	constructor() {
 		this.availableCommands = {}
 		let sqfSettings = vsc_variables.settings.sqf;
-		let sqfWiki = require('./sqfCommands.json');
+		let sqfWiki = require('./sqfCommands.min.json');
 
 		if (sqfSettings.enableTOH) { Object.assign(this.availableCommands, sqfWiki['TOH']); }
 		if (sqfSettings.enableARMA3) {

@@ -16,6 +16,9 @@ any:
         objSide
         objCurator
         objTrigger
+        objCamera
+        objRope
+        objFlag
     string
     bool
     scalar
@@ -23,7 +26,12 @@ any:
     function
     code
 
-    uiControl
+    ui:
+        uiControl
+        uiDisplay
+
+    external:
+        cfgClass
 */
 
 class SqfVariableType {
