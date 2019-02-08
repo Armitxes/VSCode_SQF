@@ -7,7 +7,6 @@ const sqf_commands = require('../shared/commands/init');
 const sqf_completion = require('./provider/SqfCompletion');
 const events = require('./events/init');
 
-exports.languageClient = false;
 exports.activate = (context) => {
     sqf_commands.registerCommands(context);
     vsc_core.languages.registerCompletionItemProvider('sqf', sqf_completion.provider);
@@ -41,6 +40,6 @@ exports.activate = (context) => {
         context.subscriptions.push(disposable);
     });
 
-    this.languageClient = lc;
+    exports.languageClient = lc;
 }
 //# sourceMappingURL=extension.js.map

@@ -21,12 +21,13 @@ class SqfProject {
 		// Diagnostics
 		this.validationRegExPatterns = [];
 
-		this.sqfFiles = {};
-		this.sqfWorkspaces = {};
 		this.sqfCommands = {};
+		this.sqfFiles = {};
+		this.sqfScopes = {};
+		this.sqfVariables = {};
+		this.sqfWorkspaces = {};
 
 		// Runtime
-		this.sqfVariables = {};
 		this.connection.onNotification('clientReady', (params) => events.onClientReady(params));
 	};
 
@@ -49,8 +50,10 @@ class SqfProject {
 
 	syncToClients() {
 		let clientObj = {
-			commandList: this.sqfCommands
+			commandList: this.sqfCommands,
+			variableList: this.sqfVariables
 		}
+		this.connection.console.log('syncToClients');
 		this.connection.sendNotification('syncFromServer', clientObj);
 	}
 

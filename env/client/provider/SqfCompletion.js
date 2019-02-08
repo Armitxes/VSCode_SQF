@@ -11,7 +11,7 @@ exports.provider = {
 	provideCompletionItems: (params) => {
 		let result = [];
 		let availableCommands = serverSync.commandList.availableCommands;
-
+		let availableVariables = serverSync.getAvailableVariables('abs');
 
 		for (let command in availableCommands) {
 			let kind = vsc_core.CompletionItemKind.Keyword;

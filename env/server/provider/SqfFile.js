@@ -1,13 +1,16 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const sqfWords = require('./SqfWords');
+
 
 class SqfFile {
 	constructor(sqfProject, fUri) {
         this.sqfProject = sqfProject;
         this.fileUri = fUri;
 		this.fileObject = null;
-		this.fileContent = null;
+        this.fileContent = null;
+        this.fileContentSimple = null;
 		this.fileLines = [];
         this.fileWorkspace = null;
         this.lastUpdate = null;
@@ -31,51 +34,66 @@ class SqfFile {
 
     parseFile() {
         this.fileIssues = [];
+
         let lines = this.fileContent.split(/\r?\n/g);
+        this.sqfProject.connection.console.log(this.fileContentSimple);
 
-        for (var i = 0; i < lines.length; i++) {
+        let stateReadComment = true
+
+        for (let l = 0; l < lines.length; l++) {
             let line = lines[i];
-            this.fileLines[i] = { commands: {}, content: line, variables: {}, words: {} };
 
-            // Console Issues
-            let lineIssues = this.validateFileLine(i, line);
-            if (lineIssues.length > 0) { this.fileIssues = this.fileIssues.concat(lineIssues); }
-
-            let sqfFileWords = line.match(/([_A-Za-z0-9]+)/g);
-            if (sqfFileWords != null) {
-                for (var w = 0; w < sqfFileWords.length; w++) {
-                    let SqfFileWord = sqfFileWords[w];
-                    let c_start = line.indexOf(SqfFileWord);
-
-                    if (!(SqfFileWord in this.fileLines[i].words)) {
-                        this.fileLines[i].words[SqfFileWord] = {
-                            file: this.fileUri,
-                            line: i+1,
-                            occurrences: {}
-                        };
-                    }
-
-                    this.fileLines[i].words[SqfFileWord].occurrences[c_start] = {
-                        additional_lines: 0,
-                        column_start: c_start,
-                        column_end: c_start + SqfFileWord.length
-                    }
-
-                    let word_dict = this.fileLines[i].words[SqfFileWord];
-
-                    if (SqfFileWord in this.sqfProject.sqfCommands) {
-                        // SQF Command
-                    } else if (
-                        SqfFileWord in this.sqfProject.sqfVariables ||
-                        SqfFileWord in this.fileLines[i].variables ||
-                        line.match(new RegExp('([' + SqfFileWord + ']+)(\s*)=', 'g'))
-                    ) {
-                        // Variable
-                        this.sqfProject.sqfVariable(SqfFileWord).addFileOccurrence(word_dict);
-                        this.fileLines[i].variables[SqfFileWord] = word_dict;
-                    }
-                }
+            for (let c in line) {
+                let char = line[c];
+                
+              return false;
             }
+
+            // if (this.findSimpleLineIndex(line) < 0) { continue; }
+            // this.fileLines[i] = { commands: {}, content: line, variables: {}, words: {} };
+
+            // // Console Issues
+            // let lineIssues = this.validateFileLine(i, line);
+            // if (lineIssues.length > 0) { this.fileIssues = this.fileIssues.concat(lineIssues); }
+
+            // let sqfFileWords = line.match(/([_A-Za-z0-9]+)/g);
+
+            // if (sqfFileWords != null) {
+            //     for (var w = 0; w < sqfFileWords.length; w++) {
+            //         let SqfFileWord = sqfFileWords[w];
+            //         let c_start = line.indexOf(SqfFileWord);
+
+            //         if (!(SqfFileWord in this.fileLines[i].words)) {
+            //             this.fileLines[i].words[SqfFileWord] = {
+            //                 file: this.fileUri,
+            //                 line: i+1,
+            //                 occurrences: {}
+            //             };
+            //         }
+
+            //         this.fileLines[i].words[SqfFileWord].occurrences[c_start] = {
+            //             additional_lines: 0,
+            //             column_start: c_start,
+            //             column_end: c_start + SqfFileWord.length
+            //         }
+
+            //         let word_dict = this.fileLines[i].words[SqfFileWord];
+
+            //         if (SqfFileWord in this.sqfProject.sqfCommands) {
+            //             // SQF Command
+            //             this.sqfProject.connection.console.log('parseFile addCommand ' + SqfFileWord);
+            //         } else if (
+            //             SqfFileWord in this.sqfProject.sqfVariables ||
+            //             SqfFileWord in this.fileLines[i].variables ||
+            //             line.match(new RegExp('([' + SqfFileWord + ']+)(\s*)=', 'g'))
+            //         ) {
+            //             // Variable
+            //             this.sqfProject.connection.console.log('parseFile addVariable ' + SqfFileWord);
+            //             this.sqfProject.sqfVariable(SqfFileWord).addFileOccurrence(word_dict);
+            //             this.fileLines[i].variables[SqfFileWord] = word_dict;
+            //         }
+            //     }
+            // }
         }
 
         this.sqfProject.connection.sendDiagnostics({uri: this.fileObject.uri, diagnostics: this.fileIssues});

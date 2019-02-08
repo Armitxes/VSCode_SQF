@@ -5,7 +5,7 @@ const sqfVarTypes = require('../../shared/provider/SqfVariableTypes');
 class SqfVariable {
 	constructor(name, dict) {
 		this.name = name;
-		this.type = "any";
+		this.type = 'any';
 		this.isGlobal = true;
 		this.value = null;
 		if (name.indexOf('_') == 0) { this.isGlobal = false; }
@@ -14,7 +14,13 @@ class SqfVariable {
 
 	addFileOccurrence(dict) {
 		if(!!dict) {
-			if (!(dict.file in this.fileOccurrences)) { this.fileOccurrences[dict.file] = { lines: {} }; }
+			if (!(dict.file in this.fileOccurrences)) {
+				this.fileOccurrences[dict.file] = {
+					type: 'any',
+					lines: {}
+				};
+			}
+
 			if (!(dict.line in this.fileOccurrences[dict.file]['lines'])) {
 				this.fileOccurrences[dict.file]['lines'][dict.line] = [];
 			}
