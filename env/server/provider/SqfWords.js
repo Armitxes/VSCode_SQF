@@ -4,8 +4,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const string = require('../../shared/helper/StringHelper');
 
 
-class SqfWords {
-	constructor() {
+class SqfScope {
+	constructor(parent=null) {
+		this.parent = parent
 		this.lines = 1;
 		this.charPos = 0;
 		this.sqfWords = [];
@@ -13,11 +14,24 @@ class SqfWords {
 
 		// Variables collected by GC
 		this.__sqfChars = [];
-		this.__varHolder = null;
+		this.__word = null;
 		this._commentMode = '';
-		this._stringMode = false;
+		this._stringMode = '';
 	}
-	
+
+	__stringStart(char) {
+		if (char in ['\'', '"']) { return true; }
+		return false;
+	}
+
+	__stringEnd(char) {
+		if (
+			(this._stringMode == '"' && char == '"')
+			|| (this._stringMode == '\'' && char == '\'')
+		) { return true }
+		return false
+	}
+
 	__commentStart(char) {
 		let lastChar = this.__sqfChars[this.__sqfChars.length-1];
 		if (lastChar == '/' && char in ['/', '*']) { return true; }
@@ -47,20 +61,20 @@ class SqfWords {
 
 		if (this._isComment(char)) { continue; }
 		if (string.isEmptyCharacter(char)) { continue; }
+		if (this.sqfWords.length > 0) { this.__word = this.sqfWords[this.sqfWords.length-1]; }
+
+		if (!string.isCharAlphaNumeric(char) && char != '_') {
+			if (char == '=') { this.subScope(); }
+		}
 
 		if (this.sqfWordNew) {
 			// Last word or char has ended. Requesting new word.
-			let word = new SqfWord(this.lines, this.charPos);
+			word = new SqfWord(this.lines, this.charPos);
 			this.sqfWords.push(word);
 			this.sqfWordNew = false;
 		}
-
-		let currentWord = this.sqfWords[this.sqfWords.length-1];
-		if (currentWord.isSpecial) {
-			// Any special character
-			this.sqfWordNew = true;
-		}
 	}
+	subScope() { new SqfScope(this); }
 }
 
 class SqfWord {
@@ -86,12 +100,16 @@ class SqfWord {
 			this.isAlpha = false;
 			this.isAlphaNumeric = false;
 			this.isNumeric = false;
-			this.isSpecial = true;
+			this.isSpecial = false;
 		}
 
 		let isAlpha = string.isCharAlpha(char);
 		let isNum = string.isCharNumeric(char);
 		if (this.isAlpha && isNum) { this.isAlpha = false; }
 		if (this.isNumeric && isAlpha) { this.isNumeric = false; }
+		if ( { return false; }
+			this.isSpecial = true;
+		}
+		return true;
 	}
 }
