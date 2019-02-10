@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const sqfWords = require('./SqfWords');
+const SqfScope = require('./SqfScope');
 
 
 class SqfFile {
@@ -33,21 +33,20 @@ class SqfFile {
     }
 
     parseFile() {
+        this.fileScope = new SqfScope.SqfScope(this);
         this.fileIssues = [];
 
-        let lines = this.fileContent.split(/\r?\n/g);
-        this.sqfProject.connection.console.log(this.fileContentSimple);
+        for (let c in this.fileContent) {
+            let char = this.fileContent[c];
+            this.fileScope.addChar(char);
+        }
 
-        let stateReadComment = true
+        for (let key in this.fileScope.sqfWords) {
+            let word = this.fileScope.sqfWords[key];
+            this.sqfProject.connection.console.log('word:', word.word);
+        }
 
-        for (let l = 0; l < lines.length; l++) {
-            let line = lines[i];
-
-            for (let c in line) {
-                let char = line[c];
-                
-              return false;
-            }
+            
 
             // if (this.findSimpleLineIndex(line) < 0) { continue; }
             // this.fileLines[i] = { commands: {}, content: line, variables: {}, words: {} };
@@ -94,9 +93,8 @@ class SqfFile {
             //         }
             //     }
             // }
-        }
 
-        this.sqfProject.connection.sendDiagnostics({uri: this.fileObject.uri, diagnostics: this.fileIssues});
+        // this.sqfProject.connection.sendDiagnostics({uri: this.fileObject.uri, diagnostics: this.fileIssues});
     }
 
     validateFileLine(line, line_content) {
