@@ -22,35 +22,41 @@ class SqfScope {
 		this._stringMode = '';
 	}
 
-	__stringStart(char) {
-		if (['\'', '"'].indexOf(char) > -1) { return true; }
-		return false;
-	}
+	_isInString(char) {
+		function __stringStart(char) {
+			if (['\'', '"'].indexOf(char) > -1) { return true; }
+			return false;
+		}
 
-	__stringEnd(char) {
-		if (
-			(this._stringMode == '"' && char == '"')
-			|| (this._stringMode == '\'' && char == '\'')
-		) { return true }
-		return false
-	}
+		function __stringEnd(mode, char) {
+			if (
+				(mode == '"' && char == '"')
+				|| (mode == '\'' && char == '\'')
+			) { return true }
+			return false
+		}
 
-	__commentStart(lastChar, char) {
-		if (lastChar == '/' && ['/', '*'].indexOf(char) > -1) {  return true; }
-		return false;
-	}
-
-	__commentEnd(lastChar, char) {
-		// We only check for ML comments. SL comments are sorted in _isNewLine
-		if (this._commentMode == '/*' && lastChar == '*' && char == '/') { return true }
-		return false
+		if (__stringEnd(this._stringMode, char)) { this._stringMode = char; return true; }
+		if (this._stringMode != '') { return true; }
+		if (__stringStart(char)) { this._stringMode = char; return true; }
 	}
 
 	_isComment(char) {
+		function __commentStart(lastChar, char) {
+			if (lastChar == '/' && ['/', '*'].indexOf(char) > -1) {  return true; }
+			return false;
+		}
+
+		function __commentEnd(mode, lastChar, char) {
+			// We only check for ML comments. SL comments are sorted in _isNewLine
+			if (mode == '/*' && lastChar == '*' && char == '/') { return true }
+			return false
+		}
+
 		let lastChar = this.__sqfChars[this.__sqfChars.length-2];
-		if (this.__commentEnd(lastChar, char)) { this._commentMode = ''; return true; }
+		if (__commentEnd(this._commentMode, lastChar, char)) { this._commentMode = ''; return true; }
 		if (this._commentMode != '') { return true; }
-		if (this.__commentStart(lastChar, char)) { this._commentMode = lastChar+char; return true; }
+		if (__commentStart(lastChar, char)) { this._commentMode = lastChar+char; return true; }
 		return false;
 	}
 
@@ -70,7 +76,8 @@ class SqfScope {
 		this.__sqfChars.push(char);
 		this.charPos += 1;
 
-		if (this._isNewLine(char)) { return; }
+		if (this._isNewLine(char)) { this.console.log('  -- is new line'); return; }
+		if (this._isInString(char)) { this.console.log('  -- is in string'); return; };
 		if (this._isComment(char)) { this.console.log('  -- is comment'); return; };
 		if (string.isEmptyCharacter(char)) { this.console.log('  -- is empty char'); return; };
 		if (this.sqfWords.length > 0) { this.__word = this.sqfWords[this.sqfWords.length-1]; }
