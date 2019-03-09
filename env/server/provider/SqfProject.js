@@ -33,7 +33,7 @@ class SqfProject {
 
 	getSqfFile(documentUri, update=false) {
 		if (!(documentUri in this.sqfFiles)) {
-			this.connection.console.log('Loading ' + documentUri);
+			// this.connection.console.log('Loading ' + documentUri);
 			this.sqfFiles[documentUri] = new sqf_file.SqfFile(this, documentUri);
 			return this.sqfFiles[documentUri];
 		}
@@ -53,7 +53,6 @@ class SqfProject {
 			commandList: this.sqfCommands,
 			variableList: this.sqfVariables
 		}
-		this.connection.console.log('syncToClients');
 		this.connection.sendNotification('syncFromServer', clientObj);
 	}
 
