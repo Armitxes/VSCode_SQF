@@ -101,7 +101,15 @@
 				"editor.detectIndentation": true,
 				"editor.trimAutoWhitespace": true,
 				"editor.autoClosingBrackets": "always"
-			}
+			},
+      "[ext]": {
+				"editor.quickSuggestions": true,
+				"editor.tabSize": 4,
+				"editor.insertSpaces": false,
+				"editor.detectIndentation": true,
+				"editor.trimAutoWhitespace": true,
+				"editor.autoClosingBrackets": "always"
+      }
 		},
 		"debuggers": [
 			{
@@ -116,6 +124,11 @@
 				"language": "sqf",
 				"scopeName": "source.sqf",
 				"path": "./syntaxes/sqf.min.json"
+			},
+			{
+				"language": "ext",
+				"scopeName": "description.ext",
+				"path": "./syntaxes/ext.min.json"
 			}
 		],
 		"languages": [
@@ -131,6 +144,17 @@
 					".sqm"
 				],
 				"configuration": "./configs/sqf.configuration.json"
+			},
+      {
+			  "id": "ext",
+				"aliases": [
+					"Arma header file"
+				],
+				"extensions": [
+					".ext",
+					".hpp"
+				],
+				"configuration": "./configs/ext.configuration.json"
 			}
 		],
 		"menus": {
