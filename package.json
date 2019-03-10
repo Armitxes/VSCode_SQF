@@ -3,7 +3,7 @@
 	"displayName": "SQF Language",
 	"description": "Full SQF Language support for VS Code.",
 	"icon": "img/logo.png",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"publisher": "Armitxes",
 	"galleryBanner": {
 		"color": "#647e99",
@@ -161,7 +161,6 @@
 		"postinstall": "node ./node_modules/vscode/bin/install"
 	},
 	"dependencies": {
-		"vscode": "^1.1.18",
 		"vscode-languageclient": "^4.1.4",
 		"vscode-languageserver": "^4.1.3"
 	}
