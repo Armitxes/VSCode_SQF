@@ -36,11 +36,6 @@ class SqfFile {
         // this.fileScope = new SqfScope.SqfScope(this);
         this.fileIssues = [];
 
-        // for (let c in this.fileContent) {
-        //     let char = this.fileContent[c];
-        //     this.fileScope.addChar(char);
-        // }
-
         // for (let key in this.fileScope.sqfWords) {
         //     let word = this.fileScope.sqfWords[key];
         //     this.sqfProject.connection.console.log('word:', word.word);
