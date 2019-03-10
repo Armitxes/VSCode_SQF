@@ -3,7 +3,7 @@
 	"displayName": "SQF Language",
 	"description": "Full SQF Language support for VS Code.",
 	"icon": "img/logo.png",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"publisher": "Armitxes",
 	"galleryBanner": {
 		"color": "#647e99",
@@ -28,6 +28,7 @@
 	],
 	"activationEvents": [
 		"onLanguage:sqf",
+		"onLanguage:ext",
 		"onDebugResolve:sqf"
 	],
 	"main": "./env/client/init",
@@ -102,14 +103,14 @@
 				"editor.trimAutoWhitespace": true,
 				"editor.autoClosingBrackets": "always"
 			},
-      "[ext]": {
+			"[ext]": {
 				"editor.quickSuggestions": true,
 				"editor.tabSize": 4,
 				"editor.insertSpaces": false,
 				"editor.detectIndentation": true,
 				"editor.trimAutoWhitespace": true,
 				"editor.autoClosingBrackets": "always"
-      }
+			}
 		},
 		"debuggers": [
 			{
@@ -145,8 +146,8 @@
 				],
 				"configuration": "./configs/sqf.configuration.json"
 			},
-      {
-			  "id": "ext",
+			{
+				"id": "ext",
 				"aliases": [
 					"Arma header file"
 				],
