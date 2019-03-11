@@ -3,7 +3,7 @@
 	"displayName": "SQF Language",
 	"description": "Full SQF Language support for VS Code.",
 	"icon": "img/logo.png",
-	"version": "1.0.6",
+	"version": "2.0.2",
 	"publisher": "Armitxes",
 	"galleryBanner": {
 		"color": "#647e99",
@@ -23,49 +23,29 @@
 		"Programming Languages",
 		"Snippets",
 		"Themes",
-		"Linters"
+		"Linters",
+		"Debuggers"
 	],
 	"activationEvents": [
-		"onLanguage:sqf"
+		"onLanguage:sqf",
+		"onLanguage:ext",
+		"onDebugResolve:sqf"
 	],
-	"main": "./out/extension",
+	"main": "./env/client/init",
 	"engines": {
-		"vscode": "^1.10.0"
+		"vscode": "^1.26.0"
 	},
 	"contributes": {
-		"languages": [
+		"breakpoints": [
 			{
-				"id": "sqf",
-				"aliases": [
-					"SQF",
-					"sqf",
-					"Status Quo Function"
-				],
-				"extensions": [
-					".sqf",
-					".sqm"
-				],
-				"configuration": "./configs/sqf.configuration.json"
+				"language": "sqf"
 			}
 		],
-		"grammars": [
+		"commands": [
 			{
-				"language": "sqf",
-				"scopeName": "source.sqf",
-				"path": "./syntaxes/sqf.min.json"
-			}
-		],
-		"snippets": [
-			{
-				"language": "sqf",
-				"path": "./snippets/sqf.json"
-			}
-		],
-		"themes": [
-			{
-				"label": "[SQF] Dark Theme",
-				"uiTheme": "vs-dark",
-				"path": "./themes/sqf.tmTheme"
+				"command": "sqf.browseCommandDocs",
+				"title": "SQF: Open Command Documentation",
+				"category": "Documentation"
 			}
 		],
 		"configuration": {
@@ -121,22 +101,92 @@
 				"editor.insertSpaces": false,
 				"editor.detectIndentation": true,
 				"editor.trimAutoWhitespace": true,
-				"editor.autoClosingBrackets": true
+				"editor.autoClosingBrackets": "always"
+			},
+			"[ext]": {
+				"editor.quickSuggestions": true,
+				"editor.tabSize": 4,
+				"editor.insertSpaces": false,
+				"editor.detectIndentation": true,
+				"editor.trimAutoWhitespace": true,
+				"editor.autoClosingBrackets": "always"
 			}
-		}
+		},
+		"debuggers": [
+			{
+				"type": "sqf",
+				"label": "SQF Debugger",
+				"program": "./env/client/provider/debugAdapter.js",
+				"runtime": "node"
+			}
+		],
+		"grammars": [
+			{
+				"language": "sqf",
+				"scopeName": "source.sqf",
+				"path": "./syntaxes/sqf.min.json"
+			},
+			{
+				"language": "ext",
+				"scopeName": "description.ext",
+				"path": "./syntaxes/ext.min.json"
+			}
+		],
+		"languages": [
+			{
+				"id": "sqf",
+				"aliases": [
+					"SQF",
+					"sqf",
+					"Status Quo Function"
+				],
+				"extensions": [
+					".sqf",
+					".sqm"
+				],
+				"configuration": "./configs/sqf.configuration.json"
+			},
+			{
+				"id": "ext",
+				"aliases": [
+					"Arma header file"
+				],
+				"extensions": [
+					".ext",
+					".hpp"
+				],
+				"configuration": "./configs/ext.configuration.json"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "sqf.browseCommandDocs",
+					"when": "editorHasSelection && editorLangId == 'sqf'"
+				}
+			],
+			"explorer/context": []
+		},
+		"snippets": [
+			{
+				"language": "sqf",
+				"path": "./snippets/sqf.json"
+			}
+		],
+		"themes": [
+			{
+				"label": "[SQF] Dark Theme",
+				"uiTheme": "vs-dark",
+				"path": "./themes/sqf.tmTheme"
+			}
+		]
 	},
 	"scripts": {
 		"update-vscode": "node ./node_modules/vscode/bin/install",
 		"postinstall": "node ./node_modules/vscode/bin/install"
 	},
-	"devDependencies": {
-		"@types/mocha": "^2.2.33",
-		"@types/node": "^6.0.52",
-		"typescript": "^2.1.5",
-		"vscode": "^1.0.5"
-	},
 	"dependencies": {
-		"vscode-languageclient": "^3.1.0",
-		"vscode-languageserver": "^3.1.0"
+		"vscode-languageclient": "^4.1.4",
+		"vscode-languageserver": "^4.1.3"
 	}
 }
