@@ -58,21 +58,14 @@ class SqfFile {
                     let SqfFileWord = sqfFileWords[w];
                     let c_start = line.indexOf(SqfFileWord);
 
-                    if (!(SqfFileWord in this.fileLines[i].words)) {
-                        this.fileLines[i].words[SqfFileWord] = {
-                            file: this.fileUri,
-                            line: i+1,
-                            occurrences: {}
-                        };
-                    }
-
-                    this.fileLines[i].words[SqfFileWord].occurrences[c_start] = {
-                        additional_lines: 0,
+                    this.fileLines[i].words[SqfFileWord] = {
+                        line: i+1,
                         column_start: c_start,
                         column_end: c_start + SqfFileWord.length
                     }
 
-                    let word_dict = this.fileLines[i].words[SqfFileWord];
+                    let file_line = this.fileLines[i];
+                    let word_dict = file_line.words[SqfFileWord];
 
                     if (SqfFileWord in this.sqfProject.sqfCommands) {
                         // SQF Command
