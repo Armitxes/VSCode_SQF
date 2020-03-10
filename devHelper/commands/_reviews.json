@@ -1,0 +1,147 @@
+{
+    "BIS_fnc_position": {
+        "returns": "array",
+        "syntax": "<object> call BIS_fnc_position",
+        "example": "_pos = player call BIS_fnc_position;",
+        "docSyntax": "argument call BIS_fnc_position",
+        "description": "Returns PositionAGL, unless passed argument is Array, then the same array is returned. When position is Object and alternative position is stored in \"BIS_fnc_position_forced\" variable on this object, the stored position is used rather than actual object position."
+    },
+    "modelToWorld": {
+        "returns": "array",
+        "syntax": "<object> modelToWorld <array>",
+        "example": "_aboveAndBehindPlayer = player modelToWorld [0,-1,3];",
+        "docSyntax": "model modelToWorld position",
+        "description": "Translates relative position from object model space into world position."
+    },
+    "emptyPositions": {
+        "returns": "scalar",
+        "syntax": "<objVehicle> emptyPositions <string>",
+        "example": "_freeCargoPositions = vehicle player emptyPositions \"cargo\";",
+        "docSyntax": "vehicle emptyPositions position",
+        "description": "Returns the number of given positions in the vehicle. Positions can be \"Commander\", \"Driver\", \"Gunner\" or \"Cargo\""
+    },
+    "setVariable": {
+        "returns": "void",
+        "syntax": "<string|object> setVariable [<string>,<scalar>]",
+        "example": "_myTruck setVariable [\"myPublicVariable\", 123, true];",
+        "docSyntax": "varspace setVariable [name, value]",
+        "description": "Set variable to given value in the variable space of given element.",
+        "tags": ["args-global", "effect-local"]
+    },
+    "surfaceIsWater": {
+        "returns": "bool", 
+        "syntax": "surfaceIsWater <array>", 
+        "example": "_isWater = surfaceIsWater [1000, 3000];",
+        "docSyntax": "surfaceIsWater position",
+        "description": "Returns whether water is at given position."
+    },
+    "getVariable": {
+        "returns": "any", 
+        "syntax": "<string|object> getVariable <string>",
+        "example": "_thePublicVariable = _myTruck getVariable \"myPublicVariable\";",
+        "docSyntax": "varspace getVariable name",
+        "description": "Return the value of variable in the variable space assigned to various data types.",
+        "tags": ["args-global"]
+    },
+    "textLog": {
+        "returns": "void",
+        "syntax": "textLog <any>",
+        "example": "textLog player",
+        "docSyntax": "textLog anything",
+        "description": "Dump argument value to debugging output."
+    },
+    "buttonAction": {
+        "returns": "string",
+        "syntax": "buttonSetAction [<scalar>, <code|function>]",
+        "example": "buttonSetAction [100, {player execVM \"reply.sqf\"}] _action = buttonAction 100",
+        "docSyntax": "buttonAction idc",
+        "description": "Return the action assigned to a control of the currently active user dialog.",
+        "tags": ["args-local"]
+    },
+    "setCombatMode": {
+        "returns": "void",
+        "syntax": "<objGroup> setCombatMode <'Blue'|'Green'|'White'|'Yellow'|'Red'>",
+        "example": "_group1 setCombatMode \"BLUE\";",
+        "docSyntax": "groupName setCombatMode mode",
+        "description": "Set group combat mode (engagement rules). Modes: Blue, Green, White, Yellow and Red",
+        "tags": ["args-local", "effect-global"]
+    },
+    "lbSetPicture": {
+        "returns": "void",
+        "syntax": "lbSetPicture [<scalar>, <scalar>, <string>]",
+        "syntax2": "<uiControl> lbSetPicture [<scalar>,<string>]",
+        "example": "lbSetPicture [101, 0, \"iskoda\"];",
+        "docSyntax": "lbSetPicture [idc, index, name] or uiControl lbSetPicture [index, name]",
+        "description": "Sets a picture for an listbox item displayed to its left.",
+        "tags": ["args-local", "effect-local"]
+    },
+    "player": {
+        "returns": "objUnit",
+        "syntax": "player",
+        "example": "player addRating 500;",
+        "docSyntax": "player",
+        "description": "Returns the unit controlled by the local user / player."
+    },
+    "sliderSetSpeed": {
+        "returns": "void",
+        "syntax": "sliderSetSpeed [<scalar>,<scalar>,<scalar>]",
+        "syntax2": "<uiControl> sliderSetSpeed [<scalar>,<scalar>]",
+        "example": "sliderSetSpeed [101, 0.5, 2];",
+        "docSyntax": "sliderSetSpeed [idc,line,page] or uiControl sliderSetSpeed [line, page]",
+        "description": "Set speed of slider with id idc of topmost user dialog.",
+        "tags": ["args-local", "effect-global"]
+    },
+    "remoteExec": {
+        "syntax": "<any> remoteExec [<string>, <scalar|object|array>, <bool>]",
+        "example": "\"hello\" remoteExec [\"hint\"];",
+        "docSyntax": "params remoteExec [functionName, targets, JIP]",
+        "description": "Remote async execution of given funtion on given machines. Function can contain delaying commands (i.e. sleep)."
+    },
+    "BIS_fnc_advHintCall": {
+        "returns": "void",
+        "syntax": "<string> call BIS_fnc_advHintCall",
+        "example": "false call BIS_fnc_advHintCall;",
+        "docSyntax": "fullTextcall call BIS_fnc_advHintCall",
+        "description": "Advanced hint call, creates an hint by itself."
+    },
+    "backpack": {
+        "returns": "string",
+        "syntax": "backpack <objUnit>",
+        "example": "_classname = backpack player;",
+        "docSyntax": "backpack unit",
+        "description": "Returns a class of a backpack."
+    },
+    "inPolygon": {
+        "returns": "bool",
+        "syntax": "<array> inPolygon <array>",
+        "example": "_isInside = [100,100,0] inPolygon [[0,0,0],[1000,1000,0],[1000,0,0]];",
+        "docSyntax": "position inPolygon polygon",
+        "description": "Checks whether position is inside given polygon"
+    },
+    "remoteExecCall": {
+        "syntax": "<any> remoteExecCall [<string>, <scalar|object|array>, <bool>]",
+        "example": "\"hello\" remoteExecCall [\"hint\"];",
+        "docSyntax": "params remoteExecCall [functionName, targets, JIP]",
+        "description": "Remote async execution of given funtion on given machines. Function can not contain delaying commands (i.e. sleep)."
+    },
+    "BIS_fnc_taskHandler": {
+        "returns": "void",
+        "syntax": "[<objUnit>, [[<string>, <scalar>]] call BIS_fnc_taskHandler;",
+        "example": "[ BIS_cooper, [ [\"objShaftoe\", 1], [\"objGorka\", 3]] call BIS_fnc_taskHandler;",
+        "docSyntax": "[unit, [[task, priority]] call BIS_fnc_taskHandler;",
+        "description": "Automatically sets tasks as current for assigned units."
+    },
+    "displayRemoveEventHandler": {
+        "returns": "void",
+        "syntax": "<uiDisplay> displayRemoveEventHandler [<string>,<scalar>]",
+        "example": "mod_keyDownEHId = (findDisplay 46) displayRemoveEventHandler [\"keyDown\",5];",
+        "docSyntax": "display displayRemoveEventHandler [handler name,id]",
+        "description": "Remove a given event handler from the given display."
+    },
+    "copyFromClipboard": {
+        "returns": "string",
+        "example": "hint copyFromClipboard;",
+        "docSyntax": "copyFromClipboard",
+        "description": "Return the content of the (text) clipboard."
+    }
+}
