@@ -14,7 +14,6 @@ class Crawler():
 	# Comment out games that don't need to be crawled (get_games)!!
 	# Don't crawl the entire list at once, we don't want to cause a DoS.
 	# Try to crawl at times where the wiki isn't used as much.
-	reviews = json.load(open('./devHelper/commands/_reviews.json'))
 	fjson = {}
 
 	def get_games(self):
@@ -58,22 +57,7 @@ class Crawler():
 		syntax = re.sub(r'(?i)\b(leaderPos|array|pos|rotation)\b', '<array>', syntax)
 		self.fjson[command]['syntax'] = syntax
 
-	def _crawl_game_version_command(self, game, version, command):
-		"""Crawl command specific information from BI wiki"""
-		if version == "docs":
-			return
-
-		print('- {g} | {v} | {c}'.format(g=game, v=version, c=command))
-
-		if command in self.reviews:
-			self.fjson[command] = self.reviews[command]
-			return
-
-		self.fjson[command] = {
-			'version': version,
-			'tags': [],
-		}
-
+	def _call_bi_wiki(self, command):
 		uri = 'https://community.bistudio.com/wiki?title={cmd}&printable=yes'.format(cmd=command)
 		pq_all = pq(requests.get(uri).text)
 		pq_all(
@@ -84,14 +68,21 @@ class Crawler():
 		pq_rev = pq_all('div._description.cmd')
 
 		# Command Tags
+		if bool(pq_rev('a[href="/wiki/Category:Commands_requiring_server_side_execution"]')):
+			# https://community.bistudio.com/wiki/Category:Commands_requiring_server_side_execution
+			self.fjson[command]['tags'] += '[SE] '
 		if bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_local_arguments"]')):
-			self.fjson[command]['tags'].append('args-local')
+			# https://community.bistudio.com/wiki/Category:Commands_utilizing_local_arguments
+			self.fjson[command]['tags'] += '[AL] '
 		if bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_global_arguments"]')):
-			self.fjson[command]['tags'].append('args-global')
+			# https://community.bistudio.com/wiki/Category:Commands_utilizing_global_arguments
+			self.fjson[command]['tags'] += '[AG] '
 		if bool(pq_rev('a[href="/wiki/Category:Commands_with_local_effects"]')):
-			self.fjson[command]['tags'].append('effect-local')
+			# https://community.bistudio.com/wiki/Category:Commands_with_local_effects
+			self.fjson[command]['tags'] += '[EL] '
 		if bool(pq_rev('a[href="/wiki/Category:Commands_with_global_effects"]')):
-			self.fjson[command]['tags'].append('effect-global')
+			# https://community.bistudio.com/wiki/Category:Commands_with_global_effects
+			self.fjson[command]['tags'] += '[EG] '
 
 		bi_wiki = pq_all.text().strip().split('\n')
 		if 'Description:' in bi_wiki:
@@ -103,6 +94,30 @@ class Crawler():
 		if 'Syntax:' in bi_wiki:
 			self.fjson[command]['docSyntax'] = bi_wiki[bi_wiki.index('Syntax:') + 1]
 			self.syntax_translator(command)
+
+	def _local_overwrite(self, command, overwrite):
+		if command and overwrite and isinstance(overwrite, dict):
+			for key, value in overwrite.items():
+				self.fjson[command][key] = value
+
+	def _crawl_game_version_command(self, game, version, command):
+		"""Crawl command specific information from BI wiki"""
+		if version == "docs":
+			return
+
+		print('- {g} | {v} | {c}'.format(g=game, v=version, c=command))
+		overwrite = {}
+
+		if isinstance(command, (dict)):
+			overwrite = command.get('overwrite')
+			command = command.get('key', command)
+
+		self.fjson[command] = {
+			'version': version,
+			'tags': '',
+		}
+		self._call_bi_wiki(command)
+		self._local_overwrite(command, overwrite)
 
 	def _crawl_game_versions(self, game):
 		"""Crawl the wiki for the specified game and its versions"""
@@ -121,7 +136,7 @@ class Crawler():
 			path=os.path.dirname(os.path.realpath(__file__)),
 			game=game,
 		)
-		
+
 		print('Saving JSON: "%s"' % cfile)
 		with open(cfile, 'w+') as jsonFile:
 			json.dump(self.fjson, jsonFile)
