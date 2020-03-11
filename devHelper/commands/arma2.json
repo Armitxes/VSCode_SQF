@@ -131,7 +131,16 @@
         "BIS_fnc_swapVars",
         "BIS_fnc_taskAttack",
         "BIS_fnc_taskDefend",
-        "BIS_fnc_taskHandler",
+        {
+            "key": "BIS_fnc_taskHandler",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "[<objUnit>, [[<string>, <scalar>]] call BIS_fnc_taskHandler;",
+                "example": "[ BIS_cooper, [ [\"objShaftoe\", 1], [\"objGorka\", 3]] call BIS_fnc_taskHandler;",
+                "docSyntax": "[unit, [[task, priority]] call BIS_fnc_taskHandler;",
+                "description": "Automatically sets tasks as current for assigned units."
+            }
+        },
         "BIS_fnc_taskPatrol",
         "BIS_fnc_threat",
         "BIS_fnc_transportService",
@@ -162,7 +171,15 @@
         "commandRadio",
         "commitOverlay",
         "completedFSM",
-        "copyFromClipboard",
+        {
+            "key": "copyFromClipboard",
+            "overwrite": {
+                "returns": "string",
+                "example": "hint copyFromClipboard;",
+                "docSyntax": "copyFromClipboard",
+                "description": "Return the content of the (text) clipboard."
+            }
+        },
         "copyToClipboard",
         "copyWaypoints",
         "createAgent",
@@ -190,7 +207,12 @@
         "currentTasks",
         "currentWaypoint",
         "currentWeapon",
-        "cursorTarget",
+        {
+            "key": "cursorTarget",
+            "overwrite": {
+                "type": "object"
+            }
+        },
         "dateToNumber",
         "deleteEditorObject",
         "deleteResources",
@@ -207,7 +229,16 @@
         "disableSerialization",
         "displayAddEventHandler",
         "displayRemoveAllEventHandlers",
-        "displayRemoveEventHandler",
+        {
+            "key": "displayRemoveEventHandler",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "<uiDisplay> displayRemoveEventHandler [<string>,<scalar>]",
+                "example": "mod_keyDownEHId = (findDisplay 46) displayRemoveEventHandler [\"keyDown\",5];",
+                "docSyntax": "display displayRemoveEventHandler [handler name,id]",
+                "description": "Remove a given event handler from the given display."
+            }
+        },
         "drawLink",
         "editObject",
         "editorSetEventHandler",
@@ -219,7 +250,12 @@
         "estimatedEndServerTime",
         "evalObjectArgument",
         "execEditorScript",
-        "execFSM",
+        {
+            "key": "execFSM",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
         "faction",
         "failMission",
         "findEditorObject",

@@ -23,7 +23,16 @@
         "assignAsTurret",
         "assignedItems",
         "assignItem",
-        "backpack",
+        {
+            "key": "backpack",
+            "overwrite": {
+                "returns": "string",
+                "syntax": "backpack <objUnit>",
+                "example": "_classname = backpack player;",
+                "docSyntax": "backpack unit",
+                "description": "Returns a class of a backpack."
+            }
+        },
         "backpackCargo",
         "backpackItems",
         "backpackMagazines",
@@ -40,7 +49,12 @@
         "BIS_fnc_removeRespawnPosition",
         "BIS_fnc_showNotification",
         "BIS_fnc_timeToString",
-        "blufor",
+        {
+            "key": "blufor",
+            "overwrite": {
+                "type": "objSide"
+            }
+        },
         "boundingBoxReal",
         "buldozer_LoadNewRoads",
         "buldozer_reloadOperMap",
@@ -94,7 +108,12 @@
         "handgunWeapon",
         "headgear",
         "humidity",
-        "independent",
+        {
+            "key": "independent",
+            "overwrite": {
+                "type": "objSide"
+            }
+        },
         "inRangeOfArtillery",
         "isAbleToBreathe",
         "isBleeding",
@@ -122,7 +141,12 @@
         "nearSupplies",
         "netId",
         "objectFromNetId",
-        "opfor",
+        {
+            "key": "opfor",
+            "overwrite": {
+                "type": "objSide"
+            }
+        },
         "particlesQuality",
         "playSound3D",
         "ppEffectForceInNVG",
@@ -208,7 +232,12 @@
     ],
     "0.56": [
         "BIS_fnc_spawn",
-        "compileFinal",
+        {
+            "key": "compileFinal",
+            "overwrite": {
+                "type": "compilationStatement"
+            }
+        },
         "difficulty",
         "getAmmoCargo",
         "getArtilleryETA",
@@ -1165,7 +1194,16 @@
         "squadParams"
     ],
     "1.20": [
-        "BIS_fnc_advHintCall",
+        {
+            "key": "BIS_fnc_advHintCall",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "<string> call BIS_fnc_advHintCall",
+                "example": "false call BIS_fnc_advHintCall;",
+                "docSyntax": "fullTextcall call BIS_fnc_advHintCall",
+                "description": "Advanced hint call, creates an hint by itself."
+            }
+        },
         "BIS_fnc_initVehicleKart",
         "BIS_fnc_moduleTimeTrial",
         "BIS_fnc_moduleTTCPClear",
@@ -1515,8 +1553,24 @@
         "joinString",
         "lineIntersectsSurfaces",
         "objectParent",
-        "remoteExec",
-        "remoteExecCall",
+        {
+            "key": "remoteExec",
+            "overwrite": {
+                "syntax": "<any> remoteExec [<string>, <scalar|object|array>, <bool>]",
+                "example": "\"hello\" remoteExec [\"hint\"];",
+                "docSyntax": "params remoteExec [functionName, targets, JIP]",
+                "description": "Remote async execution of given funtion on given machines. Function can contain delaying commands (i.e. sleep)."
+            }
+        },
+        {
+            "key": "remoteExecCall",
+            "overwrite": {
+                "syntax": "<any> remoteExecCall [<string>, <scalar|object|array>, <bool>]",
+                "example": "\"hello\" remoteExecCall [\"hint\"];",
+                "docSyntax": "params remoteExecCall [functionName, targets, JIP]",
+                "description": "Remote async execution of given funtion on given machines. Function can not contain delaying commands (i.e. sleep)."
+            }
+        },
         "setHitIndex",
         "splitString",
         "targetKnowledge"
@@ -1543,7 +1597,16 @@
         "getCustomAimCoef",
         "getMousePosition",
         "getStamina",
-        "inPolygon",
+        {
+            "key": "inPolygon",
+            "overwrite": {
+                "returns": "bool",
+                "syntax": "<array> inPolygon <array>",
+                "example": "_isInside = [100,100,0] inPolygon [[0,0,0],[1000,1000,0],[1000,0,0]];",
+                "docSyntax": "position inPolygon polygon",
+                "description": "Checks whether position is inside given polygon"
+            }
+        },
         "isAimPrecisionEnabled",
         "isEqualType",
         "isEqualTypeAll",
@@ -1604,7 +1667,12 @@
         "create3DENComposition",
         "create3DENEntity",
         "current3DENOperation",
-        "cursorObject",
+        {
+            "key": "cursorObject",
+            "overwrite": {
+                "type": "object"
+            }
+        },
         "delete3DENEntities",
         "do3DENAction",
         "edit3DENMissionAttributes",

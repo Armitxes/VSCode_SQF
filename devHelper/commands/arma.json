@@ -34,13 +34,23 @@
         "camSetFocus",
         "camUseNVG",
         "case",
-        "catch",
+        {
+            "key": "catch",
+            "overwrite": {
+                "type": "exceptionHandling"
+            }
+        },
         "ceil",
         "clearRadio",
         "closeDisplay",
         "commandFSM",
         "commandGetOut",
-        "compile",
+        {
+            "key": "compile",
+            "overwrite": {
+                "type": "compilationStatement"
+            }
+        },
         "composeText",
         "configFile",
         "configName",
@@ -127,14 +137,33 @@
         "drawRectangle",
         "echo",
         "effectiveCommander",
-        "emptyPositions",
+        {
+            "key": "emptyPositions",
+            "overwrite": {
+                "returns": "scalar",
+                "syntax": "<objVehicle> emptyPositions <string>",
+                "example": "_freeCargoPositions = vehicle player emptyPositions \"cargo\";",
+                "docSyntax": "vehicle emptyPositions position",
+                "description": "Returns the number of given positions in the vehicle. Positions can be \"Commander\", \"Driver\", \"Gunner\" or \"Cargo\""
+            }
+        },
         "enableAI",
         "enableAttack",
         "enableEnvironment",
         "enableReload",
         "enableTeamSwitch",
-        "execVM",
-        "exitWith",
+        {
+            "key": "execVM",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
+        {
+            "key": "exitWith",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
         "expectedDestination",
         "exportLandscapeXYZ",
         "fadeRadio",
@@ -147,7 +176,12 @@
         "floor",
         "fog",
         "fogForecast",
-        "for",
+        {
+            "key": "for",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
         "forceSpeed",
         "formationDirection",
         "formationLeader",
@@ -162,7 +196,17 @@
         "getPosASL",
         "getSpeed",
         "getText",
-        "getVariable",
+        {
+            "key": "getVariable",
+            "overwrite": {
+                "returns": "any", 
+                "syntax": "<string|object> getVariable <string>",
+                "example": "_thePublicVariable = _myTruck getVariable \"myPublicVariable\";",
+                "docSyntax": "varspace getVariable name",
+                "description": "Return the value of variable in the variable space assigned to various data types.",
+                "tags": "[AG] "
+            }
+        },
         "glanceAt",
         "halt",
         "hideBehindScripted",
@@ -199,7 +243,16 @@
         "max",
         "min",
         "missionConfigFile",
-        "modelToWorld",
+        {
+            "key": "modelToWorld",
+            "overwrite": {
+                "returns": "array",
+                "syntax": "<object> modelToWorld <array>",
+                "example": "_aboveAndBehindPlayer = player modelToWorld [0,-1,3];",
+                "docSyntax": "model modelToWorld position",
+                "description": "Translates relative position from object model space into world position."
+            }
+        },
         "moveInTurret",
         "moveTarget",
         "moveTo",
@@ -282,7 +335,17 @@
         "setTriggerType",
         "setUnitAbility",
         "setUnitRank",
-        "setVariable",
+        {
+            "key": "setVariable",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "<string|object> setVariable [<string>,<scalar>]",
+                "example": "_myTruck setVariable [\"myPublicVariable\", 123, true];",
+                "docSyntax": "varspace setVariable [name, value]",
+                "description": "Set variable to given value in the variable space of given element.",
+                "tags": "[AG] [EL] "
+            }
+        },
         "setVectorDir",
         "setVectorUp",
         "setVehicleAmmo",
@@ -305,14 +368,32 @@
         "setWaypointType",
         "showWaypoint",
         "sleep",
-        "spawn",
+        {
+            "key": "spawn",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
         "step",
         "str",
         "supportInfo",
-        "surfaceIsWater",
+        {
+            "key": "surfaceIsWater",
+            "overwrite": {
+                "returns": "bool", 
+                "syntax": "surfaceIsWater <array>", 
+                "example": "_isWater = surfaceIsWater [1000, 3000];",
+                "docSyntax": "surfaceIsWater position",
+                "description": "Returns whether water is at given position."
+            }
+        },
         "surfaceType",
-        "switch",
-        "switch do",
+        {
+            "key": "switch",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
         "switchableUnits",
         "synchronizeWaypoint",
         "synchronizeWaypoint trigger",
@@ -320,11 +401,21 @@
         "teamSwitchEnabled",
         "terminate",
         "text",
-        "throw",
+        {
+            "key": "throw",
+            "overwrite": {
+                "type": "exceptionHandling"
+            }
+        },
         "to",
         "triggerAttachObject",
         "triggerAttachVehicle",
-        "try",
+        {
+            "key": "try",
+            "overwrite": {
+                "type": "exceptionHandling"
+            }
+        },
         "typeName",
         "unassignTeam",
         "unitPos",

@@ -89,7 +89,12 @@
     "1.60": [
         "allowCrewInImmobile",
         "assignedTeam",
-        "callExtension",
+        {
+            "key": "callExtension",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
         "entities",
         "loadMagazine",
         "setWeaponReloadingTime",

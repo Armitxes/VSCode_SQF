@@ -53,11 +53,31 @@
     ],
     "1.85": [
         "addEventHandler",
-        "call",
+        {
+            "key": "call",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
         "comment",
-        "do",
-        "else",
-        "if",
+        {
+            "key": "do",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        {
+            "key": "else",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        {
+            "key": "if",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
         "onMapSingleClick",
         "preprocessFile",
         "removeAllEventHandlers",
@@ -66,10 +86,31 @@
         "sliderRange",
         "sliderSetPosition",
         "sliderSetRange",
-        "sliderSetSpeed",
+        {
+            "key": "sliderSetSpeed",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "sliderSetSpeed [<scalar>,<scalar>,<scalar>]",
+                "syntax2": "<uiControl> sliderSetSpeed [<scalar>,<scalar>]",
+                "example": "sliderSetSpeed [101, 0.5, 2];",
+                "docSyntax": "sliderSetSpeed [idc,line,page] or uiControl sliderSetSpeed [line, page]",
+                "description": "Set speed of slider with id idc of topmost user dialog.",
+                "tags": "[AL] [EG] "
+            }
+        },
         "sliderSpeed",
-        "then",
-        "while"
+        {
+            "key": "then",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        {
+            "key": "while",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        }
     ],
     "1.90": [
         "engineOn",

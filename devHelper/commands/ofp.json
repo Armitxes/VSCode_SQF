@@ -50,7 +50,12 @@
         "canMove",
         "canStand",
         "captive",
-        "civilian",
+        {
+            "key": "civilian",
+            "overwrite": {
+                "type": "objSide"
+            }
+        },
         "clearMagazineCargo",
         "clearWeaponCargo",
         "combatMode",
@@ -86,15 +91,30 @@
         "doTarget",
         "doWatch",
         "driver",
-        "east",
+        {
+            "key": "east",
+            "overwrite": {
+                "type": "objSide"
+            }
+        },
         "enableEndDialog",
         "enableRadio",
-        "exec",
+        {
+            "key": "exec",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
         "exit",
         "exp",
         "fadeMusic",
         "fadeSound",
-        "false",
+        {
+            "key": "false",
+            "overwrite": {
+                "type": "bool"
+            }
+        },
         "fire",
         "flag",
         "flagOwner",
@@ -154,11 +174,26 @@
         "or",
         "orderGetIn",
         "pi",
-        "player",
+        {
+            "key": "player",
+            "overwrite": {
+                "returns": "objUnit",
+                "syntax": "player",
+                "example": "player addRating 500;",
+                "docSyntax": "player",
+                "description": "Returns the unit controlled by the local user / player.",
+                "type": "objUnit"
+            }
+        },
         "playMove",
         "playMusic",
         "playSound",
-        "private",
+        {
+            "key": "private",
+            "overwrite": {
+                "type": "accessModifier"
+            }
+        },
         "rad",
         "random",
         "rating",
@@ -166,7 +201,12 @@
         "removeMagazine",
         "removeMagazines",
         "removeWeapon",
-        "resistance",
+        {
+            "key": "resistance",
+            "overwrite": {
+                "type": "objSide"
+            }
+        },
         "reveal",
         "saveGame",
         "saveVar",
@@ -177,7 +217,17 @@
         "setAmmoCargo",
         "setBehaviour",
         "setCaptive",
-        "setCombatMode",
+        {
+            "key": "setCombatMode",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "<objGroup> setCombatMode <'Blue'|'Green'|'White'|'Yellow'|'Red'>",
+                "example": "_group1 setCombatMode \"BLUE\";",
+                "docSyntax": "groupName setCombatMode mode",
+                "description": "Set group combat mode (engagement rules). Modes: Blue, Green, White, Yellow and Red",
+                "tags": "[AL] [EG] "
+            }
+        },
         "setDammage",
         "setDir",
         "setFace",
@@ -232,20 +282,39 @@
         "switchLight",
         "switchMove",
         "tan",
-        "textLog",
+        {
+            "key": "textLog",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "textLog <any>",
+                "example": "textLog player",
+                "docSyntax": "textLog anything",
+                "description": "Dump argument value to debugging output."
+            }
+        },
         "tg",
         "time",
         "titleCut",
         "titleObj",
         "titleRsc",
         "titleText",
-        "true",
+        {
+            "key": "true",
+            "overwrite": {
+                "type": "bool"
+            }
+        },
         "unassignVehicle",
         "unitReady",
         "units",
         "vehicle",
         "vehicleRadio",
-        "west"
+        {
+            "key": "west",
+            "overwrite": {
+                "type": "objSide"
+            }
+        }
     ],
     "1.04": [
         "inflamed",
@@ -300,7 +369,17 @@
         "setPosASL"
     ],
     "0.00": [
-        "buttonAction",
+        {
+            "key": "buttonAction",
+            "overwrite": {
+                "returns": "string",
+                "syntax": "buttonSetAction [<scalar>, <code|function>]",
+                "example": "buttonSetAction [100, {player execVM \"reply.sqf\"}] _action = buttonAction 100",
+                "docSyntax": "buttonAction idc",
+                "description": "Return the action assigned to a control of the currently active user dialog.",
+                "tags": "[AL] "
+            }
+        },
         "buttonSetAction",
         "closeDialog",
         "createDialog",
@@ -324,7 +403,18 @@
         "lbSetColorRight",
         "lbSetCurSel",
         "lbSetData",
-        "lbSetPicture",
+        {
+            "key": "lbSetPicture",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "lbSetPicture [<scalar>, <scalar>, <string>]",
+                "syntax2": "<uiControl> lbSetPicture [<scalar>,<string>]",
+                "example": "lbSetPicture [101, 0, \"iskoda\"];",
+                "docSyntax": "lbSetPicture [idc, index, name] or uiControl lbSetPicture [index, name]",
+                "description": "Sets a picture for an listbox item displayed to its left.",
+                "tags": "[AL] [EL] "
+            }
+        },
         "lbSetPictureRight",
         "lbSetText",
         "lbSetTextRight",
