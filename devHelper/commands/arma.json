@@ -54,20 +54,45 @@
         "composeText",
         "configFile",
         "configName",
-        "controlNull",
+        {
+            "key": "controlNull",
+            "overwrite": {
+                "returns": "bool"
+            }
+        },
         "createCenter",
         "createDisplay",
-        "createGroup",
+        {
+            "key": "createGroup",
+            "overwrite": {
+                "returns": "objGroup"
+            }
+        },
         "createGuardedPoint",
-        "createMarker",
+        {
+            "key": "createMarker",
+            "overwrite": {
+                "returns": "objMarker"
+            }
+        },
         "createMine",
         "createSoundSource",
         "createTarget",
         "createTrigger",
-        "createVehicleLocal",
+        {
+            "key": "createVehicleLocal",
+            "overwrite": {
+                "returns": "objVehicle"
+            }
+        },
         "ctrlActivate",
         "ctrlCommit",
-        "ctrlCommitted",
+        {
+            "key": "ctrlCommitted",
+            "overwrite": {
+                "returns": "bool"
+            }
+        },
         "ctrlFade",
         "ctrlMapAnimAdd",
         "ctrlMapAnimClear",
@@ -124,9 +149,24 @@
         "deleteMarker",
         "deleteTarget",
         "deleteWaypoint",
-        "displayCtrl",
-        "displayNull",
-        "displaySetEventHandler",
+        {
+            "key": "displayCtrl",
+            "overwrite": {
+                "returns": "uiControl"
+            }
+        },
+        {
+            "key": "displayNull",
+            "overwrite": {
+                "returns": "bool"
+            }
+        },
+        {
+            "key": "displaySetEventHandler",
+            "overwrite": {
+                "type": "eventStatement"
+            }
+        },
         "dissolveTeam",
         {
             "key": "doFSM",

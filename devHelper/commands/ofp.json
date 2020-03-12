@@ -53,7 +53,7 @@
         {
             "key": "civilian",
             "overwrite": {
-                "type": "objSide"
+                "returns": "objSide"
             }
         },
         "clearMagazineCargo",
@@ -94,7 +94,7 @@
         {
             "key": "east",
             "overwrite": {
-                "type": "objSide"
+                "returns": "objSide"
             }
         },
         "enableEndDialog",
@@ -112,7 +112,8 @@
         {
             "key": "false",
             "overwrite": {
-                "type": "bool"
+                "returns": "bool",
+                "type": "boolLiteral"
             }
         },
         "fire",
@@ -204,7 +205,7 @@
         {
             "key": "resistance",
             "overwrite": {
-                "type": "objSide"
+                "returns": "objSide"
             }
         },
         "reveal",
@@ -301,7 +302,8 @@
         {
             "key": "true",
             "overwrite": {
-                "type": "bool"
+                "returns": "bool",
+                "type": "boolLiteral"
             }
         },
         "unassignVehicle",
@@ -312,7 +314,7 @@
         {
             "key": "west",
             "overwrite": {
-                "type": "objSide"
+                "returns": "objSide"
             }
         }
     ],
@@ -348,8 +350,18 @@
         "scudState"
     ],
     "1.34": [
-        "createUnit",
-        "createVehicle",
+        {
+            "key": "createUnit",
+            "overwrite": {
+                "returns": "objUnit"
+            }
+        },
+        {
+            "key": "createVehicle",
+            "overwrite": {
+                "returns": "objVehicle"
+            }
+        },
         "deleteVehicle",
         "estimatedTimeLeft",
         "join",

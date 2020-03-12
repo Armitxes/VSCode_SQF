@@ -38,8 +38,18 @@
         "backpackMagazines",
         "BIS_fnc_addCommMenuItem",
         "BIS_fnc_addRespawnPosition",
-        "BIS_fnc_call",
-        "BIS_fnc_codePerformance",
+        {
+            "key": "BIS_fnc_call",
+            "overwrite": {
+                "type": "executionFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_codePerformance",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
         "BIS_fnc_endMission",
         {
             "key": "BIS_fnc_error",
@@ -62,7 +72,7 @@
         {
             "key": "blufor",
             "overwrite": {
-                "type": "objSide"
+                "returns": "objSide"
             }
         },
         "boundingBoxReal",
@@ -121,7 +131,7 @@
         {
             "key": "independent",
             "overwrite": {
-                "type": "objSide"
+                "returns": "objSide"
             }
         },
         "inRangeOfArtillery",
@@ -154,7 +164,7 @@
         {
             "key": "opfor",
             "overwrite": {
-                "type": "objSide"
+                "returns": "objSide"
             }
         },
         "particlesQuality",
@@ -241,7 +251,12 @@
         "windStr"
     ],
     "0.56": [
-        "BIS_fnc_spawn",
+        {
+            "key": "BIS_fnc_spawn",
+            "overwrite": {
+                "type": "executionFunction"
+            }
+        },
         {
             "key": "compileFinal",
             "overwrite": {
@@ -1728,6 +1743,12 @@
     "1.50": [
         "AGLToASL",
         "ASLToAGL",
+        {
+            "key": "createDisplay",
+            "overwrite": {
+                "returns": "uiDisplay"
+            }
+        },
         "didJIP",
         "didJIPOwner",
         "distance2D",
@@ -1855,7 +1876,7 @@
         {
             "key": "cursorObject",
             "overwrite": {
-                "type": "object"
+                "returns": "object"
             }
         },
         "delete3DENEntities",
@@ -2647,7 +2668,6 @@
         "BIS_fnc_WLArsenalFilter",
         "BIS_fnc_WLParseAssetList",
         "BIS_fnc_WLSyncedTime",
-
         "currentPilot",
         {
             "key": "diag_deltaTime",

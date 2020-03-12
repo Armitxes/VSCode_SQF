@@ -19,6 +19,7 @@ any:
         objCamera
         objRope
         objFlag
+        objNetwork
     string
     bool
     scalar

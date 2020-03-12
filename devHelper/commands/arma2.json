@@ -220,7 +220,7 @@
         {
             "key": "cursorTarget",
             "overwrite": {
-                "type": "object"
+                "returns": "object"
             }
         },
         "dateToNumber",
