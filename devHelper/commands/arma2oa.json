@@ -130,9 +130,24 @@
         "visiblePositionASL"
     ],
     "1.63": [
-        "diag_captureFrame",
-        "diag_captureSlowFrame",
-        "diag_logSlowFrame",
+        {
+            "key": "diag_captureFrame",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_captureSlowFrame",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_logSlowFrame",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "getPlayerUIDOld",
         "hasInterface",
         "onEachFrame",

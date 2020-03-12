@@ -128,14 +128,24 @@
         "displayNull",
         "displaySetEventHandler",
         "dissolveTeam",
-        "doFSM",
+        {
+            "key": "doFSM",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
         "doGetOut",
         "drawArrow",
         "drawEllipse",
         "drawIcon",
         "drawLine",
         "drawRectangle",
-        "echo",
+        {
+            "key": "echo",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "effectiveCommander",
         {
             "key": "emptyPositions",

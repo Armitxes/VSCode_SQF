@@ -41,8 +41,18 @@
         "BIS_fnc_call",
         "BIS_fnc_codePerformance",
         "BIS_fnc_endMission",
-        "BIS_fnc_error",
-        "BIS_fnc_log",
+        {
+            "key": "BIS_fnc_error",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_log",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
         "BIS_fnc_MP",
         "BIS_fnc_param",
         "BIS_fnc_removeCommMenuItem",
@@ -417,34 +427,174 @@
         "BIS_fnc_deleteInventory",
         "BIS_fnc_deleteVehicleCrew",
         "BIS_fnc_deltaTime",
-        "BIS_fnc_diagAAR",
-        "BIS_fnc_diagAARrecord",
-        "BIS_fnc_diagBulletCam",
-        "BIS_fnc_diagConfig",
-        "BIS_fnc_diagFindMissingAuthors",
-        "BIS_fnc_diagHit",
-        "BIS_fnc_diagJIRAlink",
-        "BIS_fnc_diagKey",
-        "BIS_fnc_diagKeyLayout",
-        "BIS_fnc_diagKeyTest",
-        "BIS_fnc_diagKnownAsTarget",
-        "BIS_fnc_diagKnownTargets",
-        "BIS_fnc_diagLoop",
-        "BIS_fnc_diagMacros",
-        "BIS_fnc_diagMacrosAuthor",
-        "BIS_fnc_diagMacrosEditorPreview",
-        "BIS_fnc_diagMacrosMapSize",
-        "BIS_fnc_diagMacrosNameSound",
-        "BIS_fnc_diagMacrosSimpleObject",
-        "BIS_fnc_diagMacrosVerify",
-        "BIS_fnc_diagMissionPositions",
-        "BIS_fnc_diagMissionWeapons",
-        "BIS_fnc_diagPreview",
-        "BIS_fnc_diagPreviewCycle",
-        "BIS_fnc_diagPreviewVehicleCrew",
-        "BIS_fnc_diagRadio",
-        "BIS_fnc_diagVehicleIcons",
-        "BIS_fnc_diagWiki",
+        {
+            "key": "BIS_fnc_diagAAR",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagAARrecord",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagBulletCam",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagConfig",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagFindMissingAuthors",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagHit",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagJIRAlink",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagKey",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagKeyLayout",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagKeyTest",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagKnownAsTarget",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagKnownTargets",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagLoop",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagMacros",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagMacrosAuthor",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagMacrosEditorPreview",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagMacrosMapSize",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagMacrosNameSound",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagMacrosSimpleObject",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagMacrosVerify",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagMissionPositions",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagMissionWeapons",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagPreview",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagPreviewCycle",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagPreviewVehicleCrew",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagRadio",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagVehicleIcons",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIS_fnc_diagWiki",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
         "BIS_fnc_dirtEffect",
         "BIS_fnc_disableLoading",
         "BIS_fnc_disableSaving",
@@ -965,9 +1115,24 @@
         "BIS_fnc_wpRelax",
         "BIS_fnc_wpSuppress",
         "clearItemPool",
-        "diag_enable",
-        "diag_enabled",
-        "diag_toggle",
+        {
+            "key": "diag_enable",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_enabled",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_toggle",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "disableDebriefingStats",
         "enableDebriefingStats",
         "enableGunLights",
@@ -1156,7 +1321,12 @@
         "curatorRegisteredObjects",
         "curatorSelected",
         "curatorWaypointCost",
-        "diag_captureFrameToFile",
+        {
+            "key": "diag_captureFrameToFile",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "forceWeatherChange",
         "getAssignedCuratorLogic",
         "getAssignedCuratorUnit",
@@ -1513,9 +1683,24 @@
         "setSuppression"
     ],
     "1.44": [
-        "diag_activeMissionFSMs",
-        "diag_activeSQFScripts",
-        "diag_activeSQSScripts",
+        {
+            "key": "diag_activeMissionFSMs",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_activeSQFScripts",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_activeSQSScripts",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "sort"
     ],
     "1.46": [
@@ -1766,7 +1951,12 @@
         "BIS_fnc_3DENNotification",
         "BIS_fnc_3DENShowMessage",
         "BIS_fnc_3DENToolbar",
-        "BIS_fnc_diagObjectPerformance",
+        {
+            "key": "BIS_fnc_diagObjectPerformance",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
         "BIS_fnc_getArea",
         "BIS_fnc_groupFromNetId",
         "BIS_fnc_initSliderValue",
@@ -1781,7 +1971,12 @@
         "configSourceAddonList",
         "createSimpleObject",
         "ctrlParentControlsGroup",
-        "diag_codePerformance",
+        {
+            "key": "diag_codePerformance",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "difficultyOption",
         "displayParent",
         "drawPolygon",
@@ -1926,7 +2121,12 @@
         "actionIDs",
         "actionParams",
         "BIS_fnc_switchLamp",
-        "diag_activeScripts",
+        {
+            "key": "diag_activeScripts",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "enableAudioFeature",
         "forceFollowRoad",
         "getAllEnvSoundControllers",
@@ -2069,15 +2269,60 @@
         "BIN_fnc_deleteSpectrumAnalyzer",
         "BIN_fnc_deleteTravelPoint",
         "BIN_fnc_deleteTXScan",
-        "BIN_fnc_diag_addAllSpectrumAnalyzers",
-        "BIN_fnc_diag_drawAllAreaObjectsBounds",
-        "BIN_fnc_diag_getAllAreaEntities",
-        "BIN_fnc_diag_getAllAreaObjects",
-        "BIN_fnc_diag_IDWMap",
-        "BIN_fnc_diag_logAntenna",
-        "BIN_fnc_diag_revealAllAntennas",
-        "BIN_fnc_diag_showLinkBudgetMap",
-        "BIN_fnc_diag_TXScan",
+        {
+            "key": "BIN_fnc_diag_addAllSpectrumAnalyzers",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIN_fnc_diag_drawAllAreaObjectsBounds",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIN_fnc_diag_getAllAreaEntities",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIN_fnc_diag_getAllAreaObjects",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIN_fnc_diag_IDWMap",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIN_fnc_diag_logAntenna",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIN_fnc_diag_revealAllAntennas",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIN_fnc_diag_showLinkBudgetMap",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
+        {
+            "key": "BIN_fnc_diag_TXScan",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
         "BIN_fnc_distanceToAreaBorder",
         "BIN_fnc_dockModule",
         "BIN_fnc_drawAntennas",
@@ -2404,7 +2649,12 @@
         "BIS_fnc_WLSyncedTime",
 
         "currentPilot",
-        "diag_deltaTime",
+        {
+            "key": "diag_deltaTime",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "getDiverState",
         "getMissionPath",
         "getObjectFOV",

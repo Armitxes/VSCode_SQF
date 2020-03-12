@@ -44,14 +44,24 @@
         "BIS_fnc_createmenu",
         "BIS_fnc_crossProduct",
         "BIS_fnc_cutDecimals",
-        "BIS_fnc_diagAnim",
+        {
+            "key": "BIS_fnc_diagAnim",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
         "BIS_fnc_dirTo",
         "BIS_fnc_distance2D",
         "BIS_fnc_distance2Dsqr",
         "BIS_fnc_dotProduct",
         "BIS_fnc_findNestedElement",
         "BIS_fnc_findSafePos",
-        "BIS_fnc_fps",
+        {
+            "key": "BIS_fnc_fps",
+            "overwrite": {
+                "type": "diagnoseFunction"
+            }
+        },
         "BIS_fnc_geometricMean",
         "BIS_fnc_getFactions",
         "BIS_fnc_getLineDist",
@@ -218,11 +228,36 @@
         "deleteResources",
         "deleteTeam",
         "detach",
-        "diag_fps",
-        "diag_fpsMin",
-        "diag_frameNo",
-        "diag_log",
-        "diag_tickTime",
+        {
+            "key": "diag_fps",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_fpsMin",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_frameNo",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_log",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_tickTime",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "diarySubjectExists",
         "directSay",
         "disableConversation",
