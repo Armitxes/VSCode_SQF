@@ -68,19 +68,19 @@ class Crawler():
 		pq_rev = pq_all('div._description.cmd')
 
 		# Command Tags
-		if bool(pq_rev('a[href="/wiki/Category:Commands_requiring_server_side_execution"]')):
+		if bool(pq_rev('img[src="/wikidata/images/9/9f/Exec_Server.gif"]')):
 			# https://community.bistudio.com/wiki/Category:Commands_requiring_server_side_execution
 			self.fjson[command]['tags'] += '[SE] '
-		if bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_local_arguments"]')):
+		if bool(pq_rev('img[src="/wikidata/images/e/e8/arguments_local.gif"]')):
 			# https://community.bistudio.com/wiki/Category:Commands_utilizing_local_arguments
 			self.fjson[command]['tags'] += '[AL] '
-		if bool(pq_rev('a[href="/wiki/Category:Commands_utilizing_global_arguments"]')):
+		if bool(pq_rev('img[src="/wikidata/images/2/25/arguments_global.gif"]')):
 			# https://community.bistudio.com/wiki/Category:Commands_utilizing_global_arguments
 			self.fjson[command]['tags'] += '[AG] '
-		if bool(pq_rev('a[href="/wiki/Category:Commands_with_local_effects"]')):
+		if bool(pq_rev('img[src="/wikidata/images/5/52/effects_local.gif"]')):
 			# https://community.bistudio.com/wiki/Category:Commands_with_local_effects
 			self.fjson[command]['tags'] += '[EL] '
-		if bool(pq_rev('a[href="/wiki/Category:Commands_with_global_effects"]')):
+		if bool(pq_rev('img[src="/wikidata/images/f/f7/effects_global.gif"]')):
 			# https://community.bistudio.com/wiki/Category:Commands_with_global_effects
 			self.fjson[command]['tags'] += '[EG] '
 
