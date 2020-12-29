@@ -19,6 +19,7 @@ any:
         objCamera
         objRope
         objFlag
+        objNetwork
     string
     bool
     scalar
@@ -43,6 +44,7 @@ class SqfVariableType {
             case 'objUnit': { this.name = "Unit"; this.varPrototype = require('./variableTypes/objUnit').prototype; };
             case 'objVehicle': { this.name = "Vehicle"; this.varPrototype = require('./variableTypes/objVehicle').prototype; };
             case 'objGroup': { this.name = "Group"; this.varPrototype = require('./variableTypes/objGroup').prototype; };
+            case 'objSide': { this.name = "Side"; this.varPrototype = require('./variableTypes/objSide').prototype; };
             case 'objMagazine': { this.name = "Magazine"; this.varPrototype = require('./variableTypes/objMagazine').prototype; };
             case 'objMarker': { this.name = "Marker"; this.varPrototype = require('./variableTypes/objMarker').prototype; };
             case 'objWeapon': { this.name = "Weapon"; this.varPrototype = require('./variableTypes/objWeapon').prototype; };
@@ -55,16 +57,26 @@ class SqfVariableType {
 let objUnit = new SqfVariableType('objUnit');
 let objVehicle = new SqfVariableType('objVehicle');
 let objGroup = new SqfVariableType('objGroup');
+let objSide = new SqfVariableType('objSide');
 let objMagazine = new SqfVariableType('objMagazine');
 let objMarker = new SqfVariableType('objMarker');
 let objWeapon = new SqfVariableType('objWeapon');
-let obj = new SqfVariableType('object', [objVehicle, objGroup, objMagazine, objMarker, objWeapon]);
+let obj = new SqfVariableType('object', [
+    objVehicle,
+    objGroup,
+    objSide,
+    objMagazine,
+    objMarker,
+    objWeapon,
+    objUnit
+]);
 
 exports.SqfVariableTypes = {
     'object': obj,
     'objUnit': objUnit,
     'objVehicle': objVehicle,
     'objGroup': objGroup,
+    'objSide': objSide,
     'objMagazine': objMagazine,
     'objMarker': objMarker,
     'objWeapon': objWeapon

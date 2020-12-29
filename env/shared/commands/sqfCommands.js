@@ -7,23 +7,28 @@ class SqfCommands {
 	constructor() {
 		this.availableCommands = {}
 		let sqfSettings = vsc_variables.settings.sqf;
-		let sqfWiki = require('./sqfCommands.min.json');
 
-		if (sqfSettings.enableTOH) { Object.assign(this.availableCommands, sqfWiki['TOH']); }
+		if (sqfSettings.enableTOH) { Object.assign(this.availableCommands, require('./json/toh.min.json')); }
 		if (sqfSettings.enableARMA3) {
-			Object.assign(this.availableCommands, sqfWiki['ARMA3']);
-			Object.assign(this.availableCommands, sqfWiki['ARMA2']);
-			Object.assign(this.availableCommands, sqfWiki['ARMA']);
-			Object.assign(this.availableCommands, sqfWiki['OFP']);
+			Object.assign(this.availableCommands, require('./json/ofp.min.json'));
+			Object.assign(this.availableCommands, require('./json/ofpResistance.min.json'));
+			Object.assign(this.availableCommands, require('./json/arma.min.json'));
+			Object.assign(this.availableCommands, require('./json/arma2.min.json'));
+			Object.assign(this.availableCommands, require('./json/arma2oa.min.json'));
+			Object.assign(this.availableCommands, require('./json/arma3.min.json'));
 		} else if (sqfSettings.enableARMA2) {
-			Object.assign(this.availableCommands, sqfWiki['ARMA2']);
-			Object.assign(this.availableCommands, sqfWiki['ARMA']);
-			Object.assign(this.availableCommands, sqfWiki['OFP']);
+			Object.assign(this.availableCommands, require('./json/ofp.min.json'));
+			Object.assign(this.availableCommands, require('./json/ofpResistance.min.json'));
+			Object.assign(this.availableCommands, require('./json/arma.min.json'));
+			Object.assign(this.availableCommands, require('./json/arma2.min.json'));
+			Object.assign(this.availableCommands, require('./json/arma2oa.min.json'));
 		} else if (sqfSettings.enableARMA) {
-			Object.assign(this.availableCommands, sqfWiki['ARMA']);
-			Object.assign(this.availableCommands, sqfWiki['OFP']);
+			Object.assign(this.availableCommands, require('./json/ofp.min.json'));
+			Object.assign(this.availableCommands, require('./json/ofpResistance.min.json'));
+			Object.assign(this.availableCommands, require('./json/arma.min.json'));
 		} else if (sqfSettings.enableOFP) {
-			Object.assign(this.availableCommands, sqfWiki['OFP']);
+			Object.assign(this.availableCommands, require('./json/ofp.min.json'));
+			Object.assign(this.availableCommands, require('./json/ofpResistance.min.json'));
 		}
 	}
 };
