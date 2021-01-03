@@ -2,24 +2,56 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const string = require('../../shared/helper/StringHelper');
+const SqfWord = require('./SqfWord').SqfWord;
 
 class SqfScope {
+	/*
+	 * Scopes are considered code blocks that have to complete a specific (side)task.
+	 * The file itself is considered a scope. Each scope can contain endless subscopes.
+	 * Scopes are usually defined by the usage of curly brackets (i.e. if/else blocks, loops, etc.)
+	 * 
+	 * This is not only important for structuring purposes but also to handle with access/gc 
+	 * limitations i.e. for variables which are unavailable/truncated outside their defined scope.
+	 */
+
 	constructor(file, parent=null) {
 		this.sqfFile = file;
 		this.sqfProject = this.sqfFile.sqfProject;
 		this.connection = this.sqfProject.connection;
 		this.console = this.connection.console;
-		this.parent = parent
-		this.lines = 1;
-		this.charPos = 0;
 		this.sqfWords = [];
-		this.sqfWordNew = true;
+		this.lines = parent == null ? 0 : parent.lines;
+
+		// Scope chain
+		this.parent = parent;
+		this.childs = [];
+
+		// Start and end of our scope
+		this.charPosStart = parent == null ? 0 : parent.charPos;
+		this.charPos = this.charPosStart;
+		this.charPosLine = parent == null ? -1 : parent.charPosLine;
+		this.charPosEnd = this.charPosStart;
+		this.content = ''
 
 		// Variables collected by GC
 		this.__sqfChars = [];
-		this.__word = null;
+		this.__currentSqfWord = null;
 		this._commentMode = '';
 		this._stringMode = '';
+
+		this.forceExit = false;
+		this.parse();
+	}
+
+	parse() {
+		let file = this.sqfFile.fileUri.split('/')
+		this.console.log("Scope " + file[file.length-1] + "-" + this.parent)
+		this.content = this.sqfFile.fileContent.substring(this.charPosStart);
+
+		for (var i = 0; i < this.content.length; i++) {
+			if (this.forceExit) { break; }
+			this.addChar(this.content[i]);
+		}		
 	}
 
 	_isInString(char) {
@@ -36,7 +68,7 @@ class SqfScope {
 			return false
 		}
 
-		if (__stringEnd(this._stringMode, char)) { this._stringMode = char; return true; }
+		if (__stringEnd(this._stringMode, char)) { this._stringMode = ''; return true; }
 		if (this._stringMode != '') { return true; }
 		if (__stringStart(char)) { this._stringMode = char; return true; }
 	}
@@ -61,9 +93,9 @@ class SqfScope {
 	}
 
 	_isNewLine(char) {
-		if (['\n', '\r'].indexOf(char) > -1) {
+		if ('\n'.indexOf(char) > -1) {
 			this.lines += 1;
-			this.charPos = 0;
+			this.charPosLine = -1;
 
 			if (this._commentMode == '//') { this._commentMode = '' }
 			return true;
@@ -71,64 +103,68 @@ class SqfScope {
 		return false;
 	}
 
+	_handledByChild() {
+		return this.childs.length > 0 && this.charPos <= this.childs[this.childs.length-1].charPos;
+	}
+
+	_isSubScope(char) {
+		if (char == '}') {
+			this.__currentSqfWord=null;
+			if (this.parent != null) {
+				// This scope ended
+				this.content = this.content.substring(0, this.charPos);
+				this.charPosEnd = this.charPos;
+				this.forceExit = true;
+				return true;
+			} else {
+				this.sqfFile.issues.push({
+                    severity: 2,
+                    range: {
+                        start: { line: this.lines, character: this.charPosLine },
+                        end: { line: this.lines, character: this.charPosLine }
+                    },
+                    message: 'Unexpected end of scope.',
+                    source: 'sqf'
+                });
+			}
+		} else if (char == '{') {
+			// New SubScope
+			this.__currentSqfWord=null;
+			let child = new SqfScope(this.sqfFile, this);
+			this.childs.push(child);
+			return true;
+		}
+
+		return false;
+	}
+
 	addChar(char) {
-		this.console.log("-- scope addChar: '" + char.toString() + "'");
 		this.__sqfChars.push(char);
 		this.charPos += 1;
+		this.charPosLine += 1;
 
-		if (this._isNewLine(char)) { this.console.log('  -- is new line'); return; }
-		if (this._isInString(char)) { this.console.log('  -- is in string'); return; };
-		if (this._isComment(char)) { this.console.log('  -- is comment'); return; };
-		if (string.isEmptyCharacter(char)) { this.console.log('  -- is empty char'); return; };
-		if (this.sqfWords.length > 0) { this.__word = this.sqfWords[this.sqfWords.length-1]; }
+		// Stuff to ignore/skip
+		if (this._handledByChild()) { return; }
+		if (this._isNewLine(char)) { return; }
+		if (this._isInString(char)) { return; };
+		if (this._isComment(char)) { return; };
+	
+		this.console.log(
+			"-- (" + this.lines.toString() + 'x' + this.charPosLine.toString() + 
+			") scope addChar: '" + char.toString() + "'"
+		);
 
-		if (!string.isCharAlphaNumeric(char) && char != '_') {
-			if (char == '=') { this.subScope(); }
+		// SubScope handling
+		if (this._isSubScope(char)) { return; }
+
+		// Word handling
+		if (this.__currentSqfWord == null) {
+			this.__currentSqfWord = new SqfWord(this);
+			this.sqfWords.push(this.__currentSqfWord);
 		}
 
-		if (this.sqfWordNew) {
-			// Last word or char has ended. Requesting new word.
-			let word = new SqfWord(this.lines, this.charPos);
-			this.sqfWords.push(word);
-			this.sqfWordNew = false;
-		}
-	}
-	subScope() { new SqfScope(this); }
-}
-
-class SqfWord {
-	constructor(line, charStart) {
-		this.line = line;
-		this.charStart = charStart-1;
-		this.charEnd = this.charStart;
-
-		this.isAlpha = true;
-		this.isAlphaNumeric = true;
-		this.isNumeric = true;
-		this.isSpecial = false;
-
-		this.word = '';
-		this.assignment = '';
-	}
-
-	addChar(char) {
-		// return: Continue word?
-		this.word += char;
-		let isAlphaNum = string.isCharAlphaNumeric(char);
-		if(!isAlphaNum) {
-			this.isAlpha = false;
-			this.isAlphaNumeric = false;
-			this.isNumeric = false;
-			this.isSpecial = false;
-		}
-
-		let isAlpha = string.isCharAlpha(char);
-		let isNum = string.isCharNumeric(char);
-		if (this.isAlpha && isNum) { this.isAlpha = false; }
-		if (this.isNumeric && isAlpha) { this.isNumeric = false; }
-		if (!string.isCharAlphaNumeric(char)) {
-			this.isSpecial = true;
-		}
+		this.__currentSqfWord.addChar(char);
 	}
 }
+
 exports.SqfScope = SqfScope;
