@@ -79,7 +79,10 @@ const path = require('path');
             cmdContinue = next.continue;
           }
 
-          const commands = categoryMembers.filter(cat => cat.type === 'page' && !cat.title.includes(':')).map(cat => cat.title.replace(/[ ]+/g, '_'));
+          const commands = categoryMembers
+            .filter(cat => cat.type === 'page' && !cat.title.includes(':'))
+            .map(cat => cat.title.replace(/[ ]+/g, '_'))
+            .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
           gameCommands[version] = commands;
         })
       );
