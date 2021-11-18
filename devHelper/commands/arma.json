@@ -1,1 +1,563 @@
-{}
+{
+    "docs": "https://community.bistudio.com/wiki/Category:Introduced_with_Armed_Assault",
+    "1.00": [
+        "actionKeys",
+        "actionKeysImages",
+        "actionKeysNames",
+        "activateAddons",
+        "activateKey",
+        "addSwitchableUnit",
+        "addWaypoint",
+        "animationState",
+        "assert",
+        "assignedTarget",
+        "assignTeam",
+        "attackEnabled",
+        "boundingBox",
+        "breakOut",
+        "breakTo",
+        "camCommitPrepared",
+        "cameraInterest",
+        "cameraOn",
+        "campaignConfigFile",
+        "camPreload",
+        "camPreloaded",
+        "camPrepareBank",
+        "camPrepareDir",
+        "camPrepareDive",
+        "camPrepareFocus",
+        "camPrepareFov",
+        "camPrepareFovRange",
+        "camPreparePos",
+        "camPrepareRelPos",
+        "camPrepareTarget",
+        "camSetFocus",
+        "camUseNVG",
+        "case",
+        {
+            "key": "catch",
+            "overwrite": {
+                "type": "exceptionHandling"
+            }
+        },
+        "ceil",
+        "clearRadio",
+        "closeDisplay",
+        "commandFSM",
+        "commandGetOut",
+        {
+            "key": "compile",
+            "overwrite": {
+                "type": "compilationStatement"
+            }
+        },
+        "composeText",
+        "configFile",
+        "configName",
+        {
+            "key": "controlNull",
+            "overwrite": {
+                "returns": "bool"
+            }
+        },
+        "createCenter",
+        "createDisplay",
+        {
+            "key": "createGroup",
+            "overwrite": {
+                "returns": "objGroup"
+            }
+        },
+        "createGuardedPoint",
+        {
+            "key": "createMarker",
+            "overwrite": {
+                "returns": "objMarker"
+            }
+        },
+        "createMine",
+        "createSoundSource",
+        "createTarget",
+        "createTrigger",
+        {
+            "key": "createVehicleLocal",
+            "overwrite": {
+                "returns": "objVehicle"
+            }
+        },
+        "ctrlActivate",
+        "ctrlCommit",
+        {
+            "key": "ctrlCommitted",
+            "overwrite": {
+                "returns": "bool"
+            }
+        },
+        "ctrlFade",
+        "ctrlMapAnimAdd",
+        "ctrlMapAnimClear",
+        "ctrlMapAnimCommit",
+        "ctrlMapAnimDone",
+        "ctrlMapScale",
+        "ctrlParent",
+        "ctrlPosition",
+        "ctrlScale",
+        "ctrlSetActiveColor",
+        "ctrlSetBackgroundColor",
+        "ctrlSetEventHandler",
+        "ctrlSetFade",
+        "ctrlSetFocus",
+        "ctrlSetFont",
+        "ctrlSetFontH1",
+        "ctrlSetFontH1B",
+        "ctrlSetFontH2",
+        "ctrlSetFontH2B",
+        "ctrlSetFontH3",
+        "ctrlSetFontH3B",
+        "ctrlSetFontH4",
+        "ctrlSetFontH4B",
+        "ctrlSetFontH5",
+        "ctrlSetFontH5B",
+        "ctrlSetFontH6",
+        "ctrlSetFontH6B",
+        "ctrlSetFontHeight",
+        "ctrlSetFontHeightH1",
+        "ctrlSetFontHeightH2",
+        "ctrlSetFontHeightH3",
+        "ctrlSetFontHeightH4",
+        "ctrlSetFontHeightH5",
+        "ctrlSetFontHeightH6",
+        "ctrlSetFontP",
+        "ctrlSetFontPB",
+        "ctrlSetForegroundColor",
+        "ctrlSetPosition",
+        "ctrlSetScale",
+        "ctrlSetStructuredText",
+        "ctrlSetTextColor",
+        "ctrlSetTooltip",
+        "ctrlSetTooltipColorBox",
+        "ctrlSetTooltipColorShade",
+        "ctrlSetTooltipColorText",
+        "ctrlShown",
+        "ctrlType",
+        "currentCommand",
+        "date",
+        "default",
+        "deleteCenter",
+        "deleteCollection",
+        "deleteGroup",
+        "deleteMarker",
+        "deleteTarget",
+        "deleteWaypoint",
+        {
+            "key": "displayCtrl",
+            "overwrite": {
+                "returns": "uiControl"
+            }
+        },
+        {
+            "key": "displayNull",
+            "overwrite": {
+                "returns": "bool"
+            }
+        },
+        {
+            "key": "displaySetEventHandler",
+            "overwrite": {
+                "type": "eventStatement"
+            }
+        },
+        "dissolveTeam",
+        {
+            "key": "doFSM",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
+        "doGetOut",
+        "drawArrow",
+        "drawEllipse",
+        "drawIcon",
+        "drawLine",
+        "drawRectangle",
+        {
+            "key": "echo",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        "effectiveCommander",
+        {
+            "key": "emptyPositions",
+            "overwrite": {
+                "returns": "scalar",
+                "syntax": "<objVehicle> emptyPositions <string>",
+                "example": "_freeCargoPositions = vehicle player emptyPositions \"cargo\";",
+                "docSyntax": "vehicle emptyPositions position",
+                "description": "Returns the number of given positions in the vehicle. Positions can be \"Commander\", \"Driver\", \"Gunner\" or \"Cargo\""
+            }
+        },
+        "enableAI",
+        "enableAttack",
+        "enableEnvironment",
+        "enableReload",
+        "enableTeamSwitch",
+        {
+            "key": "execVM",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
+        {
+            "key": "exitWith",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        "expectedDestination",
+        "exportLandscapeXYZ",
+        "fadeRadio",
+        "find",
+        "findCover",
+        "findDisplay",
+        "findNearestEnemy",
+        "finishMissionInit",
+        "finite",
+        "floor",
+        "fog",
+        "fogForecast",
+        {
+            "key": "for",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        "forceSpeed",
+        "formationDirection",
+        "formationLeader",
+        "formationMembers",
+        "formationPosition",
+        "formationTask",
+        "formatText",
+        "from",
+        "getArray",
+        "getHideFrom",
+        "getNumber",
+        "getPosASL",
+        "getSpeed",
+        "getText",
+        {
+            "key": "getVariable",
+            "overwrite": {
+                "returns": "any", 
+                "syntax": "<string|object> getVariable <string>",
+                "example": "_thePublicVariable = _myTruck getVariable \"myPublicVariable\";",
+                "docSyntax": "varspace getVariable name",
+                "description": "Return the value of variable in the variable space assigned to various data types.",
+                "tags": "[AG] "
+            }
+        },
+        "glanceAt",
+        "halt",
+        "hideBehindScripted",
+        "hideBody",
+        "hierarchyObjectsCount",
+        "htmlLoad",
+        "image",
+        "inGameUISetEventHandler",
+        "inheritsFrom",
+        "initAmbientLife",
+        "intersect",
+        "isArray",
+        "isClass",
+        "isFormationLeader",
+        "isHidden",
+        "isHideBehindScripted",
+        "isKeyActive",
+        "isKindOf",
+        "isMarkedForCollection",
+        "isNil",
+        "isNumber",
+        "isPlayer",
+        "isText",
+        "keyImage",
+        "keyName",
+        "lbIsSelected",
+        "lbSelection",
+        "lbSetSelected",
+        "lightAttachObject",
+        "lightDetachObject",
+        "limitSpeed",
+        "lineBreak",
+        "lookAt",
+        "max",
+        "min",
+        "missionConfigFile",
+        {
+            "key": "modelToWorld",
+            "overwrite": {
+                "returns": "array",
+                "syntax": "<object> modelToWorld <array>",
+                "example": "_aboveAndBehindPlayer = player modelToWorld [0,-1,3];",
+                "docSyntax": "model modelToWorld position",
+                "description": "Translates relative position from object model space into world position."
+            }
+        },
+        "moveInTurret",
+        "moveTarget",
+        "moveTo",
+        "moveToCompleted",
+        "moveToFailed",
+        "nearestObjects",
+        "nearObjects",
+        "needReload",
+        "nextWeatherChange",
+        "onBriefingTeamSwitch",
+        "onPlayerConnected",
+        "onPlayerDisconnected",
+        "overcast",
+        "overcastForecast",
+        "parseNumber",
+        "parseText",
+        "playerRespawnTime",
+        "playerSide",
+        "playMission",
+        "positionCameraToWorld",
+        "posScreenToWorld",
+        "posWorldToScreen",
+        "precision",
+        "preloadCamera",
+        "preloadObject",
+        "preloadSound",
+        "preloadTitleObj",
+        "preloadTitleRsc",
+        "preprocessFileLineNumbers",
+        "processInitCommands",
+        "radioVolume",
+        "rain",
+        "rank",
+        "reload",
+        "reloadEnabled",
+        "removeSwitchableUnit",
+        "respawnVehicle",
+        "round",
+        "runInitScript",
+        "scopeName",
+        "scriptDone",
+        "selectionPosition",
+        "selectLeader",
+        "selectPlayer",
+        "sendSimpleCommand",
+        "setAperture",
+        "setAttributes",
+        "setCameraEffect",
+        "setCameraInterest",
+        "setDate",
+        "setDestination",
+        "setDropInterval",
+        "setEffectCondition",
+        "setFormationTask",
+        "setFriend",
+        "setHideBehind",
+        "setLightAmbient",
+        "setLightBrightness",
+        "setLightColor",
+        "setMarkerBrush",
+        "setMarkerDir",
+        "setMarkerShape",
+        "setMarkerText",
+        "setMousePosition",
+        "setMusicEffect",
+        "setParticleCircle",
+        "setParticleParams",
+        "setParticleRandom",
+        "setPlayable",
+        "setPosASL",
+        "setRank",
+        "setSoundEffect",
+        "setTargetAge",
+        "setTitleEffect",
+        "setTriggerActivation",
+        "setTriggerArea",
+        "setTriggerStatements",
+        "setTriggerText",
+        "setTriggerTimeout",
+        "setTriggerType",
+        "setUnitAbility",
+        "setUnitRank",
+        {
+            "key": "setVariable",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "<string|object> setVariable [<string>,<scalar>]",
+                "example": "_myTruck setVariable [\"myPublicVariable\", 123, true];",
+                "docSyntax": "varspace setVariable [name, value]",
+                "description": "Set variable to given value in the variable space of given element.",
+                "tags": "[AG] [EL] "
+            }
+        },
+        "setVectorDir",
+        "setVectorUp",
+        "setVehicleAmmo",
+        "setVehicleArmor",
+        "setVehicleId",
+        "setVehicleInit",
+        "setVehicleLock",
+        "setVehiclePosition",
+        "setVehicleVarName",
+        "setWaypointBehaviour",
+        "setWaypointCombatMode",
+        "setWaypointDescription",
+        "setWaypointFormation",
+        "setWaypointHousePosition",
+        "setWaypointPosition",
+        "setWaypointScript",
+        "setWaypointSpeed",
+        "setWaypointStatements",
+        "setWaypointTimeout",
+        "setWaypointType",
+        "showWaypoint",
+        "sleep",
+        {
+            "key": "spawn",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
+        "step",
+        "str",
+        "supportInfo",
+        {
+            "key": "surfaceIsWater",
+            "overwrite": {
+                "returns": "bool", 
+                "syntax": "surfaceIsWater <array>", 
+                "example": "_isWater = surfaceIsWater [1000, 3000];",
+                "docSyntax": "surfaceIsWater position",
+                "description": "Returns whether water is at given position."
+            }
+        },
+        "surfaceType",
+        {
+            "key": "switch",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        "switchableUnits",
+        "synchronizeWaypoint",
+        "synchronizeWaypoint trigger",
+        "teamSwitch",
+        "teamSwitchEnabled",
+        "terminate",
+        "text",
+        {
+            "key": "throw",
+            "overwrite": {
+                "type": "exceptionHandling"
+            }
+        },
+        "to",
+        "triggerAttachObject",
+        "triggerAttachVehicle",
+        {
+            "key": "try",
+            "overwrite": {
+                "type": "exceptionHandling"
+            }
+        },
+        "typeName",
+        "unassignTeam",
+        "unitPos",
+        "vectorDir",
+        "vectorUp",
+        "vehicles",
+        "vehicleVarName",
+        "verifySignature",
+        "waitUntil",
+        "waypointAttachObject",
+        "waypointAttachVehicle",
+        "weaponDirection",
+        "wind",
+        "worldName",
+        "worldToModel"
+    ],
+    "1.04": [
+        "createMarkerLocal",
+        "deleteMarkerLocal",
+        "markerDir",
+        "markerText",
+        "setMarkerBrushLocal",
+        "setMarkerColorLocal",
+        "setMarkerDirLocal",
+        "setMarkerPosLocal",
+        "setMarkerShapeLocal",
+        "setMarkerSizeLocal",
+        "setMarkerTextLocal",
+        "setMarkerTypeLocal",
+        "setUnitPosWeak"
+    ],
+    "1.05": [
+        "addVehicle",
+        "assignedVehicle",
+        "assignedVehicleRole",
+        "ctrlMapScreenToWorld",
+        "ctrlMapWorldToScreen",
+        "cutFadeOut",
+        "difficultyEnabled",
+        "distributionRegion",
+        "setCurrentWaypoint",
+        "titleFadeOut",
+        "waypoints"
+    ],
+    "1.06": [
+        "isServer",
+        "joinSilent"
+    ],
+    "1.07": [
+        "nearTargets"
+    ],
+    "1.08": [
+        "airportSide",
+        "assignToAirport",
+        "attachedObject",
+        "attachObject",
+        "clearVehicleInit",
+        "createLocation",
+        "createMissionDisplay",
+        "deleteLocation",
+        "drawLocation",
+        "importance",
+        "landAt",
+        "lbSort",
+        "lbSortByValue",
+        "locationPosition",
+        "nearestLocation",
+        "nearestLocations",
+        "rectangular",
+        "setAirportSide",
+        "setDirection",
+        "setImportance",
+        "setName",
+        "setPosition",
+        "setRectangular",
+        "setSide",
+        "setSize",
+        "setText",
+        "setType",
+        "size",
+        "sizeOf",
+        "type"
+    ],
+    "1.09": [
+        "addPublicVariableEventHandler",
+        "setVectorDirAndUp",
+        "toArray",
+        "toLower",
+        "toString",
+        "toUpper"
+    ],
+    "1.11": [
+        "removeClothing"
+    ]
+}

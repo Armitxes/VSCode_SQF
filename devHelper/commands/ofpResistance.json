@@ -1,1 +1,122 @@
-{}
+{
+    "docs": "https://community.bistudio.com/wiki/Category:Introduced_with_Operation_Flashpoint:_Resistance",
+    "1.75": [
+        "addMagazinePool",
+        "addWeaponPool",
+        "animate",
+        "animationPhase",
+        "cheatsEnabled",
+        "clearMagazinePool",
+        "clearWeaponPool",
+        "deleteIdentity",
+        "deleteStatus",
+        "drop",
+        "fillWeaponsFromPool",
+        "loadIdentity",
+        "loadStatus",
+        "magazines",
+        "object",
+        "onBriefingGear",
+        "onBriefingGroup",
+        "onBriefingNotes",
+        "onBriefingPlan",
+        "pickWeaponPool",
+        "primaryWeapon",
+        "putWeaponPool",
+        "queryMagazinePool",
+        "queryWeaponPool",
+        "resize",
+        "saveIdentity",
+        "saveStatus",
+        "secondaryWeapon",
+        "set",
+        "setObjectTexture",
+        "setRain",
+        "setSkill",
+        "setTerrainGrid",
+        "skill",
+        "weapons"
+    ],
+    "1.78": [
+        "dialog",
+        "enemy",
+        "friendly",
+        "sideEnemy",
+        "sideFriendly"
+    ],
+    "1.80": [
+        "missionName",
+        "missionStart",
+        "playersNumber",
+        "setVelocity",
+        "velocity"
+    ],
+    "1.85": [
+        "addEventHandler",
+        {
+            "key": "call",
+            "overwrite": {
+                "type": "executionStatement"
+            }
+        },
+        "comment",
+        {
+            "key": "do",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        {
+            "key": "else",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        {
+            "key": "if",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        "onMapSingleClick",
+        "preprocessFile",
+        "removeAllEventHandlers",
+        "removeEventHandler",
+        "sliderPosition",
+        "sliderRange",
+        "sliderSetPosition",
+        "sliderSetRange",
+        {
+            "key": "sliderSetSpeed",
+            "overwrite": {
+                "returns": "void",
+                "syntax": "sliderSetSpeed [<scalar>,<scalar>,<scalar>]",
+                "syntax2": "<uiControl> sliderSetSpeed [<scalar>,<scalar>]",
+                "example": "sliderSetSpeed [101, 0.5, 2];",
+                "docSyntax": "sliderSetSpeed [idc,line,page] or uiControl sliderSetSpeed [line, page]",
+                "description": "Set speed of slider with id idc of topmost user dialog.",
+                "tags": "[AL] [EG] "
+            }
+        },
+        "sliderSpeed",
+        {
+            "key": "then",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        },
+        {
+            "key": "while",
+            "overwrite": {
+                "type": "controlStatement"
+            }
+        }
+    ],
+    "1.90": [
+        "engineOn",
+        "isEngineOn",
+        "loadFile",
+        "sideLogic",
+        "typeOf"
+    ]
+}
