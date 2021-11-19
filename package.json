@@ -182,6 +182,7 @@
 		]
 	},
 	"scripts": {
+    "update-commands": "node ./devHelper/getCommands.js",
 		"update-vscode": "node ./node_modules/vscode/bin/install"
 	},
 	"dependencies": {
@@ -190,6 +191,8 @@
 	},
 	"devDependencies": {
 		"node-fetch": "^2.6.6",
-		"node-html-parser": "^5.1.0"
+		"node-html-parser": "^5.1.0",
+		"xmldom": "^0.6.0",
+		"xpath": "0.0.32"
 	}
 }
