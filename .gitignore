@@ -3,3 +3,4 @@
 *.sqf
 devHelper/output/
 node_modules/
+sqf-*.vsix
