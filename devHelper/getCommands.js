@@ -72,7 +72,7 @@ class RequestQueue {
         retries++;
       }
       if (retries >= 10) {
-        this.#errors.push({ error: 'Request timed out', url, res })
+        this.#errors.push({ error: 'Request timed out', url, res });
         reject(new Error(`Request timed out with ${retries} retries!\nurl: ${url}`));
       }
       resolve(await res.json());
@@ -150,7 +150,7 @@ const fetch = params => requestQueue.fetch(params);
                 console.log(`- ${game} | ${version} | ${command}`);
 
                 const currCommand = currGameCommands[command];
-                if (currCommand?.timestamp && (new Date(currCommand.timestamp) - new Date(timestamp)) >= 0) {
+                if (currCommand?.timestamp && new Date(currCommand.timestamp) - new Date(timestamp) >= 0) {
                   return currCommand;
                 }
 
@@ -185,22 +185,24 @@ const fetch = params => requestQueue.fetch(params);
                   };
                   const commandDoc = new DOMParser().parseFromString(parsetree);
 
-                  const tags = Array.from(new Set([
-                    ...xpath
-                      .select('//name[starts-with(., "serverExec")]', commandDoc)
-                      .map(e => (formatText(e?.nextSibling?.nextSibling?.textContent ?? '').toLowerCase() === 'server' ? '[SE]' : null))
-                      .filter(Boolean),
-                    ...xpath
-                      .select('//name[starts-with(., "arg")]', commandDoc)
-                      .map(e => formatText(e?.nextSibling?.nextSibling?.textContent ?? '').toLowerCase())
-                      .filter(e => ['local', 'global'].includes(e))
-                      .map(e => (e === 'local' ? '[AL]' : '[AG]')),
-                    ...xpath
-                      .select('//name[starts-with(., "eff")]', commandDoc)
-                      .map(e => formatText(e?.nextSibling?.nextSibling?.textContent ?? '').toLowerCase())
-                      .filter(e => ['local', 'global'].includes(e))
-                      .map(e => (e === 'local' ? '[EL]' : '[EG]')),
-                  ])).join(' ');
+                  const tags = Array.from(
+                    new Set([
+                      ...xpath
+                        .select('//name[starts-with(., "serverExec")]', commandDoc)
+                        .map(e => (formatText(e?.nextSibling?.nextSibling?.textContent ?? '').toLowerCase() === 'server' ? '[SE]' : null))
+                        .filter(Boolean),
+                      ...xpath
+                        .select('//name[starts-with(., "arg")]', commandDoc)
+                        .map(e => formatText(e?.nextSibling?.nextSibling?.textContent ?? '').toLowerCase())
+                        .filter(e => ['local', 'global'].includes(e))
+                        .map(e => (e === 'local' ? '[AL]' : '[AG]')),
+                      ...xpath
+                        .select('//name[starts-with(., "eff")]', commandDoc)
+                        .map(e => formatText(e?.nextSibling?.nextSibling?.textContent ?? '').toLowerCase())
+                        .filter(e => ['local', 'global'].includes(e))
+                        .map(e => (e === 'local' ? '[EL]' : '[EG]')),
+                    ])
+                  ).join(' ');
                   errorData.tags = tags;
 
                   const description = formatText(xpath.select('//name[starts-with(., "descr")]', commandDoc).shift()?.nextSibling?.nextSibling?.textContent ?? '').replace(
@@ -264,20 +266,19 @@ const fetch = params => requestQueue.fetch(params);
                   }
 
                   return {
-                    key: command,
-                    overwrite: {
-                      timestamp,
-                      syntax,
-                      docSyntax,
-                      tags,
-                      description,
-                      example: (/<code>(?<code>.+)<\/code>/.exec(example)?.groups?.code ?? example).replace(/<(\w+)>/g, '$1'),
-                      params: params
-                        .map(p => p?.type?.toLowerCase())
-                        .filter(Boolean)
-                        .join(' '),
-                      returns: allReturns.length > 1 ? allReturns.join(' | ') : primaryReturn,
-                    },
+                    command,
+                    timestamp,
+                    version,
+                    syntax,
+                    docSyntax,
+                    tags,
+                    description,
+                    example: (/<code>(?<code>.+)<\/code>/.exec(example)?.groups?.code ?? example).replace(/<(\w+)>/g, '$1'),
+                    params: params
+                      .map(p => p?.type?.toLowerCase())
+                      .filter(Boolean)
+                      .join(' '),
+                    returns: allReturns.length > 1 ? allReturns.join(' | ') : primaryReturn,
                   };
                 } catch (error) {
                   commandErrors.push({ ...cat, error: `${error.name} :: ${error.message}`, parsetree, errorData });
@@ -306,7 +307,10 @@ const fetch = params => requestQueue.fetch(params);
           }
           return {
             ...acc,
-            ...gameCommands[key].reduce((cmdsMap, cmd) => (cmd?.key ? { ...cmdsMap, [cmd.key]: { ...cmd.overwrite, command: cmd.key, version: key } } : cmdsMap), {})
+            ...gameCommands[key].reduce(
+              (cmdsMap, cmd) => (cmd?.command ? { ...cmdsMap, [cmd.command]: { ...cmd } } : typeof cmd === 'string' ? { ...cmdsMap, [cmd]: { command: cmd } } : cmdsMap),
+              {}
+            ),
           };
         }, {});
 
