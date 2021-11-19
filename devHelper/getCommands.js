@@ -107,7 +107,7 @@ const fetch = params => requestQueue.fetch(params);
               format: 'json',
               list: 'categorymembers',
               cmtitle: a.getAttribute('href').split('/wiki/').pop(),
-              cmprop: 'ids|title|type',
+              cmprop: 'ids|title|type|timestamp',
               cmtype: 'page|subcat|file',
               cmlimit: '500',
             }),
@@ -116,6 +116,7 @@ const fetch = params => requestQueue.fetch(params);
         {}
       );
 
+      const currGameCommands = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'devHelper/commands', `${game}.json`), 'utf8'));
       const gameCommands = { docs: `${WIKI_BASE_URL}/wiki/${introducedInGamesCategoryMap[game]}` };
       await Promise.all(
         Object.keys(introducedInVersionMap).map(async version => {
@@ -128,7 +129,7 @@ const fetch = params => requestQueue.fetch(params);
               format: 'json',
               list: 'categorymembers',
               cmtitle: introducedInVersionMap[version].title,
-              cmprop: 'ids|title|type',
+              cmprop: 'ids|title|type|timestamp',
               cmtype: 'page|subcat|file',
               cmlimit: '500',
               ...cmdContinue,
@@ -140,13 +141,18 @@ const fetch = params => requestQueue.fetch(params);
 
           const commands = categoryMembers
             .filter(cat => cat.type === 'page' && !cat.title.includes(':'))
-            .map(cat => ({ command: cat.title.replace(/[ ]+/g, '_'), pageId: cat.pageid }))
+            .map(cat => ({ command: cat.title.replace(/[ ]+/g, '_'), pageId: cat.pageid, timestamp: cat.timestamp }))
             .sort((a, b) => a.command.localeCompare(b.command, undefined, { sensitivity: 'base' }));
           gameCommands[version] = await Promise.all(
             commands
               .map(async cat => {
-                const { command, pageId } = cat;
+                const { command, pageId, timestamp } = cat;
                 console.log(`- ${game} | ${version} | ${command}`);
+
+                const currCommand = currGameCommands[command];
+                if (currCommand?.timestamp && (new Date(currCommand.timestamp) - new Date(timestamp)) >= 0) {
+                  return currCommand;
+                }
 
                 const pageParams = new URLSearchParams({
                   action: 'parse',
@@ -260,6 +266,7 @@ const fetch = params => requestQueue.fetch(params);
                   return {
                     key: command,
                     overwrite: {
+                      timestamp,
                       syntax,
                       docSyntax,
                       tags,
@@ -293,9 +300,18 @@ const fetch = params => requestQueue.fetch(params);
           const [, bVer] = /(\d+\.\d+)/.exec(b);
           return Number.parseFloat(aVer) - Number.parseFloat(bVer);
         })
-        .reduce((acc, key) => (gameCommands[key].length ? { ...acc, [key]: gameCommands[key] } : acc), {});
+        .reduce((acc, key) => {
+          if (key === 'docs' || !gameCommands[key].length) {
+            return acc;
+          }
+          return {
+            ...acc,
+            ...gameCommands[key].reduce((cmdsMap, cmd) => (cmd?.key ? { ...cmdsMap, [cmd.key]: { ...cmd.overwrite, command: cmd.key, version: key } } : cmdsMap), {})
+          };
+        }, {});
 
       fs.writeFileSync(path.join(process.cwd(), 'devHelper/commands', `${game}.json`), JSON.stringify(gameCommandsSorted, null, 2), 'utf8');
+      fs.writeFileSync(path.join(process.cwd(), 'devHelper/output', `${game}.min.json`), JSON.stringify(gameCommandsSorted), 'utf8');
     })
   );
   console.log(`Total command errors: ${commandErrors.length}`);
