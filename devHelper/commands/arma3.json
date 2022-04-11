@@ -2775,7 +2775,12 @@
         "ctrlSetScrollValues",
         "ctrlSetTextSelection",
         "ctrlTextSelection",
-        "diag_allMissionEventHandlers",
+        {
+            "key": "diag_allMissionEventHandlers",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
         "diaryRecordNull",
         "elevatePeriscope",
         "getAllUnitTraits",
@@ -2803,5 +2808,208 @@
         "systemTimeUTC",
         "unitTurret",
         "waypointLoiterAltitude"
+    ],
+    "2.02": [
+        "addBinocularItem",
+        "binocularItems",
+        "binocularMagazine",
+        "break",
+        "breakWith",
+        "compileScript",
+        "continue",
+        "continueWith",
+        "createHashMap",
+        "createHashMapFromArray",
+        "ctrlFontHeight",
+        "ctrlSetMousePosition",
+        "ctrlSetURL",
+        "ctrlStyle",
+        "ctrlTextColor",
+        "ctrlTooltip",
+        "ctrlURL",
+        {
+            "key": "diag_exportConfig",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_exportTerrainSVG",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_scope",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        "fileExists",
+        "flatten",
+        "forceCadetDifficulty",
+        "forceUnicode",
+        "get",
+        "getAllPylonsInfo",
+        "getObjectScale",
+        "getOrDefault",
+        "getPlayerID",
+        "getTextRaw",
+        "HashMap",
+        "import",
+        "insert",
+        "isNotEqualTo",
+        "keys",
+        "markerChannel",
+        "markerPolyline",
+        "menuSetShortcut",
+        "menuSetText",
+        "menuSetURL",
+        "merge",
+        "missionNameSource",
+        "removeAllBinocularItems",
+        "removeAllSecondaryWeaponItems",
+        "removeBinocularItem",
+        "setMarkerPolyline",
+        "setMarkerPolylineLocal",
+        "setObjectScale",
+        "setUnitCombatMode",
+        "trim",
+        "tvIsSelected",
+        "tvSelection",
+        "tvSetSelected",
+        "tvSortAll",
+        "tvSortByValueAll",
+        "unitCombatMode"
+    ],
+    "2.04": [
+        "allDiarySubjects",
+        "apertureParams",
+        "combatBehaviour",
+        {
+            "key": "diag_dumpTerrainSynth",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_getTerrainGrid",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_getTerrainHeight",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_getTerrainSegmentOffset",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_localized",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        "environmentVolume",
+        "fadeEnvironment",
+        "focusedCtrl",
+        "markerShadow",
+        "openGPS",
+        "ropeSegments",
+        "setCombatBehaviour",
+        "setDiarySubjectPicture",
+        "setMarkerShadow",
+        "setMarkerShadowLocal",
+        "setWeaponZeroing",
+        "speechVolume",
+        "taskName",
+        "values"
+    ],
+    "2.06": [
+        "addUserActionEventHandler",
+        "allLODs",
+        "allUsers",
+        "ambientTemperature",
+        "canDeployWeapon",
+        "conversationDisabled",
+        "ctrlBackgroundColor",
+        "ctrlForegroundColor",
+        "ctrlMapSetPosition",
+        "ctrlSetTooltipMaxWidth",
+        {
+            "key": "diag_setTerrainHeight",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        {
+            "key": "diag_stacktrace",
+            "overwrite": {
+                "type": "diagnoseStatement"
+            }
+        },
+        "directionStabilizationEnabled",
+        "displayChild",
+        "enableDirectionStabilization",
+        "gestureState",
+        "getCruiseControl",
+        "getDebriefingText",
+        "getSensorTargets",
+        "getSensorThreats",
+        "getTextureInfo",
+        "getUserInfo",
+        "hashValue",
+        "lbSortBy",
+        "lbTooltip",
+        "lnbSortBy",
+        "missionEnd",
+        "radioEnabled",
+        "regexFind",
+        "regexMatch",
+        "regexReplace",
+        "removeAllUserActionEventHandlers",
+        "removeUserActionEventHandler",
+        "selectionVectorDirAndUp",
+        "sentencesEnabled",
+        "serverNamespace",
+        "setCruiseControl",
+        "setLightConePars",
+        "setLightIR",
+        "setLightVolumeShape",
+        "setTowParent",
+        "shownSubtitles",
+        "uniqueUnitItems",
+        "weaponReloadingTime"
+    ],
+    "2.08": [
+        "allEnv3DSoundSources",
+        "awake",
+        "brakesDisabled",
+        "collisionDisabledWith",
+        "ctrlMapPosition",
+        "disableBrakes",
+        "drawLaser",
+        "getAllEnv3DSoundControllers",
+        "getConnectedUAVUnit",
+        "getEnv3DSoundController",
+        "getPiPViewDistance",
+        "inputController",
+        "inputMouse",
+        "isAllowedCrewInImmobile",
+        "isAwake",
+        "isSaving",
+        "lockedCameraTo",
+        "maxLoad",
+        "pose",
+        "rainParams",
+        "setHumidity",
+        "setMaxLoad",
+        "setPiPViewDistance"
     ]
 }
