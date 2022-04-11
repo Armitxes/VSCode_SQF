@@ -1,23 +1,23 @@
 {
 	"name": "sqf",
 	"displayName": "SQF Language",
-	"description": "Full SQF Language support for VS Code.",
+	"description": "Full SQF Language support for VS Code. Forked from https://github.com/Armitxes/VSCode_SQF",
 	"icon": "img/logo.png",
-	"version": "2.0.3",
-	"publisher": "Armitxes",
+	"version": "2.0.4",
+	"publisher": "blackfisch",
 	"galleryBanner": {
 		"color": "#647e99",
 		"theme": "dark"
 	},
 	"license": "CC-BY-NC-SA-4.0",
 	"bugs": {
-		"url": "https://github.com/Armitxes/VSCode_SQF/issues",
-		"email": "4rmitxes@gmail.com"
+		"url": "https://github.com/blackfisch/VSCode_SQF/issues",
+		"email": "blackfisch@blackfisch.me"
 	},
 	"homepage": "https://armitxes.net/Projects/VSCodeSQF/",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Armitxes/VSCode_SQF.git"
+		"url": "https://github.com/blackfisch/VSCode_SQF.git"
 	},
 	"categories": [
 		"Programming Languages",

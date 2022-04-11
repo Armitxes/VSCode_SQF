@@ -31,12 +31,9 @@ exports.onHover = (params) => {
 
 		if (cmds.hasOwnProperty(hoverWord)) {
             let cmd = cmds[hoverWord];
-            let hoverVal = '';
-            if (cmd.server) { hoverVal += '[SE] ' };
-            if (cmd.local) { hoverVal += '[AL] ' } else { hoverVal += '[AG] ' };
-            if (cmd.broadcasted) {hoverVal += '[EG] '} else { hoverVal += '[EL] ' };
+            let hoverVal = cmd.tags;
 
-            hoverVal += '\n'
+			if (hoverVal != "") {hoverVal += '\n'}
 			if (cmd.description != '') { hoverVal += cmd.description + '\n\r'; }
 			if (cmd.docSyntax != '') { hoverVal += cmd.docSyntax + '\n'; }
 			if (cmd.example != '') { hoverVal += cmd.example; }

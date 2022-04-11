@@ -2,3 +2,4 @@
 *.vscode
 *.sqf
 devHelper/output/
+node_modules/
