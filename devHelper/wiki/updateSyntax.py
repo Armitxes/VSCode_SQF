@@ -16,7 +16,7 @@ class SyntaxUpdater:
     path = path.dirname(path.realpath(__file__))
 
     def start(self, dir: str = None):
-        if path:
+        if dir:
             self.path = dir
 
         with open(path.join(self.path, '..', 'syntaxes', 'sqf.min.json'), 'r') as file:

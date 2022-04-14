@@ -6,6 +6,7 @@ File: getCommands.py
 TODO
 '''
 
+import re
 import json
 import requests
 from os import path
@@ -15,20 +16,27 @@ from wiki.games import GAMES
 
 
 class CommandQuery:
-    baseUri = 'https://community.bistudio.com/wiki/Category:Introduced_with'
+    baseUri = 'https://community.bistudio.com/wiki/Category:'
     path = path.dirname(path.realpath(__file__))
+    invalid_commands = r'(.*(\W|greater|_hash_|_less_|_or_|_and_).*)|^((call|spawn)|(then|do|else|exit|exitWith|for|forEach|if|return|switch|case|default|while|from|to|step|forEachMember|forEachMemberAgent|forEachMemberTeam|breakOut|breakTo)|(player|cursorTarget|cursorObject)|(this|_this|_x|_y|_forEachIndex|_exception|_thisEvent|_thisScript|_thisFSM|thisList|thisTrigger|west|east|resistance|civilian|independent|blufor|opfor)|(get|set|select|getOrDefault|#|insert)|(compile|compileFinal|exec|execFSM|execVM|callExtension)|(null|nil|controlNull|displayNull|grpNull|locationNull|netObjNull|objNull|scriptNull|taskNull|teamMemberNull|configNull)|(private)|(true|false))$'
 
     def parse(self, version: str, res: requests.Response):
         cmds = []
+        skipped = 0
 
         for item in pq(res.text)('div.mw-category ul li').items():
             item = item.text().replace(' ', '_')
+            if re.match(self.invalid_commands, item):
+                skipped += 1
+                continue
             cmds.append(item)
 
         if not cmds:
             return
 
         self.fjson[version] = cmds
+
+        print(f'{len(cmds)} commands found; {skipped} skipped')
 
     def _json_output(self, game: str):
         """Stores the crawl result into a JSON file"""
@@ -38,27 +46,28 @@ class CommandQuery:
         with open(cfile, 'w+') as jsonFile:
             json.dump(self.fjson, jsonFile, indent=4)
 
-    def start(self, game: str, min: str, max: str, path: str = None):
+    def start(self, game: str, path: str = None):
         gamename = GAMES.get(game, 'ERROR')
-        current = min
         api_base = f'{self.baseUri}_{gamename}'
+        apis = {
+            'CMD': f'{api_base}:_Scripting_Commands',
+            'FNC': f'{api_base}:_Functions'
+        }
+
         self.fjson = {
-            'docs': api_base
+            'docs': apis
         }
 
         if path:
             self.path = path
 
-        while float(current) <= float(max):
-            req = requests.get(f'{api_base}_version_{current}')
+        for type, url in apis.items():
+            req = requests.get(url)
             if req.ok:
-                self.parse(current, req)
+                self.parse(type, req)
             else:
                 print(
-                    f'Entry for {gamename} version {current} not found, skipping...')
-
-            # increment by 0.02
-            current = '%.2f' % (float(current) + 0.02)
+                    f'Entry for {gamename} "{url}" not found, skipping...')
 
         self._json_output(game)
 
@@ -70,10 +79,6 @@ if (__name__ == '__main__'):
                         choices=GAMES.keys(), help=f'Game to fetch commands for. Valid options: {list(GAMES.keys())}')
     parser.add_argument('--all', action='store_true',
                         help='Fetch all games')
-    parser.add_argument('--min', type=str, nargs='?',
-                        const='min', default='0.50', help='Minimum ARMA 3 version')
-    parser.add_argument('--max', type=str, nargs='?',
-                        const='max', default='2.08', help='Maximum ARMA 3 version')
 
     args = parser.parse_args()
     if not (args.all or args.game):
@@ -83,6 +88,6 @@ if (__name__ == '__main__'):
 
     if args.all:
         for game in GAMES.keys():
-            CommandQuery().start(game, args.min, args.max)
+            CommandQuery().start(game)
     else:
-        CommandQuery().start(args.game, args.min, args.max)
+        CommandQuery().start(args.game)

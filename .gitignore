@@ -6,6 +6,7 @@ devHelper/output/*
 
 .*
 !.git*
+!shared/commands/json/*.min.json
 
 ##########
 # VSCode #
@@ -131,9 +132,9 @@ celerybeat.pid
 # Environments
 .env
 .venv
-env/
+# env/
 venv/
-ENV/
+# ENV/
 env.bak/
 venv.bak/
 
