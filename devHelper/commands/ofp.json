@@ -1,9 +1,22 @@
 {
-    "docs": [
-        "https://community.bistudio.com/wiki/Category:Introduced_with_Operation_Flashpoint",
-        "https://community.bistudio.com/wiki/Category:Introduced_with_Operation_Flashpoint_version_%3F"
-    ],
+    "docs": "https://community.bistudio.com/wiki/Category:Introduced_with_Operation_Flashpoint",
     "1.00": [
+        "!_a",
+        "+",
+        "-",
+        "a_!=_b",
+        "a_%_b",
+        "a_&&_b",
+        "a_*_b",
+        "a_/_b",
+        "a_=_b",
+        "a_==_b",
+        "a_greater_b",
+        "a_greater=_b",
+        "a_less_b",
+        "a_less=_b",
+        "a_or_b",
+        "a_^_b",
         "abs",
         "accTime",
         "acos",
@@ -50,12 +63,7 @@
         "canMove",
         "canStand",
         "captive",
-        {
-            "key": "civilian",
-            "overwrite": {
-                "returns": "objSide"
-            }
-        },
+        "civilian",
         "clearMagazineCargo",
         "clearWeaponCargo",
         "combatMode",
@@ -77,7 +85,7 @@
         "cutObj",
         "cutRsc",
         "cutText",
-        "daytime",
+        "dayTime",
         "debugLog",
         "deg",
         "direction",
@@ -91,31 +99,16 @@
         "doTarget",
         "doWatch",
         "driver",
-        {
-            "key": "east",
-            "overwrite": {
-                "returns": "objSide"
-            }
-        },
+        "east",
         "enableEndDialog",
         "enableRadio",
-        {
-            "key": "exec",
-            "overwrite": {
-                "type": "executionStatement"
-            }
-        },
+        "exec",
         "exit",
         "exp",
         "fadeMusic",
+        "fadeRadio",
         "fadeSound",
-        {
-            "key": "false",
-            "overwrite": {
-                "returns": "bool",
-                "type": "boolLiteral"
-            }
-        },
+        "false",
         "fire",
         "flag",
         "flagOwner",
@@ -175,26 +168,11 @@
         "or",
         "orderGetIn",
         "pi",
-        {
-            "key": "player",
-            "overwrite": {
-                "returns": "objUnit",
-                "syntax": "player",
-                "example": "player addRating 500;",
-                "docSyntax": "player",
-                "description": "Returns the unit controlled by the local user / player.",
-                "type": "objUnit"
-            }
-        },
+        "player",
         "playMove",
         "playMusic",
         "playSound",
-        {
-            "key": "private",
-            "overwrite": {
-                "type": "accessModifier"
-            }
-        },
+        "private",
         "rad",
         "random",
         "rating",
@@ -202,15 +180,9 @@
         "removeMagazine",
         "removeMagazines",
         "removeWeapon",
-        {
-            "key": "resistance",
-            "overwrite": {
-                "returns": "objSide"
-            }
-        },
+        "resistance",
         "reveal",
         "saveGame",
-        "saveVar",
         "say",
         "score",
         "select",
@@ -218,17 +190,7 @@
         "setAmmoCargo",
         "setBehaviour",
         "setCaptive",
-        {
-            "key": "setCombatMode",
-            "overwrite": {
-                "returns": "void",
-                "syntax": "<objGroup> setCombatMode <'Blue'|'Green'|'White'|'Yellow'|'Red'>",
-                "example": "_group1 setCombatMode \"BLUE\";",
-                "docSyntax": "groupName setCombatMode mode",
-                "description": "Set group combat mode (engagement rules). Modes: Blue, Green, White, Yellow and Red",
-                "tags": "[AL] [EG] "
-            }
-        },
+        "setCombatMode",
         "setDammage",
         "setDir",
         "setFace",
@@ -283,162 +245,28 @@
         "switchLight",
         "switchMove",
         "tan",
-        {
-            "key": "textLog",
-            "overwrite": {
-                "returns": "void",
-                "syntax": "textLog <any>",
-                "example": "textLog player",
-                "docSyntax": "textLog anything",
-                "description": "Dump argument value to debugging output."
-            }
-        },
+        "textLog",
         "tg",
         "time",
         "titleCut",
         "titleObj",
         "titleRsc",
         "titleText",
-        {
-            "key": "true",
-            "overwrite": {
-                "returns": "bool",
-                "type": "boolLiteral"
-            }
-        },
+        "true",
         "unassignVehicle",
         "unitReady",
         "units",
         "vehicle",
         "vehicleRadio",
-        {
-            "key": "west",
-            "overwrite": {
-                "returns": "objSide"
-            }
-        }
-    ],
-    "1.04": [
-        "inflamed",
-        "lightIsOn"
-    ],
-    "1.10": [
-        "addAction"
-    ],
-    "1.20": [
-        "removeAction"
-    ],
-    "1.21": [
-        "getMarkerColor",
-        "getMarkerSize",
-        "getMarkerType",
-        "getWPPos",
-        "requiredVersion",
-        "setMarkerColor",
-        "setMarkerSize",
-        "setWPPos"
-    ],
-    "1.27": [
-        "forceMap",
-        "mapAnimAdd",
-        "mapAnimClear",
-        "mapAnimCommit",
-        "mapAnimDone",
-        "selectWeapon"
-    ],
-    "1.30": [
-        "scudState"
+        "west"
     ],
     "1.34": [
-        {
-            "key": "createUnit",
-            "overwrite": {
-                "returns": "objUnit"
-            }
-        },
-        {
-            "key": "createVehicle",
-            "overwrite": {
-                "returns": "objVehicle"
-            }
-        },
+        "createUnit",
+        "createVehicle",
         "deleteVehicle",
-        "estimatedTimeLeft",
         "join",
         "publicVariable",
         "sideChat",
         "vehicleChat"
-    ],
-    "1.46": [
-        "markerColor",
-        "markerPos"
-    ],
-    "1.99": [
-        "find",
-        "getPosASL",
-        "getWorld",
-        "isServer",
-        "setPosASL"
-    ],
-    "0.00": [
-        {
-            "key": "buttonAction",
-            "overwrite": {
-                "returns": "string",
-                "syntax": "buttonSetAction [<scalar>, <code|function>]",
-                "example": "buttonSetAction [100, {player execVM \"reply.sqf\"}] _action = buttonAction 100",
-                "docSyntax": "buttonAction idc",
-                "description": "Return the action assigned to a control of the currently active user dialog.",
-                "tags": "[AL] "
-            }
-        },
-        "buttonSetAction",
-        "closeDialog",
-        "createDialog",
-        "ctrlEnable",
-        "ctrlEnabled",
-        "ctrlSetText",
-        "ctrlShow",
-        "ctrlText",
-        "ctrlVisible",
-        "damage",
-        "lbAdd",
-        "lbClear",
-        "lbColor",
-        "lbColorRight",
-        "lbCurSel",
-        "lbData",
-        "lbDelete",
-        "lbPicture",
-        "lbPictureRight",
-        "lbSetColor",
-        "lbSetColorRight",
-        "lbSetCurSel",
-        "lbSetData",
-        {
-            "key": "lbSetPicture",
-            "overwrite": {
-                "returns": "void",
-                "syntax": "lbSetPicture [<scalar>, <scalar>, <string>]",
-                "syntax2": "<uiControl> lbSetPicture [<scalar>,<string>]",
-                "example": "lbSetPicture [101, 0, \"iskoda\"];",
-                "docSyntax": "lbSetPicture [idc, index, name] or uiControl lbSetPicture [index, name]",
-                "description": "Sets a picture for an listbox item displayed to its left.",
-                "tags": "[AL] [EL] "
-            }
-        },
-        "lbSetPictureRight",
-        "lbSetText",
-        "lbSetTextRight",
-        "lbSetValue",
-        "lbSize",
-        "lbText",
-        "lbTextRight",
-        "lbValue",
-        "markerSize",
-        "markerType",
-        "position",
-        "setDamage",
-        "waypointPosition"
     ]
 }
