@@ -3,7 +3,7 @@
 	"displayName": "SQF Language Updated",
 	"description": "Full SQF Language support for VS Code. Forked and updated from https://github.com/Armitxes/VSCode_SQF",
 	"icon": "img/logo.png",
-	"version": "2.0.5",
+	"version": "2.0.6",
 	"publisher": "blackfisch",
 	"galleryBanner": {
 		"color": "#647e99",
@@ -36,18 +36,14 @@
 		"vscode": "^1.26.0"
 	},
 	"contributes": {
-		"breakpoints": [
-			{
-				"language": "sqf"
-			}
-		],
-		"commands": [
-			{
-				"command": "sqf.browseCommandDocs",
-				"title": "SQF: Open Command Documentation",
-				"category": "Documentation"
-			}
-		],
+		"breakpoints": [{
+			"language": "sqf"
+		}],
+		"commands": [{
+			"command": "sqf.browseCommandDocs",
+			"title": "SQF: Open Command Documentation",
+			"category": "Documentation"
+		}],
 		"configuration": {
 			"type": "object",
 			"title": "SQF Language",
@@ -112,16 +108,13 @@
 				"editor.autoClosingBrackets": "always"
 			}
 		},
-		"debuggers": [
-			{
-				"type": "sqf",
-				"label": "SQF Debugger",
-				"program": "./env/client/provider/debugAdapter.js",
-				"runtime": "node"
-			}
-		],
-		"grammars": [
-			{
+		"debuggers": [{
+			"type": "sqf",
+			"label": "SQF Debugger",
+			"program": "./env/client/provider/debugAdapter.js",
+			"runtime": "node"
+		}],
+		"grammars": [{
 				"language": "sqf",
 				"scopeName": "source.sqf",
 				"path": "./syntaxes/sqf.min.json"
@@ -132,8 +125,7 @@
 				"path": "./syntaxes/ext.min.json"
 			}
 		],
-		"languages": [
-			{
+		"languages": [{
 				"id": "sqf",
 				"aliases": [
 					"SQF",
@@ -159,27 +151,21 @@
 			}
 		],
 		"menus": {
-			"editor/context": [
-				{
-					"command": "sqf.browseCommandDocs",
-					"when": "editorHasSelection && editorLangId == 'sqf'"
-				}
-			],
+			"editor/context": [{
+				"command": "sqf.browseCommandDocs",
+				"when": "editorHasSelection && editorLangId == 'sqf'"
+			}],
 			"explorer/context": []
 		},
-		"snippets": [
-			{
-				"language": "sqf",
-				"path": "./snippets/sqf.json"
-			}
-		],
-		"themes": [
-			{
-				"label": "[SQF] Dark Theme",
-				"uiTheme": "vs-dark",
-				"path": "./themes/sqf.tmTheme"
-			}
-		]
+		"snippets": [{
+			"language": "sqf",
+			"path": "./snippets/sqf.json"
+		}],
+		"themes": [{
+			"label": "[SQF] Dark Theme",
+			"uiTheme": "vs-dark",
+			"path": "./themes/sqf.tmTheme"
+		}]
 	},
 	"scripts": {
 		"update-vscode": "node ./node_modules/vscode/bin/install",
