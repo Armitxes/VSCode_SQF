@@ -26287,7 +26287,7 @@
     "docSyntax": "[startDate, endDateOrOffset, timeUnit] call BIS_fnc_calculateDateTime",
     "tags": "",
     "description": "Returns the end datetime if an offset is passed, or the offset between start and end dates.",
-    "example": "[nowikidate, 3600] call BIS_fnc_calculateDateTime; ccreturns date in 3600 seconds (60min, 1h) Example: [nowikidate, 60, \"m\"] call BIS_fnc_calculateDateTime; ccreturns date in 60 minutes (1h) Example: [nowiki[2035,8,28,11,55], [2035,8,29,11,55], \"h\"] call BIS_fnc_calculateDateTime; ccreturns 24",
+    "example": "[date, 3600] call BIS_fnc_calculateDateTime; // returns date in 3600 seconds (60min, 1h)\n[date, 60, \"m\"] call BIS_fnc_calculateDateTime; // returns date in 60 minutes (1h)\n[nowiki[2035,8,28,11,55], [2035,8,29,11,55], \"h\"] call BIS_fnc_calculateDateTime; // returns 24",
     "params": "<array> <array> <string>",
     "returns": "date | number | date | number | number | date"
   },
@@ -35387,6 +35387,18 @@
     "params": "<object> <boolean>",
     "returns": "nothing"
   },
+  "brakesDisabled": {
+    "command": "brakesDisabled",
+    "timestamp": "2021-11-29T14:10:24Z",
+    "version": "2.08",
+    "syntax": "brakesDisabled <object>",
+    "docSyntax": "brakesDisabled transport",
+    "tags": "[AG]",
+    "description": "Returns the status of autobrake (see disableBrakes)",
+    "example": "_autobrakeDisabled = disableBrakes mycar;",
+    "params": "<object>",
+    "returns": "boolean | true"
+  },
   "collisionDisabledWith": {
     "command": "collisionDisabledWith",
     "timestamp": "2021-11-13T13:30:37Z",
@@ -35410,6 +35422,18 @@
     "example": "ctrlMapPosition _map;",
     "params": "map",
     "returns": "array"
+  },
+  "disableBrakes": {
+    "command": "disableBrakes",
+    "timestamp": "2021-11-29T14:07:37Z",
+    "version": "2.08",
+    "syntax": "<object> <boolean>Brakes disable",
+    "docSyntax": "transport disableBrakes disable",
+    "tags": "[AL] [EG]",
+    "description": "Disables autobrake, which is engaged when vehicle is stationary and stops wheels from rotating freely when vehicle is pushed.",
+    "example": "mycar disableBrakes true;",
+    "params": "<object> <boolean>",
+    "returns": "nothing"
   },
   "drawLaser": {
     "command": "drawLaser",
@@ -35459,6 +35483,42 @@
     "params": "<object> <string>",
     "returns": "number"
   },
+  "getPiPViewDistance": {
+    "command": "getPiPViewDistance",
+    "timestamp": "2022-01-06T14:36:43Z",
+    "version": "2.08",
+    "syntax": "getPiPViewDistance",
+    "docSyntax": "getPiPViewDistance",
+    "tags": "[EL]",
+    "description": "Get the set PiP (Picture-in-Picture) view distance (that can be set by setPiPViewDistance).",
+    "example": "private _pipViewDistance = getPiPViewDistance;",
+    "params": "",
+    "returns": "number"
+  },
+  "inputController": {
+    "command": "inputController",
+    "timestamp": "2021-11-21T11:35:05Z",
+    "version": "2.08",
+    "syntax": "<number>Controller input",
+    "docSyntax": "inputController input",
+    "tags": "",
+    "description": "Returns the state of controller inputs. The controller is a standard XBOX controller which is selected with Windows XBOX controller scheme. The input could be: * XBOX_A 0 * XBOX_B 1 * XBOX_X 2 * XBOX_Y 3 * XBOX_Up 4 * XBOX_Down 5 * XBOX_Left 6 * XBOX_Right 7 * XBOX_Start 8 * XBOX_Back 9 * XBOX_LeftBumper 10 * XBOX_RightBumper 11 * XBOX_LeftTrigger 12 * XBOX_RightTrigger 13 * XBOX_LeftThumb 14 * XBOX_RightThumb 15 * XBOX_LeftThumbXRight 16 * XBOX_LeftThumbYUp 17 * XBOX_RightThumbXRight 18 * XBOX_RightThumbYUp 19 * XBOX_LeftThumbXLeft 20 * XBOX_LeftThumbYDown 21 * XBOX_RightThumbXLeft 22 * XBOX_RightThumbYDown 23",
+    "example": "onEachFrame { hintSilent str inputController 13 };",
+    "params": "<number>",
+    "returns": "number"
+  },
+  "inputMouse": {
+    "command": "inputMouse",
+    "timestamp": "2021-11-21T12:09:01Z",
+    "version": "2.08",
+    "syntax": "inputMouse <number>",
+    "docSyntax": "inputMouse button",
+    "tags": "",
+    "description": "Returns the state of mouse button action, alone or in combination with key presses. For more information on codes and combos see <Arma_3:_Modded_Keybinding> and DIK_KeyCodes but here are some examples of how codes could be hand constructed: * KEYBOARD_COMBO 16777216 (0x1000000) * DEVICE_MOUSE 65536 (0x10000) * HOLD_OFFSET 0 * CLICK_OFFSET 128 (0x80) * DOUBLE_CLICK_OFFSET 256 (0x100) * SPECIAL_COMBINATIONS 1114112 (0x110000) pre Click + Hold: BUTTON + DEVICE_MOUSE + HOLD_OFFSET = BUTTON + 65536 + 0 Click: BUTTON + DEVICE_MOUSE + CLICK_OFFSET = BUTTON + 65536 + 128 Double Click: BUTTON + DEVICE_MOUSE + DOUBLE_CLICK_OFFSET = BUTTON + 65536 + 256 RMB Click + Hold: 1 + 65536 + 0 = 65537 RMB Click: 1 + 65536 + 128 = 65665 RMB Double Click: 1 + 65536 + 256 = 65793 Combo + Click + Hold: DIK * KEYBOARD_COMBO + SPECIAL_COMBINATIONS + BUTTON + HOLD_OFFSET = DIK * 16777216 + 1114112 + BUTTON + 0 Combo + Click: DIK * KEYBOARD_COMBO + SPECIAL_COMBINATIONS + BUTTON + CLICK_OFFSET = DIK * 16777216 + 1114112 + BUTTON + 128 Combo + Double Click: DIK * KEYBOARD_COMBO + SPECIAL_COMBINATIONS + BUTTON + DOUBLE_CLICK_OFFSET = DIK * 16777216 + 1114112 + BUTTON + 256 LShift + RMB Click + Hold: 42 * 16777216 + 1114112 + 1 + 0 = 705757185 LShift + RMB Click: 42 * 16777216 + 1114112 + 1 + 128 = 705757313 LShift + RMB Double Click: 42 * 16777216 + 1114112 + 1 + 256 = 705757441 </pre>",
+    "example": "onEachFrame { hintSilent str inputMouse 1 };",
+    "params": "<number> <string>",
+    "returns": "number"
+  },
   "isAllowedCrewInImmobile": {
     "command": "isAllowedCrewInImmobile",
     "timestamp": "2021-11-12T11:35:48Z",
@@ -35495,6 +35555,18 @@
     "params": "",
     "returns": "boolean | true | false"
   },
+  "lockedCameraTo": {
+    "command": "lockedCameraTo",
+    "timestamp": "2022-01-05T15:41:47Z",
+    "version": "2.08",
+    "syntax": "<object> lockedCameraTo <array>",
+    "docSyntax": "vehicle lockedCameraTo turretPath",
+    "tags": "[AL]",
+    "description": "Return the turret lock target. FeatureinformativeThe command is local to the 'turret', not the vehicle.",
+    "example": "vehicle player lockedCameraTo [];",
+    "params": "<object> <array>",
+    "returns": "positionasl - if locked to a position"
+  },
   "maxLoad": {
     "command": "maxLoad",
     "timestamp": "2021-09-08T07:15:58Z",
@@ -35506,6 +35578,18 @@
     "example": "_maxLoad = maxLoad _yaMum;",
     "params": "<object>",
     "returns": "number"
+  },
+  "pose": {
+    "command": "pose",
+    "timestamp": "2021-11-25T19:09:23Z",
+    "version": "2.08",
+    "syntax": "pose <object>",
+    "docSyntax": "pose unit",
+    "tags": "[AG]",
+    "description": "Returns the pose of the given unit. It can be one of: Columns3 * hl\"Dead\" * hl\"Weapon\" (special weapon - AT) * hl\"BinocLying\" * hl\"LyingNoWeapon\" * hl\"Lying\" * hl\"HandGunLying\" * hl\"Crouch\" * hl\"HandGunCrouch\" * hl\"Combat\" * hl\"HandGunStand\" * hl\"Stand\" * hl\"Swimming\" * hl\"BottomSwimming\" * hl\"SurfaceSwimming\" * hl\"Diving\" * hl\"BottomDiving\" * hl\"SurfaceDiving\" * hl\"NoWeapon\" (civilian moves) * hl\"Binoc\" (binocular pose) * hl\"BinocStand\" (binocular pose (weapon on back)) * hl\"Healing\" * hl\"Dragged\" * hl\"Carrying\" * hl\"Freefall\" shrink= y",
+    "example": "sqfif (pose player == \"SurfaceSwimming\") then { hint \"How's water?\" };</sqf>",
+    "params": "<object>",
+    "returns": "string"
   },
   "rainParams": {
     "command": "rainParams",
@@ -35542,5 +35626,185 @@
     "example": "_yaMum setMaxLoad _maxLoad;",
     "params": "<object> <number>",
     "returns": "nothing"
+  },
+  "setPiPViewDistance": {
+    "command": "setPiPViewDistance",
+    "timestamp": "2022-01-06T14:33:38Z",
+    "version": "2.08",
+    "syntax": "setPiPViewDistance current",
+    "docSyntax": "setPiPViewDistance distance",
+    "tags": "[EL]",
+    "description": "Set the PiP (Picture-in-Picture) view distance. This has no impact if PiP is disabled (see isPiPEnabled).",
+    "example": "setPiPViewDistance 100;",
+    "params": "current",
+    "returns": "nothing"
+  },
+  "actionKeysEx": {
+    "command": "actionKeysEx",
+    "timestamp": "2022-03-28T16:09:48Z",
+    "version": "2.10",
+    "syntax": "actionKeysEx <string>",
+    "docSyntax": "actionKeysEx userAction",
+    "tags": "",
+    "description": "Gives a broken down version of dikCodes of keys, buttons and combos assigned to the given user action. Action names can be found in config class ControllerSchemes or user action names or user profile (see HashLink#Example 1). In addition, some of the actions are also listed here: <inputAction/actions> The Key Device can be one of several types: Columns3 * hl\"KEYBOARD\" * hl\"MOUSE_BUTTON\" * hl\"MOUSE_AXIS\" * hl\"JOYSTICK_BUTTON\" * hl\"JOYSTICK_AXIS\" * hl\"JOYSTICK_POV\" * hl\"XINPUT\" - (Xbox) Controller Input * hl\"TRACKER\" - Motion Tracking (TrackIR, Tobii etc) shrink= y",
+    "example": "To retrieve the following key's data, use the property name without 'key': syntaxhighlight lang=\"cpp\"keyWatch[] = { 24 };</syntaxhighlight> sqfactionKeysEx \"Watch\"; // [[[24, \"KEYBOARD\"], [], false]]</sqf>",
+    "params": "<string>",
+    "returns": "array | array | array | number | string | number | array | number | string | number | boolean"
+  },
+  "activeTitleEffectParams": {
+    "command": "activeTitleEffectParams",
+    "timestamp": "2022-04-22T20:23:21Z",
+    "version": "2.10",
+    "syntax": "activeTitleEffectParams <number>",
+    "docSyntax": "activeTitleEffectParams layer",
+    "tags": "",
+    "description": "Returns type, effect, speed and map visibility of the given active title effect (see allActiveTitleEffects)",
+    "example": "21 cutText [\"Hello World!\", \"PLAIN\", 2]; hint str activeTitleEffectParams 21; // [\"TXT\", \"PLAIN\", 2, true]",
+    "params": "<number>",
+    "returns": "array | string | tt | tt | tt | string | tt | tt | number | boolean | true"
+  },
+  "findAny": {
+    "command": "findAny",
+    "timestamp": "2022-02-23T10:50:25Z",
+    "version": "2.10",
+    "syntax": "<array> findAny <array>",
+    "docSyntax": "searchIn findAny toFind",
+    "tags": "",
+    "description": "Returns the zero-based index of the first element in array A that also exists in array B. If no common elements exist it returns -1.br Similar in functionality as find's first syntax, but the second parameter is an array of elements to find.",
+    "example": "[0,1,2,3,4] findAny [2,4,6,8]; ccreturns 2",
+    "params": "<array> <array>",
+    "returns": "number"
+  },
+  "getObjectID": {
+    "command": "getObjectID",
+    "timestamp": "2022-03-16T23:06:25Z",
+    "version": "2.10",
+    "syntax": "getObjectID <object>",
+    "docSyntax": "getObjectID object",
+    "tags": "",
+    "description": "Returns Visitor ID of the given object. Visitor IDs of static map objects can change if map is in development and updated with new static objects.",
+    "example": "getObjectID _tree;",
+    "params": "<object>",
+    "returns": "string"
+  },
+  "getOpticsMode": {
+    "command": "getOpticsMode",
+    "timestamp": "2022-03-24T09:44:15Z",
+    "version": "2.10",
+    "syntax": "getOpticsMode <object>",
+    "docSyntax": "getOpticsMode unit",
+    "tags": "",
+    "description": "Returns the class name of the current optic mode of the current weapon.",
+    "example": "sqfgetOpticsMode player;</sqf>",
+    "params": "<object>",
+    "returns": "string"
+  },
+  "getUnitFreefallInfo": {
+    "command": "getUnitFreefallInfo",
+    "timestamp": "2022-02-09T11:35:00Z",
+    "version": "2.10",
+    "syntax": "getUnitFreefallInfo <object>",
+    "docSyntax": "getUnitFreefallInfo unit",
+    "tags": "[AL]",
+    "description": "Returns a unit's freefall information.",
+    "example": "sqfgetUnitFreefallInfo player;</sqf>",
+    "params": "<object>",
+    "returns": "array | boolean | true | boolean | true | number | setunitfreefallheight"
+  },
+  "isMissionProfileNamespaceLoaded": {
+    "command": "isMissionProfileNamespaceLoaded",
+    "timestamp": "2022-03-17T23:03:45Z",
+    "version": "2.10",
+    "syntax": "isMissionProfileNamespaceLoaded",
+    "docSyntax": "isMissionProfileNamespaceLoaded",
+    "tags": "",
+    "description": "The missionProfileNamespace variables are loaded at the start of a mission, before 'init.sqf' is executed. If the file with saved variables for current mission exists in user profile and is loaded, the command returns true. It also will return true after the first execution of saveMissionProfileNamespace command, which also creates the file.",
+    "example": "sqfprivate _isLoaded = isMissionProfileNamespaceLoaded;</sqf>",
+    "params": "",
+    "returns": "boolean | true"
+  },
+  "loadConfig": {
+    "command": "loadConfig",
+    "timestamp": "2022-03-17T04:05:24Z",
+    "version": "2.10",
+    "syntax": "loadConfig <string>",
+    "docSyntax": "loadConfig path",
+    "tags": "",
+    "description": "Loads the given file as a >>, etc. It can load .rvmat, .bisurf, .cpp, .bin, .sqm, and description.ext files (both binarized and unbinarized configs are supported). Feature Important Loading a config can be very slow. The config should only be loaded once and cached. For example, the result can be stored in a HashMap of icFile Path - Config pairs. (See Example 2)",
+    "example": "sqfprivate _cfg = loadConfig \"a3\\data_f\\default_super.rvmat\"; // note: very slow! ~0.1200 ms on tested system getText (_cfg >> \"Stage2\" >> \"uvSource\");</sqf>",
+    "params": "<string>",
+    "returns": "config | confignull"
+  },
+  "missionProfileNamespace": {
+    "command": "missionProfileNamespace",
+    "timestamp": "2022-03-17T23:01:30Z",
+    "version": "2.10",
+    "syntax": "missionProfileNamespace",
+    "docSyntax": "missionProfileNamespace",
+    "tags": "",
+    "description": "This namespace has the same lifetime as profileNamespace but is also connected to the mission it is saved from. See saveMissionProfileNamespace for more details.",
+    "example": "sqfprivate _currentMissionProfileNamespace = missionProfileNamespace;</sqf>",
+    "params": "",
+    "returns": "namespace"
+  },
+  "ropesAttachedTo": {
+    "command": "ropesAttachedTo",
+    "timestamp": "2022-03-15T10:49:17Z",
+    "version": "2.10",
+    "syntax": "ropesAttachedTo <object>",
+    "docSyntax": "ropesAttachedTo cargo",
+    "tags": "",
+    "description": "Returns the owners of all ropes attached to the cargo - the transports to which other entities are attached with ropes. This command returns Array of Objects instead of a single Object as with ropeAttachedTo.",
+    "example": "r1 = ropeCreate [car1, [0,0,0], car3, [0,0,0], 10]; r2 = ropeCreate [car2, [0,0,0], car3, [0,0,0], 10]; ropesAttachedTo car3; //[car1,car2]",
+    "params": "<object>",
+    "returns": "array | object"
+  },
+  "saveMissionProfileNamespace": {
+    "command": "saveMissionProfileNamespace",
+    "timestamp": "2022-03-17T23:02:56Z",
+    "version": "2.10",
+    "syntax": "saveMissionProfileNamespace",
+    "docSyntax": "saveMissionProfileNamespace",
+    "tags": "[EL]",
+    "description": "Description.ext. This will create hlMyMissionCollectionName.vars file for example, instead of default one, which would be loaded into every mission with matching hlmissionGroup entry.",
+    "example": "sqfsaveMissionProfileNamespace;</sqf>",
+    "params": "",
+    "returns": "nothing"
+  },
+  "setOpticsMode": {
+    "command": "setOpticsMode",
+    "timestamp": "2022-03-24T09:48:43Z",
+    "version": "2.10",
+    "syntax": "<object> setOpticsMode <string>",
+    "docSyntax": "unit setOpticsMode mode",
+    "tags": "",
+    "description": "Sets the optic mode of the current weapon to the given class name or the index.",
+    "example": "sqfplayer setOpticsMode \"Hamr2Scope\"; // Default optic mode for optic_Hamr</sqf>",
+    "params": "<object> <string>",
+    "returns": "nothing"
+  },
+  "setUnitFreefallHeight": {
+    "command": "setUnitFreefallHeight",
+    "timestamp": "2022-02-09T11:28:01Z",
+    "version": "2.10",
+    "syntax": "<object> setUnitFreefallHeight <number>",
+    "docSyntax": "unit setUnitFreefallHeight minHeight",
+    "tags": "[AL] [EG]",
+    "description": "Sets minimum freefall height AGL per unit, at which the unit assumes HALO pose. Current engine default is 100m. Use -1 to reset the height to default.",
+    "example": "player setUnitFreefallHeight 1000;",
+    "params": "<object> <number>",
+    "returns": "nothing"
+  },
+  "weaponsInfo": {
+    "command": "weaponsInfo",
+    "timestamp": "2022-03-30T06:56:28Z",
+    "version": "2.10",
+    "syntax": "<object> weaponsInfo [<string>, onlyLoaded]",
+    "docSyntax": "unit weaponsInfo [weaponOrMuzzle, onlyLoaded]",
+    "tags": "",
+    "description": "Returns entity's weapons information including weapon index and firemode.",
+    "example": "Find weapon with FullAuto firemode and switch to it: sqfprivate _weapons = player weaponsInfo [currentMuzzle player, true]; private _found = _weapons findIf { _x select 4 == \"FullAuto\" }; if (_found > -1) then { action [\"SwitchWeapon\", player, player, _weapons select _found select 0] };</sqf>",
+    "params": "<object> <string> <boolean>",
+    "returns": "array | array | number | action | boolean | true | string | string | string | string | number"
   }
 }

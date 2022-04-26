@@ -217,7 +217,7 @@ const fetch = params => requestQueue.fetch(params);
                       .filter(e => /x\d+/.test(e.textContent))
                       .shift()?.nextSibling?.nextSibling?.textContent ?? ''
                   );
-                  errorData.example = (/<code>(?<code>.+)<\/code>/.exec(example)?.groups?.code ?? example).replace(/<(\w+)>/g, '$1');
+                  errorData.example = (/<code>(?<code>.+)<\/code>/.exec(example)?.groups?.code ?? example).replace(/\w*<(\w+)>/g, '$1').replace(/; cc(\w+)/g, '; // $1').replace(/ Example: /g, '\n');
 
                   const params = xpath
                     .select('//name[starts-with(., "p")]', commandDoc)
@@ -265,6 +265,10 @@ const fetch = params => requestQueue.fetch(params);
                     });
                   }
 
+                  if (command === 'BIS_fnc_calculateDateTime') {
+                    fs.writeFileSync('test.json', JSON.stringify({example}, null, 2));
+                  }
+
                   return {
                     command,
                     timestamp,
@@ -273,7 +277,7 @@ const fetch = params => requestQueue.fetch(params);
                     docSyntax,
                     tags,
                     description,
-                    example: (/<code>(?<code>.+)<\/code>/.exec(example)?.groups?.code ?? example).replace(/<(\w+)>/g, '$1'),
+                    example: (/<code>(?<code>.+)<\/code>/.exec(example)?.groups?.code ?? example).replace(/\w*<(\w+)>/g, '$1').replace(/; cc(\w+)/g, '; // $1').replace(/ Example: /g, '\n'),
                     params: params
                       .map(p => p?.type?.toLowerCase())
                       .filter(Boolean)
@@ -316,6 +320,7 @@ const fetch = params => requestQueue.fetch(params);
 
       fs.writeFileSync(path.join(process.cwd(), 'devHelper/commands', `${game}.json`), JSON.stringify(gameCommandsSorted, null, 2), 'utf8');
       fs.writeFileSync(path.join(process.cwd(), 'devHelper/output', `${game}.min.json`), JSON.stringify(gameCommandsSorted), 'utf8');
+      fs.writeFileSync(path.join(process.cwd(), 'env/shared/commands/json', `${game}.min.json`), JSON.stringify(gameCommandsSorted), 'utf8');
     })
   );
   console.log(`Total command errors: ${commandErrors.length}`);
