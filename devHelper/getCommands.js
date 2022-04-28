@@ -116,7 +116,9 @@ const fetch = params => requestQueue.fetch(params);
         {}
       );
 
-      const currGameCommands = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'devHelper/commands', `${game}.json`), 'utf8'));
+      const currGameCommands = fs.existsSync(path.join(process.cwd(), 'devHelper/commands', `${game}.json`))
+        ? JSON.parse(fs.readFileSync(path.join(process.cwd(), 'devHelper/commands', `${game}.json`), 'utf8'))
+        : {};
       const gameCommands = { docs: `${WIKI_BASE_URL}/wiki/${introducedInGamesCategoryMap[game]}` };
       await Promise.all(
         Object.keys(introducedInVersionMap).map(async version => {
@@ -265,10 +267,6 @@ const fetch = params => requestQueue.fetch(params);
                     });
                   }
 
-                  if (command === 'BIS_fnc_calculateDateTime') {
-                    fs.writeFileSync('test.json', JSON.stringify({example}, null, 2));
-                  }
-
                   return {
                     command,
                     timestamp,
@@ -318,9 +316,16 @@ const fetch = params => requestQueue.fetch(params);
           };
         }, {});
 
-      fs.writeFileSync(path.join(process.cwd(), 'devHelper/commands', `${game}.json`), JSON.stringify(gameCommandsSorted, null, 2), 'utf8');
-      fs.writeFileSync(path.join(process.cwd(), 'devHelper/output', `${game}.min.json`), JSON.stringify(gameCommandsSorted), 'utf8');
-      fs.writeFileSync(path.join(process.cwd(), 'env/shared/commands/json', `${game}.min.json`), JSON.stringify(gameCommandsSorted), 'utf8');
+      ['devHelper/commands', 'devHelper/output', 'env/shared/commands/json'].forEach(dir => {
+        if (!fs.existsSync(path.join(process.cwd(), dir))) {
+          fs.mkdirSync(path.join(process.cwd(), dir));
+        }
+        if (dir === 'devHelper/commands') {
+          fs.writeFileSync(path.join(process.cwd(), dir, `${game}.json`), JSON.stringify(gameCommandsSorted, null, 2), 'utf8');
+        } else {
+          fs.writeFileSync(path.join(process.cwd(), dir, `${game}.min.json`), JSON.stringify(gameCommandsSorted), 'utf8');
+        }
+      });
     })
   );
   console.log(`Total command errors: ${commandErrors.length}`);
