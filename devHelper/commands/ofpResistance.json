@@ -6,7 +6,7 @@
     "syntax": "actionKeys <string>",
     "docSyntax": "actionKeys userAction",
     "tags": "",
-    "description": "Returns dikCodes of keys, buttons and combos assigned to the given user action. Action names could be found in config class ControllerSchemes or user action names or user profile, for example: syntaxhighlight lang=\"cpp\" keyWatch[] = { 24 }; </syntaxhighlight> To retrieve the value, use the property name without 'key': codeactionKeys \"Watch\"; cc24</code> In addition, some of the actions are also listed in here: <inputAction/actions>",
+    "description": "Returns dikCodes of keys, buttons and combos assigned to the given user action. Action names could be found in config class ControllerSchemes or user action names or user profile, for \nexample: keyWatch[] = { 24 };To retrieve the value, use the property name without 'key': codeactionKeys \"Watch\"; cc24</code> In addition, some of the actions are also listed in \nhere: <inputAction/actions>",
     "example": "_arrayOfNumbers = actionKeys \"ReloadMagazine\";",
     "params": "<string> <string>",
     "returns": "array | number"
@@ -30,7 +30,7 @@
     "syntax": "actionKeysNames <string>",
     "docSyntax": "actionKeysNames userAction",
     "tags": "",
-    "description": "Returns a list of button names assigned to the given user action. Action names can be found in config class hlControllerSchemes or user action names.",
+    "description": "Returns a list of button names assigned to the given user action. Action names can be found in config class ControllerSchemes or user action names.",
     "example": "_list = actionKeysNames \"ReloadMagazine\"; cc\"R\"",
     "params": "<string> <string> <number> <string>",
     "returns": "string"
@@ -102,7 +102,7 @@
     "syntax": "<object> assignTeam <string>",
     "docSyntax": "unit assignTeam team",
     "tags": "[AG] [EG]",
-    "description": "Assigns the unit (in case of a vehicle, its commander) to the given team. Team is an option in group control (unit management) menu that allows to split player group in teams and then give bulk order to separate teams. In order to operate properly, the command requires specific conditions: * The command requires player to be fully initialised * The unit getting assigned must be either player himself or a unit in player's group * Units in player's group as well as player himself can all have different teams assigned * The colour of the assigned team for a unit is seen on the group management UI as well as squad radar The possible team values (colours) are: * \"MAIN\" - (white) * \"RED\" - (red) * \"GREEN\" - (green) * \"BLUE\" - (blue) * \"YELLOW\" - (yellow) 'NOTE': In older version of the game the effect of this command is local IconlocalEffect32",
+    "description": "Assigns the unit (in case of a vehicle, its commander) to the given team. Team is an option in group control (unit management) menu that allows to split player group in teams and then give bulk order to separate teams. In order to operate properly, the command requires specific \nconditions: * The command requires player to be fully initialised * The unit getting assigned must be either player himself or a unit in player's group * Units in player's group as well as player himself can all have different teams assigned * The colour of the assigned team for a unit is seen on the group management UI as well as squad radar The possible team values (colours) \nare: * \"MAIN\" - (white) * \"RED\" - (red) * \"GREEN\" - (green) * \"BLUE\" - (blue) * \"YELLOW\" - (yellow) 'NOTE': In older version of the game the effect of this command is local IconlocalEffect32",
     "example": "_soldier2 assignTeam \"RED\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -210,7 +210,7 @@
     "syntax": "createGuardedPoint [<side>, position2d, <number>, <object>]",
     "docSyntax": "createGuardedPoint [side, position, objectMapID, vehicle]",
     "tags": "",
-    "description": "Adds a point guarded by the given side (scripted way of adding equivalent of \"GUARDED BY\" trigger in Editor). A closest AI group in the given side with assigned \"GUARD\" waypoint will attempt to secure this guard point. The actual guarded position is determined via the following rules: * Given \"position\" is always considered. It could be Position2D or Position3D. In every case, z coordinate will be ignored and point will be placed on nearest surface. * If \"objectMapID\" is not negative, the position of the object with the given ID is used (Overrides \"position\"). -1 to ignore this argument. z of the object position will be intact. * If the given \"vehicle\" is valid, the position of the vehicle is extracted and guarded (Overrides both \"position\" and \"objectMapID\"). waypoint. FeatureinformativeTo know how does the \"GUARD\" waypoint work, see <Waypoint:Guard>.",
+    "description": "Adds a point guarded by the given side (scripted way of adding equivalent of \"GUARDED BY\" trigger in Editor). A closest AI group in the given side with assigned \"GUARD\" waypoint will attempt to secure this guard point. The actual guarded position is determined via the following \nrules: * Given \"position\" is always considered. It could be Position2D or Position3D. In every case, z coordinate will be ignored and point will be placed on nearest surface. * If \"objectMapID\" is not negative, the position of the object with the given ID is used (Overrides \"position\"). -1 to ignore this argument. z of the object position will be intact. * If the given \"vehicle\" is valid, the position of the vehicle is extracted and guarded (Overrides both \"position\" and \"objectMapID\"). waypoint. FeatureinformativeTo know how does the \"GUARD\" waypoint work, see <\n\tWaypoint:Guard>.",
     "example": "createGuardedPoint [east, [0,0], -1, vehicle player];",
     "params": "<side> position2d <number> <object>",
     "returns": "nothing"
@@ -222,7 +222,7 @@
     "syntax": "createMine [<string>, positionagl, <array>, <number>]",
     "docSyntax": "createMine [type, position, markers, placement]",
     "tags": "",
-    "description": "Creates a mine of the given type (type is the name of the subclass of hlCfgVehicles). If the markers array contains several marker names, the position of a random one is used, otherwise, the given position is used. The mine is placed inside a circle with this position as its center and placement as its radius. Feature Informative The command creates object of the hlCfgAmmo class named in hlconfigFile >> \"CfgVehicles\" >> ''type'' >> \"ammo\". Feature Informative Unit ability to detect mines depends on many factors. The starting value is defined in config, for example tt./CfgVehicles/B_soldier_F/detectSkill</tt>, which in this case is 12. Mine specialist value for example, defined in tt./CfgVehicles/B_soldier_exp_F/detectSkill</tt> is 38. This value is then dynamically reduced depending on factors such as distance, if a unit is in a vehicle, if it is day or night time, how directly unit is looking at the mine, how fast unit is moving, how inconspicuous is the mine or even if it is visible.",
+    "description": "Creates a mine of the given type (type is the name of the subclass of CfgVehicles). If the markers array contains several marker names, the position of a random one is used, otherwise, the given position is used. The mine is placed inside a circle with this position as its center and placement as its radius. Feature Informative The command creates object of the CfgAmmo class named in configFile >> \"CfgVehicles\" >> ''type'' >> \"ammo\". Feature Informative Unit ability to detect mines depends on many factors. The starting value is defined in config, for example tt./CfgVehicles/B_soldier_F/detectSkill</tt>, which in this case is 12. Mine specialist value for example, defined in tt./CfgVehicles/B_soldier_exp_F/detectSkill</tt> is 38. This value is then dynamically reduced depending on factors such as distance, if a unit is in a vehicle, if it is day or night time, how directly unit is looking at the mine, how fast unit is moving, how inconspicuous is the mine or even if it is visible.",
     "example": "_mine = createMine [\"APERSMine\", position player, [], 0];",
     "params": "<string> positionagl <array> <number>",
     "returns": "object"
@@ -234,7 +234,7 @@
     "syntax": "createSoundSource [<string>, positionagl, <array>, <number>]",
     "docSyntax": "createSoundSource [type, position, markers, placement]",
     "tags": "[AG] [EG]",
-    "description": "Creates a sound source of the given type (type is the name of the subclass of CfgVehicles which is pointing to the sound defined in description.ext. Here is an example of suitable mission config definition: syntaxhighlight lang=\"cpp\" // description.ext class CfgSFX { class MyOwl { sound0[] = {\"@A3\\Sounds_F\\environment\\animals\\birds\\owl1\", db-10, 1.0, 1000, 0.2, 0, 15, 30}; // path to addon sound sound1[] = {\"@A3\\Sounds_F\\environment\\animals\\birds\\owl2\", db-10, 1.0, 1000, 0.2, 0, 15, 30}; // path to addon sound sound2[] = {\"@A3\\Sounds_F\\environment\\animals\\birds\\owl3\", db-10, 1.0, 1000, 0.2, 0, 15, 30}; // path to addon sound sounds[] = {sound0, sound1, sound2}; empty[] = {\"\", 0, 0, 0, 0, 0, 0, 0}; }; }; class CfgVehicles { class MyOwlSound // class name to be used with createSoundSource { sound = \"MyOwl\"; // reference to CfgSFX class }; }; </syntaxhighlight> code_owl = createSoundSource [\"MyOwlSound\", position player, [], 0];</code> Note that the sound created by createSoundSource will always be looping. Also when CfgSFX sound definition contains more than 1 sound, there is no guarantee that the sound played will be the same on every PC in Multiplayer.",
+    "description": "Creates a sound source of the given type (type is the name of the subclass of CfgVehicles which is pointing to the sound defined in description.ext. Here is an example of suitable mission config \ndefinition: // description.ext \nclass CfgSFX { \n\tclass MyOwl { \n\t\tsound0[] = {\"@A3\\Sounds_F\\environment\\animals\\birds\\owl1\", db-10, 1.0, 1000, 0.2, 0, 15, 30\n\t};\n // path to addon sound sound1[] = {\"@A3\\Sounds_F\\environment\\animals\\birds\\owl2\", db-10, 1.0, 1000, 0.2, 0, 15, 30}; // path to addon sound sound2[] = {\"@A3\\Sounds_F\\environment\\animals\\birds\\owl3\", db-10, 1.0, 1000, 0.2, 0, 15, 30}; // path to addon sound sounds[] = {sound0, sound1, sound2}; empty[] = {\"\", 0, 0, 0, 0, 0, 0, 0}; }; };\tclass CfgVehicles { \n\t\tclass MyOwlSound // class name to be used with createSoundSource { sound = \"MyOwl\"; // reference to CfgSFX class \n\t};\n \n};\ncode_owl = createSoundSource [\"MyOwlSound\", position player, [], 0];</code> Note that the sound created by createSoundSource will always be looping. Also when CfgSFX sound definition contains more than 1 sound, there is no guarantee that the sound played will be the same on every PC in Multiplayer.",
     "example": "_soundSource = createSoundSource [\"LittleDog\", position player, [], 0];",
     "params": "<string> positionagl <array> <number>",
     "returns": "object"
@@ -246,7 +246,7 @@
     "syntax": "createTrigger [<string>, position2d, <boolean>]",
     "docSyntax": "createTrigger [type, position, makeGlobal]",
     "tags": "",
-    "description": "Creates a 'objects', commands such as getPosASL, setPosASL, deleteVehicle, etc. work on them. Feature Informative Since arma3 v1.54 triggers can be disabled/enabled using enableSimulation command. Triggers are created with default parameters: Columns4 * hla: 50 * hlb: 50 * hlc: -1 * hlangle: 0 * hlrectangular: false * hlactivationBy: None * hlactivationType: Present * hlrepeating: false * hltimeoutMin: 0 * hltimeoutMid: 0 * hltimeoutMax: 0 * hlinterruptable: true * hltype: None * hltext: \"\" * hlname: \"\" * hlexpCond: \"this\" * hlexpActiv: \"\" * hlexpDesactiv: \"\" * GVIarma31.98size=0.8 hlinterval: 0.5",
+    "description": "Creates a 'objects', commands such as getPosASL, setPosASL, deleteVehicle, etc. work on them. Feature Informative Since arma3 v1.54 triggers can be disabled/enabled using enableSimulation command. Triggers are created with default \nparameters: Columns4 * \na: 50 * \nb: 50 * \nc: -1 * \nangle: 0 * \nrectangular: false * \nactivationBy: None * \nactivationType: Present * \nrepeating: false * \ntimeoutMin: 0 * \ntimeoutMid: 0 * \ntimeoutMax: 0 * \ninterruptable: true * \ntype: None * \ntext: \"\" * \nname: \"\" * \nexpCond: \"this\" * \nexpActiv: \"\" * \nexpDesactiv: \"\" * GVIarma31.98size=0.8 \ninterval: 0.5",
     "example": "_trg = createTrigger [\"EmptyDetector\", getPos player]; _trg setTriggerArea [5, 5, 0, false]; _trg setTriggerActivation [\"CIV\", \"PRESENT\", true]; _trg setTriggerStatements [\"this\", \"hint 'Civilian near player'\", \"hint 'no civilian near'\"];",
     "params": "<string> position2d <boolean>",
     "returns": "object"
@@ -318,7 +318,7 @@
     "syntax": "<object> enableAI <string>",
     "docSyntax": "unit enableAI skilltype",
     "tags": "[AL] [EG]",
-    "description": "Enables parts of the AI behavior that was disabled by disableAI. Feature important When player switches and leaves behind AI unit, you need to enable \"TeamSwitch\" AI on it hl_unit enableAI \"TeamSwitch\" so that the unit continues with waypoints Feature arma3 Since Arma 3 v1.96 it is possible to return the state of the given AI flag via checkAIFeature or set it using alias command enableAIFeature",
+    "description": "Enables parts of the AI behavior that was disabled by disableAI. Feature important When player switches and leaves behind AI unit, you need to enable \"TeamSwitch\" AI on it _unit enableAI \"TeamSwitch\" so that the unit continues with waypoints Feature arma3 Since Arma 3 v1.96 it is possible to return the state of the given AI flag via checkAIFeature or set it using alias command enableAIFeature",
     "example": "_soldierOne enableAI \"Move\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -486,7 +486,7 @@
     "syntax": "onPlayerConnected jip",
     "docSyntax": "onPlayerConnected code",
     "tags": "[SE]",
-    "description": "This command will execute the provided code on the server whenever a player connects to a multiplayer session. Feature arma3 Since arma3 v1.57 a stackable MissionEventHandler is available and should be used: PlayerConnected.brBefore that, the functions BIS_fnc_addStackedEventHandler and BIS_fnc_removeStackedEventHandler should be used instead in order to keep compatibility between official and community content.",
+    "description": "This command will execute the provided code on the server whenever a player connects to a multiplayer session. Feature arma3 Since arma3 v1.57 a stackable MissionEventHandler is available and should be \nused: PlayerConnected.brBefore that, the functions BIS_fnc_addStackedEventHandler and BIS_fnc_removeStackedEventHandler should be used instead in order to keep compatibility between official and community content.",
     "example": "onPlayerConnected \"[_id, _name] execVM 'PlayerConnected.sqf';\";",
     "params": "jip",
     "returns": "nothing"
@@ -594,7 +594,7 @@
     "syntax": "processInitCommands",
     "docSyntax": "processInitCommands",
     "tags": "[EG]",
-    "description": "Process statements stored using setVehicleInit. The statements will only be executed once even if processInitCommands is called multiple times. Featurearma3For security reasons, the command was disabled in Arma 3.br For remote execution, see <Arma 3: Remote Execution>, remoteExec and remoteExecCall.",
+    "description": "Process statements stored using setVehicleInit. The statements will only be executed once even if processInitCommands is called multiple times. Featurearma3For security reasons, the command was disabled in Arma 3.br For remote execution, see <Arma \n3: Remote Execution>, remoteExec and remoteExecCall.",
     "example": "processInitCommands;",
     "params": "",
     "returns": "nothing"
@@ -630,7 +630,7 @@
     "syntax": "runInitScript",
     "docSyntax": "runInitScript",
     "tags": "[EL]",
-    "description": "Fades in mission screen and re-executes hlinit.sqf and hlinit.sqs scripts. In <Eden Editor> the code inside the \"Init\" mission attribute is executed.",
+    "description": "Fades in mission screen and re-executes init.sqf and init.sqs scripts. In <Eden Editor> the code inside the \"Init\" mission attribute is executed.",
     "example": "runInitScript;",
     "params": "",
     "returns": "nothing"
@@ -654,7 +654,7 @@
     "syntax": "<group> selectLeader <object>",
     "docSyntax": "group selectLeader unitName",
     "tags": "[AL] [EG]",
-    "description": "Select the group's leader. Group locality can be checked with local command and group ownership with groupOwner command. Feature important An invalid combination can be provided to this command, e.g ''unitName'' 'not' being part of ''group''. In that case: * ''unitName'' will be leader of ''group'', but will not be able to command them * if ''unitName'' is deleted or killed, leader of ''group'' will be objNull and will not automatically be reassigned.",
+    "description": "Select the group's leader. Group locality can be checked with local command and group ownership with groupOwner command. Feature important An invalid combination can be provided to this command, e.g ''unitName'' 'not' being part of ''group''. In that \ncase: * ''unitName'' will be leader of ''group'', but will not be able to command them * if ''unitName'' is deleted or killed, leader of ''group'' will be objNull and will not automatically be reassigned.",
     "example": "group player selectLeader player;",
     "params": "<group> <object>",
     "returns": "nothing"
@@ -666,7 +666,7 @@
     "syntax": "selectPlayer <object>",
     "docSyntax": "selectPlayer unitName",
     "tags": "[AL] [EG]",
-    "description": "Move player into given unit. Some usage advices: * Try avoiding creatingUnit dynamically.Feature Informative Before arma3 it was possible to selectPlayer another player-controlled unit, leading to control issues. Feature Warning Creating and immediately selecting player into newly created unit could cause all sort of problems due to possible delay in unit initialization. Give unit some time to propagate properly on network before selecting player into it.",
+    "description": "Move player into given unit. Some usage \nadvices: * Try avoiding creatingUnit dynamically.Feature Informative Before arma3 it was possible to selectPlayer another player-controlled unit, leading to control issues. Feature Warning Creating and immediately selecting player into newly created unit could cause all sort of problems due to possible delay in unit initialization. Give unit some time to propagate properly on network before selecting player into it.",
     "example": "selectPlayer bob;",
     "params": "<object>",
     "returns": "nothing"
@@ -738,7 +738,7 @@
     "syntax": "<object> setDestination <array>",
     "docSyntax": "object setDestination [position, planningMode, forceReplan]",
     "tags": "[AL] [EG]",
-    "description": "Set the destination for path planning of the pilot. Possible values for planningMode are: * \"DoNotPlan\" - used when not moving * \"DoNotPlanFormation\" - used in formation when simple path testing is used * \"LEADER PLANNED\" - used for formation leader (full path finding used) * \"LEADER DIRECT\" - used for DirectGo (like getin, supply) * \"FORMATION PLANNED\" - used in formation when full path finding is used * \"VEHICLE PLANNED\" - used for vehicle driver Works best when used on Event Handler",
+    "description": "Set the destination for path planning of the pilot. Possible values for planningMode \nare: * \"DoNotPlan\" - used when not moving * \"DoNotPlanFormation\" - used in formation when simple path testing is used * \"LEADER PLANNED\" - used for formation leader (full path finding used) * \"LEADER DIRECT\" - used for DirectGo (like getin, supply) * \"FORMATION PLANNED\" - used in formation when full path finding is used * \"VEHICLE PLANNED\" - used for vehicle driver Works best when used on Event Handler",
     "example": "bob setDestination [screenToWorld [0.5,0.5], \"LEADER PLANNED\", true]",
     "params": "<object> <array> <position> <string> <boolean>",
     "returns": "nothing"
@@ -750,7 +750,7 @@
     "syntax": "<object> setDropInterval <number>",
     "docSyntax": "particleSource setDropInterval interval",
     "tags": "[AG] [EL]",
-    "description": "Set interval of emitting particles from particle source. In Arma 3 hardcoded limit of how many particles can exist at the same time is ExternalLinklink= http://forums.bistudio.com/showthread.php?177797-Ruin-your-copy-of-Arma-and-your-PC#post2691090text= 18000. Correspondence between CfgCloudlets class param name and command param: codeparticleSource setDropInterval interval;</code>",
+    "description": "Set interval of emitting particles from particle source. In Arma 3 hardcoded limit of how many particles can exist at the same time is ExternalLinklink= http://forums.bistudio.com/showthread.php?177797-Ruin-your-copy-of-Arma-and-your-PC#post2691090text= 18000. Correspondence between CfgCloudlets class param name and command \nparam: codeparticleSource setDropInterval interval;</code>",
     "example": "_source setDropInterval 0.05;",
     "params": "<object> <number>",
     "returns": "nothing"
@@ -834,7 +834,7 @@
     "syntax": "<string> setMarkerBrush <string>",
     "docSyntax": "markerName setMarkerBrush brush",
     "tags": "[EG]",
-    "description": "Selects the fill texture for the marker (\"RECTANGLE\" or \"ELLIPSE\"). Brush is the name of the subclass in CfgMarkerBrushes. br br ''brush'' can be: * \"Solid\" * \"SolidFull\" (A3 only) * \"Horizontal\" * \"Vertical\" * \"Grid\" * \"FDiagonal\" * \"BDiagonal\" * \"DiagGrid\" * \"Cross\" * \"Border\" * \"SolidBorder\" FeatureInformative'Multiplayer optimisation:' Global marker commands always broadcast the ''entire'' marker state over the network. As such, the number of network messages exchanged when creating or editing a marker can be reduced by performing all but the last operation using local marker commands, then using a global marker command for the last change (and subsequent global broadcast of all changes applied to the marker).",
+    "description": "Selects the fill texture for the marker (\"RECTANGLE\" or \"ELLIPSE\"). Brush is the name of the subclass in CfgMarkerBrushes. br br ''brush'' can \nbe: * \"Solid\" * \"SolidFull\" (A3 only) * \"Horizontal\" * \"Vertical\" * \"Grid\" * \"FDiagonal\" * \"BDiagonal\" * \"DiagGrid\" * \"Cross\" * \"Border\" * \"SolidBorder\" FeatureInformative'Multiplayer optimisation:' Global marker commands always broadcast the ''entire'' marker state over the network. As such, the number of network messages exchanged when creating or editing a marker can be reduced by performing all but the last operation using local marker commands, then using a global marker command for the last change (and subsequent global broadcast of all changes applied to the marker).",
     "example": "\"Marker1\" setMarkerBrush \"DIAGGRID\";",
     "params": "<string> <string>",
     "returns": "nothing"
@@ -870,7 +870,7 @@
     "syntax": "<object> setMusicEffect <string>",
     "docSyntax": "trigger setMusicEffect track",
     "tags": "",
-    "description": "Defines a music track played on activation. If another track is playing already, this will stop it and start the new track. Track is a subclass name of CfgMusic. In addition, \"$STOP$\" (stops the current music track) or use hlplayMusic \"\". When used in a trigger, the track starts on activation but does not automatically stop on deactivation.",
+    "description": "Defines a music track played on activation. If another track is playing already, this will stop it and start the new track. Track is a subclass name of CfgMusic. In addition, \"$STOP$\" (stops the current music track) or use playMusic \"\". When used in a trigger, the track starts on activation but does not automatically stop on deactivation.",
     "example": "_trigger setMusicEffect \"Track1\";",
     "params": "<object> <string> <array> <string>",
     "returns": "nothing"
@@ -882,7 +882,7 @@
     "syntax": "<object> setParticleRandom [<number>, <array>, <array>, <number>, <number>, color, <number>, <number>, <number>, <number>]",
     "docSyntax": "particleSource setParticleRandom [lifeTime, position, moveVelocity, rotationVelocity, size, color, directionPeriod, directionIntensity, angle, bounceOnSurface]",
     "tags": "[AG] [EL]",
-    "description": "Sets randomization of particle source parameters. Correspondence between CfgCloudlets class param names and command array of params: codeparticleSource setParticleRandom [ lifeTimeVar, positionVar, moveVelocityVar, rotationVelocityVar, sizeVar, colorVar, randomDirectionPeriodVar, randomDirectionIntensityVar, angleVar, bounceOnSurfaceVar ];</code>",
+    "description": "Sets randomization of particle source parameters. Correspondence between CfgCloudlets class param names and command array of \nparams: codeparticleSource setParticleRandom [ lifeTimeVar, positionVar, moveVelocityVar, rotationVelocityVar, sizeVar, colorVar, randomDirectionPeriodVar, randomDirectionIntensityVar, angleVar, bounceOnSurfaceVar ];</code>",
     "example": "_particleSource setParticleRandom [0, [0.1, 0.1, 0.1], [0, 0, 0.5], 0, 0.1, [0, 0, 0, 0], 0, 0, 45, 0];",
     "params": "<object> <number> <array> <array> <number> <number> color <number> <number> <number> <number>",
     "returns": "nothing"
@@ -918,7 +918,7 @@
     "syntax": "<object> setTargetAge <string>",
     "docSyntax": "object setTargetAge age",
     "tags": "",
-    "description": "Sets how the target is known to the other centers. They behave like the target was seen age seconds ago. Possible age values are: \"ACTUAL\", \"5 MIN\", \"10 MIN\", \"15 MIN\", \"30 MIN\", \"60 MIN\", \"120 MIN\" or \"UNKNOWN\".",
+    "description": "Sets how the target is known to the other centers. They behave like the target was seen age seconds ago. Possible age values \nare: \"ACTUAL\", \"5 MIN\", \"10 MIN\", \"15 MIN\", \"30 MIN\", \"60 MIN\", \"120 MIN\" or \"UNKNOWN\".",
     "example": "sqfplayer setTargetAge \"10 MIN\"</sqf>",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -966,7 +966,7 @@
     "syntax": "<object> setUnitRank <string>",
     "docSyntax": "unitName setUnitRank rank",
     "tags": "[AG] [EL]",
-    "description": "Sets rank of given unit. Possible rank values, and the associated rating that is 'set' (not added, the value replaces previous rating) with it: {! class=\"wikitable\" style=\"text-align: center\" ! colspan=\"2\" ! Ranks ! PRIVATE ! CORPORAL ! SERGEANT ! LIEUTENANT ! CAPTAIN ! MAJOR ! COLONEL !- ! rowspan=\"3\" ! Ratings ! Namearma1shortbr Namearma2shortbr Namearma2oashortbr Nametkohshort ! 0 ! 500 ! 1500 ! 2500 ! 3500 ! 5000 ! 7500 !- ! Namearma3short (ca 2015) ! 0 ! 50 ! 150 ! 250 ! 350 ! 500 ! 750 !- ! Namearma3short ! 0 ! 0 ! 0 ! 0 ! 0 ! 0 ! 0 !} Featurearma3Since GVIarma31.68 this command is IconglobalArgument32 IconglobalEffect32",
+    "description": "Sets rank of given unit. Possible rank values, and the associated rating that is 'set' (not added, the value replaces previous rating) with \nit: {! class=\"wikitable\" style=\"text-\nalign: center\" ! colspan=\"2\" ! Ranks ! PRIVATE ! CORPORAL ! SERGEANT ! LIEUTENANT ! CAPTAIN ! MAJOR ! COLONEL !- ! rowspan=\"3\" ! Ratings ! Namearma1shortbr Namearma2shortbr Namearma2oashortbr Nametkohshort ! 0 ! 500 ! 1500 ! 2500 ! 3500 ! 5000 ! 7500 !- ! Namearma3short (ca 2015) ! 0 ! 50 ! 150 ! 250 ! 350 ! 500 ! 750 !- ! Namearma3short ! 0 ! 0 ! 0 ! 0 ! 0 ! 0 ! 0 !} Featurearma3Since GVIarma31.68 this command is IconglobalArgument32 IconglobalEffect32",
     "example": "player setUnitRank \"COLONEL\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -1002,7 +1002,7 @@
     "syntax": "<object> setVehicleArmor <number>",
     "docSyntax": "vehicleName setVehicleArmor value",
     "tags": "[AL] [EG]",
-    "description": "Sets the armor (or health for men) state of the vehicle (a value from 0 to 1). Works like setDamage, but the other way around: 1 is full health - see HashLink#Example 2.",
+    "description": "Sets the armor (or health for men) state of the vehicle (a value from 0 to 1). Works like setDamage, but the other way \naround: 1 is full health - see HashLink#Example 2.",
     "example": "player setVehicleArmor 0.5;",
     "params": "<object> <number>",
     "returns": "nothing"
@@ -1038,7 +1038,7 @@
     "syntax": "<object> setVehicleLock <string>",
     "docSyntax": "vehicleName setVehicleLock lockState",
     "tags": "[AL] [EG]",
-    "description": "Sets vehicle lock. Possible values: br * \"UNLOCKED\" * \"DEFAULT\" * \"LOCKED\" * \"LOCKEDPLAYER\"",
+    "description": "Sets vehicle lock. Possible \nvalues: br * \"UNLOCKED\" * \"DEFAULT\" * \"LOCKED\" * \"LOCKEDPLAYER\"",
     "example": "_veh1 setVehicleLock \"LOCKED\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -1062,7 +1062,7 @@
     "syntax": "<waypoint> setWaypointBehaviour <string>",
     "docSyntax": "waypoint setWaypointBehaviour mode",
     "tags": "[SE] [EG]",
-    "description": "Switches the unit behaviour when the waypoint becomes active. br br Possible values are: * \"UNCHANGED\" * \"CARELESS\" * \"SAFE\" * \"AWARE\" * \"COMBAT\" * \"STEALTH\" See the AIBehaviour page for details of the effect of this command on AI units.",
+    "description": "Switches the unit behaviour when the waypoint becomes active. br br Possible values \nare: * \"UNCHANGED\" * \"CARELESS\" * \"SAFE\" * \"AWARE\" * \"COMBAT\" * \"STEALTH\" See the AIBehaviour page for details of the effect of this command on AI units.",
     "example": "[_grp, 2] setWaypointBehaviour \"AWARE\";",
     "params": "<waypoint> <string>",
     "returns": "nothing"
@@ -1086,7 +1086,7 @@
     "syntax": "<array> setWaypointFormation <string>",
     "docSyntax": "waypoint setWaypointFormation formation",
     "tags": "[SE] [EG]",
-    "description": "Switches the group formation when the waypoint becomes active. br br Possible values are: * \"NO CHANGE\" * \"COLUMN\" * \"STAG COLUMN\" * \"WEDGE\" * \"ECH LEFT\" * \"ECH RIGHT\" * \"VEE\" * \"LINE\" * \"FILE\" * \"DIAMOND\"",
+    "description": "Switches the group formation when the waypoint becomes active. br br Possible values \nare: * \"NO CHANGE\" * \"COLUMN\" * \"STAG COLUMN\" * \"WEDGE\" * \"ECH LEFT\" * \"ECH RIGHT\" * \"VEE\" * \"LINE\" * \"FILE\" * \"DIAMOND\"",
     "example": "[_grp, 2] setWaypointFormation \"LINE\";",
     "params": "<array> <string>",
     "returns": "nothing"
@@ -1122,7 +1122,7 @@
     "syntax": "<array> setWaypointScript <string>",
     "docSyntax": "waypoint setWaypointScript command",
     "tags": "",
-    "description": "Attaches a script to a scripted waypoint. In early versions of Arma, command consisted of a script name and additional script arguments and the script had to use SQS-Syntax. The script receives the following arguments in _this variable: [group, position, target] + [the optional passed arguments]. The optional arguments are appended to the end of the arguments array. Featurearma3In Arma 3, ''command'' argument can be a reference to .sqf script (it will have to explicitly end with '.sqf') or a reference to .sqs script.",
+    "description": "Attaches a script to a scripted waypoint. In early versions of Arma, command consisted of a script name and additional script arguments and the script had to use SQS-Syntax. The script receives the following arguments in _this \nvariable: [group, position, target] + [the optional passed arguments]. The optional arguments are appended to the end of the arguments array. Featurearma3In Arma 3, ''command'' argument can be a reference to .sqf script (it will have to explicitly end with '.sqf') or a reference to .sqs script.",
     "example": "[_grp, 2] setWaypointScript \"find.sqs player\";",
     "params": "<array> <string>",
     "returns": "nothing"
@@ -1134,7 +1134,7 @@
     "syntax": "<array> setWaypointSpeed <string>",
     "docSyntax": "waypoint setWaypointSpeed mode",
     "tags": "[SE] [EG]",
-    "description": "Switches the group speed mode when the waypoint becomes active. br br Possible values are: * \"UNCHANGED\" * \"LIMITED\" * \"NORMAL\" * \"FULL\"",
+    "description": "Switches the group speed mode when the waypoint becomes active. br br Possible values \nare: * \"UNCHANGED\" * \"LIMITED\" * \"NORMAL\" * \"FULL\"",
     "example": "[_grp, 2] setWaypointSpeed \"FULL\";",
     "params": "<array> <string>",
     "returns": "nothing"
@@ -1146,7 +1146,7 @@
     "syntax": "<array> setWaypointStatements <array>",
     "docSyntax": "waypoint setWaypointStatements [condition, statement]",
     "tags": "",
-    "description": "The waypoint is done only when the condition is fulfilled. When the waypoint is done, the statement expression is executed.br Within the Condition & Statement code string: * this refers to the group leader * thisList refers to the group's units Feature important The 'Condition' code is evaluated on the group owner's machine. When condition returns globally', a.k.a on every client! See Waypoints.",
+    "description": "The waypoint is done only when the condition is fulfilled. When the waypoint is done, the statement expression is executed.br Within the Condition & Statement code \nstring: * this refers to the group leader * thisList refers to the group's units Feature important The 'Condition' code is evaluated on the group owner's machine. When condition returns globally', a.k.a on every client! See Waypoints.",
     "example": "_waypoint setWaypointStatements [\"true\", \"hint 'hello'; hint 'goodbye'\"];",
     "params": "<array> <array> <string> <string>",
     "returns": "nothing"
@@ -1170,7 +1170,7 @@
     "syntax": "<anything> spawn <code>",
     "docSyntax": "arguments spawn code",
     "tags": "",
-    "description": "Adds given set of compiled instructions to the scheduler. Exactly when the code will be executed is unknown, it depends on how busy is the engine and how filled up is the scheduler. Therefore Script handle to the scheduler task. _this. Since GVIarma31.56size=0.75 the script handle also exists inside the code in hl_thisScript variable. To see what spawned scripts are currently in the scheduler, use diag_activeSQFScripts command. Featurewarning When multiple Code is spawned in an order, there is uno guarantee</u> that the spawned Code will execute in the same order (see HashLinkExample 2). If the order is important, use BIS_fnc_spawnOrdered.",
+    "description": "Adds given set of compiled instructions to the scheduler. Exactly when the code will be executed is unknown, it depends on how busy is the engine and how filled up is the scheduler. Therefore Script handle to the scheduler task. _this. Since GVIarma31.56size=0.75 the script handle also exists inside the code in _thisScript variable. To see what spawned scripts are currently in the scheduler, use diag_activeSQFScripts command. Featurewarning When multiple Code is spawned in an order, there is uno guarantee</u> that the spawned Code will execute in the same order (see HashLinkExample 2). If the order is important, use BIS_fnc_spawnOrdered.",
     "example": "sqf_handle = 0 spawn { player globalChat \"Hello world!\" };</sqf>",
     "params": "<anything> <code>",
     "returns": "scriptdone | isnull"

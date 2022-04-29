@@ -18,7 +18,7 @@
     "syntax": "<object> addBackpack <string>",
     "docSyntax": "unit addBackpack backpackClassName",
     "tags": "[AL] [EG]",
-    "description": "Adds a backpack for a unit. If a unit already has a backpack, the old backpack will be placed on the ground under the unit. Items defined in the backpack's config will be added as well. Feature Informative Classname list of available backpacks: * Arma 2 OA backpacks * Arma 3 backpacks - objects starting with \"B_\", starts with \"''B_AssaultPack_khk''\"",
+    "description": "Adds a backpack for a unit. If a unit already has a backpack, the old backpack will be placed on the ground under the unit. Items defined in the backpack's config will be added as well. Feature Informative Classname list of available \nbackpacks: * Arma 2 OA backpacks * Arma 3 backpacks - objects starting with \"B_\", starts with \"''B_AssaultPack_khk''\"",
     "example": "this addBackpack \"TK_RPG_Backpack_EP1\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -78,7 +78,7 @@
     "syntax": "<!-- [] call BIS_fnc_boundingBoxCorner -->",
     "docSyntax": "<!-- [] call BIS_fnc_boundingBoxCorner -->",
     "tags": "",
-    "description": "pre /* Description: Returns position of all four bounding box corners OR Returns position of the nearest corner to the given position Parameter(s): _this: OBJECT - object with bounding box OR _this: ARRAY in format: 0: OBJECT - object with bounding box 1: ARRAY or OBJECT - position for which the nearest corner is returned Returns: ARRAY in format [pos1, pos2, pos3, pos4] - 4 corners of the bounding box OR ARRAY in format [x,y,z] - position of the nearest corner Example 1: _corners = car call BIS_fnc_boundingBoxCorner; Example 2: _nearestCorner = [car, player] call BIS_fnc_boundingBoxCorner; */</pre> Wikiplaceholder",
+    "description": "pre /* \nDescription: Returns position of all four bounding box corners OR Returns position of the nearest corner to the given position Parameter(s): \n_this: OBJECT - object with bounding box OR \n_this: ARRAY in \nformat: \n0: OBJECT - object with bounding box \n1: ARRAY or OBJECT - position for which the nearest corner is returned \nReturns: ARRAY in format [pos1, pos2, pos3, pos4] - 4 corners of the bounding box OR ARRAY in format [x,y,z] - position of the nearest corner Example \n1: _corners = car call BIS_fnc_boundingBoxCorner; Example \n2: _nearestCorner = [car, player] call BIS_fnc_boundingBoxCorner;",
     "example": "",
     "params": "",
     "returns": ""
@@ -162,7 +162,7 @@
     "syntax": "[<string>, <string>] call BIS_fnc_FTLmanager",
     "docSyntax": "[functionCalled, type] call BIS_fnc_FTLmanager",
     "tags": "",
-    "description": "'FTL' ('F'riendly 'T'o 'L'ocal) manager tracks relationship between player and civilian side.br 'FTL State' can be one of the following: \"LOW\", \"NEUTRAL\", \"HIGH\". See <FriendlyToLocal System>.",
+    "description": "'FTL' ('F'riendly 'T'o 'L'ocal) manager tracks relationship between player and civilian side.br 'FTL State' can be one of the \nfollowing: \"LOW\", \"NEUTRAL\", \"HIGH\". See <FriendlyToLocal System>.",
     "example": "[\"Init\"] call BIS_fnc_FTLmanager;",
     "params": "<string> <string>",
     "returns": "boolean | false"
@@ -210,7 +210,7 @@
     "syntax": "<!-- [] call BIS_fnc_respawnManager -->",
     "docSyntax": "<!-- [] call BIS_fnc_respawnManager -->",
     "tags": "",
-    "description": "pre /******************************************************************************* Version: 2.0 Name: Respawn manager DESCRIPTION: All checkpoints must be markers with name prefix BIS_checkpointnr PARAMETERS: 1) function called - string, list of functions: - Init - Destroy - AddCheckpoint - RemoveCheckpoint 2) parameter for the function For more information see https://wiki.bistudio.com/index.php/RespawnManager RETURNED VALUE: depends on the function called TODO: -performance: add markers positions to the array instead of the testing their positions every loop in _CheckNearestCheckpoint function - DONE -pridat funkci GetActualCheckpoint(character) - DONE -osetrit pripad, kdy postava neexistuje (je prave v respawnu/zahynula) - NEPOTREBUJEME -typy markeru podle modu: normal/debug - DONE -optional parameter marker name - DONE -optional prefix marker name as a parameter to the Init procedure -add functionality for 3 parameters function call - DONE -vlastni lokalni checkpointy(markery) pro hratelne postavy(AddCheckpoint/RemoveCheckpoint) *******************************************************************************/</pre> Wikiplaceholder",
+    "description": "pre /******************************************************************************* \nVersion: 2.0 \nName: Respawn manager \nDESCRIPTION: All checkpoints must be markers with name prefix BIS_checkpointnr \nPARAMETERS: 1) function called - string, list of \nfunctions: - Init - Destroy - AddCheckpoint - RemoveCheckpoint 2) parameter for the function For more information see https://wiki.bistudio.com/index.php/RespawnManager RETURNED \nVALUE: depends on the function called \nTODO: -\nperformance: add markers positions to the array instead of the testing their positions every loop in _CheckNearestCheckpoint function - DONE -pridat funkci GetActualCheckpoint(character) - DONE -osetrit pripad, kdy postava neexistuje (je prave v respawnu/zahynula) - NEPOTREBUJEME -typy markeru podle \nmodu: normal/debug - DONE -optional parameter marker name - DONE -optional prefix marker name as a parameter to the Init procedure -add functionality for 3 parameters function call - DONE -vlastni lokalni checkpointy(markery) pro hratelne postavy(AddCheckpoint/RemoveCheckpoint) ******************************************************************************",
     "example": "[] call BIS_fnc_respawnManager;",
     "params": "",
     "returns": ""
@@ -219,12 +219,12 @@
     "command": "BIS_fnc_scriptedMove",
     "timestamp": "2021-07-05T08:35:46Z",
     "version": "1.50",
-    "syntax": "[<object>, positions'', <code>, <string>, <number>''] call BIS_fnc_scriptedMove",
-    "docSyntax": "[unit, waypoints'', code, walkAnim, animLength''] call BIS_fnc_scriptedMove",
+    "syntax": "[<object>, <array>, <code>, <string>, <number>] call BIS_fnc_scriptedMove",
+    "docSyntax": "[unit, waypoints, code, walkAnim, animLength] call BIS_fnc_scriptedMove",
     "tags": "",
-    "description": "Force a unit to turn towards and walk to",
-    "example": "[myUnit, [getMarkerPos \"wp1\", getMarkerPos \"wp2\", getMarkerPos \"wp3\"]] call BIS_fnc_scriptedMove;",
-    "params": "<object> positions <code> <string> <number>",
+    "description": "Force a unit to turn towards and walk to provided destination(s). Featurearma3This function is 'broken' in arma3 as its code relies on <Arma \n2: Multiplayer Framework>.",
+    "example": "sqf[myUnit, [getMarkerPos \"wp1\", getMarkerPos \"wp2\", getMarkerPos \"wp3\"]] call BIS_fnc_scriptedMove;</sqf>",
+    "params": "<object> <array> <code> <string> <number>",
     "returns": "<script handle>"
   },
   "BIS_fnc_spawnEnemy": {
@@ -342,7 +342,7 @@
     "syntax": "currentVisionMode <object>",
     "docSyntax": "currentVisionMode entity",
     "tags": "[AG]",
-    "description": "Returns current vision mode of unit's weapon. Vision mode could be one of: * 0 - normal vision * 1 - night vision * 2 - thermal vision Alternative syntaxes additionally return FLIR index (see \"VisionModeChanged\" entity event handler)",
+    "description": "Returns current vision mode of unit's weapon. Vision mode could be one \nof: * 0 - normal vision * 1 - night vision * 2 - thermal vision Alternative syntaxes additionally return FLIR index (see \"VisionModeChanged\" entity event handler)",
     "example": "_currMode = currentVisionMode gunner _tank",
     "params": "<object> <object> <object> <array> <object> <string>",
     "returns": "number"
@@ -354,7 +354,7 @@
     "syntax": "currentWeaponMode <object>",
     "docSyntax": "currentWeaponMode gunner",
     "tags": "",
-    "description": "Returns current weapon mode of unit's weapon. Result can be: \"Single\", \"Burst\", \"FullAuto\", \"manual\", \"player\" FeatureWarningThis command will return 0 Number if given object is a vehicle instead of a person.br You can alternatively use code_muzzle = weaponState player select 2;</code>",
+    "description": "Returns current weapon mode of unit's weapon. Result can \nbe: \"Single\", \"Burst\", \"FullAuto\", \"manual\", \"player\" FeatureWarningThis command will return 0 Number if given object is a vehicle instead of a person.br You can alternatively use code_muzzle = weaponState player select 2;</code>",
     "example": "_weaponMode = currentWeaponMode player;",
     "params": "<object>",
     "returns": "string"
@@ -414,7 +414,7 @@
     "syntax": "<number> fadeSpeech <number>",
     "docSyntax": "time fadeSpeech volume",
     "tags": "[EL]",
-    "description": "Changes the master speech volume smoothly within the given time. The default volume is 1.0. Some of the sounds that play through speech channel are: * Tactical Ping sound * playSound when ''isSpeech'' argument is true * say3D when ''isSpeech'' argument is true",
+    "description": "Changes the master speech volume smoothly within the given time. The default volume is 1.0. Some of the sounds that play through speech channel \nare: * Tactical Ping sound * playSound when ''isSpeech'' argument is true * say3D when ''isSpeech'' argument is true",
     "example": "5 fadeSpeech 0.1;",
     "params": "<number> <number>",
     "returns": "nothing"
@@ -558,7 +558,7 @@
     "syntax": "sendUDPMessage [<string>, <number>, <string>]",
     "docSyntax": "sendUDPMessage [ip, port, message]",
     "tags": "",
-    "description": "Send message to given address using UDP protocol. Returns false if the message has not been delivered Note: Not implemented (see talk page for more info).",
+    "description": "Send message to given address using UDP protocol. Returns false if the message has not been delivered \nNote: Not implemented (see talk page for more info).",
     "example": "_bool nowiki=</nowiki> 'sendUDPMessage' [\"192.168.0.1\", 2302, \"Here goes you message...\"];",
     "params": "<string> <number> <string>",
     "returns": "boolean"
@@ -630,7 +630,7 @@
     "syntax": "<object> setVelocityTransformation [positionasl, positionasl, <array>, <array>, <array>, <array>, <array>, <array>, <number>, customCenter]",
     "docSyntax": "object setVelocityTransformation [fromPosASL, toPosASL, fromVelocity, toVelocity, fromVectorDir, toVectorDir, fromVectorUp, toVectorUp, interval, customCenter]",
     "tags": "[AL] [EG]",
-    "description": "thumb|rightInterpolates and applies PositionASL, velocity, vectorDir and vectorUp to the given object based on the interval value.br When interval is 0 the \"fromXXX\" values are used for the beginning of the interpolation. When interval is 1, the \"toXXX\" values are used for the end of interpolation. When interval value is in between, interpolated values are used (see diagram below). The interpolation is linear and along straight line between \"from\" and \"to\" positions. If curve is needed, then it should be constructed from multiple straight sections or by dynamically changing value of position params during the interpolation cycle, similar to WikipediaB%C3%A9zier_curve#Quadratic_curvesQuadratic Curve animation (see Example 3). br The velocity param doesn't do much in SP, but in MP, provided the velocity component is set correctly, it helps the engine to figure out what the next position of the moving object should be on other clients.brbr The actual approximate interpolation formula for this command is: code_vecCurrent = _vecFrom vectorAdd (_vecTo vectorDiff _vecFrom vectorMultiply _interval);</code> Feature Informative For continuous movement this command should be executed each frame while changing the interval value. For example to apply interpolation for 10 seconds one could use the following command to translate 10 seconds into 0..1 interval: codet1 = time; t2 = time + 10;</code> Later inside some on frame event... code_interval = linearConversion [t1, t2, time, 0, 1];</code>",
+    "description": "thumb|rightInterpolates and applies PositionASL, velocity, vectorDir and vectorUp to the given object based on the interval value.br When interval is 0 the \"fromXXX\" values are used for the beginning of the interpolation. When interval is 1, the \"toXXX\" values are used for the end of interpolation. When interval value is in between, interpolated values are used (see diagram below). The interpolation is linear and along straight line between \"from\" and \"to\" positions. If curve is needed, then it should be constructed from multiple straight sections or by dynamically changing value of position params during the interpolation cycle, similar to WikipediaB%C3%A9zier_curve#Quadratic_curvesQuadratic Curve animation (see Example 3). br The velocity param doesn't do much in SP, but in MP, provided the velocity component is set correctly, it helps the engine to figure out what the next position of the moving object should be on other clients.brbr The actual approximate interpolation formula for this command \nis: code_vecCurrent = _vecFrom vectorAdd (_vecTo vectorDiff _vecFrom vectorMultiply _interval);</code> Feature Informative For continuous movement this command should be executed each frame while changing the interval value. For example to apply interpolation for 10 seconds one could use the following command to translate 10 seconds into 0..1 \ninterval: codet1 = time; t2 = time + 10;</code> Later inside some on frame event... code_interval = linearConversion [t1, t2, time, 0, 1];</code>",
     "example": "_tracker setVelocityTransformation [ _currentPos, _nextPos, _currentVelocity, _nextVelocity, _currentVectorDir, _nextVectorDir, _currentVectorUp, _nextVectorUp, _interval ];",
     "params": "<object> positionasl positionasl <array> <array> <array> <array> <array> <array> <number> <array>",
     "returns": "nothing"
@@ -654,7 +654,7 @@
     "syntax": "<object> addMagazineTurret [<string>, <array>, <number>]",
     "docSyntax": "vehicle addMagazineTurret [magazineName, turretPath, ammoCount]",
     "tags": "[AL] [EG]",
-    "description": "Adds a magazine to the turret. Use turret path [-1] for driver's turret. Note: you may create invalid combinations by using this function, for example by adding 20 grenades. When doing so, application behaviour is undefined. Since Arma 3 v1.56 it is possible to set custom ammo count in added magazine.",
+    "description": "Adds a magazine to the turret. Use turret path [-1] for driver's turret. \nNote: you may create invalid combinations by using this function, for example by adding 20 grenades. When doing so, application behaviour is undefined. Since Arma 3 v1.56 it is possible to set custom ammo count in added magazine.",
     "example": "_tank addMagazineTurret [\"SmokeLauncherMag\",[0,0]];",
     "params": "<object> <array> <string> <array> <number>",
     "returns": "nothing"
@@ -690,7 +690,7 @@
     "syntax": "<object> removeMagazineTurret [<string>, <array>]",
     "docSyntax": "vehicle removeMagazineTurret [magazineName, turretPath]",
     "tags": "[AL] [EG]",
-    "description": "Removes the magazine from the turret. Use turret path [-1] for driver's turret. Note: you may create invalid combinations by using this function. When doing so, application behaviour is undefined.",
+    "description": "Removes the magazine from the turret. Use turret path [-1] for driver's turret. \nNote: you may create invalid combinations by using this function. When doing so, application behaviour is undefined.",
     "example": "vehicle player 'removeMagazineTurret' [\"60rnd_cmflaremagazine\",[-1]]",
     "params": "<object> <array> <string> <array>",
     "returns": "nothing"
@@ -774,7 +774,7 @@
     "syntax": "<object> addBackpackCargoGlobal [<string>, <number>]",
     "docSyntax": "vehicle addBackpackCargoGlobal [packClassName, count]",
     "tags": "[AG] [EG]",
-    "description": "Add backpack(s) to the cargo space of vehicle. Feature Informative Classname list of available backpacks: * Arma 2 OA backpacks * Arma 3 backpacks - objects starting with \"B_\", starts with \"''B_AssaultPack_khk''\"",
+    "description": "Add backpack(s) to the cargo space of vehicle. Feature Informative Classname list of available \nbackpacks: * Arma 2 OA backpacks * Arma 3 backpacks - objects starting with \"B_\", starts with \"''B_AssaultPack_khk''\"",
     "example": "this addBackpackCargoGlobal [\"TK_RPG_Backpack_EP1\", 2];",
     "params": "<object> <string> <number>",
     "returns": "nothing"
@@ -870,7 +870,7 @@
     "syntax": "getResolution",
     "docSyntax": "getResolution",
     "tags": "",
-    "description": "Returns an array containing all information about current client screen resolution. Feature arma3 'Render resolution' is not returned by this command.br A sampling setting of '50%' means half of native width ''and'' half of native height, resulting in a render resolution of '''25%''' the original resolution. Feature important The engine default value for hlfovTop is '0.75' in case it is needed to calculate difference with custom FOV. Feature Informative The hlaspectRatio is calculated as hlfovLeft&nbsp;/&nbsp;fovTop and should be the same as hlscreenW&nbsp;/&nbsp;screenH for undistorted image if the FOV is custom. Some of the common values: {! class=\"wikitable\" ! 16/9 !! 16/10 !! 5/4 !! 4/3 !! 16/9 triple screen !- ! 1.777777(…) !! 1.6 !! 1.25 !! 1.333333(…) !! 5.333333(…) !}",
+    "description": "Returns an array containing all information about current client screen resolution. Feature arma3 'Render resolution' is not returned by this command.br A sampling setting of '50%' means half of native width ''and'' half of native height, resulting in a render resolution of '''25%''' the original resolution. Feature important The engine default value for fovTop is '0.75' in case it is needed to calculate difference with custom FOV. Feature Informative The aspectRatio is calculated as fovLeft&nbsp;/&nbsp;fovTop and should be the same as screenW&nbsp;/&nbsp;screenH for undistorted image if the FOV is custom. Some of the common \nvalues: {! class=\"wikitable\" ! 16/9 !! 16/10 !! 5/4 !! 4/3 !! 16/9 triple screen !- ! 1.777777(…) !! 1.6 !! 1.25 !! 1.333333(…) !! 5.333333(…) !}",
     "example": "_res = getResolution; // a 16/9 single monitor setup</code> code[ 1360, ccwidth 768, ccheight 867, cc2D viewport width 653, cc2D viewport height 1.77778, ccaspect ratio 0.85 ccUI scale ]",
     "params": "",
     "returns": "boolean | true | safezonexabs | safezonewabs"
@@ -954,7 +954,7 @@
     "syntax": "[<string>, <array>, <number>, <number>] spawn BIS_fnc_3Dcredits",
     "docSyntax": "[text, position, minDis, fadeDis] spawn BIS_fnc_3Dcredits",
     "tags": "[EL]",
-    "description": "Displays structured text in 3D world. GUI layer for indicator is hl2733.",
+    "description": "Displays structured text in 3D world. GUI layer for indicator is 2733.",
     "example": "[\"<t size='2'>Hello World</t>\", getPos helloWorld, 15, 0] spawn BIS_fnc_3Dcredits;",
     "params": "<string> <array> <number> <number>",
     "returns": "nothing"
@@ -978,7 +978,7 @@
     "syntax": "[<string>, ''deltaX'', ''deltaY''] call BIS_fnc_customGPS",
     "docSyntax": "[path, ''deltaX'', ''deltaY''] call BIS_fnc_customGPS",
     "tags": "[EL]",
-    "description": "Replaces GPS frame.br The following line 'must' be defined in mission <Description.ext>: syntaxhighlight lang=\"cpp\"onMinimapScript[] = {\"BIS_fnc_customGPS_Spawn\"}; </syntaxhighlight>",
+    "description": "Replaces GPS frame.br The following line 'must' be defined in mission <Description.ext>: onMinimapScript[] = {\"BIS_fnc_customGPS_Spawn\"};",
     "example": "[\"ca\\missions_pmc\\data\\ui_gps_ca.paa\", -0.05, 0.16] call BIS_fnc_customGPS;",
     "params": "<string> <number> <number>",
     "returns": "boolean"
@@ -990,7 +990,7 @@
     "syntax": "[<string>, ''sizeCoef''] spawn BIS_fnc_customGPSvideo",
     "docSyntax": "[path, ''sizeCoef''] spawn BIS_fnc_customGPSvideo",
     "tags": "[EL]",
-    "description": "Plays in-game video in GPS frame.br If <BIS fnc customGPS> changed GPS texture, it is used.br GPS GUI layer is hl19.",
+    "description": "Plays in-game video in GPS frame.br If <BIS fnc customGPS> changed GPS texture, it is used.br GPS GUI layer is 19.",
     "example": "_script = [\"\\ca\\video_pmc\\CP00_Reynolds_b.ogv\",1.04] spawn BIS_fnc_customGPSvideo; waitUntil {scriptDone _script};",
     "params": "<string> <number>",
     "returns": "script - script which terminates itself once video ends"
@@ -1050,7 +1050,7 @@
     "syntax": "[<string>, <array>, <array>, <string>, <array>, keepAspect] spawn BIS_fnc_playVideo",
     "docSyntax": "[content, size, color, skipVarName, bgColor, keepAspect] spawn BIS_fnc_playVideo",
     "tags": "[EL]",
-    "description": "Plays in-game video with a range of options. The function can be called or spawned. If spawned, scriptDone command can be used to see if video is stopped or finished. If called in scheduled environment, the next line of code will not process until the video is stopped or finished.br The function also calls hl\"BIS_fnc_playVideo_started\" and hl\"BIS_fnc_playVideo_stopped\" Scripted Event Handlers in missionNamespace - see BIS_fnc_addScriptedEventHandler and <Arma 3: Scripted Event Handlers>. Feature informative * to play the video on an object, e.g an in-game screen, see HashLink#Example 3 * the video can be stopped in a variety of ways - see HashLink#Example 4.",
+    "description": "Plays in-game video with a range of options. The function can be called or spawned. If spawned, scriptDone command can be used to see if video is stopped or finished. If called in scheduled environment, the next line of code will not process until the video is stopped or finished.br The function also calls hl\"BIS_fnc_playVideo_started\" and hl\"BIS_fnc_playVideo_stopped\" Scripted Event Handlers in missionNamespace - see BIS_fnc_addScriptedEventHandler and <Arma \n3: Scripted Event Handlers>. Feature informative * to play the video on an object, e.g an in-game screen, see HashLink#Example 3 * the video can be stopped in a variety of ways - see HashLink#Example 4.",
     "example": "_video = [\"A3\\Missions_F_EPA\\video\\A_in_intro.ogv\"] spawn BIS_fnc_playVideo;",
     "params": "<string> <array> <array> <string> <array> <boolean>",
     "returns": "boolean | true"
@@ -1122,7 +1122,7 @@
     "syntax": "assignedTeam <object>",
     "docSyntax": "assignedTeam unitName",
     "tags": "[AG]",
-    "description": "Returns the team the unit belongs to. Possible values: * hl\"MAIN\" (default and white) * hl\"RED\" * hl\"GREEN\" * hl\"BLUE\" * hl\"YELLOW\" * GVIarma31.94 hl\"\" if given unit is objNull or remoteControlling another unit",
+    "description": "Returns the team the unit belongs to. Possible \nvalues: * hl\"MAIN\" (default and white) * hl\"RED\" * hl\"GREEN\" * hl\"BLUE\" * hl\"YELLOW\" * GVIarma31.94 hl\"\" if given unit is objNull or remoteControlling another unit",
     "example": "_team = assignedTeam player;",
     "params": "<object>",
     "returns": "string | nothing | objnull | remotecontrol"
@@ -1134,7 +1134,7 @@
     "syntax": "<string> callExtension <string>",
     "docSyntax": "extension callExtension function",
     "tags": "",
-    "description": "Calls custom .dll also known as Extension. The name of the extension is the name of the extension .dll without \".dll\" part (or without \"_x64.dll\" part on 64-bit Arma). For example if the file is 'myExtension.dll' the name of the extension will be \"myExtension\". For 64-bit extensions, the name of the extension doesn't need to change and is still \"myExtension\". The game will automatically look for 'myExtension_x64.dll' when you use 64-bit Arma exe. brbr This command is blocking, meaning that the game will wait for the extension to return before continuing. This may cause FPS drop if extension is not optimised. If extension takes too long, consider making asynchronous extension, where the result of the work of the extension is collected in a separate call. brbr Currently there is no limit how much data you can send to the extension. However there is a limit on how much data you can return from extension in one call. The limit is known to the extension and is passed in hl int outputSize. The limit may or may not change in the future and is currently 10240 bytes. It is up to extension designer to handle multipart results if returned data exceeds output limit. brbr Since Arma 3 v1.67 it is possible to pass array of arguments to extensions. The array of arguments could be anything and all elements will be converted to strings, however you might want to only send simple types like Server Options). brbr If an extension with the given name can't be found (or it is found but doesn't implement the required interface properly / at all) the following error will be written into the RPT (In this example the given dll-name was \"MyExtension\"): code14:27:07 CallExtension 'MyExtension' could not be found</code> br If an extension is not whitelisted with BattlEye (see \"ExtensionCallback\" mission event handler with 3 user supplied params. The params are * hlname - make it unique name, for example the extension name, so that other modders can quickly filter out calls from own extensions * hlfunction - make it name of the function the extension sends the result to. (Note: The returned function is just a STRING! So compile is needed, before using call or spawn, to execute it) * hldata - make it the actual result. You can also format it as an array so it could be parsed by parseSimpleArray Calling function pointer returns an hlint. This is the number of available slots in the input buffer left for this frame after your call and can range from 99 to -1. The buffer is processed and cleared every frame and the maximum number of slots that can be filled per frame is 100. If you are planning to call back with more than 100 results per frame, make sure your extension retries if it receives negative hlint, which means the buffer was full and your call did not succeed. Ideally suited for callbacks from different threads, but if callback is initiated from the calling thread, the EH will fire on the next frame of game simulation. Needless to say, the \"ExtensionCallback\" event handler needs to exist before any callbacks, otherwise the data will just stay in the buffer. Removing all \"ExtensionCallback\" EHs clears the buffer as well as mission restart.",
+    "description": "Calls custom .dll also known as Extension. The name of the extension is the name of the extension .dll without \".dll\" part (or without \"_x64.dll\" part on 64-bit Arma). For example if the file is 'myExtension.dll' the name of the extension will be \"myExtension\". For 64-bit extensions, the name of the extension doesn't need to change and is still \"myExtension\". The game will automatically look for 'myExtension_x64.dll' when you use 64-bit Arma exe. brbr This command is blocking, meaning that the game will wait for the extension to return before continuing. This may cause FPS drop if extension is not optimised. If extension takes too long, consider making asynchronous extension, where the result of the work of the extension is collected in a separate call. brbr Currently there is no limit how much data you can send to the extension. However there is a limit on how much data you can return from extension in one call. The limit is known to the extension and is passed in hl int outputSize. The limit may or may not change in the future and is currently 10240 bytes. It is up to extension designer to handle multipart results if returned data exceeds output limit. brbr Since Arma 3 v1.67 it is possible to pass array of arguments to extensions. The array of arguments could be anything and all elements will be converted to strings, however you might want to only send simple types like Server Options). brbr If an extension with the given name can't be found (or it is found but doesn't implement the required interface properly / at all) the following error will be written into the RPT (In this example the given dll-name was \"MyExtension\"): \n\tcode14:2\n\t7:07 CallExtension 'MyExtension' could not be found</code> br If an extension is not whitelisted with BattlEye (see \"ExtensionCallback\" mission event handler with 3 user supplied params. The params are * name - make it unique name, for example the extension name, so that other modders can quickly filter out calls from own extensions * function - make it name of the function the extension sends the result to. (\nNote: The returned function is just a STRING! So compile is needed, before using call or spawn, to execute it) * data - make it the actual result. You can also format it as an array so it could be parsed by parseSimpleArray Calling function pointer returns an int. This is the number of available slots in the input buffer left for this frame after your call and can range from 99 to -1. The buffer is processed and cleared every frame and the maximum number of slots that can be filled per frame is 100. If you are planning to call back with more than 100 results per frame, make sure your extension retries if it receives negative int, which means the buffer was full and your call did not succeed. Ideally suited for callbacks from different threads, but if callback is initiated from the calling thread, the EH will fire on the next frame of game simulation. Needless to say, the \"ExtensionCallback\" event handler needs to exist before any callbacks, otherwise the data will just stay in the buffer. Removing all \"ExtensionCallback\" EHs clears the buffer as well as mission restart.",
     "example": "_return = \"myExtension\" callExtension \"stringToBeParsed\";",
     "params": "<string> <string> <string> <string> <array>",
     "returns": "string"
@@ -1206,7 +1206,7 @@
     "syntax": "<string>State <object>",
     "docSyntax": "weaponState unit",
     "tags": "",
-    "description": "Returns the given or currently selected weapon state for unit or vehicle. With syntax 2, if no optional arguments are present, currently selected weapon is queried. Featurearma3 Since arma3 v1.70 this command has been improved and extended: * A vehicle's weapon query doesn't need a weapon operator provided the weapon or muzzle is specified in optional param.br(keep in mind that by default a vehicle has no weapons selected) * Driver turret can now be accessed as well with turret path [-1]. * Muzzle name is supported as well as weapon name. The command searches for weapon first, then if not found, muzzle is searched for.",
+    "description": "Returns the given or currently selected weapon state for unit or vehicle. With syntax 2, if no optional arguments are present, currently selected weapon is queried. Featurearma3 Since arma3 v1.70 this command has been improved and \nextended: * A vehicle's weapon query doesn't need a weapon operator provided the weapon or muzzle is specified in optional param.br(keep in mind that by default a vehicle has no weapons selected) * Driver turret can now be accessed as well with turret path [-1]. * Muzzle name is supported as well as weapon name. The command searches for weapon first, then if not found, muzzle is searched for.",
     "example": "_wsPlayer = weaponState player; cc[\"arifle_MXC_ACO_F\",\"arifle_MXC_ACO_F\",\"Single\",\"30Rnd_65x39_caseless_mag\",30,0,0]",
     "params": "<object> <array> <object> <array> <string> <string> <string> <object> <string>",
     "returns": "array | string | string | string | string | number | number | weaponreloadingtime | number"
@@ -1458,7 +1458,7 @@
     "syntax": "sunOrMoon",
     "docSyntax": "sunOrMoon",
     "tags": "",
-    "description": "<code style=\"float: right; font-size: 0.85em; margin: 0 0 0.5em 1.5em\">12:00 - 1 (...) - 1 18:39 - 0.911201 18:42 - 0.576303 18:45 - 0.240862 18:48 - 0 (...) - 0 06:00 - 0.0695308 06:03 - 0.404731 06:06 - 0.739519 06:09 - 1 (...) - 1</code> Returns the sun to moon transition state in range 0..1.br The return value is either 0 or 1 most of the time, the in-between values only returned during a few minutes in the morning and in the evening, depending on the 200px|thumb|left|Sunrise in arma3 VR <div style=\"float: left\">200px|thumb|left|Sunset in arma3 VR</div> </div>",
+    "description": "<code style=\"\nfloat: right; font-\nsize: 0.85em; \nmargin: 0 0 0.5em 1.5em\">\n\t12:00 - 1 (...) - 1 \n\t18:39 - 0.911201 \n\t18:42 - 0.576303 \n\t18:45 - 0.240862 \n\t18:48 - 0 (...) - 0 \n\t06:00 - 0.0695308 \n\t06:03 - 0.404731 \n\t06:06 - 0.739519 \n\t06:09 - 1 (...) - 1</code> Returns the sun to moon transition state in range 0..1.br The return value is either 0 or 1 most of the time, the in-between values only returned during a few minutes in the morning and in the evening, depending on the 200px|thumb|left|Sunrise in arma3 VR <div style=\"\nfloat: left\">200px|thumb|left|Sunset in arma3 VR</div> </div>",
     "example": "private _transitionState = sunOrMoon;",
     "params": "",
     "returns": "number"
@@ -1530,7 +1530,7 @@
     "syntax": "diag_captureSlowFrame [<string>, <number>]",
     "docSyntax": "diag_captureSlowFrame [section, threshold]",
     "tags": "",
-    "description": "right|200x120px Opens \"capture frame\" dialog if current frame exceeds set threshold in seconds. One can indicate to either capture duration of a specific profiling selection or the total duration of the frame. The selection names can be obtained by expanding the profiling tree. Clicking on a tree item will highlight the item on the graph and vice versa. The GUI also provides method of copying of the displayed data to clipboard. Some of the selections: {! class=\"wikitable\" style=\"margin: 1em auto\" ! Render ! Main Thread ! Visualize ! Mjob !- style=\"vertical-align: top\" ! * bgD3D ! * total * memAl ! * visul ! * Mjob !}",
+    "description": "right|200x120px Opens \"capture frame\" dialog if current frame exceeds set threshold in seconds. One can indicate to either capture duration of a specific profiling selection or the total duration of the frame. The selection names can be obtained by expanding the profiling tree. Clicking on a tree item will highlight the item on the graph and vice versa. The GUI also provides method of copying of the displayed data to clipboard. Some of the \nselections: {! class=\"wikitable\" style=\"\nmargin: 1em auto\" ! Render ! Main Thread ! Visualize ! Mjob !- style=\"vertical-\nalign: top\" ! * bgD3D ! * total * memAl ! * visul ! * Mjob !}",
     "example": "diag_captureSlowFrame ['total',0.003];",
     "params": "<string> <number>",
     "returns": "nothing"
@@ -1578,7 +1578,7 @@
     "syntax": "onEachFrame <string>",
     "docSyntax": "onEachFrame statement",
     "tags": "",
-    "description": "Runs given statement every frame. Featurearma3 In order to keep compatibility between official and community content: * Since arma3 v1.57 a stackable version of this EH is available: EachFrame Mission Event Handler * Before that, the scripted version of the event handler should be used instead (using BIS_fnc_addStackedEventHandler and BIS_fnc_removeStackedEventHandler).",
+    "description": "Runs given statement every frame. Featurearma3 In order to keep compatibility between official and community \ncontent: * Since arma3 v1.57 a stackable version of this EH is \navailable: EachFrame Mission Event Handler * Before that, the scripted version of the event handler should be used instead (using BIS_fnc_addStackedEventHandler and BIS_fnc_removeStackedEventHandler).",
     "example": "onEachFrame { hintSilent str position player}; // Hints position every frame",
     "params": "<string>",
     "returns": "nothing"

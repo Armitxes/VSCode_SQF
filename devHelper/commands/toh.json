@@ -6,7 +6,7 @@
     "syntax": "batteryChargeRTD <objectrtd>",
     "docSyntax": "batteryChargeRTD helicopterRTD",
     "tags": "",
-    "description": "Returns the current charge of a helicopter's batteries. * 0: empty * 1: fully charged",
+    "description": "Returns the current charge of a helicopter's batteries. * \n0: empty * \n1: fully charged",
     "example": "_charge = batteryChargeRTD vehicle player;",
     "params": "<objectrtd>",
     "returns": "number"
@@ -42,7 +42,7 @@
     "syntax": "<!-- [] call BIS_fnc_ambientBoats -->",
     "docSyntax": "<!-- [] call BIS_fnc_ambientBoats -->",
     "tags": "",
-    "description": "Wikiplaceholder",
+    "description": "",
     "example": "",
     "params": "",
     "returns": ""
@@ -54,7 +54,7 @@
     "syntax": "<!-- [] call BIS_fnc_ambientHelicopters -->",
     "docSyntax": "<!-- [] call BIS_fnc_ambientHelicopters -->",
     "tags": "",
-    "description": "Wikiplaceholder",
+    "description": "",
     "example": "",
     "params": "",
     "returns": ""
@@ -138,7 +138,7 @@
     "syntax": "<!-- [] call BIS_fnc_counter -->",
     "docSyntax": "<!-- [] call BIS_fnc_counter -->",
     "tags": "",
-    "description": "pre/* Description: Modify the given counter (create it if doesn't exist) Parameter(s): _this select 0: STRING - variable name of counter ARRAY in format [variableName,nameSpace], where nameSpace can be object, group or missionNameSpace/uiNameSpace _this select 1 (Optional): NUMBER - added value _this select 2 (Optional): NUMBER - modulo value Returns: NUMBER - counter's value */</pre> Wikiplaceholder",
+    "description": "\nDescription: Modify the given counter (create it if doesn't exist) Parameter(s): _this select \n0: STRING - variable name of counter ARRAY in format [variableName,nameSpace], where nameSpace can be object, group or missionNameSpace/uiNameSpace _this select 1 (Optional): NUMBER - added value _this select 2 (Optional): NUMBER - modulo value \nReturns: NUMBER - counter's value",
     "example": "",
     "params": "",
     "returns": ""
@@ -426,7 +426,7 @@
     "syntax": "<!-- [] call BIS_fnc_diaryHints -->",
     "docSyntax": "<!-- [] call BIS_fnc_diaryHints -->",
     "tags": "",
-    "description": "pre#define DIARY_CATEGORY \"BIS_fnc_diaryHints\" Wikiplaceholder",
+    "description": "pre#define DIARY_CATEGORY \"BIS_fnc_diaryHints\"",
     "example": "[] call BIS_fnc_diaryHints;",
     "params": "",
     "returns": ""
@@ -438,7 +438,7 @@
     "syntax": "<!-- [] call BIS_fnc_diaryMaps -->",
     "docSyntax": "<!-- [] call BIS_fnc_diaryMaps -->",
     "tags": "",
-    "description": "pre#define DIARY_CATEGORY \"BIS_fnc_diaryMaps\" Wikiplaceholder",
+    "description": "pre#define DIARY_CATEGORY \"BIS_fnc_diaryMaps\"",
     "example": "[] call BIS_fnc_diaryMaps;",
     "params": "",
     "returns": ""
@@ -450,7 +450,7 @@
     "syntax": "<!-- [] call BIS_fnc_displayClouds -->",
     "docSyntax": "<!-- [] call BIS_fnc_displayClouds -->",
     "tags": "",
-    "description": "pre#define DISPLAY (uinamespace getvariable 'hsim_RscClouds') #define CONTROL (DISPLAY displayctrl _idc) #define RSC_LAYER 759 Wikiplaceholder",
+    "description": "pre#define DISPLAY (uinamespace getvariable 'hsim_RscClouds') #define CONTROL (DISPLAY displayctrl _idc) #define RSC_LAYER 759",
     "example": "[] call BIS_fnc_displayClouds;",
     "params": "",
     "returns": ""
@@ -462,7 +462,7 @@
     "syntax": "[cfguidefault, <string>] call BIS_fnc_displayColorGet",
     "docSyntax": "[tag, variable] call BIS_fnc_displayColorGet",
     "tags": "",
-    "description": "Loads custom color settings from CfgUIDefault. If variables are not stored in profileNamespace yet, the function will declare them. {! ! style=\"vertical-align: top; width: 50%\" ! <!-- A3 --> {! class=\"wikitable\" !+ arma3 v1.99 ! Tag !! Variable !! Description !- ! rowspan=\"5\" ! \"IGUI\" !\"BCG_RGB\" !! Backgrounds !- ! \"TEXT_RGB\" !! Active Elements !- ! \"WARNING_RGB\" !! Warnings !- ! \"ERROR_RGB\" !! Errors !- ! \"TACTPING_RGB\" !! Tactical Ping !- ! rowspan=\"2\" ! \"GUI\" ! \"BCG_RGB\" !! Backgrounds !- ! \"TITLETEXT_RGB\" !! Title Text !- ! rowspan=\"5\" ! \"Map\" ! \"BLUFOR\" !! BLUFOR !- ! \"OPFOR\" !! OPFOR !- ! \"Independent\" !! Independent !- ! \"Civilian\" !! Civilian !- ! \"Unknown\" !! Unknown !- ! rowspan=\"2\" ! \"Subtitles\" ! \"Background\" !! Subtitle background !- ! \"Text\" !! Subtitle text !} ! style=\"vertical-align: top; width: 50%\" ! <!-- TKOH --> {! class=\"wikitable\" !+ tkoh v1.00 ! Tag !! Variable !! Description !- ! rowspan=\"2\" ! \"IGUI\" !\"IGUI_TEXT_RGB\" !! HUD color 'RGB' !- ! \"IGUI_TEXT_COLOR\" !! HUD color 'RGBA' !- ! rowspan=\"5\" ! \"GUI\" ! \"BCG_RGB\" !! menu background 'RGB' !- ! \"GUI_BCG_COLOR\" !! menu background 'RGBA' !- ! \"GUI_BCG_MEDIUM_RGB\" !! button background 'RGB' (darker version of GUI_BCG_RGB) !- ! \"GUI_BCG_MEDIUM_COLOR\" !! button background 'RGBA' !- ! \"GUI_BCG_ACTIVE_RGB\" !! active button background color (e.g. focused buttons) 'RGB' !} !}",
+    "description": "Loads custom color settings from CfgUIDefault. If variables are not stored in profileNamespace yet, the function will declare them. {! ! style=\"vertical-\nalign: top; \nwidth: 50%\" ! <!-- A3 --> {! class=\"wikitable\" !+ arma3 v1.99 ! Tag !! Variable !! Description !- ! rowspan=\"5\" ! \"IGUI\" !\"BCG_RGB\" !! Backgrounds !- ! \"TEXT_RGB\" !! Active Elements !- ! \"WARNING_RGB\" !! Warnings !- ! \"ERROR_RGB\" !! Errors !- ! \"TACTPING_RGB\" !! Tactical Ping !- ! rowspan=\"2\" ! \"GUI\" ! \"BCG_RGB\" !! Backgrounds !- ! \"TITLETEXT_RGB\" !! Title Text !- ! rowspan=\"5\" ! \"Map\" ! \"BLUFOR\" !! BLUFOR !- ! \"OPFOR\" !! OPFOR !- ! \"Independent\" !! Independent !- ! \"Civilian\" !! Civilian !- ! \"Unknown\" !! Unknown !- ! rowspan=\"2\" ! \"Subtitles\" ! \"Background\" !! Subtitle background !- ! \"Text\" !! Subtitle text !} ! style=\"vertical-\nalign: top; \nwidth: 50%\" ! <!-- TKOH --> {! class=\"wikitable\" !+ tkoh v1.00 ! Tag !! Variable !! Description !- ! rowspan=\"2\" ! \"IGUI\" !\"IGUI_TEXT_RGB\" !! HUD color 'RGB' !- ! \"IGUI_TEXT_COLOR\" !! HUD color 'RGBA' !- ! rowspan=\"5\" ! \"GUI\" ! \"BCG_RGB\" !! menu background 'RGB' !- ! \"GUI_BCG_COLOR\" !! menu background 'RGBA' !- ! \"GUI_BCG_MEDIUM_RGB\" !! button background 'RGB' (darker version of GUI_BCG_RGB) !- ! \"GUI_BCG_MEDIUM_COLOR\" !! button background 'RGBA' !- ! \"GUI_BCG_ACTIVE_RGB\" !! active button background color (e.g. focused buttons) 'RGB' !} !}",
     "example": "[\"GUI\", \"BCG_RGB\"] call BIS_fnc_displayColorGet;//Returns menu color",
     "params": "cfguidefault <string> <boolean>",
     "returns": "color (rgba)"
@@ -486,7 +486,7 @@
     "syntax": "<!-- [] call BIS_fnc_displayControls -->",
     "docSyntax": "<!-- [] call BIS_fnc_displayControls -->",
     "tags": "",
-    "description": "pre/* Description: Return all controls of given display class Parameter(s): _this select 0: CONFIG - display config _this select 1: NUMBER or CONFIG or STRING - type of returned values (control configs, their names or IDCs; default: configfile)) _this select 2: BOOL - true to search content of controls group (default: true) Returns: ARRAY */</pre> Wikiplaceholder",
+    "description": "\nDescription: Return all controls of given display class Parameter(s): _this select \n0: CONFIG - display config _this select \n1: NUMBER or CONFIG or STRING - type of returned values (control configs, their names or IDCs; \ndefault: configfile)) _this select \n2: BOOL - true to search content of controls group (\ndefault: true) \nReturns: ARRAY",
     "example": "[] call BIS_fnc_displayControls;",
     "params": "",
     "returns": ""
@@ -546,7 +546,7 @@
     "syntax": "[<string>, <number>, <string>, <boolean>, code] call BIS_fnc_endMission",
     "docSyntax": "[nextMission, endingId, displayText, isSuccess, code] call BIS_fnc_endMission",
     "tags": "[EL]",
-    "description": "Ends mission with the specified ending. Always ends with a 4 seconds black out effect. Featureinformative''nextMission'' and ''endingId'' parameters are assembled together to define which ending is called, in format hlnextMission_endType.",
+    "description": "Ends mission with the specified ending. Always ends with a 4 seconds black out effect. Featureinformative''nextMission'' and ''endingId'' parameters are assembled together to define which ending is called, in format nextMission_endType.",
     "example": "[\"mission2\", 1, \"You won\"] call BIS_fnc_endMission; endMission \"mission2_1\"",
     "params": "<string> <number> <string> <boolean> <code> <boolean> closing false <boolean>",
     "returns": "boolean"
@@ -582,7 +582,7 @@
     "syntax": "<number> call BIS_fnc_functionsDebug",
     "docSyntax": "mode call BIS_fnc_functionsDebug",
     "tags": "",
-    "description": "Changes debug mode used when compiling functions from the <Arma 3: Functions Library>. Also recompiles all functions. See <Arma 3: Functions Library> for more information.",
+    "description": "Changes debug mode used when compiling functions from the <Arma \n3: Functions Library>. Also recompiles all functions. See <Arma \n3: Functions Library> for more information.",
     "example": "2 call BIS_fnc_functionsDebug;",
     "params": "<number>",
     "returns": "boolean"
@@ -678,7 +678,7 @@
     "syntax": "call BIS_fnc_GUIeditor;",
     "docSyntax": "call BIS_fnc_GUIeditor;",
     "tags": "",
-    "description": "Opens the <Arma 3: User Interface Editor>.",
+    "description": "Opens the <Arma \n3: User Interface Editor>.",
     "example": "call BIS_fnc_GUIeditor;",
     "params": "",
     "returns": "nothing"
@@ -702,7 +702,7 @@
     "syntax": "<!-- [] call BIS_fnc_GUIgridToProfile -->",
     "docSyntax": "<!-- [] call BIS_fnc_GUIgridToProfile -->",
     "tags": "",
-    "description": "Wikiplaceholder",
+    "description": "",
     "example": "",
     "params": "",
     "returns": ""
@@ -714,7 +714,7 @@
     "syntax": "<!-- [] call BIS_fnc_GUIhint -->",
     "docSyntax": "<!-- [] call BIS_fnc_GUIhint -->",
     "tags": "",
-    "description": "pre/* Description: Creates advanced hintC dialog Parameter(s): _this select 0: ARRAY in format [text,picture] * text: STRING - hint text * picture: STRING - picture [item1,item2...] - Listbox item ARRAYs in format [itemText,itemDescription,picture,icon] * itemText: STRING - Text displayed in listbox * itemDescription (Optional): STRING - text displayed after clicking on item * picture (Optional): STRING - picture displayed after clicking on item * icon (Optional): STRING - icon displayed in listbox left from text _this select 1 (Optional): STRING - hint header _this select 2 (Optional): ARRAY - [STRING,CODE,NUMBER] - text on left button (when \"\", button is hidden), code executed upon clicking and fade out delay. If only text is present, button is disabled. _this select 3 (Optional): ARRAY - [STRING,CODE,NUMBER] - STRING - text on right button and code executed upon clicking _this select 4 (Optional): ARRAY - [STRING,CODE,NUMBER] - STRING - text on middle button and code executed upon clicking _this select 5 (Optional): NUMBER or ARRAY - width or [width,height] of picture (in grid coordinates). Width > 17 means only picture is used. Returns: ARRAY - [endState(,lbId)] * endState: NUMBER - 1 when clicked on right button, -1 when clicked on left button, 0 when escaped * lbId: NUMBER - selected listbox item (when listbox was used) */ #define DISPLAY_CLASS 'Hsim_RscDisplayCommonHint_guiHint' #define DISPLAY_CONFIG (configfile >> \"RscDisplayCommonHint\") #define DISPLAY (uinamespace getvariable DISPLAY_CLASS) #define CONTROL (DISPLAY displayctrl _idc) #define CONTROL_FADEINTIME 0.3 #define CONTROL_FADEIN \\ CONTROL ctrlsetfade 1; \\ CONTROL ctrlcommit 0; \\ CONTROL ctrlsetfade 0; \\ CONTROL ctrlcommit CONTROL_FADEINTIME; Wikiplaceholder",
+    "description": "\nDescription: Creates advanced hintC dialog Parameter(s): _this select \n0: ARRAY in format [text,picture] * \ntext: STRING - hint text * \npicture: STRING - picture [item1,item2...] - Listbox item ARRAYs in format [itemText,itemDescription,picture,icon] * \nitemText: STRING - Text displayed in listbox * itemDescription (Optional): STRING - text displayed after clicking on item * picture (Optional): STRING - picture displayed after clicking on item * icon (Optional): STRING - icon displayed in listbox left from text _this select 1 (Optional): STRING - hint header _this select 2 (Optional): ARRAY - [STRING,CODE,NUMBER] - text on left button (when \"\", button is hidden), code executed upon clicking and fade out delay. If only text is present, button is disabled. _this select 3 (Optional): ARRAY - [STRING,CODE,NUMBER] - STRING - text on right button and code executed upon clicking _this select 4 (Optional): ARRAY - [STRING,CODE,NUMBER] - STRING - text on middle button and code executed upon clicking _this select 5 (Optional): NUMBER or ARRAY - width or [width,height] of picture (in grid coordinates). Width > 17 means only picture is used. \nReturns: ARRAY - [endState(,lbId)] * \nendState: NUMBER - 1 when clicked on right button, -1 when clicked on left button, 0 when escaped * \nlbId: NUMBER - selected listbox item (when listbox was used) */ #define DISPLAY_CLASS 'Hsim_RscDisplayCommonHint_guiHint' #define DISPLAY_CONFIG (configfile >> \"RscDisplayCommonHint\") #define DISPLAY (uinamespace getvariable DISPLAY_CLASS) #define CONTROL (DISPLAY displayctrl _idc) #define CONTROL_FADEINTIME 0.3 #define CONTROL_FADEIN \\ CONTROL ctrlsetfade 1; \\ CONTROL ctrlcommit 0; \\ CONTROL ctrlsetfade 0; \\ CONTROL ctrlcommit CONTROL_FADEINTIME;",
     "example": "",
     "params": "",
     "returns": ""
@@ -762,7 +762,7 @@
     "syntax": "[<object>, <string>, <number>] call BIS_fnc_helicopterDamage",
     "docSyntax": "[helicopter, selection, damage] call BIS_fnc_helicopterDamage",
     "tags": "",
-    "description": "Handling EH-based helicopter damage, event handler in question being Da''mm''agedsic. syntaxhighlight lang=\"cpp\"params [\"_helicopter\", \"_selection\", \"_damage\"];</syntaxhighlight> Executed script is: codehelicopter execVM '\"hsim\\air_h\\data\\scripts\\main_rotor_destruction.sqf\"';</code> helicopter rotor status can be found ''via'' variable 'HSim_mainRotorDestroyed': code_isRotorDestroyed = helicopter getVariable [\"HSim_mainRotorDestroyed\", false];</code>",
+    "description": "Handling EH-based helicopter damage, event handler in question being Da''mm''agedsic. params [\"_helicopter\", \"_selection\", \"_damage\"];Executed script \nis: codehelicopter execVM '\"hsim\\air_h\\data\\scripts\\main_rotor_destruction.sqf\"';</code> helicopter rotor status can be found ''via'' variable 'HSim_mainRotorDestroyed': code_isRotorDestroyed = helicopter getVariable [\"HSim_mainRotorDestroyed\", false];</code>",
     "example": "myHelicopter _this call BIS_fnc_helicopterDamage; }];",
     "params": "<object> <string> <number>",
     "returns": "boolean | true"
@@ -822,7 +822,7 @@
     "syntax": "[<array>, <array>, <array>] call BIS_fnc_HUDLimits",
     "docSyntax": "[speedLimit, altLimit, dirLimit] call BIS_fnc_HUDLimits",
     "tags": "",
-    "description": "Set helicopter advanced flight model HUD limits and prevents overwriting existing values. See also setHUDMovementLevels.br br Notes: * default value is 0, which means no limits were assigned * using 0 in min or max value will hide the corresponding limit * same or higher priority will replace currently set priority * using a negative priority will reset the values if absolute value is same or higher than current level",
+    "description": "Set helicopter advanced flight model HUD limits and prevents overwriting existing values. See also setHUDMovementLevels.br br \nNotes: * default value is 0, which means no limits were assigned * using 0 in min or max value will hide the corresponding limit * same or higher priority will replace currently set priority * using a negative priority will reset the values if absolute value is same or higher than current level",
     "example": "nowiki[</nowiki>[0,0,0], [1, 0, 50], [0,0,0]] call BIS_fnc_HUDLimits; // limits altitude on HUD to 50m max",
     "params": "<array> <array> <array>",
     "returns": "array | hudmovementlevels"
@@ -882,7 +882,7 @@
     "syntax": "<!-- [] call BIS_fnc_kbMenu -->",
     "docSyntax": "<!-- [] call BIS_fnc_kbMenu -->",
     "tags": "",
-    "description": "pre/* Description: Opens conversation menu. Script terminates itself when menu selection is finished. Parameter(s): _this select 0: ARRAY or STRING - List of responses (of type ARRAY) or Menu name Responses are in format: _response select 0: STRING or ANY - Display name when STRING, otherwise used as default option when menu is closed without selecting anything. _response select 1: STRING - expression ARRAY - BIS_fnc_kbTell params Returns: NUMBER - ID of select option */</pre> Wikiplaceholder",
+    "description": "\nDescription: Opens conversation menu. Script terminates itself when menu selection is finished. Parameter(s): _this select \n0: ARRAY or STRING - List of responses (of type ARRAY) or Menu name Responses are in \nformat: _response select \n0: STRING or ANY - Display name when STRING, otherwise used as default option when menu is closed without selecting anything. _response select \n1: STRING - expression ARRAY - BIS_fnc_kbTell params \nReturns: NUMBER - ID of select option",
     "example": "[] call BIS_fnc_kbMenu;",
     "params": "",
     "returns": ""
@@ -894,7 +894,7 @@
     "syntax": "<!-- [] call BIS_fnc_kbPriority -->",
     "docSyntax": "<!-- [] call BIS_fnc_kbPriority -->",
     "tags": "",
-    "description": "pre/* Description: Set conversation priority. Conversations with priority not in the list won't be played Parameter(s): _this: ARRAY - List of priorities. Empty array will just return current value. NUMBER >0 - add priority to already existing list <0 - remove priority from already existing list Priority 0 cannot be tempered with Returns: ARRAY - List of priorities */</pre> Wikiplaceholder",
+    "description": "\nDescription: Set conversation priority. Conversations with priority not in the list won't be played Parameter(s): \n_this: ARRAY - List of priorities. Empty array will just return current value. NUMBER >0 - add priority to already existing list <0 - remove priority from already existing list Priority 0 cannot be tempered with \nReturns: ARRAY - List of priorities",
     "example": "[] call BIS_fnc_kbPriority;",
     "params": "",
     "returns": ""
@@ -954,7 +954,7 @@
     "syntax": "[<string>, <string>] call BIS_fnc_kbTopicConfig",
     "docSyntax": "[missionName, topic] call BIS_fnc_kbTopicConfig",
     "tags": "",
-    "description": "Reads the configs to return a matching hlconfig &gt;&gt; CfgSentences &gt;&gt; missionName &gt;&gt; topic entry. Feature Informative Configs are checked in that order: configFile, campaignConfigFile, missionConfigFile. Feature important This function is intended to be used by BIS_fnc_kbTell only.",
+    "description": "Reads the configs to return a matching config &gt;&gt; CfgSentences &gt;&gt; missionName &gt;&gt; topic entry. Feature Informative Configs are checked in that \norder: configFile, campaignConfigFile, missionConfigFile. Feature important This function is intended to be used by BIS_fnc_kbTell only.",
     "example": "private _configTopic = [\"missionName\", \"topic\"] call BIS_fnc_kbTopicConfig;",
     "params": "<string> <string>",
     "returns": "config | nil"
@@ -978,7 +978,7 @@
     "syntax": "<!-- [] call BIS_fnc_keypointsExportFromKML -->",
     "docSyntax": "<!-- [] call BIS_fnc_keypointsExportFromKML -->",
     "tags": "",
-    "description": "pre/* Description: Imports and marks positions from KLM file. Parameter(s): _this: STRING - path to .kml file Returns: STRING - config output (also copied to clipboard) */</pre> Wikiplaceholder",
+    "description": "\nDescription: Imports and marks positions from KLM file. Parameter(s): \n_this: STRING - path to .kml file \nReturns: STRING - config output (also copied to clipboard)",
     "example": "[] call BIS_fnc_keypointsExportFromKML;",
     "params": "",
     "returns": ""
@@ -1002,7 +1002,7 @@
     "syntax": "<!-- [] call BIS_fnc_markerCreate -->",
     "docSyntax": "<!-- [] call BIS_fnc_markerCreate -->",
     "tags": "",
-    "description": "pre/* Description: Creates marker with given params. Reads config to recognize settings - use for quick debugging only. Parameter(s): _this: ARRAY of values: STRING - one of type, color, brush or shape. If no corresponding class is found, value is used as marker text ARRAY [STRING(,ANY,ANY,...)] - marker name with optional arguments [NUMBER] - marker size [a,a] [NUMBER,NUMBER] - marker size [x,y] [NUMBER,NUMBER,NUMBER] - marker position [x,y,z] OBJECT - object's position NUMBER - marker dir BOOL - marker locality (true if global) Returns: STRING - created marker */</pre> Wikiplaceholder",
+    "description": "\nDescription: Creates marker with given params. Reads config to recognize settings - use for quick debugging only. Parameter(s): \n_this: ARRAY of \nvalues: STRING - one of type, color, brush or shape. If no corresponding class is found, value is used as marker text ARRAY [STRING(,ANY,ANY,...)] - marker name with optional arguments [NUMBER] - marker size [a,a] [NUMBER,NUMBER] - marker size [x,y] [NUMBER,NUMBER,NUMBER] - marker position [x,y,z] OBJECT - object's position NUMBER - marker dir BOOL - marker locality (true if global) \nReturns: STRING - created marker",
     "example": "[] call BIS_fnc_markerCreate;",
     "params": "",
     "returns": ""
@@ -1194,7 +1194,7 @@
     "syntax": "<!-- [] call BIS_fnc_overviewMission -->",
     "docSyntax": "<!-- [] call BIS_fnc_overviewMission -->",
     "tags": "",
-    "description": "pre#define CONTROL_SHOW(CONTROL) \\ CONTROL ctrlshow true; \\ CONTROL ctrlsetfade 0; \\ CONTROL ctrlcommit 0; #define CONTROL_HIDE(CONTROL) \\ CONTROL ctrlshow false; \\ CONTROL ctrlsetfade 1; \\ CONTROL ctrlcommit 0; Wikiplaceholder",
+    "description": "pre#define CONTROL_SHOW(CONTROL) \\ CONTROL ctrlshow true; \\ CONTROL ctrlsetfade 0; \\ CONTROL ctrlcommit 0; #define CONTROL_HIDE(CONTROL) \\ CONTROL ctrlshow false; \\ CONTROL ctrlsetfade 1; \\ CONTROL ctrlcommit 0;",
     "example": "[] call BIS_fnc_overviewMission;",
     "params": "",
     "returns": ""
@@ -1230,7 +1230,7 @@
     "syntax": "[<array>, <number>, defaultValue, dataTypes, requiredCount] call BIS_fnc_param",
     "docSyntax": "[input, index, defaultValue, dataTypes, requiredCount] call BIS_fnc_param",
     "tags": "",
-    "description": "Load a script parameter. See Arma 3: Functions Library for detailed description. FeatureArma3Use param or params commands instead.",
+    "description": "Load a script parameter. See Arma \n3: Functions Library for detailed description. FeatureArma3Use param or params commands instead.",
     "example": "_target nowiki=</nowiki> [_this, 0, objNull, [objNull,[]], [2,3]] call BIS_fnc_param;",
     "params": "<array> <number> <anything> <array> <number>",
     "returns": "anything"
@@ -1290,7 +1290,7 @@
     "syntax": "[<number>, <number>, <string>] call BIS_fnc_posDegToWorld",
     "docSyntax": "[longitude, latitude, world] call BIS_fnc_posDegToWorld",
     "tags": "",
-    "description": "Convert latitude/longtitude coordinates into game world position.br World config 'must' contain following settings to convert the position correctly: codeccRequired for scripting mapSize = 61440; ccCan differ from mapArea size, as ingame world can be resized mapZone = 10; ccUTM zone mapArea[] = { cclon/lat coordinates (not in UTM to assure .kml precision) -122.754367782585,47.3272454065969, ccBottom Left -121.930117859276,47.8753494907418 ccTop Right };</code>",
+    "description": "Convert latitude/longtitude coordinates into game world position.br World config 'must' contain following settings to convert the position \ncorrectly: codeccRequired for scripting mapSize = 61440; ccCan differ from mapArea size, as ingame world can be resized mapZone = 10; ccUTM zone mapArea[] = { cclon/lat coordinates (not in UTM to assure .kml precision) -122.754367782585,47.3272454065969, ccBottom Left -121.930117859276,47.8753494907418 ccTop Right };</code>",
     "example": "[47.63959,-122.127249] call BIS_fnc_posDegToWorld;",
     "params": "<number> <number> <string>",
     "returns": "numbers - format [easting, northing, zone]"
@@ -1338,7 +1338,7 @@
     "syntax": "<!-- [] call BIS_fnc_radioSetChannel -->",
     "docSyntax": "<!-- [] call BIS_fnc_radioSetChannel -->",
     "tags": "",
-    "description": "pre/* Description: Set a specific or random music channel. Parameter(s): _this select 0: channel (String) _this select 1: next (Bool) _this select 2: override (Bool) Returns: Bool */</pre> Wikiplaceholder",
+    "description": "\nDescription: Set a specific or random music channel. Parameter(s): _this select \n0: channel (String) _this select \n1: next (Bool) _this select \n2: override (Bool) \nReturns: Bool",
     "example": "[] call BIS_fnc_radioSetChannel;",
     "params": "",
     "returns": ""
@@ -1362,7 +1362,7 @@
     "syntax": "<!-- [] call BIS_fnc_radioSetTrack -->",
     "docSyntax": "<!-- [] call BIS_fnc_radioSetTrack -->",
     "tags": "",
-    "description": "pre/* Description: Set a specific or random music track. Parameter(s): _this select 0: track (String) _this select 1: override (Bool) _this select 2: Bool (first track? -> start randomly within the track) Returns: Array (duration (s): Scalar, start time (s): Scalar) */</pre> Wikiplaceholder",
+    "description": "\nDescription: Set a specific or random music track. Parameter(s): _this select \n0: track (String) _this select \n1: override (Bool) _this select \n2: Bool (first track? -> start randomly within the track) \nReturns: Array (duration (s): Scalar, start time (s): Scalar)",
     "example": "[] call BIS_fnc_radioSetTrack;",
     "params": "",
     "returns": ""
@@ -1435,7 +1435,7 @@
     "docSyntax": "[target, height, position, mode] call BIS_fnc_setHeight",
     "tags": "",
     "description": "Set an object height.",
-    "example": "ccwill place player's vehicle on \"myHeightMarker\", 50m above terrain [vehicle player, 50, getMarkerPos \"myHeightMarker\", \"ATL\"]]] call BIS_fnc_setHeight;",
+    "example": "// will place player's vehicle on \"myHeightMarker\", 50m above terrain [vehicle player, 50, getMarkerPos \"myHeightMarker\", \"ATL\"]]] call BIS_fnc_setHeight;",
     "params": "<object> <number> <position> <string> <number> <string>",
     "returns": "boolean | true"
   },
@@ -1446,7 +1446,7 @@
     "syntax": "<!-- [] call BIS_fnc_shakeGauges -->",
     "docSyntax": "<!-- [] call BIS_fnc_shakeGauges -->",
     "tags": "",
-    "description": "pre/* Description: Shake analogue gauges Parameter(s): _this select 0 (Optional): NUMBER - shake limit (max distance gauges can move on screen from original position) _this select 1 (Optional): NUMBER - number of repeats _this select 2 (Optional): NUMBER - delay between every position change _this select 3 (Optional): ARRAY - list of IDCs Returns: NOTHING */</pre> Wikiplaceholder",
+    "description": "\nDescription: Shake analogue gauges Parameter(s): _this select 0 (Optional): NUMBER - shake limit (max distance gauges can move on screen from original position) _this select 1 (Optional): NUMBER - number of repeats _this select 2 (Optional): NUMBER - delay between every position change _this select 3 (Optional): ARRAY - list of IDCs \nReturns: NOTHING",
     "example": "[] call BIS_fnc_shakeGauges;",
     "params": "",
     "returns": ""
@@ -1530,7 +1530,7 @@
     "syntax": "arguments: [dynamic, <code>, <code>]",
     "docSyntax": "arguments: [visuals, detectionCode, completionCode]",
     "tags": "",
-    "description": "AEROBATICS custom waypoint. Player must perform all the required manoeuvres: * \"hover_turn_360\" * \"hover_bow\" * \"fast_turn_180\" * \"backwards\" * \"strafe\"",
+    "description": "AEROBATICS custom waypoint. Player must perform all the required \nmanoeuvres: * \"hover_turn_360\" * \"hover_bow\" * \"fast_turn_180\" * \"backwards\" * \"strafe\"",
     "example": "[player, { hint \"OK, start!\" }, { hint \"success!\" }] spawn BIS_fnc_wpAerobatics;",
     "params": "dynamic <code> <code>",
     "returns": "nothing"
@@ -1722,7 +1722,7 @@
     "syntax": "collectiveRTD <objectrtd>",
     "docSyntax": "collectiveRTD helicopterRTD",
     "tags": "",
-    "description": "Returns the current position of a helicopter's collective pitch control. * 0: fully lowered * 1: fully raised Featureafm",
+    "description": "Returns the current position of a helicopter's collective pitch control. * \n0: fully lowered * \n1: fully raised Featureafm",
     "example": "_collective = collectiveRTD vehicle player;",
     "params": "<objectrtd>",
     "returns": "number"
@@ -1866,7 +1866,7 @@
     "syntax": "profileNamespace",
     "docSyntax": "profileNamespace",
     "tags": "",
-    "description": "Returns the global namespace attached to the active user profile. Use setVariable and getVariable to save and load data to and from this Namespace. A variable can be deleted by setting its value to nil. By default the variables set in this namespace will exist while the game is running, and variables are saved persistently when the game is closed. Saving can also be forced by using saveProfileNamespace to prevent data loss on e.g game crash.br The variables are stored next to the user profile in a file named hlmyUsername.vars.GAMENAME.",
+    "description": "Returns the global namespace attached to the active user profile. Use setVariable and getVariable to save and load data to and from this Namespace. A variable can be deleted by setting its value to nil. By default the variables set in this namespace will exist while the game is running, and variables are saved persistently when the game is closed. Saving can also be forced by using saveProfileNamespace to prevent data loss on e.g game crash.br The variables are stored next to the user profile in a file named myUsername.vars.GAMENAME.",
     "example": "profileNamespace setVariable [\"TAG_kills\", 10000]; // somewhere else in the code _kills = profileNamespace getVariable [\"TAG_kills\", 0];",
     "params": "",
     "returns": "namespace"
@@ -1914,7 +1914,7 @@
     "syntax": "custom radioChannelSetCallSign <string>",
     "docSyntax": "customChannelID radioChannelSetCallSign callSign",
     "tags": "",
-    "description": "Set the custom radio channel's call sign. Available special parameters: * $KEY (reference to a localized text) * %CHANNEL_LABEL * %UNIT_SIDE * %UNIT_NAME * %UNIT_RANK * %UNIT_ID * %UNIT_REF * %UNIT_GRP_NAME * %UNIT_GRP_LEADER * %UNIT_VEH_NAME * %UNIT_VEH_POSITION",
+    "description": "Set the custom radio channel's call sign. Available special \nparameters: * $KEY (reference to a localized text) * %CHANNEL_LABEL * %UNIT_SIDE * %UNIT_NAME * %UNIT_RANK * %UNIT_ID * %UNIT_REF * %UNIT_GRP_NAME * %UNIT_GRP_LEADER * %UNIT_VEH_NAME * %UNIT_VEH_POSITION",
     "example": "4 radioChannelSetCallSign \"%UNIT_NAME\";",
     "params": "custom <string>",
     "returns": "nothing"
@@ -1998,7 +1998,7 @@
     "syntax": "<objectrtd>setActualCollectiveRTD <number>",
     "docSyntax": "helicopterRTD setActualCollectiveRTD value",
     "tags": "",
-    "description": "Sets the collective pitch control to a specific position, regardless of input devices (until those are changed). * 0: collective fully down * ~0.7: approximate stable hover position * 1: collective fully up Featureafm",
+    "description": "Sets the collective pitch control to a specific position, regardless of input devices (until those are changed). * \n0: collective fully down * ~0.\n7: approximate stable hover position * \n1: collective fully up Featureafm",
     "example": "myHelicopterRTD setActualCollectiveRTD 0.7;",
     "params": "<objectrtd> <number>",
     "returns": "nothing"
@@ -2022,7 +2022,7 @@
     "syntax": "<objectrtd> setBatteryChargeRTD <number>",
     "docSyntax": "helicopterRTD setBatteryChargeRTD charge",
     "tags": "",
-    "description": "Set the actual battery charge of a helicopter. * 0: no charge * 1: fully charged",
+    "description": "Set the actual battery charge of a helicopter. * \n0: no charge * \n1: fully charged",
     "example": "vehicle player setBatteryChargeRTD 0.5;",
     "params": "<objectrtd> <number>",
     "returns": "nothing"
@@ -2046,7 +2046,7 @@
     "syntax": "<objectrtd> setBrakesRTD [<number>, <number>]",
     "docSyntax": "helicopterRTD setBrakesRTD [value, wheelIndex]",
     "tags": "",
-    "description": "Enable landing gear wheel brakes for a helicopter. * value 0: brakes off * value 1: brakes on * index 1: left wheels * index 2: right wheels * index 3: both sides Featureafm FeatureInformativeThis command is implemented, but not fully supported.",
+    "description": "Enable landing gear wheel brakes for a helicopter. * value \n0: brakes off * value \n1: brakes on * index \n1: left wheels * index \n2: right wheels * index \n3: both sides Featureafm FeatureInformativeThis command is implemented, but not fully supported.",
     "example": "myHelicopterRTD setBrakesRTD [1, 3];",
     "params": "<objectrtd> <number> <number>",
     "returns": "nothing"
@@ -2094,7 +2094,7 @@
     "syntax": "rendersetPiPEffect [effect, <number>, ..., optionalParamN]",
     "docSyntax": "name setPiPEffect [effect, optionalParam1, ..., optionalParamN]",
     "tags": "",
-    "description": "Sets Render Target's visual effect (Picture-in-Picture). * 0: Normal - [0] * 1: Night Vision - [1] * 2: Thermal - [2] * 3: Color Correction - [3, enabled, brightness, contrast, offset, blend [r,g,b,a], lerp [r,g,b,a], rgb [r,g,b,a]] * 4: Mirror - [4] '<currently not working>' * 5: Chromatic Aberration - [5, enabled, powerx, powery, (bool) aspectCorrection] '<currently not working>' * 6: Film Grain - [6, enabled, intensity, sharpness, grainsize, intensityx1, intensityx2, (bool) monochromatic] '<currently not working>' * 7: Thermal Inverted [7] * 8: Green Thermal [8]",
+    "description": "Sets Render Target's visual effect (Picture-in-Picture). * \n0: Normal - [0] * \n1: Night Vision - [1] * \n2: Thermal - [2] * \n3: Color Correction - [3, enabled, brightness, contrast, offset, blend [r,g,b,a], lerp [r,g,b,a], rgb [r,g,b,a]] * \n4: Mirror - [4] '<currently not working>' * \n5: Chromatic Aberration - [5, enabled, powerx, powery, (bool) aspectCorrection] '<currently not working>' * \n6: Film Grain - [6, enabled, intensity, sharpness, grainsize, intensityx1, intensityx2, (bool) monochromatic] '<currently not working>' * \n7: Thermal Inverted [7] * \n8: Green Thermal [8]",
     "example": "\"rendersurface\" setPiPEffect [0];",
     "params": "render <array> <number> <number>",
     "returns": "nothing"
@@ -2118,7 +2118,7 @@
     "syntax": "<objectrtd>setStarterRTD [enable, engineIndex]",
     "docSyntax": "helicopterRTD setStarterRTD [enable, engineIndex]",
     "tags": "",
-    "description": "Toggle the starter for the given helicopter engine(s) on or off. * engine index 0: engine #1 * engine index 1: engine #2 * engine index 2: engine #3 * engine index -1: all engines",
+    "description": "Toggle the starter for the given helicopter engine(s) on or off. * engine index \n0: engine #1 * engine index \n1: engine #2 * engine index \n2: engine #3 * engine index -\n1: all engines",
     "example": "vehicle player setStarterRTD [true, -1];",
     "params": "<objectrtd> <boolean> <number>",
     "returns": "nothing"
@@ -2130,7 +2130,7 @@
     "syntax": "<objectrtd> setThrottleRTD [<number>, <number>]",
     "docSyntax": "helicopterRTD setThrottleRTD [value, engineIndex]",
     "tags": "",
-    "description": "Set the throttle for the given engine(s) of a helicopter. * engine index 0: engine #1 * engine index 1: engine #2 * engine index 2: engine #3 * engine index -1: all engines * throttle 0: fully closed * throttle ~0.15: average flight idle * throttle 1: full",
+    "description": "Set the throttle for the given engine(s) of a helicopter. * engine index \n0: engine #1 * engine index \n1: engine #2 * engine index \n2: engine #3 * engine index -\n1: all engines * throttle \n0: fully closed * throttle ~0.\n15: average flight idle * throttle \n1: full",
     "example": "vehicle player setThrottleRTD [0.5, 1];",
     "params": "<objectrtd> <number> <number>",
     "returns": "nothing"
@@ -2142,7 +2142,7 @@
     "syntax": "<objectrtd>setWantedRPMRTD [value, time, engineIndex]",
     "docSyntax": "helicopterRTD setWantedRPMRTD [value, time, engineIndex]",
     "tags": "",
-    "description": "Tell the helicopter engine RPMs to reach the given value within a period of time. The simulation will try to reach the RPMs, but it does not guarantee it will reach the precise value! * engine index 0: engine #1 * engine index 1: engine #2 * engine index 2: engine #3 * engine index -1: all engines Featureafm",
+    "description": "Tell the helicopter engine RPMs to reach the given value within a period of time. The simulation will try to reach the RPMs, but it does not guarantee it will reach the precise value! * engine index \n0: engine #1 * engine index \n1: engine #2 * engine index \n2: engine #3 * engine index -\n1: all engines Featureafm",
     "example": "vehicle player setWantedRPMRTD [2500, 30, 0];",
     "params": "<objectrtd> <number> <number> <number>",
     "returns": "nothing"
@@ -2178,7 +2178,7 @@
     "syntax": "'systemOfUnits'",
     "docSyntax": "'systemOfUnits'",
     "tags": "",
-    "description": "Returns the currently selected system of units. * 0: Metric * 1: Mixed (ground vehicles use Metric / air vehicles use Imperial) * 2: Imperial",
+    "description": "Returns the currently selected system of units. * \n0: Metric * \n1: Mixed (ground vehicles use Metric / air vehicles use Imperial) * \n2: Imperial",
     "example": "_system = 'systemOfUnits';",
     "params": "",
     "returns": "number"

@@ -162,7 +162,7 @@
     "syntax": "allUnits",
     "docSyntax": "allUnits",
     "tags": "",
-    "description": "Returns a list of all units, 'except agents, dead units or units waiting for respawn', outside and inside vehicles that were created on the following sides east, west, independent and civilian. Featurearma3To get all units of given side, use hlunits Side.",
+    "description": "Returns a list of all units, 'except agents, dead units or units waiting for respawn', outside and inside vehicles that were created on the following sides east, west, independent and civilian. Featurearma3To get all units of given side, use units Side.",
     "example": "{ _x setDamage 0.5; _x groupChat \"Braaains\"; } forEach allUnits;",
     "params": "",
     "returns": "objects"
@@ -258,7 +258,7 @@
     "syntax": "<!-- [] call BIS_fnc_addEvidence -->",
     "docSyntax": "<!-- [] call BIS_fnc_addEvidence -->",
     "tags": "",
-    "description": "pre /******************************************************************************* * * version: 1.0 * name: Add evidence * description: add an evidence value to global campaign variable * paramater: evidence variable name (defined in init.sqf of campaign mission C1) or simply number (scalar) * return value: none * </pre> Wikiplaceholder",
+    "description": "pre /******************************************************************************* * * \nversion: 1.0 * \nname: Add evidence * \ndescription: add an evidence value to global campaign variable * \nparamater: evidence variable name (defined in init.sqf of campaign mission C1) or simply number (scalar) * return \nvalue: none *",
     "example": "",
     "params": "",
     "returns": ""
@@ -438,7 +438,7 @@
     "syntax": "<!-- [] call BIS_fnc_commsMenuToggleAvailability -->",
     "docSyntax": "<!-- [] call BIS_fnc_commsMenuToggleAvailability -->",
     "tags": "",
-    "description": "pre /* File: fn_commsMenuToggleAvailability.sqf Description: Enables or disables certain sections of the global communications menu. Parameter(s): _this select 0: index (Scalar) or list of indices (Array of Scalars) or section name (String) \"som\" - SecOps section \"wf\" - Warfare section _this select 1: mode (Scalar) 0 - disable 1 - enable Returns: Success flag (Boolean) */</pre> Wikiplaceholder",
+    "description": "pre /* \nFile: fn_commsMenuToggleAvailability.sqf \nDescription: Enables or disables certain sections of the global communications menu. Parameter(s): _this select \n0: index (Scalar) or list of indices (Array of Scalars) or section name (String) \"som\" - SecOps section \"wf\" - Warfare section _this select \n1: mode (Scalar) 0 - disable 1 - enable \nReturns: Success flag (Boolean)",
     "example": "",
     "params": "",
     "returns": ""
@@ -450,7 +450,7 @@
     "syntax": "<!-- [] call BIS_fnc_commsMenuToggleVisibility -->",
     "docSyntax": "<!-- [] call BIS_fnc_commsMenuToggleVisibility -->",
     "tags": "",
-    "description": "pre /* File: fn_commsMenuToggleVisibility.sqf Description: Shows or hides certain sections of the global communications menu. Parameter(s): _this select 0: index (Scalar) or list of indices (Array of Scalars) or section name (String) \"som\" - SecOps section \"wf\" - Warfare section _this select 1: mode (Scalar) 0 - hide 1 - show Returns: Success flag (Boolean) */</pre> Wikiplaceholder",
+    "description": "pre /* \nFile: fn_commsMenuToggleVisibility.sqf \nDescription: Shows or hides certain sections of the global communications menu. Parameter(s): _this select \n0: index (Scalar) or list of indices (Array of Scalars) or section name (String) \"som\" - SecOps section \"wf\" - Warfare section _this select \n1: mode (Scalar) 0 - hide 1 - show \nReturns: Success flag (Boolean)",
     "example": "",
     "params": "",
     "returns": ""
@@ -474,7 +474,7 @@
     "syntax": "<!-- [] call BIS_fnc_createmenu -->",
     "docSyntax": "<!-- [] call BIS_fnc_createmenu -->",
     "tags": "",
-    "description": "pre /* File: fn_createMenu.sqf Description: Create custom commanding menu (with multiple pages if necessary). Parameter(s): _this select 0 - STRING or ARRAY - Name of menu or [Name, Context sensitive] _this select 1 - STRING - Variable in which will be menu params stored (as variable_0, variable_1, ...) _this select 2 - ARRAY - Array with menu items (can be either [items] or [[items],[itemNames],[itemEnable]] if you want to set custom params (names, enable values)) _this select 3 - STRING - Name of submenu which will open when item is activated. Name of selected item is passed to string as %1 _this select 4 - STRING - Expression which is executed when item is activated. Name of selected item is passed to string as %1, ID is %2. _this select 5 - ANYTHING (Optional) - params passed to expression. Whole argument is passed as %3 _this select 6 - BOOLEAN - False to hide number shortcuts Returned value(s): True Example: c = [\"first\",\"second\"]; [\"Menu\", \"b\", c, \"\",\"hint 'ahoj'\"] call BIS_FNC_createmenu; showCommandingMenu \"#USER:b_0\" c = [[\"firstData\",\"secondData\"],[\"First\",\"Second\"]]; [\"Menu\", \"b\", c, \"\",\"hint (str '%1' + str '%2' + str '%3')\"] call BIS_FNC_createmenu; showCommandingMenu \"#USER:b_0\"; see news:g7p3po$gik$1@new-server.localdomain */</pre> Wikiplaceholder",
+    "description": "pre /* \nFile: fn_createMenu.sqf \nDescription: Create custom commanding menu (with multiple pages if necessary). Parameter(s): _this select 0 - STRING or ARRAY - Name of menu or [Name, Context sensitive] _this select 1 - STRING - Variable in which will be menu params stored (as variable_0, variable_1, ...) _this select 2 - ARRAY - Array with menu items (can be either [items] or [[items],[itemNames],[itemEnable]] if you want to set custom params (names, enable values)) _this select 3 - STRING - Name of submenu which will open when item is activated. Name of selected item is passed to string as %1 _this select 4 - STRING - Expression which is executed when item is activated. Name of selected item is passed to string as %1, ID is %2. _this select 5 - ANYTHING (Optional) - params passed to expression. Whole argument is passed as %3 _this select 6 - BOOLEAN - False to hide number shortcuts Returned value(s): True \nExample: c = [\"first\",\"second\"]; [\"Menu\", \"b\", c, \"\",\"hint 'ahoj'\"] call BIS_FNC_createmenu; showCommandingMenu \"#\n\tUSER:b_0\" c = [[\"firstData\",\"secondData\"],[\"First\",\"Second\"]]; [\"Menu\", \"b\", c, \"\",\"hint (str '%1' + str '%2' + str '%3')\"] call BIS_FNC_createmenu; showCommandingMenu \"#\n\tUSER:b_0\"; see \n\tnews:g7p3po$gik$1@new-server.localdomain",
     "example": "",
     "params": "",
     "returns": ""
@@ -510,7 +510,7 @@
     "syntax": "[<object>] call BIS_fnc_diagAnim",
     "docSyntax": "[target] call BIS_fnc_diagAnim",
     "tags": "",
-    "description": "Displays or logs animation states: *'animChanged' - When action is performed (only to debug.log) *'animDone' - When animation chain that was started by action is finished (only to debug.log) *'animStateChanged' - Each animation state changes(debug.log + globalchat).",
+    "description": "Displays or logs animation \nstates: *'animChanged' - When action is performed (only to debug.log) *'animDone' - When animation chain that was started by action is finished (only to debug.log) *'animStateChanged' - Each animation state changes(debug.log + globalchat).",
     "example": "call BIS_fnc_diagAnim;",
     "params": "<object>",
     "returns": "nothing"
@@ -582,7 +582,7 @@
     "syntax": "[center, <number>, <number>, <number>, <number>, <number>, <number>, <array>, <array>] call BIS_fnc_findSafePos",
     "docSyntax": "[center, minDist, maxDist, objDist, waterMode, maxGrad, shoreMode, blacklistPos, defaultPos] call BIS_fnc_findSafePos",
     "tags": "",
-    "description": "This function generates position on a map according to several given parameters (see diagram). 600px|thumb|Diagram The position 'pos' will be generated inside an area which resides between 'minDist' and 'maxDist' from the given 'center'. If 'objDist' is also specified, the position will be selected 'objDist' away from nearest terrain object. If 'maxGrad' > 0 then the position will be also checked for how flat the area around is within 'objDist' radius. The function can additionally be instructed to generate position specifically on water or land ('waterMode') or on a shoreline ('shoreMode'). The 'shoreLine' param will be ignored if position is not requested specifically on land.brbr Additionally, generated position could be checked against the list of blacklisted positions 'blacklistPos'. If search for suitable position failed, 'defaultPos' position will be used. The format for 'defaultPos' is array with 2 positions: [posOnLand, posOnWater].",
+    "description": "This function generates position on a map according to several given parameters (see diagram). 600px|thumb|Diagram The position 'pos' will be generated inside an area which resides between 'minDist' and 'maxDist' from the given 'center'. If 'objDist' is also specified, the position will be selected 'objDist' away from nearest terrain object. If 'maxGrad' > 0 then the position will be also checked for how flat the area around is within 'objDist' radius. The function can additionally be instructed to generate position specifically on water or land ('waterMode') or on a shoreline ('shoreMode'). The 'shoreLine' param will be ignored if position is not requested specifically on land.brbr Additionally, generated position could be checked against the list of blacklisted positions 'blacklistPos'. If search for suitable position failed, 'defaultPos' position will be used. The format for 'defaultPos' is array with 2 \npositions: [posOnLand, posOnWater].",
     "example": "_pos = [player, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;",
     "params": "<number> <number> <number> <number> <number> <number> <array> <array>",
     "returns": "array"
@@ -630,7 +630,7 @@
     "syntax": "[<number>, <number>, <number>, <number>] call BIS_fnc_getLineDist",
     "docSyntax": "[start1, length1, start2, length2] call BIS_fnc_getLineDist",
     "tags": "",
-    "description": "Return the distance between two sections of a virtual straight line.br br <File:BIS fnc getLineDistSchema.png>",
+    "description": "Return the distance between two sections of a virtual straight line.br br <\n\tFile:BIS fnc getLineDistSchema.png>",
     "example": "_distance = [0,5,15,20] call BIS_fnc_getLineDist; // returns 10",
     "params": "<number> <number> <number> <number>",
     "returns": "number"
@@ -678,7 +678,7 @@
     "syntax": "<display> call BIS_fnc_help",
     "docSyntax": "parentDisplay call BIS_fnc_help",
     "tags": "[EL]",
-    "description": "Opens the Functions Viewer which lists all functions defined in: * <Arma 2: Functions Library> (Also arma2oa) * <Arma 3: Functions Library> * <Take On Helicopters: Functions Library> gallery File:Fnc_help.jpg|{{arma2}} and {{arma2oa}} File:Take On Helicopters Functions Viewer.jpg|{{tkoh}} File:A3 FunctionViewer Overview.png|{{arma3}} </gallery>",
+    "description": "Opens the Functions Viewer which lists all functions defined \nin: * <Arma \n2: Functions Library> (Also arma2oa) * <Arma \n3: Functions Library> * <Take On \nHelicopters: Functions Library> gallery \n\tFile:Fnc_help.jpg|{{arma2}} and {{arma2oa}} \n\tFile:Take On Helicopters Functions Viewer.jpg|{{tkoh}} \n\tFile:A3 FunctionViewer Overview.png|{{arma3}} </gallery>",
     "example": "call BIS_fnc_help;",
     "params": "<display>",
     "returns": "nothing"
@@ -786,7 +786,7 @@
     "syntax": "[<object>] call BIS_fnc_invString",
     "docSyntax": "[object] call BIS_fnc_invString",
     "tags": "",
-    "description": "Returns inventory contents of given vehicle (unit). Note: for vehicles it returns mounted gun and its ammo, not cargo weapons and ammo.",
+    "description": "Returns inventory contents of given vehicle (unit). \nNote: for vehicles it returns mounted gun and its ammo, not cargo weapons and ammo.",
     "example": "[ player ] call BIS_fnc_invString;",
     "params": "<object>",
     "returns": "array"
@@ -834,7 +834,7 @@
     "syntax": "[<string>,<array>,''debug''] call BIS_fnc_locations",
     "docSyntax": "[type(s),area,''debug''] call BIS_fnc_locations",
     "tags": "",
-    "description": "Creates or registers location logics (used in various modules, like <Ambient Civilians>, <Ambient Civilian Vehicles> or Warfare 2). Upon registering, function will set following variables into location logic's variable space: *\"class\" - unique class of location (either BIS_loc_configname or BIS_loc_custom_ID) *\"name\" - name of location from config or setName command. If none is defined, class is used *\"type\" - config type *\"neighbors\" - config defined neighbor locations If you're registering currently existing object and some of variables above is already stored in it, it 'won't' be replaced.",
+    "description": "Creates or registers location logics (used in various modules, like <Ambient Civilians>, <Ambient Civilian Vehicles> or Warfare 2). Upon registering, function will set following variables into location logic's variable \nspace: *\"class\" - unique class of location (either BIS_loc_configname or BIS_loc_custom_ID) *\"name\" - name of location from config or setName command. If none is defined, class is used *\"type\" - config type *\"neighbors\" - config defined neighbor locations If you're registering currently existing object and some of variables above is already stored in it, it 'won't' be replaced.",
     "example": "[\"CityCenter\",nowiki[</nowiki>position player,1000]] call BIS_fnc_locations;",
     "params": "<string> <array> <boolean> array",
     "returns": "array | br | br"
@@ -931,7 +931,7 @@
     "docSyntax": "[items, origin] call BIS_fnc_nearestPosition",
     "tags": "",
     "description": "Function to find the nearest Object or position from a list, when compared to a given reference.",
-    "example": "ccFind the nearest marker from player _nearestMarker = [allMapMarkers, player] call BIS_fnc_nearestPosition;",
+    "example": "// Find the nearest marker from player _nearestMarker = [allMapMarkers, player] call BIS_fnc_nearestPosition;",
     "params": "<array> <object>",
     "returns": "object | location | group | string | position"
   },
@@ -942,7 +942,7 @@
     "syntax": "[<position>, <number>, <boolean>] call BIS_fnc_objectsGrabber",
     "docSyntax": "[position, size, objectOrientation] call BIS_fnc_objectsGrabber",
     "tags": "",
-    "description": "Converts a set of placed objects to an object array ('as a DynO mapper.br Format is the following. First, the header: codecodecomment/* Grab data: Mission: TheMissionName World: Stratis Anchor position: [3781.59, 3289.67] Area size: 50 Using orientation of objects: yes/no nowiki*/</nowiki></code> Then, data: code[ [\"B_UAV_01_F\",[-5.23706,-0.183594,-0.00126648],167.39,1,0,[0.605018,-0.575293],\"\",\"\",true,false], [\"C_Offroad_01_F\",[-4.25903,4.62158,0.0630951],224.14,1,0,[0.812812,0.190543],\"\",\"\",true,false] ]</code> or, if object orientation is not used: code[ [\"B_UAV_01_F\",[-5.23706,-0.183594,-0.00126648],167.39,1,0,[],\"\",\"\",true,false], [\"C_Offroad_01_F\",[-4.25903,4.62158,0.0630951],224.14,1,0,[],\"\",\"\",true,false] ]</code>",
+    "description": "Converts a set of placed objects to an object array ('as a DynO mapper.br Format is the following. First, the \nheader: codecodecomment/* Grab \ndata: \nMission: TheMissionName \nWorld: Stratis Anchor \nposition: [3781.59, 3289.67] Area \nsize: 50 Using orientation of \nobjects: yes/no nowiki*/</nowiki></code> Then, \ndata: code[ [\"B_UAV_01_F\",[-5.23706,-0.183594,-0.00126648],167.39,1,0,[0.605018,-0.575293],\"\",\"\",true,false], [\"C_Offroad_01_F\",[-4.25903,4.62158,0.0630951],224.14,1,0,[0.812812,0.190543],\"\",\"\",true,false] ]</code> or, if object orientation is not \nused: code[ [\"B_UAV_01_F\",[-5.23706,-0.183594,-0.00126648],167.39,1,0,[],\"\",\"\",true,false], [\"C_Offroad_01_F\",[-4.25903,4.62158,0.0630951],224.14,1,0,[],\"\",\"\",true,false] ]</code>",
     "example": "nowiki[</nowiki>getPos player, 20, true] call BIS_fnc_objectsGrabber;",
     "params": "<position> <number> <boolean>",
     "returns": "string"
@@ -1002,7 +1002,7 @@
     "syntax": "[<number>, <number>] call BIS_fnc_randomInt",
     "docSyntax": "[min, max] call BIS_fnc_randomInt",
     "tags": "",
-    "description": "Returns a random integer between the two passed numbers (inclusive). The order of parameters doesn't matter: it can be ic[min, max] or ic[max, min].",
+    "description": "Returns a random integer between the two passed numbers (inclusive). The order of parameters doesn't \nmatter: it can be ic[min, max] or ic[max, min].",
     "example": "[1,3] call BIS_fnc_randomInt; codecomment// will return 1, 2 or 3",
     "params": "<number> <number>",
     "returns": "number"
@@ -1014,7 +1014,7 @@
     "syntax": "[<number>, <number>] call BIS_fnc_randomNum",
     "docSyntax": "[min, max] call BIS_fnc_randomNum",
     "tags": "",
-    "description": "Returns a random (float) number between the two passed numbers (inclusive). The order of parameters doesn't matter: it can be ic[min, max] or ic[max, min].",
+    "description": "Returns a random (float) number between the two passed numbers (inclusive). The order of parameters doesn't \nmatter: it can be ic[min, max] or ic[max, min].",
     "example": "[1,3] call BIS_fnc_randomNum; codecomment// can be 1, 3 or any value in-between",
     "params": "<number> <number>",
     "returns": "number"
@@ -1026,7 +1026,7 @@
     "syntax": "[mode] call BIS_fnc_recompile",
     "docSyntax": "[mode] call BIS_fnc_recompile",
     "tags": "",
-    "description": "Can be used to recompile functions. FeatureinformativeAs a security measure, functions are by default protected against rewriting during the mission. This restriction does 'not' apply to: * missions previewed from the editor * missions with the following attribute in <Description.ext>: syntaxhighlight lang=\"cpp\"allowFunctionsRecompile = 1;</syntaxhighlight>",
+    "description": "Can be used to recompile functions. FeatureinformativeAs a security measure, functions are by default protected against rewriting during the mission. This restriction does 'not' apply \nto: * missions previewed from the editor * missions with the following attribute in <Description.ext>: allowFunctionsRecompile = 1;",
     "example": "[] call BIS_fnc_recompile;",
     "params": "",
     "returns": "boolean"
@@ -1122,7 +1122,7 @@
     "syntax": "<!-- [] call BIS_fnc_returnGroupComposition -->",
     "docSyntax": "<!-- [] call BIS_fnc_returnGroupComposition -->",
     "tags": "",
-    "description": "pre /* File: returnGroupComp.sqf Description: Function which returns a logical group composition based on a number of parameters. Parameter(s): _this select 0: side (Side). _this select 1: number of characters (Number). _this select 2: (optional) type (String): - \"riflesquad\": (default) standard rifle squad. - \"sniper\": sniper team. Returns: Array of Strings - object types. TODO: use CfgGroups instead? */ //Validate parameter count Wikiplaceholder",
+    "description": "pre /* \nFile: returnGroupComp.sqf \nDescription: Function which returns a logical group composition based on a number of parameters. Parameter(s): _this select \n0: side (Side). _this select \n1: number of characters (Number). _this select \n2: (optional) type (String): - \"riflesquad\": (default) standard rifle squad. - \"sniper\": sniper team. \nReturns: Array of Strings - object types. \nTODO: use CfgGroups instead? */ //Validate parameter count",
     "example": "[] call BIS_fnc_returnGroupComposition;",
     "params": "",
     "returns": ""
@@ -1206,7 +1206,7 @@
     "syntax": "[<array>] call BIS_fnc_sceneCheckWeapons",
     "docSyntax": "[participants] call BIS_fnc_sceneCheckWeapons",
     "tags": "",
-    "description": "Checks if participants have not missing weapon or have not it selected before scenebrFunction works as toggle - br1st run of script: running in SETUP mode - sets correct weapons for scenebr 2nd run of script: running in RESTORE mode - restore origin weapons(delete weapons after scene if character hadn't any)",
+    "description": "Checks if participants have not missing weapon or have not it selected before scenebrFunction works as toggle - br1st run of \nscript: running in SETUP mode - sets correct weapons for scenebr 2nd run of \nscript: running in RESTORE mode - restore origin weapons(delete weapons after scene if character hadn't any)",
     "example": "[[BIS_Cooper, \"primary\"],[BIS_Ohara, \"primary\"],[BIS_Rodriguez, \"primary\"],[BIS_Sykes, \"primary\"],[BIS_Miles, \"primary\"]] call BIS_fnc_sceneCheckWeapons;",
     "params": "<array>",
     "returns": "nothing"
@@ -1230,7 +1230,7 @@
     "syntax": "<!-- [] call BIS_fnc_sceneCreateSoundEntities -->",
     "docSyntax": "<!-- [] call BIS_fnc_sceneCreateSoundEntities -->",
     "tags": "",
-    "description": "pre /******************************************************************************* * version: 1.0 * name: create sound entities * description: creates sound entities(logic objects) and attaches to * an objects passed as parameter * After scene end it will detach and delete all created * sound entities (if scene was executed from scenes * controller. * * paramater: objects - ARRAY of OBJECTS in format without \"BIS_\" * prefix. For example, if you have BIS_Cooper in mission * than parameter will be [Cooper]. Then you can use * created sound entities as BIS_ZvukCooper say \"something\" * * return value: nothing * </pre> Wikiplaceholder",
+    "description": "pre /******************************************************************************* * \nversion: 1.0 * \nname: create sound entities * \ndescription: creates sound entities(logic objects) and attaches to * an objects passed as parameter * After scene end it will detach and delete all created * sound entities (if scene was executed from scenes * controller. * * \nparamater: objects - ARRAY of OBJECTS in format without \"BIS_\" * prefix. For example, if you have BIS_Cooper in mission * than parameter will be [Cooper]. Then you can use * created sound entities as BIS_ZvukCooper say \"something\" * * return \nvalue: nothing *",
     "example": "[] call BIS_fnc_sceneCreateSoundEntities;",
     "params": "",
     "returns": ""
@@ -1242,7 +1242,7 @@
     "syntax": "[<object>, <number>, <string>] call BIS_fnc_sceneGetObjects",
     "docSyntax": "[centre, radius, type] call BIS_fnc_sceneGetObjects",
     "tags": "",
-    "description": "FeatureWarningThis function is broken (at least in arma3) as it has a typo, displaying an error on each use! (typo 'line 63', ic[centrum] instead of ic[_centrum]&nbsp;) This function gets objects (but centre object) positions and direction relative to the choosen object and copies the result to the clipboard ''via'' copyToClipboard.br Result is to format: code[ cc11 elements for one object _nameOfObject, _objectClass, _objectToGet, _computedAngle, _distance, _newDir, _vectorUp, _vectorDir, _animation, _elevASL, _elev, _nameOfObject, _objectClass, _objectToGet, _computedAngle, _distance, _newDir, _vectorUp, _vectorDir, _animation, _elevASL, _elev, (…) ]</code> FeatureimportantPlease note that the clipboard result is a one-level array, meaning that all parameters are defined one after the other!",
+    "description": "FeatureWarningThis function is broken (at least in arma3) as it has a typo, displaying an error on each use! (typo 'line 63', ic[centrum] instead of ic[_centrum]&nbsp;) This function gets objects (but centre object) positions and direction relative to the choosen object and copies the result to the clipboard ''via'' copyToClipboard.br Result is to \nformat: code[ cc11 elements for one object _nameOfObject, _objectClass, _objectToGet, _computedAngle, _distance, _newDir, _vectorUp, _vectorDir, _animation, _elevASL, _elev, _nameOfObject, _objectClass, _objectToGet, _computedAngle, _distance, _newDir, _vectorUp, _vectorDir, _animation, _elevASL, _elev, (…) ]</code> FeatureimportantPlease note that the clipboard result is a one-level array, meaning that all parameters are defined one after the other!",
     "example": "[player, 20, \"Car\"] call BIS_fnc_sceneGetObjects;",
     "params": "<object> <number> <string>",
     "returns": "script handle"
@@ -1266,7 +1266,7 @@
     "syntax": "<!-- [] call BIS_fnc_sceneGetPositionByAngle -->",
     "docSyntax": "<!-- [] call BIS_fnc_sceneGetPositionByAngle -->",
     "tags": "",
-    "description": "pre /******************************************************************************* * * version: 1.0 * name: sceneGetPositionByAngle * description: returns new calculated position of object from angle and distance from specified object * parameters: described below * return value: array of new coordinates [x, y] * Wikiplaceholder",
+    "description": "pre /******************************************************************************* * * \nversion: 1.0 * \nname: sceneGetPositionByAngle * \ndescription: returns new calculated position of object from angle and distance from specified object * \nparameters: described below * return \nvalue: array of new coordinates [x, y]",
     "example": "[] call BIS_fnc_sceneGetPositionByAngle;",
     "params": "",
     "returns": ""
@@ -1290,7 +1290,7 @@
     "syntax": "<!-- [] call BIS_fnc_sceneMiscStuff -->",
     "docSyntax": "<!-- [] call BIS_fnc_sceneMiscStuff -->",
     "tags": "",
-    "description": "pre /********************************************************************* Version: 1.0 Name: sceneMiscStuff DESCRIPTION: Does the basic minor stuff for scene - cinema borders, map is denied etc. PARAMETERS: 1) _cameraPositions - [[cameraTarget],[cameraPos]] - Coordinates. If BIS_debugScene is true then external camera is activated 2) _skipInitBlackout - BOOL - if true, initial blackout is skipped 3) _skipFinalBlackout - BOOL - if true, final blackout is skipped 4) _noUseCheckTheWeapons - BOOL - if true, checking of weapon before scene is skipped 5) _noUseLoadingScreen - BOOL - if true, loadingscreen is bypassed 6) __excludedObjectsForIntruderDetector - ARRAY of objects - objects will be excluded from intruder detector RETURNED VALUE: **********************************************************************/</pre> Wikiplaceholder",
+    "description": "pre /********************************************************************* \nVersion: 1.0 \nName: sceneMiscStuff \nDESCRIPTION: Does the basic minor stuff for scene - cinema borders, map is denied etc. \nPARAMETERS: 1) _cameraPositions - [[cameraTarget],[cameraPos]] - Coordinates. If BIS_debugScene is true then external camera is activated 2) _skipInitBlackout - BOOL - if true, initial blackout is skipped 3) _skipFinalBlackout - BOOL - if true, final blackout is skipped 4) _noUseCheckTheWeapons - BOOL - if true, checking of weapon before scene is skipped 5) _noUseLoadingScreen - BOOL - if true, loadingscreen is bypassed 6) __excludedObjectsForIntruderDetector - ARRAY of objects - objects will be excluded from intruder detector RETURNED \nVALUE: *********************************************************************",
     "example": "[] call BIS_fnc_sceneMiscStuff;",
     "params": "",
     "returns": ""
@@ -1386,7 +1386,7 @@
     "syntax": "<array> call BIS_fnc_selectRandomWeighted",
     "docSyntax": "itemsAndWeights call BIS_fnc_selectRandomWeighted",
     "tags": "",
-    "description": "Selects a random item from an array, taking into account item weight. Note: * The weights don't have to total to 1 * The length of weights and items arrays may not match, in which case the shortest array is used for length Featurearma3See selectRandomWeighted for an engine solution.",
+    "description": "Selects a random item from an array, taking into account item weight. \nNote: * The weights don't have to total to 1 * The length of weights and items arrays may not match, in which case the shortest array is used for length Featurearma3See selectRandomWeighted for an engine solution.",
     "example": "[\"apples\",.3,\"pears\",.2,\"bananas\",.4,\"diamonds\",.1,\"unicorns\",.00001] call BIS_fnc_selectRandomWeighted;",
     "params": "<array> <array> <array> <array>",
     "returns": "anything"
@@ -1506,7 +1506,7 @@
     "syntax": "<!-- [] call BIS_fnc_supplydropService -->",
     "docSyntax": "<!-- [] call BIS_fnc_supplydropService -->",
     "tags": "",
-    "description": "pre /* File: supplydropService.sqf Description: Supply drop service - controls approach and departure of transporting air vehicle and actual cargo drop. Used by Supply drop support request. Parameter(s): 1: object unit allowed to use the transport system 2: object vehicle providing transport 4: array positions to be cosen by player; accepted strings are \"pickup\" and \"unload\", the second position is defined by the next paramter (OPTIONAL) 5: position (NEEDED ONLY IF PARAMETER #4 IS USED) Returns: N/A */ //MP framework init (used for move command given to transporter vehicle) Wikiplaceholder",
+    "description": "pre /* \nFile: supplydropService.sqf \nDescription: Supply drop service - controls approach and departure of transporting air vehicle and actual cargo drop. Used by Supply drop support request. Parameter(s): \n1: object unit allowed to use the transport system \n2: object vehicle providing transport \n4: array positions to be cosen by player; accepted strings are \"pickup\" and \"unload\", the second position is defined by the next paramter (OPTIONAL) \n5: position (NEEDED ONLY IF PARAMETER #4 IS USED) \nReturns: N/A */ //MP framework init (used for move command given to transporter vehicle)",
     "example": "[] call BIS_fnc_supplydropService;",
     "params": "",
     "returns": ""
@@ -1554,7 +1554,7 @@
     "syntax": "<!-- [] call BIS_fnc_taskHandler; -->",
     "docSyntax": "<!-- [] call BIS_fnc_taskHandler; -->",
     "tags": "",
-    "description": "pre /******************************************************************************* * * version: 1.0 * name: Task handler * description: automatically sets tasks as current * parameters: _this select 0: a unit whose tasks will be handled (Array) _this select 1: links to tasks created via MP Framwork with priorities (loewr number means higher priority) * return value: none * example: [ BIS_cooper, [ [\"objShaftoe\", 1], [\"objGorka\", 3], [\"objNikolayev\", 5], [\"objLagushina\", 5], [\"objSmugglers\", 5], [\"objFindBase\", 4], [\"objSentries\", 3], [\"objLeader\", 3], [\"objDestroyBase\", 3], [\"objEscortLagushina\", 1], [\"objRescueCrew\", 2], [\"objSafehouse\", 3], [\"objMaksim\", 6], [\"objEvidence\", 7] ] ] call BIS_fnc_taskHandler * TODO: * generalize so it can be used in WF * add support for standard tasks * randomize the selection of tasks with the same priority Wikiplaceholder",
+    "description": "pre /******************************************************************************* * * \nversion: 1.0 * \nname: Task handler * \ndescription: automatically sets tasks as current * \nparameters: _this select \n0: a unit whose tasks will be handled (Array) _this select \n1: links to tasks created via MP Framwork with priorities (loewr number means higher priority) * return \nvalue: none * \nexample: [ BIS_cooper, [ [\"objShaftoe\", 1], [\"objGorka\", 3], [\"objNikolayev\", 5], [\"objLagushina\", 5], [\"objSmugglers\", 5], [\"objFindBase\", 4], [\"objSentries\", 3], [\"objLeader\", 3], [\"objDestroyBase\", 3], [\"objEscortLagushina\", 1], [\"objRescueCrew\", 2], [\"objSafehouse\", 3], [\"objMaksim\", 6], [\"objEvidence\", 7] ] ] call BIS_fnc_taskHandler * \nTODO: * generalize so it can be used in WF * add support for standard tasks * randomize the selection of tasks with the same priority",
     "example": "",
     "params": "",
     "returns": ""
@@ -1590,7 +1590,7 @@
     "syntax": "[caller, vehicle, position, mainScope, secopScope] call BIS_fnc_transportService",
     "docSyntax": "[caller, vehicle, position, mainScope, secopScope] call BIS_fnc_transportService",
     "tags": "",
-    "description": "pre /* File: transportService.sqf Description: Transportation system Parameter(s): 1: object unit allowed to use the transport system 2: object vehicle providing transport 3: array positions to be chosen by player; accepted strings are \"pickup\" and \"unload\", the second position is defined by the next paramter (OPTIONAL) 4: position (NEEDED ONLY IF PARAMETER #3 IS USED) Returns: N/A */</pre> Wikiplaceholder",
+    "description": "pre /* \nFile: transportService.sqf \nDescription: Transportation system Parameter(s): \n1: object unit allowed to use the transport system \n2: object vehicle providing transport \n3: array positions to be chosen by player; accepted strings are \"pickup\" and \"unload\", the second position is defined by the next paramter (OPTIONAL) \n4: position (NEEDED ONLY IF PARAMETER #3 IS USED) \nReturns: N/A",
     "example": "",
     "params": "",
     "returns": "nothing"
@@ -1602,7 +1602,7 @@
     "syntax": "<!-- [] call BIS_fnc_unitVector; -->",
     "docSyntax": "<!-- [] call BIS_fnc_unitVector; -->",
     "tags": "",
-    "description": "pre /************************************************************ Unit Vector Returns the unit vector for the passed vector (vector pointing in the same direction, but with magnitude == 1) This does not modify the original array. The array can have any number of elements (2, 3, etc). ************************************************************/</pre> Wikiplaceholder",
+    "description": "pre /************************************************************ Unit Vector Returns the unit vector for the passed vector (vector pointing in the same direction, but with magnitude == 1) This does not modify the original array. The array can have any number of elements (2, 3, etc). ***********************************************************",
     "example": "",
     "params": "",
     "returns": ""
@@ -1770,7 +1770,7 @@
     "syntax": "'cameraView'",
     "docSyntax": "'cameraView'",
     "tags": "",
-    "description": "Returns mode of active camera view. Mode is one of: * \"INTERNAL\" (1st person) * \"EXTERNAL\" (3rd person) * \"GUNNER\" (optics / sights) * \"GROUP\" (commander view)",
+    "description": "Returns mode of active camera view. Mode is one \nof: * \"INTERNAL\" (1st person) * \"EXTERNAL\" (3rd person) * \"GUNNER\" (optics / sights) * \"GROUP\" (commander view)",
     "example": "if (cameraOn == _vehicle <&&> cameraView == \"External\") then { _vehicle switchCamera \"Internal\"; };",
     "params": "",
     "returns": "string"
@@ -1986,7 +1986,7 @@
     "syntax": "<object> createDiaryRecord [<string>, <string>, <<task>>, <string>, <boolean>]",
     "docSyntax": "player createDiaryRecord [subject, text, task, taskState, showTitle]",
     "tags": "[AL] [EL]",
-    "description": "syntaxhighlight lang=\"html\"</syntaxhighlight><!-- needed for spoiler to have it --> Creates a diary entry. Supported tags and their parameters: spoiler {| class=\"wikitable sortable\" ! Tag ! class=\"unsortable\" | Options ! class=\"unsortable\" | Example |- | img | * ''image'': arma3|Maximum width supported seems to be 370 pixel. An image wider that this will be cut off. Height should be calculated with the aspect ratio of the image. {{ic|height {{=}} 370; ratio {{=}} 16/9; height {{=}} width / ratio;}}}} | <syntaxhighlight lang=\"html\"><img image=\"picture.paa\" width=\"128\" height=\"64\" /></syntaxhighlight> |- | font | * ''color'': <String - {{Wikipedia|HTML_color|HTML color}} in format #aarrggbb or #rrggbb * ''size'': Fonts) | <syntaxhighlight lang=\"html\"><font color=\"#FF00FF\" size=\"16\" face=\"LucidaConsoleB\">Hello there</font></syntaxhighlight> |- | br | {{n/a}} | <syntaxhighlight lang=\"html\">Line 1<br/>Line 2</syntaxhighlight> |- | marker | * ''name'': <syntaxhighlight lang=\"html\"><marker name=\"respawn_west\">Respawn point</marker></syntaxhighlight> |- | execute | * ''expression'': [[String - executed code | <syntaxhighlight lang=\"html\"><execute expression=\"player setDamage 1\">Die!</execute></syntaxhighlight> |- | executeClose | * ''expression'': <syntaxhighlight lang=\"html\"><executeClose expression=\"player setDamage 1\">Die and close</executeClose></syntaxhighlight> |- | [[createDiaryLink|log | * ''subject'': subject name. * ''record'': <syntaxhighlight lang=\"html\"><log subject=\"Hello\">Get to the Hello subject</log></syntaxhighlight> <syntaxhighlight lang=\"html\"><log record=\"ABCD\">Get to the ABC record</log></syntaxhighlight> |- | gear | * ''unit'': [[Number - unit ID | <syntaxhighlight lang=\"html\"><gear unit=\"123456\">Open unit 123456's gear</gear></syntaxhighlight> |- | teamSwitch | * ''unit'': <syntaxhighlight lang=\"html\"><teamSwitch unit=\"123456\">Switch to unit 123456</teamSwitch></syntaxhighlight> |- | kick | * ''id'': [[Number - unit ID | <syntaxhighlight lang=\"html\"><kick unit=\"123456\">Kick player unit 123456</kick></syntaxhighlight> |- | ban | * ''id'': <syntaxhighlight lang=\"html\"><ban unit=\"123456\">ban player unit 123456</ban></syntaxhighlight> |- | mute | * ''id'': [[Number - unit ID | <syntaxhighlight lang=\"html\"><mute unit=\"123456\">mute player unit 123456</mute></syntaxhighlight> |- | currentTask | * ''id'': <syntaxhighlight lang=\"html\"><currentTask id=\"my_task\">get to my_task task</currentTask></syntaxhighlight> |}</spoiler> Feature Informative If the [[createDiaryRecord command fails, it returns a null record. Before arma3 v2.00, [[isNull> did not work with the diary record type and diaryRecordNull did not exist. In order to verify a null record, it is possible to create a variable and compare against it: divcodeprivate _recordNull = objNull createDiaryRecord []; private _createdRecord = player createDiaryRecord [\"Diary\", [\"Title\", \"Description\"]];brif (_createdRecord isEqualTo _recordNull) then { hint \"Failed\"; };</code></div>",
+    "description": "syntaxhighlight lang=\"html\"<!-- needed for spoiler to have it --> Creates a diary entry. Supported tags and their \nparameters: spoiler {| class=\"wikitable sortable\" ! Tag ! class=\"unsortable\" | Options ! class=\"unsortable\" | Example |- | img | * ''image'': arma3|Maximum width supported seems to be 370 pixel. An image wider that this will be cut off. Height should be calculated with the aspect ratio of the image. {{ic|height {{=}} 370; ratio {{=}} 16/9; height {{=}} width / ratio;}}}} | <syntaxhighlight lang=\"html\"><img image=\"picture.paa\" width=\"128\" height=\"64\" />|- | font | * ''color'': <String - {{Wikipedia|HTML_color|HTML color}} in format #aarrggbb or #rrggbb * ''size'': Fonts) | <syntaxhighlight lang=\"html\"><font color=\"#FF00FF\" size=\"16\" face=\"LucidaConsoleB\">Hello there</font>|- | br | {{n/a}} | <syntaxhighlight lang=\"html\">Line 1<br/>Line 2|- | marker | * ''name'': <syntaxhighlight lang=\"html\"><marker name=\"respawn_west\">Respawn point</marker>|- | execute | * ''expression'': [[String - executed code | <syntaxhighlight lang=\"html\"><execute expression=\"player setDamage 1\">Die!</execute>|- | executeClose | * ''expression'': <syntaxhighlight lang=\"html\"><executeClose expression=\"player setDamage 1\">Die and close</executeClose>|- | [[createDiaryLink|log | * ''subject'': subject name. * ''record'': <syntaxhighlight lang=\"html\"><log subject=\"Hello\">Get to the Hello subject</log><syntaxhighlight lang=\"html\"><log record=\"ABCD\">Get to the ABC record</log>|- | gear | * ''unit'': [[Number - unit ID | <syntaxhighlight lang=\"html\"><gear unit=\"123456\">Open unit 123456's gear</gear>|- | teamSwitch | * ''unit'': <syntaxhighlight lang=\"html\"><teamSwitch unit=\"123456\">Switch to unit 123456</teamSwitch>|- | kick | * ''id'': [[Number - unit ID | <syntaxhighlight lang=\"html\"><kick unit=\"123456\">Kick player unit 123456</kick>|- | ban | * ''id'': <syntaxhighlight lang=\"html\"><ban unit=\"123456\">ban player unit 123456</ban>|- | mute | * ''id'': [[Number - unit ID | <syntaxhighlight lang=\"html\"><mute unit=\"123456\">mute player unit 123456</mute>|- | currentTask | * ''id'': <syntaxhighlight lang=\"html\"><currentTask id=\"my_task\">get to my_task task</currentTask>|}</spoiler> Feature Informative If the [[createDiaryRecord command fails, it returns a null record. Before arma3 v2.00, [[isNull> did not work with the diary record type and diaryRecordNull did not exist. In order to verify a null record, it is possible to create a variable and compare against \nit: divcodeprivate _recordNull = objNull createDiaryRecord []; private _createdRecord = player createDiaryRecord [\"Diary\", [\"Title\", \"Description\"]];brif (_createdRecord isEqualTo _recordNull) then { hint \"Failed\"; };</code></div>",
     "example": "player createDiaryRecord [\"Diary\", [\"Intel\", \"Enemy base is on grid nowiki<marker name='enemyBase'>161170</marker></nowiki>\"]]",
     "params": "<object> <string> <string> <task> <string> <boolean> <object> <string> <string> <string> <task> <string> <boolean>",
     "returns": "<diary record>"
@@ -2010,7 +2010,7 @@
     "syntax": "createGearDialog [<object>, <string>]",
     "docSyntax": "createGearDialog [unit, resource]",
     "tags": "",
-    "description": "Opens gear dialog for given unit. Feature informative action command can also be used:codeplayer action [\"Gear\", player];</code>",
+    "description": "Opens gear dialog for given unit. Feature informative action command can also be \n\tused:codeplayer action [\"Gear\", player];</code>",
     "example": "createGearDialog [player];",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -2034,7 +2034,7 @@
     "syntax": "<object> createSimpleTask [<string>, <task>]",
     "docSyntax": "unit createSimpleTask [name, parentTask]",
     "tags": "[AG] [EL]",
-    "description": "Creates a new Task and adds it to the Diary. FeatureArma3Using the '<Arma 3: Task Framework>' instead is recommended FeatureInformativeWhen task is added as a child, it appears as subcategory to the parent task in the Tasks menu and can be parent to another child task. However this is cosmetic appearance as each task has own id and can be referenced directly via diary link.",
+    "description": "Creates a new Task and adds it to the Diary. FeatureArma3Using the '<Arma \n3: Task Framework>' instead is recommended FeatureInformativeWhen task is added as a child, it appears as subcategory to the parent task in the Tasks menu and can be parent to another child task. However this is cosmetic appearance as each task has own id and can be referenced directly via diary link.",
     "example": "_currentTask = player createSimpleTask [\"NewTask\"];",
     "params": "<object> <string> <task>",
     "returns": "task"
@@ -2070,7 +2070,7 @@
     "syntax": "<control> ctrlAddEventHandler [<string>, <string>]",
     "docSyntax": "control ctrlAddEventHandler [handler, function]",
     "tags": "",
-    "description": "Add an event handler to the given control. Featureimportant * Control event handlers are processed in reversed order, i.e. last added: first, first added: last. So if you have an override it should be set up in the 1st added EH. * When using the event names listed here with the ctrlAddEventHandler, ctrlSetEventHandler, displayAddEventHandler or displaySetEventHandler commands, the prefix \"on\" in the event name must be removed (e.g. ''ButtonDown'' instead of ''onButtonDown'').",
+    "description": "Add an event handler to the given control. Featureimportant * Control event handlers are processed in reversed order, i.e. last \nadded: first, first \nadded: last. So if you have an override it should be set up in the 1st added EH. * When using the event names listed here with the ctrlAddEventHandler, ctrlSetEventHandler, displayAddEventHandler or displaySetEventHandler commands, the prefix \"on\" in the event name must be removed (e.g. ''ButtonDown'' instead of ''onButtonDown'').",
     "example": "_map ctrlAddEventHandler [\"draw\", \"_this call BIS_fnc_strategicMapOpen_draw\"];",
     "params": "<control> <string> <string>",
     "returns": "number"
@@ -2118,7 +2118,7 @@
     "syntax": "<control> ctrlMapCursor [<string>, <string>]",
     "docSyntax": "control ctrlMapCursor [defaultCursor, newCursor]",
     "tags": "",
-    "description": "Changes the default cursor that appears when interacting with a map control to a custom one. Use an empty string to restore the default cursor. FeatureimportantBefore arma3, if the specified cursor does not exist the default is used and no error is produced.br In arma3, this would result in the following error: hl\"No entry 'bin\\config.bin/CfgWrapperUI/Cursors'\". The cursor is the name of a config entry from ''CfgWrapperUI / Cursors''. This command has the following specifics: * When used on the Main Map (icfindDisplay 12 displayCtrl 51), it is possible to override multiple default cursors. For example, while leaving default \"Arrow\" intact, it is possible to just override \"Scroll\" with e.g \"Wait\" (See HashLink#Example 3) * When used on a custom map, for example user made Mini Map, there is only one single cursor \"\" for everything, therefore only this cursor can be overridden (see HashLink#Example 4 on how to override it) Some possible class names (See <ctrlMapCursor/cursors> for the whole list): Columns4 * Arrow * Track * Move * Scroll * Rotate * Track3D * Move3D * Rotate3D * Raise3D * Wait * HC_move * HC_overFriendly * HC_overEnemy * HC_overMission * HC_unsel",
+    "description": "Changes the default cursor that appears when interacting with a map control to a custom one. Use an empty string to restore the default cursor. FeatureimportantBefore arma3, if the specified cursor does not exist the default is used and no error is produced.br In arma3, this would result in the following \nerror: hl\"No entry 'bin\\config.bin/CfgWrapperUI/Cursors'\". The cursor is the name of a config entry from ''CfgWrapperUI / Cursors''. This command has the following \nspecifics: * When used on the Main Map (icfindDisplay 12 displayCtrl 51), it is possible to override multiple default cursors. For example, while leaving default \"Arrow\" intact, it is possible to just override \"Scroll\" with e.g \"Wait\" (See HashLink#Example 3) * When used on a custom map, for example user made Mini Map, there is only one single cursor \"\" for everything, therefore only this cursor can be overridden (see HashLink#Example 4 on how to override it) Some possible class names (See <ctrlMapCursor/cursors> for the whole list): Columns4 * Arrow * Track * Move * Scroll * Rotate * Track3D * Move3D * Rotate3D * Raise3D * Wait * HC_move * HC_overFriendly * HC_overEnemy * HC_overMission * HC_unsel",
     "example": "_map ctrlMapCursor [\"Track\", \"Arrow\"];",
     "params": "<control> <string> <string>",
     "returns": "nothing"
@@ -2226,7 +2226,7 @@
     "syntax": "currentTasks <team",
     "docSyntax": "currentTasks teamMember",
     "tags": "",
-    "description": "Returns array with all uncompleted tasks for the given agent. getVariable could be used on Task to get the following special local variables from the task: * hl\"_this\" <Team Member> - the teamMember agent the task is assigned to * hl\"_taskType\" String - the name of the task (see registeredTasks) * hl\"_thisCreated\" Number - 1 or 0 * hl\"_thisRunning\" Number - 1 or 0 * hl\"_totalCreated\" Number - total number of tasks * hl\"_totalRunning\" Number - total number of running tasks * hl\"_task\"Task - often null",
+    "description": "Returns array with all uncompleted tasks for the given agent. getVariable could be used on Task to get the following special local variables from the \ntask: * hl\"_this\" <Team Member> - the teamMember agent the task is assigned to * hl\"_taskType\" String - the name of the task (see registeredTasks) * hl\"_thisCreated\" Number - 1 or 0 * hl\"_thisRunning\" Number - 1 or 0 * hl\"_totalCreated\" Number - total number of tasks * hl\"_totalRunning\" Number - total number of running tasks * hl\"_task\"Task - often null",
     "example": "currentTasks teamMember _agent",
     "params": "<team",
     "returns": "array | task"
@@ -2262,7 +2262,7 @@
     "syntax": "'cursorTarget'",
     "docSyntax": "'cursorTarget'",
     "tags": "",
-    "description": "Returns the target pointed at by the player (usually with cross-hairs). The target has to be known to the player to some degree (knowsAbout > 0). If target is completely unknown, command returns objNull. brbrA valid target could belong to an enemy or a friendly side. Buildings are normally known to player and so are valid targets. Try nearTargets to see what else is considered a target. While friendly targets are usually known to the player, enemy targets can be totally unknown, especially if \"auto-spotting\" (or sometimes called \"auto-reporting\") is switched off. To check if auto-spotting is enabled:hldifficultyEnabled \"autospot\" brbrcursorTarget also returns locked target for the duration of the lock even if there is another target under the cursor. As soon as missile is fired, cursorTarget switches to current known target under cursor or objNull. Targeting (currently \"T\" in Arma 3) works regardless of the state of \"auto-spotting\". brbrAdding a target to the known list could be done with reveal command. When auto-spotting is enabled, zooming on the enemy target with cross-hairs usually reveals the target. As friendly targets are always known, zooming on friendly target could improve knowsAbout value. brbr<Side relations> can also influence target knowledge. For example east target is unknown target for civilian, but making them friends with setFriend instantly improves civilian knowledge of the east.",
+    "description": "Returns the target pointed at by the player (usually with cross-hairs). The target has to be known to the player to some degree (knowsAbout > 0). If target is completely unknown, command returns objNull. brbrA valid target could belong to an enemy or a friendly side. Buildings are normally known to player and so are valid targets. Try nearTargets to see what else is considered a target. While friendly targets are usually known to the player, enemy targets can be totally unknown, especially if \"auto-spotting\" (or sometimes called \"auto-reporting\") is switched off. To check if auto-spotting is \n\tenabled:difficultyEnabled \"autospot\" brbrcursorTarget also returns locked target for the duration of the lock even if there is another target under the cursor. As soon as missile is fired, cursorTarget switches to current known target under cursor or objNull. Targeting (currently \"T\" in Arma 3) works regardless of the state of \"auto-spotting\". brbrAdding a target to the known list could be done with reveal command. When auto-spotting is enabled, zooming on the enemy target with cross-hairs usually reveals the target. As friendly targets are always known, zooming on friendly target could improve knowsAbout value. brbr<Side relations> can also influence target knowledge. For example east target is unknown target for civilian, but making them friends with setFriend instantly improves civilian knowledge of the east.",
     "example": "alive cursorTarget;",
     "params": "",
     "returns": "object"
@@ -2274,7 +2274,7 @@
     "syntax": "<array>ToNumber date",
     "docSyntax": "dateToNumber date",
     "tags": "",
-    "description": "Convert a date to a float number, based on Jan 1st 00:00:00 nowiki=</nowiki> 0 and Dec 31st 23:59:59 nowiki=</nowiki> 1. The same day and time in leap year will be different after 28th of February and 23:59 on 31st of December will be 1.00274 brbr This is how this command works. The 365 days of the year are presented in range 0...1. So each day will be:br hlc= 1 / 365 nowiki=</nowiki> 0.00273973 br In a leap year there are 366 days, so the range will increase by 1 day:br hlc= 1 / 365 * 366 nowiki=</nowiki> 1.00274br In short, in a normal year the command returns in range 0...1 in a leap year it will return in range 0...1.00274",
+    "description": "Convert a date to a float number, based on Jan 1st \n\t00:0\n\t0:00 nowiki=</nowiki> 0 and Dec 31st \n\t23:5\n\t9:59 nowiki=</nowiki> 1. The same day and time in leap year will be different after 28th of February and \n\t23:59 on 31st of December will be 1.00274 brbr This is how this command works. The 365 days of the year are presented in range 0...1. So each day will \n\tbe:br c= 1 / 365 nowiki=</nowiki> 0.00273973 br In a leap year there are 366 days, so the range will increase by 1 \n\tday:br c= 1 / 365 * 366 nowiki=</nowiki> 1.00274br In short, in a normal year the command returns in range 0...1 in a leap year it will return in range 0...1.00274",
     "example": "_float = dateToNumber [2035,7,6,12,0]; //0.510959",
     "params": "<array>",
     "returns": "number"
@@ -2383,7 +2383,7 @@
     "docSyntax": "diag_tickTime",
     "tags": "",
     "description": "Real time in seconds spent from the start of the game. On Windows the command uses [https://docs.microsoft.com/en-us/windows/win32/api/timeapi/nf-timeapi-timegettime timeGetTime].",
-    "example": "ccMeasure execution time of a script _start = diag_tickTime; // code _stop = diag_tickTime; diag_log format [\"%1\",_stop - _start];",
+    "example": "// Measure execution time of a script _start = diag_tickTime; // code _stop = diag_tickTime; diag_log format [\"%1\",_stop - _start];",
     "params": "",
     "returns": "number"
   },
@@ -2418,7 +2418,7 @@
     "syntax": "<object> <boolean>Conversation disable",
     "docSyntax": "unitName disableConversation disable",
     "tags": "",
-    "description": "In theory disables the ability to talk to other people. In actuality, if true is given, the command increases unit's kbTell ''IsSpeaking'' status by 1, thus stopping unit from having a conversation. If false is given, the command decreases unit's kbTell ''IsSpeaking'' status by 1. The unit \"is speaking\" if ''IsSpeaking > 0''. FeatureImportantkbTell ''IsSpeaking'' is a number that is increased or decreased by 1 internally. Default is 0, but it can be any positive or negative value. disableConversation allows to increase or decrease this number. When executed multiple times this can present an unexpected problem. Use conversationDisabled which returns true if this number > 0, to reset this number to 0 if necessary: codewhile {!conversationDisabled _unit} do {_unit disableConversation true}; while {conversationDisabled _unit} do {_unit disableConversation false};</code>",
+    "description": "In theory disables the ability to talk to other people. In actuality, if true is given, the command increases unit's kbTell ''IsSpeaking'' status by 1, thus stopping unit from having a conversation. If false is given, the command decreases unit's kbTell ''IsSpeaking'' status by 1. The unit \"is speaking\" if ''IsSpeaking > 0''. FeatureImportantkbTell ''IsSpeaking'' is a number that is increased or decreased by 1 internally. Default is 0, but it can be any positive or negative value. disableConversation allows to increase or decrease this number. When executed multiple times this can present an unexpected problem. Use conversationDisabled which returns true if this number > 0, to reset this number to 0 if \nnecessary: codewhile {!conversationDisabled _unit} do {_unit disableConversation true}; while {conversationDisabled _unit} do {_unit disableConversation false};</code>",
     "example": "player disableConversation true;",
     "params": "<object> <boolean>",
     "returns": "nothing"
@@ -2430,7 +2430,7 @@
     "syntax": "disableSerialization",
     "docSyntax": "disableSerialization",
     "tags": "",
-    "description": "Disable saving of script containing this command. After this, the script can work with data types which do not support serialization (UI types). See Namespace serialization for more information. Feature important 'In arma2' and up to a certain version of arma3, <!-- -->giving a _this variable. <!-- -->Using disableSerialization or uiNamespace wouldn't help; the trick here is to pass the argument inside an array: code_display = findDisplay 46;br<!-- -->&nbsp;_display&nbsp; spawn { hint str _this; }; ccwould raise a serialization errorbr<!-- -->[_display] spawn { hint str (_this select 0); }; ccOK</code>",
+    "description": "Disable saving of script containing this command. After this, the script can work with data types which do not support serialization (UI types). See Namespace serialization for more information. Feature important 'In arma2' and up to a certain version of arma3, <!-- -->giving a _this variable. <!-- -->Using disableSerialization or uiNamespace wouldn't help; the trick here is to pass the argument inside an \narray: code_display = findDisplay 46;br<!-- -->&nbsp;_display&nbsp; spawn { hint str _this; }; ccwould raise a serialization errorbr<!-- -->[_display] spawn { hint str (_this select 0); }; ccOK</code>",
     "example": "disableSerialization; private _display = findDisplay 46;",
     "params": "",
     "returns": "nothing"
@@ -2442,7 +2442,7 @@
     "syntax": "<display> displayAddEventHandler [here, <string>]",
     "docSyntax": "display displayAddEventHandler [eventName, code]",
     "tags": "",
-    "description": "Adds an event handler to the given display. See KeyDown & KeyUp. FeatureimportantDisplay EHs are processed in reversed order, i.e. last added: first, first added: last. So if you have an override it should be set up in the 1st added EH. Feature Informative The event handler ID can be accessed inside the event handler code using the ic_thisEventHandler magic variable.",
+    "description": "Adds an event handler to the given display. See KeyDown & KeyUp. FeatureimportantDisplay EHs are processed in reversed order, i.e. last \nadded: first, first \nadded: last. So if you have an override it should be set up in the 1st added EH. Feature Informative The event handler ID can be accessed inside the event handler code using the ic_thisEventHandler magic variable.",
     "example": "moduleName_keyDownEHId nowiki=</nowiki> findDisplay 46 displayAddEventHandler [\"KeyDown\", \"hint str _this;\"];",
     "params": "<display> here <string>",
     "returns": "number"
@@ -2610,7 +2610,7 @@
     "syntax": "<anything> execFSM <string>",
     "docSyntax": "arguments execFSM fsmFilePath",
     "tags": "",
-    "description": "Execute scripted FSM and return the FSM handle or 0 when failed. The FSM file is first searched in the mission folder, then in the campaign scripts folder and finally in the global scripts folder. Argument (if any) are available in hl_this variable inside FSM. Variables set inside FSMs can be read/modified externally, using setFSMVariable and getFSMVariable commands.br br The return value is the FSM handle; it can be used to determine (via completedFSM) when the FSM has finished. Featurearma3In Arma 3, the FSM handle is also available within the FSM through the hl_thisFSM variable. br Scripted FSMs are added into the scheduler just like exec scripts, execVM scripts and spawn scripts.br To see what FSMs are currently in the scheduler, use diag_activeMissionFSMs command. FeatureimportantWhile the code placed into any of the sections of FSM cannot be suspended (canSuspend is false), the FSM itself is suspended every simulation between the state's hlinit and hlprecondition (exception is the 'init state'). This is the only place where scripted FSM is suspended/resumed. The usual difference between the state's hlinit and hlprecondition is 1 frame but if the scheduler is busy it can take longer. See FSM for more information about FSM's structure.",
+    "description": "Execute scripted FSM and return the FSM handle or 0 when failed. The FSM file is first searched in the mission folder, then in the campaign scripts folder and finally in the global scripts folder. Argument (if any) are available in _this variable inside FSM. Variables set inside FSMs can be read/modified externally, using setFSMVariable and getFSMVariable commands.br br The return value is the FSM handle; it can be used to determine (via completedFSM) when the FSM has finished. Featurearma3In Arma 3, the FSM handle is also available within the FSM through the _thisFSM variable. br Scripted FSMs are added into the scheduler just like exec scripts, execVM scripts and spawn scripts.br To see what FSMs are currently in the scheduler, use diag_activeMissionFSMs command. FeatureimportantWhile the code placed into any of the sections of FSM cannot be suspended (canSuspend is false), the FSM itself is suspended every simulation between the state's init and precondition (exception is the 'init state'). This is the only place where scripted FSM is suspended/resumed. The usual difference between the state's init and precondition is 1 frame but if the scheduler is busy it can take longer. See FSM for more information about FSM's structure.",
     "example": "_id = player execFSM \"test.fsm\";",
     "params": "<anything> <string> <string>",
     "returns": "number"
@@ -2622,7 +2622,7 @@
     "syntax": "faction <object>",
     "docSyntax": "faction unitName",
     "tags": "[AG]",
-    "description": "Gets unit faction. Factions were introduced in arma2 and are defined under ''CfgFactionClasses''. {! class=\"wikitable\" style=\"font-size: 0.9em; white-space: nowrap\" ! Side ! GVIarma21.00 ! GVIarma2oa1.50 ! GVIarma31.96 !- ! style=\"text-align: center\" ! west/blufor ! <!-- Arma 2 --> * USMC * CDF ! <!-- Arma 2 OA --> * BIS_US * BIS_CZ * BIS_GER * BIS_BAF (BAF DLC) ! <!-- Arma 3 --> * BLU_F (NATO) * BLU_G_F (FIA) * BLU_T_F (Pacific NATO, Apex Expansion) * BLU_CTRG_F (Pacific CTRG, Apex Expansion) * BLU_GEN_F (Gendarmerie, Apex Expansion) * BLU_W_F (Woodland NATO, Contact Expansion) !- ! style=\"text-align: center\" ! east/opfor ! <!-- Arma 2 --> * INS (ChDKZ) * RU (Russia) ! <!-- Arma 2 OA --> * BIS_TK (Takistan army) * BIS_TK_INS (TK insurgents) ! <!-- Arma 3 --> * OPF_F (Iranian CSAT) * OPF_G_F (FIA) * OPF_T_F (Chinese CSAT, Apex Expansion) * OPF_R_F (Spetznatz, Contact Expansion) !- ! style=\"text-align: center\" ! resistance/brindependent ! <!-- Arma 2 --> * GUE (Guerilla) ! <!-- Arma 2 OA --> * BIS_TK_GUE * BIS_UN (United Nations) * PMC_BAF (PMC DLC) ! <!-- Arma 3 --> * IND_F (AAF) * IND_G_F (FIA) * IND_C_F (Syndikat, Apex Expansion) * IND_E_F (LDF, Contact Expansion) * IND_L_F (Looters, Contact Expansion) !- ! style=\"text-align: center\" ! civilian ! <!-- Arma 2 --> * CIV * CIV_RU ! <!-- Arma 2 OA --> * BIS_TK_CIV * BIS_CIV_special ! <!-- Arma 3 --> * CIV_F * CIV_IDAP_F (Laws of War DLC) !} Feature Informative If a unit's faction is not defined in its config, an empty string is returned.",
+    "description": "Gets unit faction. Factions were introduced in arma2 and are defined under ''CfgFactionClasses''. {! class=\"wikitable\" style=\"font-\nsize: 0.9em; white-\nspace: nowrap\" ! Side ! GVIarma21.00 ! GVIarma2oa1.50 ! GVIarma31.96 !- ! style=\"text-\nalign: center\" ! west/blufor ! <!-- Arma 2 --> * USMC * CDF ! <!-- Arma 2 OA --> * BIS_US * BIS_CZ * BIS_GER * BIS_BAF (BAF DLC) ! <!-- Arma 3 --> * BLU_F (NATO) * BLU_G_F (FIA) * BLU_T_F (Pacific NATO, Apex Expansion) * BLU_CTRG_F (Pacific CTRG, Apex Expansion) * BLU_GEN_F (Gendarmerie, Apex Expansion) * BLU_W_F (Woodland NATO, Contact Expansion) !- ! style=\"text-\nalign: center\" ! east/opfor ! <!-- Arma 2 --> * INS (ChDKZ) * RU (Russia) ! <!-- Arma 2 OA --> * BIS_TK (Takistan army) * BIS_TK_INS (TK insurgents) ! <!-- Arma 3 --> * OPF_F (Iranian CSAT) * OPF_G_F (FIA) * OPF_T_F (Chinese CSAT, Apex Expansion) * OPF_R_F (Spetznatz, Contact Expansion) !- ! style=\"text-\nalign: center\" ! resistance/brindependent ! <!-- Arma 2 --> * GUE (Guerilla) ! <!-- Arma 2 OA --> * BIS_TK_GUE * BIS_UN (United Nations) * PMC_BAF (PMC DLC) ! <!-- Arma 3 --> * IND_F (AAF) * IND_G_F (FIA) * IND_C_F (Syndikat, Apex Expansion) * IND_E_F (LDF, Contact Expansion) * IND_L_F (Looters, Contact Expansion) !- ! style=\"text-\nalign: center\" ! civilian ! <!-- Arma 2 --> * CIV * CIV_RU ! <!-- Arma 2 OA --> * BIS_TK_CIV * BIS_CIV_special ! <!-- Arma 3 --> * CIV_F * CIV_IDAP_F (Laws of War DLC) !} Feature Informative If a unit's faction is not defined in its config, an empty string is returned.",
     "example": "sqfprivate _playerFaction = faction player;</sqf>",
     "params": "<object>",
     "returns": "string"
@@ -2634,7 +2634,7 @@
     "syntax": "failMission <string>",
     "docSyntax": "failMission endtype",
     "tags": "",
-    "description": "Finish the mission. If the server is set to run persistent mission, failMission will not end the mission when last player gets kicked to the lobby. Use endMission to end the mission. The end type can be: * \"CONTINUE\" - this is default type, basically an alias to do nothing * \"KILLED\" * \"LOSER\" * \"END1\" * \"END2\" * \"END3\" * \"END4\" * \"END5\" * \"END6\" 'Mission saves won't be deleted'.brbr Featurearma3To maintain Arma 3 visual style, it is recommended to use BIS_fnc_endMission instead.",
+    "description": "Finish the mission. If the server is set to run persistent mission, failMission will not end the mission when last player gets kicked to the lobby. Use endMission to end the mission. The end type can \nbe: * \"CONTINUE\" - this is default type, basically an alias to do nothing * \"KILLED\" * \"LOSER\" * \"END1\" * \"END2\" * \"END3\" * \"END4\" * \"END5\" * \"END6\" 'Mission saves won't be deleted'.brbr Featurearma3To maintain Arma 3 visual style, it is recommended to use BIS_fnc_endMission instead.",
     "example": "failMission \"LOSER\";",
     "params": "<string>",
     "returns": "nothing"
@@ -2658,7 +2658,7 @@
     "syntax": "position2d findEmptyPosition <array>",
     "docSyntax": "center findEmptyPosition [radius, maxDistance, vehicleType]",
     "tags": "",
-    "description": "Searches for an empty position around specified position. The search starts looking for an empty position at a minimum distance of [radius] from the [center] and looks as far away as [radius + maxDistance]. If a [vehicleType] parameter is specified, then the search will look for an empty positions that is big enough to hold that vehicle type. If an empty position isn't found, an empty array is returned. This command ignores moving objects present within search area. The search area could be preloaded with findEmptyPositionReady command. See also: BIS_fnc_findSafePos.",
+    "description": "Searches for an empty position around specified position. The search starts looking for an empty position at a minimum distance of [radius] from the [center] and looks as far away as [radius + maxDistance]. If a [vehicleType] parameter is specified, then the search will look for an empty positions that is big enough to hold that vehicle type. If an empty position isn't found, an empty array is returned. This command ignores moving objects present within search area. The search area could be preloaded with findEmptyPositionReady command. See \nalso: BIS_fnc_findSafePos.",
     "example": "_position = (getPosATL player) findEmptyPosition [0,100];",
     "params": "position2d <array> <number> <number> <string>",
     "returns": "position3d or [] if not found"
@@ -2670,7 +2670,7 @@
     "syntax": "position2d findEmptyPositionReady <array>",
     "docSyntax": "center findEmptyPositionReady [radius, maxDistance]",
     "tags": "",
-    "description": "Preloads area to be used with findEmptyPosition command and returns true when area is ready. The size of the area preloaded is from hlcenter - radius - maxDistance to hlcenter + radius + maxDistanceFeature important Preloading large areas may take a long time, we are talking minutes. However once preloaded, it stays preloaded even after mission restart",
+    "description": "Preloads area to be used with findEmptyPosition command and returns true when area is ready. The size of the area preloaded is from center - radius - maxDistance to center + radius + maxDistanceFeature important Preloading large areas may take a long time, we are talking minutes. However once preloaded, it stays preloaded even after mission restart",
     "example": "_ready = _center findEmptyPositionReady [0, 500];",
     "params": "position2d <array> <number> <number>",
     "returns": "boolean | true"
@@ -2922,7 +2922,7 @@
     "syntax": "<object> hcGroupParams <group>",
     "docSyntax": "unit hcGroupParams group",
     "tags": "",
-    "description": "Returns parameters describing group in high command bar. Return value is array in format [groupName, teamName] or [] if error. Possible values for team name: * hl\"teammain\" (default) * hl\"teamred\" * hl\"teamgreen\" * hl\"teamblue\" * hl\"teamyellow\"",
+    "description": "Returns parameters describing group in high command bar. Return value is array in format [groupName, teamName] or [] if error. Possible values for team \nname: * hl\"teammain\" (default) * hl\"teamred\" * hl\"teamgreen\" * hl\"teamblue\" * hl\"teamyellow\"",
     "example": "player hcGroupParams someGroup;",
     "params": "<object> <group>",
     "returns": "array"
@@ -3054,7 +3054,7 @@
     "syntax": "inputAction <string>",
     "docSyntax": "inputAction name",
     "tags": "",
-    "description": "Return the state of input devices mapped to given input action. br For Arma 3 inputActions and its bindings see: <PAGENAME/actions>. br For earlier Arma editions see <:Category:Key Actions>.",
+    "description": "Return the state of input devices mapped to given input action. br For earlier Arma editions see <:\n\tCategory:Key Actions>.",
     "example": "inputAction \"leanLeft\"",
     "params": "<string>",
     "returns": "number"
@@ -3102,7 +3102,7 @@
     "syntax": "positionagl isFlatEmpty <array>",
     "docSyntax": "position isFlatEmpty [minDistance, mode, maxGradient, maxGradientRadius, overLandOrWater, shoreLine, ignoreObject]",
     "tags": "",
-    "description": "Checks given position against given filter params. Filter includes checks for: * If there are any objects closer than given distance from given position (in 2D) * If the area around position is flat enough to match given gradient * If the given position is over water or land * If the given position is over shore line The gradient seems to correlate with general hill steepness: 0.1 (10%) ~6°, 0.5 (50%) ~27°, 1.0 (100%) ~45°, etc. Feature Informative See also BIS_fnc_findSafePos.",
+    "description": "Checks given position against given filter params. Filter includes checks \nfor: * If there are any objects closer than given distance from given position (in 2D) * If the area around position is flat enough to match given gradient * If the given position is over water or land * If the given position is over shore line The gradient seems to correlate with general hill \nsteepness: 0.1 (10%) ~6°, 0.5 (50%) ~27°, 1.0 (100%) ~45°, etc. Feature Informative See also BIS_fnc_findSafePos.",
     "example": "_overLand = !(position player isFlatEmpty [-1, -1, -1, -1, 0, false] isEqualTo []);",
     "params": "positionagl <array> <number> <number> <number> <number> <number> <boolean> <object>",
     "returns": "getterrainheightasl"
@@ -3306,7 +3306,7 @@
     "syntax": "<group> leaveVehicle <object>",
     "docSyntax": "group leaveVehicle vehicle",
     "tags": "[AL] [EL]",
-    "description": "Ceases the using of the vehicle by a group and unassigns vehicle from the group. If the argument is a single unit, the vehicle will be unassigned from unit's group. After vehicle is unassigned from the group, each individual crew member then unassigned from the vehicle. brbrIn short the command could be hypothetically presented as:br hlc= leaveVehicle nowiki=</nowiki> un-addVehicle + unassignVehicle forEach crew br However, to make it more reliable, it is best to move unit out of the vehicle manually with moveOut command and force unassign the vehicle with unassignVehicle FeatureinformativeSee <AI Group Vehicle Management> for more information.",
+    "description": "Ceases the using of the vehicle by a group and unassigns vehicle from the group. If the argument is a single unit, the vehicle will be unassigned from unit's group. After vehicle is unassigned from the group, each individual crew member then unassigned from the vehicle. brbrIn short the command could be hypothetically presented \n\tas:br c= leaveVehicle nowiki=</nowiki> un-addVehicle + unassignVehicle forEach crew br However, to make it more reliable, it is best to move unit out of the vehicle manually with moveOut command and force unassign the vehicle with unassignVehicle FeatureinformativeSee <AI Group Vehicle Management> for more information.",
     "example": "_unit leaveVehicle _vehicle",
     "params": "<group> <object>",
     "returns": "nothing"
@@ -3594,7 +3594,7 @@
     "syntax": "'loadGame'",
     "docSyntax": "'loadGame'",
     "tags": "",
-    "description": "Loads game from the last autosave made with mission event handler hl\"Loaded\" is available and is important that it is added in hlpreInit in order for it to fire on load from save",
+    "description": "Loads game from the last autosave made with mission event handler hl\"Loaded\" is available and is important that it is added in preInit in order for it to fire on load from save",
     "example": "loadGame;",
     "params": "",
     "returns": "nothing"
@@ -3618,7 +3618,7 @@
     "syntax": "'locationNull'",
     "docSyntax": "'locationNull'",
     "tags": "",
-    "description": "A non-existing Location. To compare non-existent locations use isNull or isEqualTo: * hlc= locationNull nowiki==</nowiki> locationNull; ccfalse * hlisNull locationNull; cctrue * hllocationNull isEqualTo locationNull; cctrue",
+    "description": "A non-existing Location. To compare non-existent locations use isNull or \nisEqualTo: * c= locationNull nowiki==</nowiki> locationNull; ccfalse * isNull locationNull; cctrue * locationNull isEqualTo locationNull; cctrue",
     "example": "!isNull locationNull; false",
     "params": "",
     "returns": "location"
@@ -3798,7 +3798,7 @@
     "syntax": "moveOut <object>",
     "docSyntax": "moveOut soldier",
     "tags": "[AG] [EG]",
-    "description": "Moves the soldier out of the vehicle. brbr Notes: * Works for both AI and player entities * AI unit gets back in - unless is under player command or combined with other sqf commands (action \"Eject\") - unlike action \"Eject\") - unlike action eject, action eject, action \"Eject\" (but one after another)) - unlike unconscious (same as action \"Eject\" (but one after another)) - unlike doGetOut, commandGetOut (unless AI under player command)",
+    "description": "Moves the soldier out of the vehicle. brbr \nNotes: * Works for both AI and player entities * AI unit gets back in - unless is under player command or combined with other sqf commands (action \"Eject\") - unlike action \"Eject\") - unlike action eject, action eject, action \"Eject\" (but one after another)) - unlike unconscious (same as action \"Eject\" (but one after another)) - unlike doGetOut, commandGetOut (unless AI under player command)",
     "example": "{if (lifeState _x == \"UNCONSCIOUS\") then { moveOut _x } } forEach crew cursorTarget;",
     "params": "<object> <object> <object>",
     "returns": "nothing"
@@ -3978,7 +3978,7 @@
     "syntax": "onHCGroupSelectionChanged <string>",
     "docSyntax": "onHCGroupSelectionChanged code",
     "tags": "",
-    "description": "Defines an action performed when high command group selection has been changed.br Command receives 2 variables: * _group: hc group selection change until it is replaced or removed (see HashLink#Example 3). FeatureimportantUsing the command again will 'overwrite' the previously set code. FeatureInformativeSince arma3 v1.58 a stackable version of this EH is available: HCGroupSelectionChanged",
+    "description": "Defines an action performed when high command group selection has been changed.br Command receives 2 \nvariables: * \n_group: hc group selection change until it is replaced or removed (see HashLink#Example 3). FeatureimportantUsing the command again will 'overwrite' the previously set code. FeatureInformativeSince arma3 v1.58 a stackable version of this EH is \navailable: HCGroupSelectionChanged",
     "example": "onHCGroupSelectionChanged { if (_isSelected) then { hint format [\"Group %1 has been selected.\", _group]; } else { hint format [\"Group %1 has been deselected.\", _group]; }; };",
     "params": "<string>",
     "returns": "nothing"
@@ -3990,7 +3990,7 @@
     "syntax": "onPreloadFinished <string>",
     "docSyntax": "onPreloadFinished command",
     "tags": "",
-    "description": "Defines an action performed after the preload screen finished. Preload event occurs after briefing screen on mission start. Feature important This event handler also fires on client after user closes the main map. Featurearma3 * Since arma3 v1.57 a stackable version of this EH is available: PreloadFinished * Before that, the BIS_fnc_addStackedEventHandler and BIS_fnc_removeStackedEventHandler functions should be used instead.",
+    "description": "Defines an action performed after the preload screen finished. Preload event occurs after briefing screen on mission start. Feature important This event handler also fires on client after user closes the main map. Featurearma3 * Since arma3 v1.57 a stackable version of this EH is \navailable: PreloadFinished * Before that, the BIS_fnc_addStackedEventHandler and BIS_fnc_removeStackedEventHandler functions should be used instead.",
     "example": "onPreloadFinished {TAG_ReceivingScreenDone = true};",
     "params": "<string>",
     "returns": "nothing"
@@ -4002,7 +4002,7 @@
     "syntax": "onPreloadStarted <string>",
     "docSyntax": "onPreloadStarted command",
     "tags": "",
-    "description": "Defines an action performed just before the preload screen started. Preload event occurs after briefing screen on mission start.Feature important This event handler also fires on client after user closes the main map. br FeatureInformativeSince 'Arma 3' ''v1.57'' a stackable version of this EH is available: PreloadStartedbr Featurearma3In order to keep compatibility between official and community content the functions BIS_fnc_addStackedEventHandler and BIS_fnc_removeStackedEventHandler should be used instead.",
+    "description": "Defines an action performed just before the preload screen started. Preload event occurs after briefing screen on mission start.Feature important This event handler also fires on client after user closes the main map. br FeatureInformativeSince 'Arma 3' ''v1.57'' a stackable version of this EH is \navailable: PreloadStartedbr Featurearma3In order to keep compatibility between official and community content the functions BIS_fnc_addStackedEventHandler and BIS_fnc_removeStackedEventHandler should be used instead.",
     "example": "onPreloadStarted {diag_log \"preload started\"};",
     "params": "<string>",
     "returns": "nothing"
@@ -4026,7 +4026,7 @@
     "syntax": "onTeamSwitch <string>",
     "docSyntax": "onTeamSwitch commandset",
     "tags": "",
-    "description": "Defines an action performed when the team switch is finished. Commandset receives the following special variables: ''_from'' object previous unit, ''_to'' object current unit. Consecutive use of onTeamSwitch command will overwrite previously set commandset. FeatureImportant This command is deprecated. Since 'Arma 3' ''v1.57'' a stackable version of this EH is available: TeamSwitch br Feature Informative When player switches and leaves behind AI unit, you need to enable \"TeamSwitch\" AI on it (with&nbsp;iconTeamSwitch { _from enableAI \"TeamSwitch\" };) so that the unit continues with waypoints.",
+    "description": "Defines an action performed when the team switch is finished. Commandset receives the following special \nvariables: ''_from'' object previous unit, ''_to'' object current unit. Consecutive use of onTeamSwitch command will overwrite previously set commandset. FeatureImportant This command is deprecated. Since 'Arma 3' ''v1.57'' a stackable version of this EH is \navailable: TeamSwitch br Feature Informative When player switches and leaves behind AI unit, you need to enable \"TeamSwitch\" AI on it (with&nbsp;iconTeamSwitch { _from enableAI \"TeamSwitch\" };) so that the unit continues with waypoints.",
     "example": "onTeamSwitch { [_from, _to] execVM \"myTeamSwitchScript.sqf\"; };",
     "params": "<string>",
     "returns": "nothing"
@@ -4074,7 +4074,7 @@
     "syntax": "<object> playAction <string>",
     "docSyntax": "soldier playAction action",
     "tags": "[AL] [EG]",
-    "description": "When used on a person, a smooth transition to the given action will be initiated. br For Arma 3 actions see: <playAction/actions>.",
+    "description": "When used on a person, a smooth transition to the given action will be initiated.",
     "example": "soldierOne playAction \"SitDown\"",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -4086,7 +4086,7 @@
     "syntax": "<object> playActionNow <string>",
     "docSyntax": "soldier playActionNow action",
     "tags": "[AL] [EG]",
-    "description": "When used on a person, a smooth transition to the given action will be initiated, but all previous playAction are discarded. br For Arma 3 actions see: <playAction/actions>.",
+    "description": "When used on a person, a smooth transition to the given action will be initiated, but all previous playAction are discarded.",
     "example": "soldierOne playActionNow \"SitDown\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -4110,7 +4110,7 @@
     "syntax": "<object> playMoveNow <string>",
     "docSyntax": "soldier playMoveNow moveName",
     "tags": "[AL] [EG]",
-    "description": "When used on a person,a smooth transition to the given move will be initiated, but all previous playMove are discarded. br The difference between playMove and playMoveNow is that playMove adds another move to the move queue, while playMoveNow replaces the whole move queue with new move (see HashLink#Example 2). Feature Informative see <:Category:Moves> for respective games animations.",
+    "description": "When used on a person,a smooth transition to the given move will be initiated, but all previous playMove are discarded. br The difference between playMove and playMoveNow is that playMove adds another move to the move queue, while playMoveNow replaces the whole move queue with new move (see HashLink#Example 2). Feature Informative see <:\n\tCategory:Moves> for respective games animations.",
     "example": "player playMoveNow \"AmovPercMevaSlowWrflDf\"",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -4266,7 +4266,7 @@
     "syntax": "rankId <object>",
     "docSyntax": "rankId unit",
     "tags": "[AG]",
-    "description": "Return the rank of the given unit for comparison. Value may be: * '0' - Private * '1' - Corporal * '2' - Sergeant * '3' - Lieutenant * '4' - Captain * '5' - Major * '6' - Colonel",
+    "description": "Return the rank of the given unit for comparison. Value may \nbe: * '0' - Private * '1' - Corporal * '2' - Sergeant * '3' - Lieutenant * '4' - Captain * '5' - Major * '6' - Colonel",
     "example": "_myIdRank = rankId player;",
     "params": "<object>",
     "returns": "number"
@@ -4278,7 +4278,7 @@
     "syntax": "registeredTasks <team",
     "docSyntax": "registeredTasks teamMember",
     "tags": "",
-    "description": "Returns array with all registered task types for the given agent. The values are the names set in hlCfgTasks classes hlname property. The same names are used for unregisterTask",
+    "description": "Returns array with all registered task types for the given agent. The values are the names set in CfgTasks classes name property. The same names are used for unregisterTask",
     "example": "tasklist = registeredTasks teamMember _agent;",
     "params": "<team",
     "returns": "array | string"
@@ -4290,7 +4290,7 @@
     "syntax": "<team registerTask <string>",
     "docSyntax": "teamMember registerTask entryName",
     "tags": "",
-    "description": "Registers a new task type. Parameters are defined in the given config class (subclass of hlCfgTasks)",
+    "description": "Registers a new task type. Parameters are defined in the given config class (subclass of CfgTasks)",
     "example": "teamMember _agent registerTask \"MyTask\";",
     "params": "<team <string>",
     "returns": "boolean | true"
@@ -4818,7 +4818,7 @@
     "syntax": "<string> setMarkerAlpha <number>",
     "docSyntax": "marker setMarkerAlpha alpha",
     "tags": "[EG]",
-    "description": "Sets the marker alpha. The marker is modified on all computers in a network session. br When alpha equals hl1, the marker is visible, but if alpha equals hl0, then the marker is invisible. br Alpha can be numbers and fractions. FeatureInformative'Multiplayer optimisation:' Global marker commands always broadcast the ''entire'' marker state over the network. As such, the number of network messages exchanged when creating or editing a marker can be reduced by performing all but the last operation using local marker commands, then using a global marker command for the last change (and subsequent global broadcast of all changes applied to the marker).",
+    "description": "Sets the marker alpha. The marker is modified on all computers in a network session. br When alpha equals 1, the marker is visible, but if alpha equals 0, then the marker is invisible. br Alpha can be numbers and fractions. FeatureInformative'Multiplayer optimisation:' Global marker commands always broadcast the ''entire'' marker state over the network. As such, the number of network messages exchanged when creating or editing a marker can be reduced by performing all but the last operation using local marker commands, then using a global marker command for the last change (and subsequent global broadcast of all changes applied to the marker).",
     "example": "\"my_marker\" setMarkerAlpha 0.5;",
     "params": "<string> <number>",
     "returns": "nothing"
@@ -4926,7 +4926,7 @@
     "syntax": "<object> <boolean>Unconscious set",
     "docSyntax": "unit setUnconscious set",
     "tags": "[AL] [EG]",
-    "description": "In arma2 and since arma3 v1.64, this command sets unit into incapacitated state.br lifeState results: * arma2: \"UNCONSCIOUS\" * arma3: \"INCAPACITATED\" Featurearma3The unit goes in ragdoll mode and animation played while incapacitated depends on the injuries received.",
+    "description": "In arma2 and since arma3 v1.64, this command sets unit into incapacitated state.br lifeState \nresults: * \narma2: \"UNCONSCIOUS\" * \narma3: \"INCAPACITATED\" Featurearma3The unit goes in ragdoll mode and animation played while incapacitated depends on the injuries received.",
     "example": "_unit setUnconscious true;",
     "params": "<object> <boolean>",
     "returns": "nothing"
@@ -4986,7 +4986,7 @@
     "syntax": "showCommandingMenu <string>",
     "docSyntax": "showCommandingMenu name",
     "tags": "",
-    "description": "Create the commanding menu described by the given config class or menu name. When the name is empty, the current menu is hidden.brbr If commanding menu has \"expression\" set up, the expression will receive the following arguments when user activated the menu item: * Local variable hl_target: Object - Target under the cursor. This works in both 3D and 2D (when cursor is over the unit icon on the map). * Local variable hl_pos: Array - Cursor position. * Local variable hl_is3D: Boolean - false if cursor is over the map, otherwise true.",
+    "description": "Create the commanding menu described by the given config class or menu name. When the name is empty, the current menu is hidden.brbr If commanding menu has \"expression\" set up, the expression will receive the following arguments when user activated the menu \nitem: * Local variable \n_target: Object - Target under the cursor. This works in both 3D and 2D (when cursor is over the unit icon on the map). * Local variable \n_pos: Array - Cursor position. * Local variable \n_is3D: Boolean - false if cursor is over the map, otherwise true.",
     "example": "showCommandingMenu \"\";",
     "params": "<string>",
     "returns": "nothing"
@@ -5082,7 +5082,7 @@
     "syntax": "startLoadingScreen [<string>, resource]",
     "docSyntax": "startLoadingScreen [text, resource]",
     "tags": "",
-    "description": "Shows loading screen with the given text, using the given resource. While loading screen is shown, simulation and scene drawing is disabled, user control is disabled, mouse cursor is hidden, scripts run at full speed (50ms per frame instead of 3ms per frame for Scheduled Scripts).br Feature Informative By default, startLoadingScreen will use \"RscDisplayNotFreeze\" resource.br A custom resource can be defined in <Description.ext>, and a full black background will be used by default - the following controls are supported by the engine: * idc = 101 - text (type = 0) or picture (type = 48). The text will be set to the value provided by the command argument. * idc = 103 - progress (type = 8) or animated texture (type = 45). This control indicates global hardcoded mission loading progress and is useless after the mission is loaded. * idc = 104 - progress (type = 8). This control's progress is initially set to 0 and can be manipulated with progressLoadingScreen command. Resource can be defined in <Description.ext>; it must NOT be defined as hlRscTitles! syntaxhighlight lang=\"cpp\"</syntaxhighlight> spoiler text=\"See config example\" <syntaxhighlight lang=\"cpp\"> // basic defines - pre \"import\" keyword in v2.02 class RscText { type = 0; idc = -1; x = 0; y = 0; h = 0.037; w = 0.3; style = 0x100; font = Zeppelin32; SizeEx = 0.03921; colorText[] = { 1, 1, 1, 1 }; colorBackground[] = { 0, 0, 0, 0 }; linespacing = 1; }; class RscPicture { access = 0; type = 0; idc = -1; style = 48; colorBackground[] = { 0, 0, 0, 0 }; colorText[] = { 1, 1, 1, 1 }; font = \"TahomaB\"; sizeEx = 0; lineSpacing = 0; text = \"\"; }; class RscLoadingText : RscText { style = 2; x = 0.323532; y = 0.666672; w = 0.352944; h = 0.039216; sizeEx = 0.03921; colorText[] = { 0.543, 0.5742, 0.4102, 1.0 }; }; class RscProgress { x = 0.344; y = 0.619; w = 0.313726; h = 0.0261438; texture = \"\\ca\\ui\\data\\loadscreen_progressbar_ca.paa\"; colorFrame[] = { 0, 0, 0, 0 }; colorBar[] = { 1, 1, 1, 1 }; }; class RscProgressNotFreeze { idc = -1; type = 45; style = 0; x = 0.022059; y = 0.911772; w = 0.029412; h = 0.039216; texture = \"#(argb,8,8,3)color(0,0,0,0)\"; }; // end of basic defines class WIKI_loadingScreen { idd = -1; duration = 10e10; fadein = 0; fadeout = 0; name = \"loading screen\"; class controlsBackground { class blueBackground : RscText // covers the black screen { x = safezoneXAbs; y = safezoneY; w = safezoneWAbs; h = safezoneH; text = \"\"; colorText[] = { 0, 0, 0, 0 }; colorBackground[] = { 0, 0, 1, 1 }; }; class nicePic : RscPicture { style = 48 + 0x800; // ST_PICTURE + ST_KEEP_ASPECT_RATIO x = safezoneX + safezoneW/2 - 0.25; y = safezoneY + safezoneH/2 - 0.2; w = 0.5; h = 0.4; text = \"img icePic.paa\"; }; }; class controls { class Title1 : RscLoadingText { text = \"$STR_LOADING\"; // \"Loading\" text in the middle of the screen }; class CA_Progress : RscProgress // progress bar, has to have idc 104 { idc = 104; type = 8; // CT_PROGRESS style = 0; // ST_SINGLE texture = \"\\ca\\ui\\data\\loadscreen_progressbar_ca.paa\"; }; class CA_Progress2 : RscProgressNotFreeze // progress bar that will go reverse { idc = 103; }; class Name2: RscText // the text on the top-left { idc = 101; x = 0.05; y = 0.029412; w = 0.9; h = 0.04902; text = \"\"; sizeEx = 0.05; colorText[] = { 0.543, 0.5742, 0.4102, 1.0 }; }; }; }; </syntaxhighlight> </spoiler> Feature Warning * The loading screen does 'not' end by itself and absolutely needs a call to endLoadingScreen command * Game simulation is disabled during Loading Screen operation (at least in single player): ** do 'not' use the sleep command between startLoadingScreen and endLoadingScreen as 'it may freeze the game' - use uiSleep instead ** waitUntil ''can'' be used to wait for variable initialisation or script loading Feature arma3 Use BIS_fnc_startLoadingScreen to prevent potential usage conflicts.",
+    "description": "Shows loading screen with the given text, using the given resource. While loading screen is shown, simulation and scene drawing is disabled, user control is disabled, mouse cursor is hidden, scripts run at full speed (50ms per frame instead of 3ms per frame for Scheduled Scripts).br Feature Informative By default, startLoadingScreen will use \"RscDisplayNotFreeze\" resource.br A custom resource can be defined in <Description.ext>, and a full black background will be used by default - the following controls are supported by the \nengine: * idc = 101 - text (type = 0) or picture (type = 48). The text will be set to the value provided by the command argument. * idc = 103 - progress (type = 8) or animated texture (type = 45). This control indicates global hardcoded mission loading progress and is useless after the mission is loaded. * idc = 104 - progress (type = 8). This control's progress is initially set to 0 and can be manipulated with progressLoadingScreen command. Resource can be defined in <Description.ext>; it must NOT be defined as RscTitles!spoiler text=\"See config example\" < > // basic defines - pre \"import\" keyword in v2.02 \nclass RscText { \n type = 0; idc = -1; x = 0; y = 0; h = 0.037; w = 0.3; style = 0x100; font = Zeppelin32; SizeEx = 0.03921; colorText[] = { 1, 1, 1, 1 }; colorBackground[] = { 0, 0, 0, 0 }; linespacing = 1; };\tclass RscPicture { \n\t\taccess = 0; type = 0; idc = -1; style = 48; colorBackground[] = { 0, 0, 0, 0 \n\t};\n colorText[] = { 1, 1, 1, 1 }; font = \"TahomaB\"; sizeEx = 0; lineSpacing = 0; text = \"\"; }; class RscLoadingText : RscText { style = 2; x = 0.323532; y = 0.666672; w = 0.352944; h = 0.039216; sizeEx = 0.03921; colorText[] = { 0.543, 0.5742, 0.4102, 1.0 }; };\tclass RscProgress { \n\t\tx = 0.344; y = 0.619; w = 0.313726; h = 0.0261438; texture = \"\\ca\\ui\\data\\loadscreen_progressbar_ca.paa\"; colorFrame[] = { 0, 0, 0, 0 \n\t};\n colorBar[] = { 1, 1, 1, 1 }; };\tclass RscProgressNotFreeze { \n\t\tidc = -1; type = 45; style = 0; x = 0.022059; y = 0.911772; w = 0.029412; h = 0.039216; texture = \"#(argb,8,8,3)color(0,0,0,0)\"; \n\t};\n // end of basic defines\tclass WIKI_loadingScreen { \n\t\tidd = -1; duration = 10e10; fadein = 0; fadeout = 0; name = \"loading screen\"; class controlsBackground { class blueBackground : RscText // covers the black screen { x = safezoneXAbs; y = safezoneY; w = safezoneWAbs; h = safezoneH; text = \"\"; colorText[] = { 0, 0, 0, 0 \n\t};\n colorBackground[] = { 0, 0, 1, 1 }; }; class nicePic : RscPicture { style = 48 + 0x800; // ST_PICTURE + ST_KEEP_ASPECT_RATIO x = safezoneX + safezoneW/2 - 0.25; y = safezoneY + safezoneH/2 - 0.2; w = 0.5; h = 0.4; text = \"img icePic.paa\"; \n};\n };\tclass controls { \n\t\tclass Title1 : RscLoadingText { text = \"$STR_LOADING\"; // \"Loading\" text in the middle of the screen \n\t};\n class CA_Progress : RscProgress // progress bar, has to have idc 104 { idc = 104; type = 8; // CT_PROGRESS style = 0; // ST_SINGLE texture = \"\\ca\\ui\\data\\loadscreen_progressbar_ca.paa\"; }; class CA_Progress2 : RscProgressNotFreeze // progress bar that will go reverse { idc = 103; }; class \nName2: RscText // the text on the top-left { idc = 101; x = 0.05; y = 0.029412; w = 0.9; h = 0.04902; text = \"\"; sizeEx = 0.05; colorText[] = { 0.543, 0.5742, 0.4102, 1.0 }; }; }; };</spoiler> Feature Warning * The loading screen does 'not' end by itself and absolutely needs a call to endLoadingScreen command * Game simulation is disabled during Loading Screen operation (at least in single player): ** do 'not' use the sleep command between startLoadingScreen and endLoadingScreen as 'it may freeze the game' - use uiSleep instead ** waitUntil ''can'' be used to wait for variable initialisation or script loading Feature arma3 Use BIS_fnc_startLoadingScreen to prevent potential usage conflicts.",
     "example": "startLoadingScreen [\"Loading My Mission, please wait...\"];",
     "params": "<string> <string>",
     "returns": "nothing"
@@ -5250,7 +5250,7 @@
     "syntax": "taskNull",
     "docSyntax": "taskNull",
     "tags": "",
-    "description": "A non-existing Task. To compare non-existent tasks use isNull or isEqualTo: codetaskNull == taskNull; ccfalse isNull taskNull; cctrue taskNull isEqualTo taskNull; cctrue</code>",
+    "description": "A non-existing Task. To compare non-existent tasks use isNull or \nisEqualTo: codetaskNull == taskNull; ccfalse isNull taskNull; cctrue taskNull isEqualTo taskNull; cctrue</code>",
     "example": "!isNull taskNull; // false",
     "params": "",
     "returns": "task"
@@ -5310,7 +5310,7 @@
     "syntax": "teamMemberNull",
     "docSyntax": "teamMemberNull",
     "tags": "",
-    "description": "A non-existent <Team Member>. To compare non-existent team members use isNull or isEqualTo: codeteamMemberNull == teamMemberNull; ccfalse isNull teamMemberNull; cctrue teamMemberNull isEqualTo teamMemberNull; cctrue</code>",
+    "description": "A non-existent <Team Member>. To compare non-existent team members use isNull or \nisEqualTo: codeteamMemberNull == teamMemberNull; ccfalse isNull teamMemberNull; cctrue teamMemberNull isEqualTo teamMemberNull; cctrue</code>",
     "example": "!isNull teamMemberNull; // false",
     "params": "",
     "returns": "<team member>"
@@ -5490,7 +5490,7 @@
     "syntax": "<team unregisterTask <string>",
     "docSyntax": "teamMember unregisterTask name",
     "tags": "",
-    "description": "Unregisters a task type from given agent. The task type is the name given in hlCfgTasks classes in hlname property. Also available from registeredTasks array.",
+    "description": "Unregisters a task type from given agent. The task type is the name given in CfgTasks classes in name property. Also available from registeredTasks array.",
     "example": "teamMember _agent unregisterTask (registeredTasks select 0);",
     "params": "<team <string>",
     "returns": "boolean | true"
@@ -5646,7 +5646,7 @@
     "syntax": "<array>Formation waypoint",
     "docSyntax": "waypointFormation waypoint",
     "tags": "",
-    "description": "Gets the waypoint formation. Possible values are: * \"NO CHANGE\" * \"COLUMN\" * \"STAG COLUMN\" * \"WEDGE\" * \"ECH LEFT\" * \"ECH RIGHT\" * \"VEE\" * \"LINE\" * \"FILE\" * \"DIAMOND\"",
+    "description": "Gets the waypoint formation. Possible values \nare: * \"NO CHANGE\" * \"COLUMN\" * \"STAG COLUMN\" * \"WEDGE\" * \"ECH LEFT\" * \"ECH RIGHT\" * \"VEE\" * \"LINE\" * \"FILE\" * \"DIAMOND\"",
     "example": "waypointFormation [groupOne,1]",
     "params": "<array>",
     "returns": "string"
@@ -5694,7 +5694,7 @@
     "syntax": "<array>Speed waypoint",
     "docSyntax": "waypointSpeed waypoint",
     "tags": "",
-    "description": "Gets the waypoint speed. Possible values are: * \"UNCHANGED\" * \"LIMITED\" * \"NORMAL\" * \"FULL\"",
+    "description": "Gets the waypoint speed. Possible values \nare: * \"UNCHANGED\" * \"LIMITED\" * \"NORMAL\" * \"FULL\"",
     "example": "_speed = waypointSpeed [groupOne,1];",
     "params": "<array>",
     "returns": "string"
@@ -5754,7 +5754,7 @@
     "syntax": "worldToScreen positionagl",
     "docSyntax": "worldToScreen position",
     "tags": "",
-    "description": "Converts position in world space into screen (UI) space. If a specified position is not within the current screen view, an empty array is returned. Feature informative SafeZones should be considered: * the result can be out of the [0,0]..[1,1] range * the result can be a filled array even if the position is not displayed on screen if it would appear on a triplescreen setup",
+    "description": "Converts position in world space into screen (UI) space. If a specified position is not within the current screen view, an empty array is returned. Feature informative SafeZones should be \nconsidered: * the result can be out of the [0,0]..[1,1] range * the result can be a filled array even if the position is not displayed on screen if it would appear on a triplescreen setup",
     "example": "_screenPos = worldToScreen ASLtoAGL getPosASL soldier1;",
     "params": "positionagl",
     "returns": "array | safezone"
@@ -5766,7 +5766,7 @@
     "syntax": "getPlayerUID <object>",
     "docSyntax": "getPlayerUID unit",
     "tags": "[AG]",
-    "description": "Return a UniqueID of the given unit (player). FeatureimportantPrior to stringified number (see getPlayerUIDOld), but always had to be considered and processed as a String.<!-- --> Converting it to a Number could cause precision problems, as Number cannot accurately represent integers above 16777216 (2sup24</sup>).<!-- --> Moreover, games since arma2oa v1.61 provide a value that is not all-numeric. Featurearma3The returned string is the player's steamID64: icprivate _steamProfileUrl = \"http://nowikisteamcommunity.com/profiles/\" + (getPlayerUID player); Feature Informative Prior to <Arma 3> v2.02, in some cases the identity of certain player units could fail to propagate to other clients and the server, which caused isPlayer and getPlayerUID to incorrectly return hlfalse and hl\"\" respectively, where the affected units were not local. See [https://github.com/michail-nikolaev/task-force-arma-3-radio/issues/1096 this bug report (GitHub)] for more info. This was supposedly fixed, but you should remain vigilant toward false negatives nonetheless.",
+    "description": "Return a UniqueID of the given unit (player). FeatureimportantPrior to stringified number (see getPlayerUIDOld), but always had to be considered and processed as a String.<!-- --> Converting it to a Number could cause precision problems, as Number cannot accurately represent integers above 16777216 (2sup24</sup>).<!-- --> Moreover, games since arma2oa v1.61 provide a value that is not all-numeric. Featurearma3The returned string is the player's \nsteamID64: icprivate _steamProfileUrl = \"http://nowikisteamcommunity.com/profiles/\" + (getPlayerUID player); Feature Informative Prior to <Arma 3> v2.02, in some cases the identity of certain player units could fail to propagate to other clients and the server, which caused isPlayer and getPlayerUID to incorrectly return false and hl\"\" respectively, where the affected units were not local. See [https://github.com/michail-nikolaev/task-force-arma-3-radio/issues/1096 this bug report (GitHub)] for more info. This was supposedly fixed, but you should remain vigilant toward false negatives nonetheless.",
     "example": "private _uid = getPlayerUID player;",
     "params": "<object>",
     "returns": "string | missionnamespace | setvariable"
@@ -5778,7 +5778,7 @@
     "syntax": "<control> mapCenterOnCamera <boolean>",
     "docSyntax": "mainmap mapCenterOnCamera enable",
     "tags": "",
-    "description": "hlctrl mapCenterOnCamera enable syntax enables/disables continuous centering of the main map type control on the camera position. Needs to be executed once.br hlmapCenterOnCamera ctrl syntax centers mini map type control on camera. The command returns world position of the camera. Needs to be executed each frame (preferably inside onDraw EH).",
+    "description": "ctrl mapCenterOnCamera enable syntax enables/disables continuous centering of the main map type control on the camera position. Needs to be executed once.br mapCenterOnCamera ctrl syntax centers mini map type control on camera. The command returns world position of the camera. Needs to be executed each frame (preferably inside onDraw EH).",
     "example": "cc--- Minimap update ((uiNamespace getVariable \"BIS_UAV_DISPLAY\") displayCtrl 112410) mapCenterOnCamera true;",
     "params": "<control> <boolean> <control>",
     "returns": "nothing"
@@ -5802,7 +5802,7 @@
     "syntax": "openMap <boolean>",
     "docSyntax": "openMap show",
     "tags": "[EL]",
-    "description": "Opens or closes in-game map.Feature Warning If hlforced param is set to true and map is set to open, when the map is opened it cannot be closed manually and the user can get stuck requiring the game restart. Make sure you provide scripted mechanics to resolve this, should you need to force the map. Useful when you wish to keep user for example on respawn screen, where they could still interact with the map but cannot enter the game until the time is up br Since Arma 3 v2.06.147984 the alternative syntax has the following functionality: * openMap nowiki[</nowiki>true, false] - opens map normally * openMap nowiki[</nowiki>false, false] - closes opened map normally * openMap nowiki[</nowiki>true, true] - force opens map and keeps open (the user cannot close it on their own) ''New'' * openMap nowiki[</nowiki>false, true] - prevents map from opening, closes open map and forces it to stay close (the user cannot open it on their own)",
+    "description": "Opens or closes in-game map.Feature Warning If forced param is set to true and map is set to open, when the map is opened it cannot be closed manually and the user can get stuck requiring the game restart. Make sure you provide scripted mechanics to resolve this, should you need to force the map. Useful when you wish to keep user for example on respawn screen, where they could still interact with the map but cannot enter the game until the time is up br Since Arma 3 v2.06.147984 the alternative syntax has the following \nfunctionality: * openMap nowiki[</nowiki>true, false] - opens map normally * openMap nowiki[</nowiki>false, false] - closes opened map normally * openMap nowiki[</nowiki>true, true] - force opens map and keeps open (the user cannot close it on their own) ''New'' * openMap nowiki[</nowiki>false, true] - prevents map from opening, closes open map and forces it to stay close (the user cannot open it on their own)",
     "example": "openMap true;",
     "params": "<boolean> <boolean> <boolean>",
     "returns": "boolean | visiblemap"
@@ -5850,7 +5850,7 @@
     "syntax": "mapGridPosition <object>",
     "docSyntax": "mapGridPosition param",
     "tags": "",
-    "description": "Returns the map grid position of an object or position.br The format is determined by the Grid format specified in the CfgWorlds for the current world. Eg: \"024577\" or \"De82\" or similar.",
+    "description": "Returns the map grid position of an object or position.br The format is determined by the Grid format specified in the CfgWorlds for the current world. \nEg: \"024577\" or \"De82\" or similar.",
     "example": "_gridPos = mapGridPosition player;",
     "params": "<object>",
     "returns": "string"

@@ -78,8 +78,8 @@
     "syntax": "<object> camCommitPrepared <number>",
     "docSyntax": "camera camCommitPrepared time",
     "tags": "[AL] [EL]",
-    "description": "Smoothly conducts the changes that were assigned to a camera within the given time. If the time is set to zero, the changes are done immediately. This command is for use with hlcamPrepareXXX commands. For the normal cam command use camCommit.",
-    "example": "ccCreate a camera object _cam nowiki=</nowiki> \"camera\" camCreate [5600,4800,10]; _cam camPrepareTarget player; _cam cameraEffect [\"internal\", \"BACK\"]; _cam camCommitPrepared 0; // Smoothly move the camera to its new position in 6 seconds _cam camPreparePos [5680,4720,20]; _cam camCommitPrepared 6; waitUntil {camCommitted _cam}; // Proceed",
+    "description": "Smoothly conducts the changes that were assigned to a camera within the given time. If the time is set to zero, the changes are done immediately. This command is for use with camPrepareXXX commands. For the normal cam command use camCommit.",
+    "example": "// Create a camera object _cam nowiki=</nowiki> \"camera\" camCreate [5600,4800,10]; _cam camPrepareTarget player; _cam cameraEffect [\"internal\", \"BACK\"]; _cam camCommitPrepared 0; // Smoothly move the camera to its new position in 6 seconds _cam camPreparePos [5680,4720,20]; _cam camCommitPrepared 6; waitUntil {camCommitted _cam}; // Proceed",
     "params": "<object> <number>",
     "returns": "nothing"
   },
@@ -198,7 +198,7 @@
     "syntax": "<object> camPrepareFov <number>",
     "docSyntax": "camera camPrepareFov fieldOfView",
     "tags": "",
-    "description": "Prepares the camera field of view (zoom). The default zoom level is 0.75, 0.01 is the nearest and 2 the furthest zoom value. The angle of the field of view is ''atan(FOV)*2'' radians when in 4:3 aspect ratio. Needs the call of camCommitPrepared to be conducted.",
+    "description": "Prepares the camera field of view (zoom). The default zoom level is 0.75, 0.01 is the nearest and 2 the furthest zoom value. The angle of the field of view is ''atan(FOV)*2'' radians when in \n\t4:3 aspect ratio. Needs the call of camCommitPrepared to be conducted.",
     "example": "_camera 'camPrepareFov' 0.1",
     "params": "<object> <number>",
     "returns": "nothing"
@@ -294,7 +294,7 @@
     "syntax": "<display> closeDisplay <number>",
     "docSyntax": "display closeDisplay exitCode",
     "tags": "",
-    "description": "Closes given display with exit code. It does not instantly close the display but does it on next simulation cycle. Most common exit codes are: syntaxhighlight lang=\"cpp\" #define IDC_OK 1 // emulate \"OK\" button #define IDC_CANCEL 2 // emulate \"Cancel\" button </syntaxhighlight> Feature important Sometimes when one display is opened on top of another display, previous display may not close properly, i.e. some display EHs such as \"onUnload\" may never fire. Use this command to manually handle such displays.",
+    "description": "Closes given display with exit code. It does not instantly close the display but does it on next simulation cycle. Most common exit codes \nare: #define IDC_OK 1 // emulate \"OK\" button #define IDC_CANCEL 2 // emulate \"Cancel\" buttonFeature important Sometimes when one display is opened on top of another display, previous display may not close properly, i.e. some display EHs such as \"onUnload\" may never fire. Use this command to manually handle such displays.",
     "example": "sqf_display closeDisplay 1;</sqf>",
     "params": "<display> <number>",
     "returns": "nothing"
@@ -402,7 +402,7 @@
     "syntax": "createMarker [<string>, position2d, <number>, <object>]",
     "docSyntax": "createMarker [name, position, channel, creator]",
     "tags": "[EG]",
-    "description": "Creates a new map marker at the given position. The marker will be created for every connected player as well as all JIP players. The marker name has to be unique; the command will be ignored if a marker with the given name already exists. FeatureimportantThe marker will be visible only once at least markerType has been defined: divcode_marker = createMarker [\"markername\", player]; ccNot visible yet. _marker setMarkerType \"hd_dot\"; ccVisible.</code></div> FeatureInformativeIf the marker position is given in 3D format, the hlz-coordinate is stored with the marker and will be used when the marker is passed to commands such as createVehicle, createUnit, createAgent, createMine or setVehiclePosition.brWhen a marker is manually placed in the editor, hlz is always 0, which means the marker is placed on the ground. But when the player places a marker on the map in game, it is placed at sea level, so the hlz-coordinate of that marker is ic<->getTerrainHeightASL markerPos &lt;USERMARKER&gt;.",
+    "description": "Creates a new map marker at the given position. The marker will be created for every connected player as well as all JIP players. The marker name has to be unique; the command will be ignored if a marker with the given name already exists. FeatureimportantThe marker will be visible only once at least markerType has been \ndefined: divcode_marker = createMarker [\"markername\", player]; ccNot visible yet. _marker setMarkerType \"hd_dot\"; ccVisible.</code></div> FeatureInformativeIf the marker position is given in 3D format, the z-coordinate is stored with the marker and will be used when the marker is passed to commands such as createVehicle, createUnit, createAgent, createMine or setVehiclePosition.brWhen a marker is manually placed in the editor, z is always 0, which means the marker is placed on the ground. But when the player places a marker on the map in game, it is placed at sea level, so the z-coordinate of that marker is ic<->getTerrainHeightASL markerPos &lt;USERMARKER&gt;.",
     "example": "_marker1 = createMarker [\"Marker1\", position player];",
     "params": "<string> position2d <number> <object>",
     "returns": "string"
@@ -426,7 +426,7 @@
     "syntax": "<string> createVehicleLocal positionagl",
     "docSyntax": "type createVehicleLocal position",
     "tags": "[EL]",
-    "description": "Creates an object of the given type. Created object is not transferred through network in MP games. netId of such vehicle in multiplayer will be \"0:0\". To disable local vehicle creation, use CfgDisabledCommands to blacklist this command. Alternatively, you can use createSimpleObject with local option enabled where applicable.",
+    "description": "Creates an object of the given type. Created object is not transferred through network in MP games. netId of such vehicle in multiplayer will be \"\n\t0:0\". To disable local vehicle creation, use CfgDisabledCommands to blacklist this command. Alternatively, you can use createSimpleObject with local option enabled where applicable.",
     "example": "_lightsource = \"#lightpoint\" createVehicleLocal _pos;",
     "params": "<string> positionagl",
     "returns": "object"
@@ -594,7 +594,7 @@
     "syntax": "<control> ctrlSetBackgroundColor color",
     "docSyntax": "control ctrlSetBackgroundColor color",
     "tags": "",
-    "description": "Sets background color of given control. Only affects: Columns2 * CT_COMBO * CT_STATIC * CT_STRUCTURED_TEXT * CT_MAP * CT_MAP_MAIN * GVIarma32.02size=0.8 CT_BUTTON * GVIarma32.02size=0.8 CT_SHORTCUTBUTTON * GVIarma32.02size=0.8 CT_ACTIVETEXT shrink= y",
+    "description": "Sets background color of given control. Only \naffects: Columns2 * CT_COMBO * CT_STATIC * CT_STRUCTURED_TEXT * CT_MAP * CT_MAP_MAIN * GVIarma32.02size=0.8 CT_BUTTON * GVIarma32.02size=0.8 CT_SHORTCUTBUTTON * GVIarma32.02size=0.8 CT_ACTIVETEXT shrink= y",
     "example": "_control ctrlSetBackgroundColor [1, 0, 0, 1];",
     "params": "<control> color",
     "returns": "nothing"
@@ -798,7 +798,7 @@
     "syntax": "<control> ctrlSetFontHeight <number>",
     "docSyntax": "control ctrlSetFontHeight size",
     "tags": "",
-    "description": "Sets the hlsizeEx property for most controls as follows: * hlCT_MAP - \"sizeExNames\" * hlCT_HTML - \"P\" >> \"sizeEx\" * Other - \"sizeEx\" * GVIarma32.02size=0.8 hlCT_STRUCTURED_TEXT - \"size\"",
+    "description": "Sets the sizeEx property for most controls as \nfollows: * CT_MAP - \"sizeExNames\" * CT_HTML - \"P\" >> \"sizeEx\" * Other - \"sizeEx\" * GVIarma32.02size=0.8 CT_STRUCTURED_TEXT - \"size\"",
     "example": "_control ctrlSetFontHeight 0.05;",
     "params": "<control> <number>",
     "returns": "nothing"
@@ -966,7 +966,7 @@
     "syntax": "control ctrlSetTooltip <string>",
     "docSyntax": "control ctrlSetTooltip text",
     "tags": "",
-    "description": "Sets tooltip text of given control. Feature Informative If control supports URL property, like hlRscActiveText for example, and the URL is set, tooltip text displayed on mouse over will be appended with URL text.",
+    "description": "Sets tooltip text of given control. Feature Informative If control supports URL property, like RscActiveText for example, and the URL is set, tooltip text displayed on mouse over will be appended with URL text.",
     "example": "_control ctrlSetTooltip \"tooltip\";",
     "params": "control <string>",
     "returns": "nothing"
@@ -1026,7 +1026,7 @@
     "syntax": "ctrlType <control>",
     "docSyntax": "ctrlType control",
     "tags": "",
-    "description": "Returns number representing the type of control, which is also defined by ''type'' property in config. For more information see <Arma: GUI Configuration>",
+    "description": "Returns number representing the type of control, which is also defined by ''type'' property in config. For more information see <\nArma: GUI Configuration>",
     "example": "_type = ctrlType _rscEdit; // 2",
     "params": "<control>",
     "returns": "number"
@@ -1038,7 +1038,7 @@
     "syntax": "currentCommand <object>",
     "docSyntax": "currentCommand vehicleName",
     "tags": "",
-    "description": "Return the current command type (empty string when no command) for the commander of given vehicle (or for a given soldier). Returned value can be one of: Columns4 * \"WAIT\" * \"ATTACK\" * \"HIDE\" * \"MOVE\" * \"HEAL\" * \"REPAIR\" * \"REFUEL\" * \"REARM\" * \"SUPPORT\" * \"JOIN\" * \"GET IN\" * \"FIRE\" * \"GET OUT\" * \"STOP\" * \"EXPECT\" * \"ACTION\" * \"ATTACKFIRE\" * \"Suppress\"",
+    "description": "Return the current command type (empty string when no command) for the commander of given vehicle (or for a given soldier). Returned value can be one \nof: Columns4 * \"WAIT\" * \"ATTACK\" * \"HIDE\" * \"MOVE\" * \"HEAL\" * \"REPAIR\" * \"REFUEL\" * \"REARM\" * \"SUPPORT\" * \"JOIN\" * \"GET IN\" * \"FIRE\" * \"GET OUT\" * \"STOP\" * \"EXPECT\" * \"ACTION\" * \"ATTACKFIRE\" * \"Suppress\"",
     "example": "_command = currentCommand player;",
     "params": "<object>",
     "returns": "string"
@@ -1051,7 +1051,7 @@
     "docSyntax": "date",
     "tags": "[EL]",
     "description": "Return the actual in-mission date and time.",
-    "example": "ccin arma3 date params [\"_year\", \"_month\", \"_day\", \"_hours\", \"_minutes\"]; // pre arma3 _now = date; cc[2014,10,30,2,30] a.k.a Oct. 30th, 2:30am _year = _now select 0; _month = _now select 1; _day = _now select 2; _hours = _now select 3; _minutes = _now select 4;",
+    "example": "// in arma3 date params [\"_year\", \"_month\", \"_day\", \"_hours\", \"_minutes\"]; // pre arma3 _now = date; cc[2014,10,30,2,30] a.k.a Oct. 30th, 2:30am _year = _now select 0; _month = _now select 1; _day = _now select 2; _hours = _now select 3; _minutes = _now select 4;",
     "params": "",
     "returns": "array | date"
   },
@@ -1074,7 +1074,7 @@
     "syntax": "deleteCenter <side>",
     "docSyntax": "deleteCenter side",
     "tags": "[EG]",
-    "description": "In a nutshell, this command removes gaming Side (see createCenter). If a side has >0 Groups it cannot be deleted. Center can only be created for: east, west, resistance, civilian and sideLogic, therefore only centers from the mentioned sides can be deleted.brbr 'Old description:' Destroys the AI center of the given side.",
+    "description": "In a nutshell, this command removes gaming Side (see createCenter). If a side has >0 Groups it cannot be deleted. Center can only be created \nfor: east, west, resistance, civilian and sideLogic, therefore only centers from the mentioned sides can be deleted.brbr 'Old description:' Destroys the AI center of the given side.",
     "example": "deleteCenter east",
     "params": "<side>",
     "returns": "nothing"
@@ -1122,7 +1122,7 @@
     "syntax": "'displayNull'",
     "docSyntax": "'displayNull'",
     "tags": "",
-    "description": "A non-existing Display. To compare non-existent displays use isNull or isEqualTo: * hlc= displayNull nowiki==</nowiki> displayNull; // false * hlisNull displayNull; // true * hldisplayNull isEqualTo displayNull; // true",
+    "description": "A non-existing Display. To compare non-existent displays use isNull or \nisEqualTo: * c= displayNull nowiki==</nowiki> displayNull; // false * isNull displayNull; // true * displayNull isEqualTo displayNull; // true",
     "example": "!isNull displayNull; // false",
     "params": "",
     "returns": "display"
@@ -1146,7 +1146,7 @@
     "syntax": "objects doFSM [<string>, <array>, <object>]",
     "docSyntax": "unit doFSM [fsmName, position, target]",
     "tags": "",
-    "description": "Orders a unit to process command defined by FSM file (silently). Unlike with execFSM where ''_this'' is passed to the FSM, the following parameters are passed when using doFSM/commandFSM: ; _leader: leader of subgroup with this command ; _destination: command destination/position ; _target: command target ; _units: list of all persons in subgroup",
+    "description": "Orders a unit to process command defined by FSM file (silently). Unlike with execFSM where ''_this'' is passed to the FSM, the following parameters are passed when using doFSM/\ncommandFSM: ; \n_leader: leader of subgroup with this command ; \n_destination: command destination/position ; \n_target: command target ; \n_units: list of all persons in subgroup",
     "example": "_soldierOne doFSM [\"move.fsm\", position player, player];",
     "params": "objects <string> <array> <object>",
     "returns": "nothing"
@@ -1266,7 +1266,7 @@
     "syntax": "<boolean>Environment enable",
     "docSyntax": "enableEnvironment enable",
     "tags": "[EL]",
-    "description": "Enable/disable environmental effects: ambient life and/or ambient sound. FeatureinformativeThis command has to be executed after mission start: be sure to use e.g icsleep 0.1; for it to take effect. Influenced sounds among others are: * bird sounds * insect sounds * waves * wind * rain * sounds produced by air conditioners and similar * GVIarma32.06size=0.8 thunder (an already started sound will not be cut but future ones will be prevented)",
+    "description": "Enable/disable environmental \neffects: ambient life and/or ambient sound. FeatureinformativeThis command has to be executed after mission \nstart: be sure to use e.g icsleep 0.1; for it to take effect. Influenced sounds among others \nare: * bird sounds * insect sounds * waves * wind * rain * sounds produced by air conditioners and similar * GVIarma32.06size=0.8 thunder (an already started sound will not be cut but future ones will be prevented)",
     "example": "enableEnvironment false; // identical to enableEnvironment [false, false]",
     "params": "<boolean> <boolean> <boolean>",
     "returns": "nothing"
@@ -1302,7 +1302,7 @@
     "syntax": "_this execVM sqf",
     "docSyntax": "arguments execVM filename",
     "tags": "[AG] [EL]",
-    "description": "Compiles and adds an SQF script to the scheduler queue and returns script handle (see also HashLink#Example 4). The script does not execute immediately upon running Function is recommended to avoid recompiling and wasting performance with every execution. * The script is searched for in the following directories in that order: ** mission directory ** campaign scripts directory ** global scripts directory. * To see what VM scripts are currently in the scheduler, use with codes > 127, they might convert incorrectly.",
+    "description": "Compiles and adds an SQF script to the scheduler queue and returns script handle (see also HashLink#Example 4). The script does not execute immediately upon running Function is recommended to avoid recompiling and wasting performance with every execution. * The script is searched for in the following directories in that \norder: ** mission directory ** campaign scripts directory ** global scripts directory. * To see what VM scripts are currently in the scheduler, use with codes > 127, they might convert incorrectly.",
     "example": "sqfexecVM \"test.sqf\";</sqf>",
     "params": "_this sqf sqf",
     "returns": "<script handle>"
@@ -1362,7 +1362,7 @@
     "syntax": "findDisplay <number>",
     "docSyntax": "findDisplay idd",
     "tags": "",
-    "description": "Finds a display by its IDD which can either be defined in description.ext) or headless clients don't have a primary display (e.g icfindDisplay 46 will return displayNull).br Detect both with the hasInterface command. FeatureinformativeFor a list of (almost) all arma3's IDDs, see <Arma 3: IDD List>.",
+    "description": "Finds a display by its IDD which can either be defined in description.ext) or headless clients don't have a primary display (e.g icfindDisplay 46 will return displayNull).br Detect both with the hasInterface command. FeatureinformativeFor a list of (almost) all arma3's IDDs, see <Arma \n3: IDD List>.",
     "example": "[] spawn { waitUntil { !isNull findDisplay 46 }; hint \"Mission Display is now available!\"; };",
     "params": "<number>",
     "returns": "display"
@@ -1578,7 +1578,7 @@
     "syntax": "<object> getSpeed <string>",
     "docSyntax": "object getSpeed speedMode",
     "tags": "[AG]",
-    "description": "Get the speed for the given speed mode. SpeedMode can be: *\"AUTO\" *\"SLOW\" *\"NORMAL\" *\"FAST\"",
+    "description": "Get the speed for the given speed mode. SpeedMode can \nbe: *\"AUTO\" *\"SLOW\" *\"NORMAL\" *\"FAST\"",
     "example": "_spd = player getSpeed \"FAST\";",
     "params": "<object> <string>",
     "returns": "number"
@@ -1602,7 +1602,7 @@
     "syntax": "<<string>space> getVariable <string>",
     "docSyntax": "varspace getVariable name",
     "tags": "[AG]",
-    "description": "Returns the value of variable in the variable space assigned to various data types. All available data types combinations: {! class=\"wikitable\" !colspan=\"2\"!Primary syntax (set on a Task, it is not actually set on the task itself, but on the FSM attached to the task.br If there is no FSM, getVariable will not work. Feature arma3 In the case of Alt Syntax usage in arma3, ''defaultValue'' will be returned if: * Requested variable is either undefined or nil * Variable namespace is null (objNull, grpNull, etc.)",
+    "description": "Returns the value of variable in the variable space assigned to various data types. All available data types \ncombinations: {! class=\"wikitable\" !colspan=\"2\"!Primary syntax (set on a Task, it is not actually set on the task itself, but on the FSM attached to the task.br If there is no FSM, getVariable will not work. Feature arma3 In the case of Alt Syntax usage in arma3, ''defaultValue'' will be returned \nif: * Requested variable is either undefined or nil * Variable namespace is null (objNull, grpNull, etc.)",
     "example": "private _variable = myTruck getVariable \"myVariable\"; // returns nil if \"myVariable\" is not set",
     "params": "<namespace> <string> <namespace> <string> <anything>",
     "returns": "anything | nothing"
@@ -1614,7 +1614,7 @@
     "syntax": "halt",
     "docSyntax": "halt",
     "tags": "",
-    "description": "This command was meant to break the script into debugger, however currently 'it does not do anything' except displaying and logging the following error: hlError Debugger breakpoint hit.",
+    "description": "This command was meant to break the script into debugger, however currently 'it does not do anything' except displaying and logging the following \nerror: Error Debugger breakpoint hit.",
     "example": "if (_displayAnError) then {halt};",
     "params": "",
     "returns": "boolean | false"
@@ -1686,7 +1686,7 @@
     "syntax": "inGameUISetEventHandler [<string>, <string>]",
     "docSyntax": "inGameUISetEventHandler [handlerName, code]",
     "tags": "[EL]",
-    "description": "Sets given event handler of in-game UI. If EH function returns action menu visibility - on first scroll or action press the menu is still invisible, the menu is shown but no action is performed * _eventName: String - event name",
+    "description": "Sets given event handler of in-game UI. If EH function returns action menu visibility - on first scroll or action press the menu is still invisible, the menu is shown but no action is performed * \n_eventName: String - event name",
     "example": "inGameUISetEventHandler [\"Action\", \"hint 'Lights, Camera, Action!'; true\"]; sleep 10; inGameUISetEventHandler [\"Action\", \"\"]; // removes the \"Action\" EH ",
     "params": "<string> <string>",
     "returns": "nothing"
@@ -1710,7 +1710,7 @@
     "syntax": "'initAmbientLife'",
     "docSyntax": "'initAmbientLife'",
     "tags": "[EL]",
-    "description": "Initialises the ambient life on local client from hlCfgWorlds >> worldName >> AmbientA3. Has no effect on dedicated server or headless client.",
+    "description": "Initialises the ambient life on local client from CfgWorlds >> worldName >> AmbientA3. Has no effect on dedicated server or headless client.",
     "example": "initAmbientLife;",
     "params": "",
     "returns": "nothing"
@@ -1722,7 +1722,7 @@
     "syntax": "[<object>, <string>] intersect [positionagl, positionagl]",
     "docSyntax": "[object, lodName] intersect [begPos, endPos]",
     "tags": "[AG]",
-    "description": "Finds named selections in object which are in specified LOD, intersected by given section of a line. Return value is in the form of [selection, distance]. Multiple returned arrays are nested within a single array. No intersection returns []. ''lodName'' could be one of the following: * \"FIRE\" * \"VIEW\" * \"GEOM\" * \"IFIRE\" - (\"I\" stands for Indirect, almost the same as FIRE) * GVIarma32.02size= 0.75 \"PHYSX\" - PhysX geometry LOD",
+    "description": "Finds named selections in object which are in specified LOD, intersected by given section of a line. Return value is in the form of [selection, distance]. Multiple returned arrays are nested within a single array. No intersection returns []. ''lodName'' could be one of the \nfollowing: * \"FIRE\" * \"VIEW\" * \"GEOM\" * \"IFIRE\" - (\"I\" stands for Indirect, almost the same as FIRE) * GVIarma32.02size= 0.75 \"PHYSX\" - PhysX geometry LOD",
     "example": "[_tank, \"VIEW\"] intersect [[1500, 1500, 2], [1550, 1500, 2]];",
     "params": "<object> <string> positionagl positionagl",
     "returns": "array"
@@ -1830,7 +1830,7 @@
     "syntax": "isPlayer <object>",
     "docSyntax": "isPlayer unit",
     "tags": "[AG]",
-    "description": "Checks if given person is a player. Returns true for headless clients as well.br While identity still exists on the dead body of a player, the alternative syntax will return true. Feature Informative Prior to <Arma 3> v2.02, in some cases the identity of certain player units could fail to propagate to other clients and the server, which caused isPlayer and getPlayerUID to incorrectly return hlfalse and hl\"\" respectively, where the affected units were not local. See [https://github.com/michail-nikolaev/task-force-arma-3-radio/issues/1096 this bug report (GitHub)] for more info. This was supposedly fixed, but you should remain vigilant toward false negatives nonetheless.",
+    "description": "Checks if given person is a player. Returns true for headless clients as well.br While identity still exists on the dead body of a player, the alternative syntax will return true. Feature Informative Prior to <Arma 3> v2.02, in some cases the identity of certain player units could fail to propagate to other clients and the server, which caused isPlayer and getPlayerUID to incorrectly return false and hl\"\" respectively, where the affected units were not local. See [https://github.com/michail-nikolaev/task-force-arma-3-radio/issues/1096 this bug report (GitHub)] for more info. This was supposedly fixed, but you should remain vigilant toward false negatives nonetheless.",
     "example": "if (isPlayer _Soldier1) then { _soldier1 setDamage 1; };",
     "params": "<object> <array> <object>",
     "returns": "boolean"
@@ -1926,7 +1926,7 @@
     "syntax": "missionConfigFile",
     "docSyntax": "missionConfigFile",
     "tags": "",
-    "description": "Return root of mission <Description.ext> entries hierarchy. FeatureimportantSince the introduction of the <Eden Editor>, scenario attributes can be configured in the editor itself, not only in the external Description.ext file. To access desired value independently on where it is stored, use the following commands: * getMissionConfigValue * getMissionConfig",
+    "description": "Return root of mission <Description.ext> entries hierarchy. FeatureimportantSince the introduction of the <Eden Editor>, scenario attributes can be configured in the editor itself, not only in the external Description.ext file. To access desired value independently on where it is stored, use the following \ncommands: * getMissionConfigValue * getMissionConfig",
     "example": "for \"_i\" from 0 to (count paramsArray - 1) do { missionNamespace setVariable [configName ((missionConfigFile/\"Params\") select _i), paramsArray select _i]; };",
     "params": "",
     "returns": "config"
@@ -2190,7 +2190,7 @@
     "syntax": "rank <object>",
     "docSyntax": "rank unit",
     "tags": "[AG]",
-    "description": "Returns the rank of the given unit. Rank can be one of the following: * hl\"PRIVATE\" * hl\"CORPORAL\" * hl\"SERGEANT\" * hl\"LIEUTENANT\" * hl\"CAPTAIN\" * hl\"MAJOR\" * hl\"COLONEL\"",
+    "description": "Returns the rank of the given unit. Rank can be one of the \nfollowing: * hl\"PRIVATE\" * hl\"CORPORAL\" * hl\"SERGEANT\" * hl\"LIEUTENANT\" * hl\"CAPTAIN\" * hl\"MAJOR\" * hl\"COLONEL\"",
     "example": "_rank = rank player;",
     "params": "<object>",
     "returns": "string"
@@ -2202,7 +2202,7 @@
     "syntax": "reload <object>",
     "docSyntax": "reload unitName",
     "tags": "",
-    "description": "* Old syntax: Reload first found muzzle that needs reloading (with some inconsistencies). * Alternative syntax (Since Arma 3 v2.08.148609): This syntax allows to reload given muzzle with given magazine while playing proper animation. If param is omitted or is empty string, default value is used. The default behaviour is to find best matching magazine for given muzzle from the pool of available magazines. If specific magazine is requested, the reload will fail if unit has run out of this type of magazines. If empty array [] is given, the behaviour is similar to player pressing \"Reload\" key. The command reloads the given muzzle but doesn't select it. In case of throwable muzzles, each throwable has own muzzle, they are autoreloaded after throw. Using reload on the trowable muzzle will just swap throwable for another one of the same type from inventory.",
+    "description": "* Old \nsyntax: Reload first found muzzle that needs reloading (with some inconsistencies). * Alternative syntax (Since Arma 3 v2.08.148609): This syntax allows to reload given muzzle with given magazine while playing proper animation. If param is omitted or is empty string, default value is used. The default behaviour is to find best matching magazine for given muzzle from the pool of available magazines. If specific magazine is requested, the reload will fail if unit has run out of this type of magazines. If empty array [] is given, the behaviour is similar to player pressing \"Reload\" key. The command reloads the given muzzle but doesn't select it. In case of throwable muzzles, each throwable has own muzzle, they are autoreloaded after throw. Using reload on the trowable muzzle will just swap throwable for another one of the same type from inventory.",
     "example": "if (needReload player == 1) then { reload player };",
     "params": "<object> <object> <string> <string>",
     "returns": "nothing"
@@ -2274,7 +2274,7 @@
     "syntax": "setAperture <number>",
     "docSyntax": "setAperture aperture",
     "tags": "[EL]",
-    "description": "Sets custom eye accommodation camera aperture. Feature Informative If HDR is enabled, when setAperture hlvalue is used it also forces setApertureNew to the following values: [hlvalue, hlvalue, hlvalue, 1]. Execute setApertureNew after setAperture to override this default mechanic. Feature important The aperture is set to default by the engine at the mission start. If you set it before the mission started it will reset like it never happened. Make sure you set it at the right time (see Example 2)",
+    "description": "Sets custom eye accommodation camera aperture. Feature Informative If HDR is enabled, when setAperture value is used it also forces setApertureNew to the following \nvalues: [value, value, value, 1]. Execute setApertureNew after setAperture to override this default mechanic. Feature important The aperture is set to default by the engine at the mission start. If you set it before the mission started it will reset like it never happened. Make sure you set it at the right time (see Example 2)",
     "example": "setAperture 0.3;",
     "params": "<number>",
     "returns": "nothing"
@@ -2334,7 +2334,7 @@
     "syntax": "<object> setParticleParams <array>",
     "docSyntax": "particleSource setParticleParams array",
     "tags": "[AG] [EL]",
-    "description": "Set parameters to particle source. Array is in format this, /*Object*/ angle, /*Optional Number - Default: 0*/ onSurface, /*Optional Boolean*/ bounceOnSurface, /*Optional Number*/ emissiveColor, /*Optional Array of Array of RGBA Numbers*/ vectorDir /*Optional 3D Array Vector dir. Since Arma 3 v1.92 it is possible to set the initial direction of the SpaceObject */ ];</code>",
+    "description": "Set parameters to particle source. Array is in format this, /*Object*/ angle, /*Optional Number - \nDefault: 0*/ onSurface, /*Optional Boolean*/ bounceOnSurface, /*Optional Number*/ emissiveColor, /*Optional Array of Array of RGBA Numbers*/ vectorDir /*Optional 3D Array Vector dir. Since Arma 3 v1.92 it is possible to set the initial direction of the SpaceObject */ ];</code>",
     "example": "see ParticleArray",
     "params": "<object> <array>",
     "returns": "nothing"
@@ -2346,7 +2346,7 @@
     "syntax": "<object> setRank <string>",
     "docSyntax": "unitName setRank rank",
     "tags": "[AG] [EL]",
-    "description": "Sets rank of given unit. Possible values: PRIVATE, CORPORAL, SERGEANT, LIEUTENANT, CAPTAIN, MAJOR or COLONEL. brbr Featurearma3 Since Arma 3 v1.67 this command is IconlocalArgument32 IconglobalEffect32",
+    "description": "Sets rank of given unit. Possible \nvalues: PRIVATE, CORPORAL, SERGEANT, LIEUTENANT, CAPTAIN, MAJOR or COLONEL. brbr Featurearma3 Since Arma 3 v1.67 this command is IconlocalArgument32 IconglobalEffect32",
     "example": "player 'setRank' \"COLONEL\"",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -2370,7 +2370,7 @@
     "syntax": "<object> setTriggerActivation [<string>, <string>, <boolean>]",
     "docSyntax": "trigger setTriggerActivation [by, type, repeating]",
     "tags": "[AG] [EL]",
-    "description": "Defines the trigger activation type. See ArmA:Mission Editor - Triggers for a thorough overview of triggers and its fields for activation, effects, etc. Since Arma 3 v1.67, \"ANYPLAYER\" activation can be used to detect any player.",
+    "description": "Defines the trigger activation type. See \n\tArmA:Mission Editor - Triggers for a thorough overview of triggers and its fields for activation, effects, etc. Since Arma 3 v1.67, \"ANYPLAYER\" activation can be used to detect any player.",
     "example": "_trigger setTriggerActivation [\"WEST\", \"EAST D\", true]",
     "params": "<object> <string> <string> <boolean>",
     "returns": "nothing"
@@ -2526,7 +2526,7 @@
     "syntax": "str <anything>",
     "docSyntax": "str value",
     "tags": "",
-    "description": "Converts any value into a string by placing \" and \" around the argument. When used on object, object debug name is returned.brbrSince Arma 3 v1.64 this command will correctly escape all \" inside a string: codeccBefore the fix: hint str \"string \"\" string\"; cc\"string \" string\" <- invalid string call compile str \"string \"\" string\"; ccERROR</code> codeccAfter the fix: hint str \"string \"\" string\"; cc\"string \"\" string\" <- valid string call compile str \"string \"\" string\"; ccOK </code>",
+    "description": "Converts any value into a string by placing \" and \" around the argument. When used on object, object debug name is returned.brbrSince Arma 3 v1.64 this command will correctly escape all \" inside a \nstring: codeccBefore the \nfix: hint str \"string \"\" string\"; cc\"string \" string\" <- invalid string call compile str \"string \"\" string\"; ccERROR</code> codeccAfter the \nfix: hint str \"string \"\" string\"; cc\"string \"\" string\" <- valid string call compile str \"string \"\" string\"; ccOK </code>",
     "example": "_s = str (2 + 3);ccThe value of ''_s'' is the string \"5\"",
     "params": "<anything>",
     "returns": "string"
@@ -2538,7 +2538,7 @@
     "syntax": "supportInfo <string>",
     "docSyntax": "supportInfo mask",
     "tags": "",
-    "description": "Creates a list of supported operators and type. Each field of array has the format: \"x:name\" Where x can be: *'t' - type *'n' - nullar operator *'u' - unary operator *'b' - binary operator. 'name' is the operator or type name (in case operator, type of input operands is included). ''mask'' parameter can be an empty string, or one of field. In this case, function returns empty array, if operator is not included in the list. Limited wildcard support is available. Type ''x'' may be replaced with ''*'', meaning all types. For the ''mask'' partial match may be used, like ''abc*'', meaning any operators starting with 'abc' are reported, for example: * hl\"\" - list all types and commands * hl\"t:*\" - list all types * hl\"*:&lt;command&gt;*\" - list all entries for script ''&lt;command&gt;'' * GVIarma32.00size=0.8 hl\"i:&lt;command&gt;\" - extended information about script ''&lt;command&gt;'', multiplication operator instead.",
+    "description": "Creates a list of supported operators and type. Each field of array has the \nformat: \"\n\tx:name\" Where x can \nbe: *'t' - type *'n' - nullar operator *'u' - unary operator *'b' - binary operator. 'name' is the operator or type name (in case operator, type of input operands is included). ''mask'' parameter can be an empty string, or one of field. In this case, function returns empty array, if operator is not included in the list. Limited wildcard support is available. Type ''x'' may be replaced with ''*'', meaning all types. For the ''mask'' partial match may be used, like ''abc*'', meaning any operators starting with 'abc' are reported, for \nexample: * hl\"\" - list all types and commands * hl\"t:*\" - list all types * hl\"*:&lt;command&gt;*\" - list all entries for script ''&lt;command&gt;'' * GVIarma32.00size=0.8 hl\"i:&lt;command&gt;\" - extended information about script ''&lt;command&gt;'', multiplication operator instead.",
     "example": "supportInfo \"b:select*\"; // returns [\"b:ARRAY select SCALAR\",\"b:ARRAY select BOOL\",\"b:CONFIG select SCALAR\"]",
     "params": "<string>",
     "returns": "array"
@@ -2574,7 +2574,7 @@
     "syntax": "teamSwitch",
     "docSyntax": "teamSwitch",
     "tags": "",
-    "description": "Invoke the Team Switch dialog (force it even when conditions are not met). There has to be at least one playable unit for team switch to work, and for this command to work in MP, respawn type in description.ext should be 5 (SIDE).Feature Informative When player switches and leaves behind AI unit, you need to enable \"TeamSwitch\" AI on it hl_unit enableAI \"TeamSwitch\" so that the unit continues with waypoints.",
+    "description": "Invoke the Team Switch dialog (force it even when conditions are not met). There has to be at least one playable unit for team switch to work, and for this command to work in MP, respawn type in description.ext should be 5 (SIDE).Feature Informative When player switches and leaves behind AI unit, you need to enable \"TeamSwitch\" AI on it _unit enableAI \"TeamSwitch\" so that the unit continues with waypoints.",
     "example": "teamSwitch;",
     "params": "",
     "returns": "nothing"
@@ -2646,7 +2646,7 @@
     "syntax": "try <<code>>",
     "docSyntax": "try code",
     "tags": "",
-    "description": "Defines a try-catch structure. This sets up an exception handling block. Any thrown exception in a try block is caught in a catch block. The structured exception block has the following form: codetry { codecomment/* block that can throw exception */ } catch { codecomment/* block that processes the exception. Exception is described in the ''_exception'' variable */ };</code>",
+    "description": "Defines a try-catch structure. This sets up an exception handling block. Any thrown exception in a try block is caught in a catch block. The structured exception block has the following \nform: codetry { codecomment/* block that can throw exception */ } catch { codecomment/* block that processes the exception. Exception is described in the ''_exception'' variable */ };</code>",
     "example": "try {throw \"invalid argument\"} catch {hint str _exception};",
     "params": "<code> <anything> <code>",
     "returns": "exception type"
@@ -2658,7 +2658,7 @@
     "syntax": "typeName <anything>",
     "docSyntax": "typeName anything",
     "tags": "",
-    "description": "Returns the data type of an expression. The type is returned as on of the following all-uppercase strings: * \"ARRAY\" * \"BOOL\" * \"CODE\" * \"CONFIG\" * \"CONTROL\" * \"DISPLAY\" * \"GROUP\" * \"LOCATION\" * \"OBJECT\" * \"SCALAR\" * \"SCRIPT\" * \"SIDE\" * \"STRING\" * \"TEXT\" * \"TEAM_MEMBER\" * \"NAMESPACE\" * \"DIARY_RECORD\" * \"TASK\" * \"HASHMAP\" They represent the available data types in Arma. FeatureInformativeFor comparing types, use isEqualType command instead in arma3",
+    "description": "Returns the data type of an expression. The type is returned as on of the following all-uppercase \nstrings: * \"ARRAY\" * \"BOOL\" * \"CODE\" * \"CONFIG\" * \"CONTROL\" * \"DISPLAY\" * \"GROUP\" * \"LOCATION\" * \"OBJECT\" * \"SCALAR\" * \"SCRIPT\" * \"SIDE\" * \"STRING\" * \"TEXT\" * \"TEAM_MEMBER\" * \"NAMESPACE\" * \"DIARY_RECORD\" * \"TASK\" * \"HASHMAP\" They represent the available data types in Arma. FeatureInformativeFor comparing types, use isEqualType command instead in arma3",
     "example": "_msg = \"hello\"; _result = typeName _msg; //_result will be \"STRING\"",
     "params": "<anything>",
     "returns": "string"
@@ -2778,7 +2778,7 @@
     "syntax": "createMarkerLocal [<string>, position2d, <number>, <object>]",
     "docSyntax": "createMarkerLocal [name, position, channel, creator]",
     "tags": "[EL]",
-    "description": "Creates a local marker at the given position - the marker only exists on the machine that created it. The marker name has to be unique, if a marker with the given name exists, the command will be ignored. Use deleteMarkerLocal to delete a local marker.brbr If the position is given in 3D format, hlz coordinate is stored with the marker and will be used when marker is passed to commands like createVehicle, createUnit, createAgent, createMine, setVehiclePosition for example. However getMarkerPos and markerPos will always return 0 for hlz. Feature important Local markers have their own set of local commands \"xxMarkerxxLocal\" to work with. If you use global marker commands on a local marker, the local marker will become 'global'.",
+    "description": "Creates a local marker at the given position - the marker only exists on the machine that created it. The marker name has to be unique, if a marker with the given name exists, the command will be ignored. Use deleteMarkerLocal to delete a local marker.brbr If the position is given in 3D format, z coordinate is stored with the marker and will be used when marker is passed to commands like createVehicle, createUnit, createAgent, createMine, setVehiclePosition for example. However getMarkerPos and markerPos will always return 0 for z. Feature important Local markers have their own set of local commands \"xxMarkerxxLocal\" to work with. If you use global marker commands on a local marker, the local marker will become 'global'.",
     "example": "_marker = createMarkerLocal [\"Marker1\", position player];",
     "params": "<string> position2d <number> <object>",
     "returns": "string"
@@ -2826,7 +2826,7 @@
     "syntax": "<string> setMarkerBrushLocal <string>",
     "docSyntax": "markerName setMarkerBrushLocal brush",
     "tags": "[EL]",
-    "description": "Selects the fill texture for the marker (\"RECTANGLE\" or \"ELLIPSE\"). Brush is the name of the subclass in CfgMarkerBrushes. br br ''brush'' can be: * \"Solid\" * \"SolidFull\" (A3 only) * \"Horizontal\" * \"Vertical\" * \"Grid\" * \"FDiagonal\" * \"BDiagonal\" * \"DiagGrid\" * \"Cross\" * \"Border\" (A2/A3 only) * \"SolidBorder\" (OA/A3 only)",
+    "description": "Selects the fill texture for the marker (\"RECTANGLE\" or \"ELLIPSE\"). Brush is the name of the subclass in CfgMarkerBrushes. br br ''brush'' can \nbe: * \"Solid\" * \"SolidFull\" (A3 only) * \"Horizontal\" * \"Vertical\" * \"Grid\" * \"FDiagonal\" * \"BDiagonal\" * \"DiagGrid\" * \"Cross\" * \"Border\" (A2/A3 only) * \"SolidBorder\" (OA/A3 only)",
     "example": "\"Marker1\" setMarkerBrushLocal \"DiagGrid\";",
     "params": "<string> <string>",
     "returns": "nothing"
@@ -2838,7 +2838,7 @@
     "syntax": "<string> setMarkerColorLocal <string>",
     "docSyntax": "markerName setMarkerColorLocal color",
     "tags": "[AG] [EL]",
-    "description": "Sets marker color for the given marker locally. Marker color names and their corresponding RGBA values for Arma 3 could be found in here: <Arma 3: CfgMarkerColors>",
+    "description": "Sets marker color for the given marker locally. Marker color names and their corresponding RGBA values for Arma 3 could be found in \nhere: <Arma \n3: CfgMarkerColors>",
     "example": "\"MarkerOne\" setMarkerColorLocal \"ColorBlack\";",
     "params": "<string> <string>",
     "returns": "nothing"
@@ -2862,7 +2862,7 @@
     "syntax": "<string> setMarkerPosLocal position2d",
     "docSyntax": "markerName setMarkerPosLocal pos",
     "tags": "[EL]",
-    "description": "Moves the marker. If position is given in 3D format, hlz coordinate is stored with the marker and will be used when marker is passed to commands like createVehicle, createUnit, createAgent, createMine, setVehiclePosition for example. When Object is used for position, its getPosWorld is used.",
+    "description": "Moves the marker. If position is given in 3D format, z coordinate is stored with the marker and will be used when marker is passed to commands like createVehicle, createUnit, createAgent, createMine, setVehiclePosition for example. When Object is used for position, its getPosWorld is used.",
     "example": "\"MarkerOne\" setMarkerPosLocal getMarkerPos \"MarkerTwo\";",
     "params": "<string> position2d",
     "returns": "nothing"
@@ -2922,7 +2922,7 @@
     "syntax": "<object> setUnitPosWeak <string>",
     "docSyntax": "unit setUnitPosWeak mode",
     "tags": "[AL] [EG]",
-    "description": "Set unit position rules. This command is the lowest level of priority for setting unit position and to be used in scripted FSM's. Priorities are: # Unit pos commanded (from the commanding menu, higher priority). # Unit pos scripted (from setUnitPos scripting command, medium priority). # Unit pos FSM / 'setUnitPosWeak' (used in the formation FSM, lowest priority).",
+    "description": "Set unit position rules. This command is the lowest level of priority for setting unit position and to be used in scripted FSM's. Priorities \nare: # Unit pos commanded (from the commanding menu, higher priority). # Unit pos scripted (from setUnitPos scripting command, medium priority). # Unit pos FSM / 'setUnitPosWeak' (used in the formation FSM, lowest priority).",
     "example": "_soldier disableAI \"FSM\"; _soldier setUnitPosWeak \"DOWN\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -3090,7 +3090,7 @@
     "syntax": "airportS<number>e id",
     "docSyntax": "airportSide id",
     "tags": "",
-    "description": "Gets the side of an airport, set by setAirportSide. Default side is sideUnknown. Feature Informative See <Arma: Airport IDs> for a list of airport ids.",
+    "description": "Gets the side of an airport, set by setAirportSide. Default side is sideUnknown. Feature Informative See <\nArma: Airport IDs> for a list of airport ids.",
     "example": "private _airportSide = airportSide 0;",
     "params": "<number> <object>",
     "returns": "side"
@@ -3150,7 +3150,7 @@
     "syntax": "createLocation [<string>, position2d, <number>, <number>]",
     "docSyntax": "createLocation [className, position, sizeX, sizeY]",
     "tags": "[EL]",
-    "description": "Creates a location of the specified class and dimensions at the specified position. Classes are defined in hlCfgLocationTypes; for possible location types see Location Types.",
+    "description": "Creates a location of the specified class and dimensions at the specified position. Classes are defined in CfgLocationTypes; for possible location types see Location Types.",
     "example": "_location = \"NameVillage\" , [4035,2151,10], 100, 100];",
     "params": "<string> position2d <number> <number>",
     "returns": "location"
@@ -3450,7 +3450,7 @@
     "syntax": "<string> addPublicVariableEventHandler <<code>>",
     "docSyntax": "varName addPublicVariableEventHandler code",
     "tags": "[AG] [EL]",
-    "description": "Featurearma3 This command is deprecated since the introduction of remoteExec and remoteExecCall. This event handler will detect if a missionNamespace variable (it is attached to) has been broadcast over network with publicVariable, publicVariableClient or publicVariableServer commands and will execute EH code upon detection. Arguments passed to the code in ''_this'' array are: * _this select 0: String - broadcast variable name (same variable name EH is attached to) * _this select 1: Anything - broadcast variable value * _this select 2: Object, Group - target the variable got set on with setVariable (see HashLink#Alternative Syntax) Feature Informative * This EH works 'only' in Multiplayer environment * There is 'no way to remove' this EH * This EH will not fire on the machine that executed broadcast with publicVariable command, only on the machines that receive the broadcast * The value of broadcast variable can be exactly the same, it is the actual broadcast that triggers EH not the change in variable",
+    "description": "Featurearma3 This command is deprecated since the introduction of remoteExec and remoteExecCall. This event handler will detect if a missionNamespace variable (it is attached to) has been broadcast over network with publicVariable, publicVariableClient or publicVariableServer commands and will execute EH code upon detection. Arguments passed to the code in ''_this'' array \nare: * _this select \n0: String - broadcast variable name (same variable name EH is attached to) * _this select \n1: Anything - broadcast variable value * _this select \n2: Object, Group - target the variable got set on with setVariable (see HashLink#Alternative Syntax) Feature Informative * This EH works 'only' in Multiplayer environment * There is 'no way to remove' this EH * This EH will not fire on the machine that executed broadcast with publicVariable command, only on the machines that receive the broadcast * The value of broadcast variable can be exactly the same, it is the actual broadcast that triggers EH not the change in variable",
     "example": "\"publicThis\" addPublicVariableEventHandler { hint format [ \"%1 has been updated to: %2\", _this select 0, _this select 1 ] };",
     "params": "<string> <code> <string> <object> <code>",
     "returns": "nothing"
@@ -3462,8 +3462,8 @@
     "syntax": "<object> setVectorDirAndUp <array>",
     "docSyntax": "vehicle setVectorDirAndUp [[x1, y1, z1], [x2, y2, z2]]",
     "tags": "[AL] [EG]",
-    "description": "right|300px Sets orientation of an object. The command takes 2 vector arrays, one for vectorDir and one for vectorUp. Default object orientation will always have vectorDir pointing forward (North) along Y axis and vectorUp pointing up along Z axis - [[0,1,0],[0,0,1]], as shown on the diagram below (see also BIS_fnc_transformVectorDirAndUp).br When attaching object to an object the axes are relative to the object that gets the attachment. If it is player object for example, then X goes from left to right, Y goes from back to front, and Z goes from down up.br The setDir command is incompatible with setVectorDirAndUp and should not be used together on the same object. Using setVectorDirAndUp alone should be sufficient for any orientation. <div style=\"clear: both\"></div>",
-    "example": "ccset exact yaw, pitch, and roll _y = 45; _p = -80; _r = 0; BRICK setVectorDirAndUp [ [sin _y * cos _p, cos _y * cos _p, sin _p], nowiki<</nowiki>[[sin> _r, -sin _p, cos _r * cos _p], -_y] call BIS_fnc_rotateVector2D ];",
+    "description": "right|300px Sets orientation of an object. The command takes 2 vector arrays, one for vectorDir and one for vectorUp. Default object orientation will always have vectorDir pointing forward (North) along Y axis and vectorUp pointing up along Z axis - [[0,1,0],[0,0,1]], as shown on the diagram below (see also BIS_fnc_transformVectorDirAndUp).br When attaching object to an object the axes are relative to the object that gets the attachment. If it is player object for example, then X goes from left to right, Y goes from back to front, and Z goes from down up.br The setDir command is incompatible with setVectorDirAndUp and should not be used together on the same object. Using setVectorDirAndUp alone should be sufficient for any orientation. <div style=\"\nclear: both\"></div>",
+    "example": "// set exact yaw, pitch, and roll _y = 45; _p = -80; _r = 0; BRICK setVectorDirAndUp [ [sin _y * cos _p, cos _y * cos _p, sin _p], nowiki<</nowiki>[[sin> _r, -sin _p, cos _r * cos _p], -_y] call BIS_fnc_rotateVector2D ];",
     "params": "<object> <array> <array> <array>",
     "returns": "nothing"
   },

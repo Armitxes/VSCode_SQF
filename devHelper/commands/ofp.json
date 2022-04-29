@@ -18,7 +18,7 @@
     "syntax": "! <boolean>",
     "docSyntax": "! a",
     "tags": "",
-    "description": "Returns the negation of a Boolean expression. This means hltrue becomes hlfalse and vice versa.",
+    "description": "Returns the negation of a Boolean expression. This means true becomes false and vice versa.",
     "example": "!_isAlive) then { hint \"The player is dead!\"; };</code> is the same as codeprivate _isAlive = alive player; if (not _isAlive) then { hint \"The player is dead!\"; };",
     "params": "<boolean>",
     "returns": "boolean"
@@ -42,7 +42,7 @@
     "syntax": "a != identical",
     "docSyntax": "a != b",
     "tags": "",
-    "description": "Returns whether one value is 'not' equal to another. String comparison is case-'in'sensitive (e.g ic\"STRINGtext\" != \"stringTEXT\" ccreturns false). Featureimportant''a'' and ''b'' types 'must' match: comparing e.g String with Number is invalid.",
+    "description": "Returns whether one value is 'not' equal to another. String comparison is case-'in'sensitive (e.g ic\"STRINGtext\" != \"stringTEXT\" ccreturns false). Featureimportant''a'' and ''b'' types 'must' \nmatch: comparing e.g String with Number is invalid.",
     "example": "!= 4) then { hint \"The counter is not equal to the number 4\"; }",
     "params": "identical",
     "returns": "boolean | true | false"
@@ -114,7 +114,7 @@
     "syntax": "<anything> = <anything>",
     "docSyntax": "variable = value",
     "tags": "",
-    "description": "Assigns the result of expression on the right to the variable on the left. Technically this is not a command and it is not listed in supportInfo; this is more of a compiler instruction. Feature important The following structure is invalid: ica = b = c = 4;",
+    "description": "Assigns the result of expression on the right to the variable on the left. Technically this is not a command and it is not listed in supportInfo; this is more of a compiler instruction. Feature important The following structure is \ninvalid: ica = b = c = 4;",
     "example": "_value = 5",
     "params": "<anything> <anything>",
     "returns": "nothing | nil"
@@ -126,7 +126,7 @@
     "syntax": "a == identical",
     "docSyntax": "a == b",
     "tags": "",
-    "description": "Check if ''a'' is equal to ''b''. String comparison is case-'in'sensitive - use isEqualTo if case sensitivity is needed. Featureimportant''a'' and ''b'' types 'must' match: comparing e.g String with Number is invalid.",
+    "description": "Check if ''a'' is equal to ''b''. String comparison is case-'in'sensitive - use isEqualTo if case sensitivity is needed. Featureimportant''a'' and ''b'' types 'must' \nmatch: comparing e.g String with Number is invalid.",
     "example": "== leader group player) then { hint \"You are the leader of your group.\"; } else { hint \"Someone else is the boss\"; };",
     "params": "identical",
     "returns": "boolean"
@@ -234,7 +234,7 @@
     "syntax": "<object> action <array>",
     "docSyntax": "unit action actionArray",
     "tags": "[EG]",
-    "description": "Make a unit perform an action. See <:Category:Actions> for action names and syntaxes. Feature informative * in singleplayer, when user Alt-Tabs the simulation is paused and so the action will also halt until user returns to the game. For example, icplayer action [\"GetInDriver\", car]; executed while user is Alt-Tabbed will result in the user seeing the action happening when he returns to the game screen. This doesn't happen in Multiplayer. * the alternative syntax creates a temporary Logic entity in place of ''unit''.",
+    "description": "Make a unit perform an action. See <:\n\tCategory:Actions> for action names and syntaxes. Feature informative * in singleplayer, when user Alt-Tabs the simulation is paused and so the action will also halt until user returns to the game. For example, icplayer action [\"GetInDriver\", car]; executed while user is Alt-Tabbed will result in the user seeing the action happening when he returns to the game screen. This doesn't happen in Multiplayer. * the alternative syntax creates a temporary Logic entity in place of ''unit''.",
     "example": "sqfplayer action [\"SitDown\", player];</sqf>",
     "params": "<object> <array> <array>",
     "returns": "nothing"
@@ -246,7 +246,7 @@
     "syntax": "<object> addMagazine <string>",
     "docSyntax": "unitName addMagazine magazineName",
     "tags": "[AL] [EG]",
-    "description": "Adds a magazine to a person. Infantry units can only carry a specific number of magazines, once the magazine slots are filled (or uniform/vest/bagpack are full in arma3), any further addMagazine commands are ignored. If class of magazine does not exist, an error message is printed in .rpt: codeplayer addMagazine \"dasdsa\"; cc.rpt: Given magazine[dasdsa] not found)</code> Feature Informative Use addMagazine ''before'' addWeapon for the weapon to be loaded with magazine automatically.",
+    "description": "Adds a magazine to a person. Infantry units can only carry a specific number of magazines, once the magazine slots are filled (or uniform/vest/bagpack are full in arma3), any further addMagazine commands are ignored. If class of magazine does not exist, an error message is printed in .\nrpt: codeplayer addMagazine \"dasdsa\"; cc.\nrpt: Given magazine[dasdsa] not found)</code> Feature Informative Use addMagazine ''before'' addWeapon for the weapon to be loaded with magazine automatically.",
     "example": "player addMagazine \"30Rnd_556x45_STANAG\";",
     "params": "<object> <string> <object> <string> <number>",
     "returns": "nothing"
@@ -270,7 +270,7 @@
     "syntax": "<object> addRating <number>",
     "docSyntax": "unitName addRating rating",
     "tags": "[AL] [EG]",
-    "description": "Add a number to the Rating Values) brbrSee also: <Arma_3:_Event_Handlers#HandleRating>",
+    "description": "Add a number to the Rating Values) brbrSee \nalso: <\n\tArma_3:_Event_Handlers#HandleRating>",
     "example": "player addRating 2000;",
     "params": "<object> <number>",
     "returns": "nothing"
@@ -342,7 +342,7 @@
     "syntax": "<object> allowFleeing <number>",
     "docSyntax": "unitOrGroup allowFleeing cowardice",
     "tags": "[AL] [EG]",
-    "description": "Sets the cowardice level (the lack of courage or bravery) of a group or unit. brbr Notes: * Fleeing only affects AI led groups. * Only the group as a whole can flee (or not). * The courage of the AI group is based on the group's leader courage subskill. * Each group has a max strength (summed \"armor\" of all infantry units - plus armor when inside vehicles). * If the group losses by injury/damage or death/destruction are higher than the max strength, multiplied by leader's courage or allowFleeing level , then the group will start fleeing. * As result primarily the AI flees to a nearby \"supply point\" (some friendly units - preferably with medic or engineer, or a vehicle with repair/ammo/fuel cargo). Alternatively it will try to find a safe position within a 600m radius from the initial waypoint (danger, distance, amount of cover positions are taken into account). * After the fleeing has been finished the group's initial strength is reset. * Fleeing units in combatMode red, will be set to yellow when fleeing to avoid engaging enemies while doing so. * While fleeing, the group leader will be set to green, to avoid giving engage or fire orders, unless in combatMode blue already. Also speedMode is set to full. * When reaching their flee point/destination, they will change to combatMode yellow and speedMode normal. * With allowFleeing one can make unit's flee earlier (or essentially never flee). Apply it, overrides the courage subskill influence.",
+    "description": "Sets the cowardice level (the lack of courage or bravery) of a group or unit. brbr \nNotes: * Fleeing only affects AI led groups. * Only the group as a whole can flee (or not). * The courage of the AI group is based on the group's leader courage subskill. * Each group has a max strength (summed \"armor\" of all infantry units - plus armor when inside vehicles). * If the group losses by injury/damage or death/destruction are higher than the max strength, multiplied by leader's courage or allowFleeing level , then the group will start fleeing. * As result primarily the AI flees to a nearby \"supply point\" (some friendly units - preferably with medic or engineer, or a vehicle with repair/ammo/fuel cargo). Alternatively it will try to find a safe position within a 600m radius from the initial waypoint (danger, distance, amount of cover positions are taken into account). * After the fleeing has been finished the group's initial strength is reset. * Fleeing units in combatMode red, will be set to yellow when fleeing to avoid engaging enemies while doing so. * While fleeing, the group leader will be set to green, to avoid giving engage or fire orders, unless in combatMode blue already. Also speedMode is set to full. * When reaching their flee point/destination, they will change to combatMode yellow and speedMode normal. * With allowFleeing one can make unit's flee earlier (or essentially never flee). Apply it, overrides the courage subskill influence.",
     "example": "_group1 allowFleeing 0;",
     "params": "<object> <number>",
     "returns": "nothing"
@@ -462,7 +462,7 @@
     "syntax": "<number> atan2 <number>",
     "docSyntax": "y atan2 x",
     "tags": "",
-    "description": "right|200px ArcTangent of ''y/x''. Used to determine the angle of a vector ''[x,y]''. Result in Degrees between -180 and 180. Feature Informative This command can handle ''x'' being 0, unlike when using higher precedence than select command, therefore the following expression: brhl_pos select 0 atan2 (_pos select 1)br will produce an error. The correct usage in this case will be: brhl(_pos select 0) atan2 (_pos select 1)",
+    "description": "right|200px ArcTangent of ''y/x''. Used to determine the angle of a vector ''[x,y]''. Result in Degrees between -180 and 180. Feature Informative This command can handle ''x'' being 0, unlike when using higher precedence than select command, therefore the following \nexpression: brhl_pos select 0 atan2 (_pos select 1)br will produce an error. The correct usage in this case will \nbe: brhl(_pos select 0) atan2 (_pos select 1)",
     "example": "_xy = [5,3]; _degrees = (_xy select 0) atan2 (_xy select 1); // 59.0362",
     "params": "<number> <number>",
     "returns": "number"
@@ -534,7 +534,7 @@
     "syntax": "<object> camCommand <string>",
     "docSyntax": "camera camCommand command",
     "tags": "[AL] [EL]",
-    "description": "Executes a command on the given ''camera / actor'' object. Known commands: {! class=\"wikitable\" ! All cameras !! \"Camera\" !! \"Seagull\" !! \"CamCurator\" !- style=\"vertical-align: top\" ! * hl\"manual on\" * hl\"manual off\" ! * hl\"inertia on\" * hl\"inertia off\" ! * hl\"landed\" lands the seagull * hl\"airborne\" makes the seagull fly ! * hl\"maxPitch (x)\" (number, in degrees) * hl\"minPitch (x)\" (number, in degrees) * hl\"speedDefault (x)\" (number) * hl\"speedMax (x)\" (number) * hl\"ceilingHeight (x)\" (number, in meters) * hl\"atl (x)\" (on/off) * hl\"surfaceSpeed (x)\" (on/off) !} Feature Informative The camCommand effect is immediate and does not need camCommit/camCommitPrepared.",
+    "description": "Executes a command on the given ''camera / actor'' object. Known \ncommands: {! class=\"wikitable\" ! All cameras !! \"Camera\" !! \"Seagull\" !! \"CamCurator\" !- style=\"vertical-\nalign: top\" ! * hl\"manual on\" * hl\"manual off\" ! * hl\"inertia on\" * hl\"inertia off\" ! * hl\"landed\" lands the seagull * hl\"airborne\" makes the seagull fly ! * hl\"maxPitch (x)\" (number, in degrees) * hl\"minPitch (x)\" (number, in degrees) * hl\"speedDefault (x)\" (number) * hl\"speedMax (x)\" (number) * hl\"ceilingHeight (x)\" (number, in meters) * hl\"atl (x)\" (on/off) * hl\"surfaceSpeed (x)\" (on/off) !} Feature Informative The camCommand effect is immediate and does not need camCommit/camCommitPrepared.",
     "example": "_camera camCommand \"manual on\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -546,7 +546,7 @@
     "syntax": "<object> camCommit <number>",
     "docSyntax": "camera camCommit time",
     "tags": "[AL] [EL]",
-    "description": "Smoothly conduct the changes that were assigned to a camera within the given time. If the time is set to zero, the changes are done immediately. For hlcamPrepareXXX commands use camCommitPrepared.",
+    "description": "Smoothly conduct the changes that were assigned to a camera within the given time. If the time is set to zero, the changes are done immediately. For camPrepareXXX commands use camCommitPrepared.",
     "example": "; create a camera object _cam = \"camera\" camCreate [5600,4800,10] _cam camSetTarget player _cam cameraEffect [\"internal\", \"BACK\"] _cam camCommit 0 nowiki;</nowiki> smoothly move the camera to its new position in 6 seconds _cam camSetPos [5680,4720,20] _cam camCommit 6 @camCommitted _cam nowiki;</nowiki> proceed",
     "params": "<object> <number>",
     "returns": "nothing"
@@ -594,7 +594,7 @@
     "syntax": "<object> cameraEffect <array>",
     "docSyntax": "camera cameraEffect [effectName, effectPosition, r2tName]",
     "tags": "[AL] [EL]",
-    "description": "Sets the given effect on the given camera. If you want to switch the screen directly to the first-person, aiming, third-person or group view of an object, use switchCamera instead. The effect type \"Terminate\" is used to exit the current camera view and switch back to the player's view. Does not need camCommit. brbr Since Arma 3 v1.74, it is possible to terminate individual r2t source. For example: codecam cameraEffect [\"terminate\", \"back\", \"rtt1\"]; // would terminate \"rtt1\" r2t source cam cameraEffect [\"terminate\", \"back\"]; // would terminate all r2t sources</code>br Feature important One cannot mix and match cameraEffect and can either have multiple r2t cameras or a single camera for the whole screen. If one needs a background stream overlayed with r2t streams, this could be achieved by creating an object and using switchCamera to switch to it for background image, while using cameraEffect for r2t overlay (see Example 4)",
+    "description": "Sets the given effect on the given camera. If you want to switch the screen directly to the first-person, aiming, third-person or group view of an object, use switchCamera instead. The effect type \"Terminate\" is used to exit the current camera view and switch back to the player's view. Does not need camCommit. brbr Since Arma 3 v1.74, it is possible to terminate individual r2t source. For \nexample: codecam cameraEffect [\"terminate\", \"back\", \"rtt1\"]; // would terminate \"rtt1\" r2t source cam cameraEffect [\"terminate\", \"back\"]; // would terminate all r2t sources</code>br Feature important One cannot mix and match cameraEffect and can either have multiple r2t cameras or a single camera for the whole screen. If one needs a background stream overlayed with r2t streams, this could be achieved by creating an object and using switchCamera to switch to it for background image, while using cameraEffect for r2t overlay (see Example 4)",
     "example": "_cam cameraEffect [\"internal\", \"BACK\"];",
     "params": "<object> <array> cfgcameraeffects <string> render",
     "returns": "nothing"
@@ -642,7 +642,7 @@
     "syntax": "<object> camSetFov <number>",
     "docSyntax": "camera camSetFov level",
     "tags": "[AL] [EL]",
-    "description": "Set the zoom level ('F'ield 'O'f 'V'iew) of the given camera. br The zoom level is from ''hl0.01'' for the nearest and ''hl8.5'' for the furthest zoom value, with a default zoom level of ''hl0.75'' br The angle of the field of view is ''hlatan(FOV)*2'' radians when in 4:3 aspect ratio. Needs the call of camCommit to be conducted.",
+    "description": "Set the zoom level ('F'ield 'O'f 'V'iew) of the given camera. br The zoom level is from ''0.01'' for the nearest and ''8.5'' for the furthest zoom value, with a default zoom level of ''0.75'' br The angle of the field of view is ''atan(FOV)*2'' radians when in \n\t4:3 aspect ratio. Needs the call of camCommit to be conducted.",
     "example": "_cam camSetFov 0.75;",
     "params": "<object> <number>",
     "returns": "nothing"
@@ -654,7 +654,7 @@
     "syntax": "<object> camSetFovRange <array>",
     "docSyntax": "camera camSetFovRange fovRange",
     "tags": "[AL] [EL]",
-    "description": "Set the zoom level ('F'ield 'O'f 'V'iew) start and end values for automatical zooming. <!-- \"automatical\"? LoL ;-) --> br The default zoom level is ''hl0.7'' where ''hl0'' is the nearest and ''hl1'' is the most far zoom value. FeatureWarningThis command is 'non-functional'!",
+    "description": "Set the zoom level ('F'ield 'O'f 'V'iew) start and end values for automatical zooming. <!-- \"automatical\"? LoL ;-) --> br The default zoom level is ''0.7'' where ''0'' is the nearest and ''1'' is the most far zoom value. FeatureWarningThis command is 'non-functional'!",
     "example": "_cam camSetFovRange [0.1, 0.7];",
     "params": "<object> <array>",
     "returns": "nothing"
@@ -750,7 +750,7 @@
     "syntax": "civilian",
     "docSyntax": "civilian",
     "tags": "",
-    "description": "Pre-defined variable for the civilian side.br When used in a format statement (hlhint format[\"%1\",civilian]), the string returned is hl\"CIV\".",
+    "description": "Pre-defined variable for the civilian side.br When used in a format statement (hint format[\"%1\",civilian]), the string returned is hl\"CIV\".",
     "example": "SQS: sqf? side _unit == civilian : hint \"This is a civilian unit!\"</sqf>",
     "params": "",
     "returns": "side"
@@ -894,7 +894,7 @@
     "syntax": "count <<array>>",
     "docSyntax": "count value",
     "tags": "",
-    "description": "Can be used to count: * The number of elements in an array (returns the already internally known array size) * The number of elements in an array matching the condition * The number of sub-entries in a config entry * GVIarma31.28size=0.8 The number of characters in an ANSI string FeatureinformativeIf Unicode support is desired, see forceUnicode.",
+    "description": "Can be used to \ncount: * The number of elements in an array (returns the already internally known array size) * The number of elements in an array matching the condition * The number of sub-entries in a config entry * GVIarma31.28size=0.8 The number of characters in an ANSI string FeatureinformativeIf Unicode support is desired, see forceUnicode.",
     "example": "count [0, 0, 1, 2]; // returns 4 count units group player; // returns number of units in player group",
     "params": "<array> _x <array>",
     "returns": "number"
@@ -978,7 +978,7 @@
     "syntax": "cutObj [<string>, <string>, <number>, <boolean>]",
     "docSyntax": "cutObj [class, type, speed, showInMap]",
     "tags": "[EL]",
-    "description": "Displays an object defined in the global config in hlCfgTitles. Featurearma3For greater efficiency and ease of modability, it is recommended to use named layers with HashLink#Syntax 3.",
+    "description": "Displays an object defined in the global config in CfgTitles. Featurearma3For greater efficiency and ease of modability, it is recommended to use named layers with HashLink#Syntax 3.",
     "example": "cutObj [\"TVSet\", \"PLAIN\"]; cutObj [\"TVSet\", \"PLAIN\", 2]",
     "params": "<string> <string> <number> <boolean> <number> <string> <string> <number> <boolean> <string> <string> <string> <number> <boolean>",
     "returns": "nothing"
@@ -990,7 +990,7 @@
     "syntax": "cutRsc [<string>, <string>, <number>, <boolean>]",
     "docSyntax": "cutRsc [class, effect, speed, showInMap]",
     "tags": "[EL]",
-    "description": "Display a resource defined in RscTitles of the mission's <Description.ext>, the campaign's description.ext or the global config. Featurearma3For greater efficiency and ease of modability, it is recommended to use named layers available with String and HashLink#Syntax 2. FeatureImportantTo avoid conflicts with existing layers it is recommended to register a layer with BIS_fnc_rscLayer and to start the name with a TAG: sqf (\"TAG_myLayer\" call BIS_fnc_rscLayer) cutRsc [\"myRsc\", \"PLAIN\"]; \"TAG_myLayer\" cutRsc [\"myRsc\", \"PLAIN\"];</sqf>",
+    "description": "Display a resource defined in RscTitles of the mission's <Description.ext>, the campaign's description.ext or the global config. Featurearma3For greater efficiency and ease of modability, it is recommended to use named layers available with String and HashLink#Syntax 2. FeatureImportantTo avoid conflicts with existing layers it is recommended to register a layer with BIS_fnc_rscLayer and to start the name with a \nTAG: sqf (\"TAG_myLayer\" call BIS_fnc_rscLayer) cutRsc [\"myRsc\", \"PLAIN\"]; \"TAG_myLayer\" cutRsc [\"myRsc\", \"PLAIN\"];</sqf>",
     "example": "sqf cutRsc [\"binocular\", \"PLAIN\"]; cutRsc [\"binocular\", \"PLAIN\", 2]; cutRsc [\"binocular\", \"PLAIN\", 2, false]; </sqf>",
     "params": "<string> <string> <number> <boolean> <number> <string> <string> <number> <boolean>",
     "returns": "nothing"
@@ -1002,7 +1002,7 @@
     "syntax": "cutText [<string>, <string>, <number>, <boolean>, <boolean>]",
     "docSyntax": "cutText [text, type, speed, showInMap, isStructuredText]",
     "tags": "[EL]",
-    "description": "Displays a text message in the center of the screen. The text can be displayed on multiple lines by using \" \" new line characters:brhlcutText [\"line1\\nline2\\nline3\", \"PLAIN\"];. Since Arma 3 v1.74 this command supports <Structured Text> formatting. Featurearma3For greater efficiency and ease of modability it is recommended to use named layers available with alternative syntax since Arma 3 v1.58",
+    "description": "Displays a text message in the center of the screen. The text can be displayed on multiple lines by using \" \" new line \n\tcharacters:brhlcutText [\"line1\\nline2\\nline3\", \"PLAIN\"];. Since Arma 3 v1.74 this command supports <Structured Text> formatting. Featurearma3For greater efficiency and ease of modability it is recommended to use named layers available with alternative syntax since Arma 3 v1.58",
     "example": "cutText [\"\", \"BLACK OUT\"]; cutText [\"Hello World!\", \"PLAIN\", 2];",
     "params": "<string> <string> <number> <boolean> <boolean> <number> <string> <string> <number> <boolean> <boolean> <string> <string> <string> <number> <boolean> <boolean>",
     "returns": "nothing"
@@ -1134,7 +1134,7 @@
     "syntax": "doStop <object>",
     "docSyntax": "doStop unit(s)",
     "tags": "[AG] [EG]",
-    "description": "Order the given unit(s) to stop (without radio messages). The units stopped in this way will leave the groups formation. It will prevent them from moving around with their group (or formation leader), while still being able to turn around and even move to a new position if they see fit. brbrThe units will still respond to orders from their group leader (like engage, rearm, board a vehicle), but all of their actions will be separate from the group formation. To resume group default behaviour, use doFollow command. For example: hlunits _group doFollow leader _group;",
+    "description": "Order the given unit(s) to stop (without radio messages). The units stopped in this way will leave the groups formation. It will prevent them from moving around with their group (or formation leader), while still being able to turn around and even move to a new position if they see fit. brbrThe units will still respond to orders from their group leader (like engage, rearm, board a vehicle), but all of their actions will be separate from the group formation. To resume group default behaviour, use doFollow command. For \nexample: units _group doFollow leader _group;",
     "example": "doStop _soldier1;",
     "params": "<object>",
     "returns": "nothing"
@@ -1254,7 +1254,7 @@
     "syntax": "<number> fadeMusic <number>",
     "docSyntax": "time fadeMusic volume",
     "tags": "[EL]",
-    "description": "Changes the current music volume to the given value smoothly within the given time. FeatureInformativeThe player's in-game setting is not changed by this command: icFinal Volume = Client Setting * Scripted Volume.",
+    "description": "Changes the current music volume to the given value smoothly within the given time. FeatureInformativeThe player's in-game setting is not changed by this \ncommand: icFinal Volume = Client Setting * Scripted Volume.",
     "example": "5 fadeMusic 0; // fade current music volume to 0 in 5 sec",
     "params": "<number> <number>",
     "returns": "nothing"
@@ -1266,7 +1266,7 @@
     "syntax": "<number> fadeRadio <number>",
     "docSyntax": "time fadeRadio volume",
     "tags": "[EL]",
-    "description": "Changes the radio volume smoothly within the given time. FeatureInformativeThe player's in-game setting is not changed by this command: icFinal Volume = Client Setting * Scripted Volume.",
+    "description": "Changes the radio volume smoothly within the given time. FeatureInformativeThe player's in-game setting is not changed by this \ncommand: icFinal Volume = Client Setting * Scripted Volume.",
     "example": "5 fadeRadio 0.1;",
     "params": "<number> <number>",
     "returns": "nothing"
@@ -1278,7 +1278,7 @@
     "syntax": "<number> fadeSound <number>",
     "docSyntax": "time fadeSound volume",
     "tags": "[EL]",
-    "description": "Changes the sound volume smoothly within the given time. FeatureInformativeThe player's in-game setting is not changed by this command: icFinal Volume = Client Setting * Scripted Volume.",
+    "description": "Changes the sound volume smoothly within the given time. FeatureInformativeThe player's in-game setting is not changed by this \ncommand: icFinal Volume = Client Setting * Scripted Volume.",
     "example": "5 fadeSound 0;",
     "params": "<number> <number>",
     "returns": "nothing"
@@ -1338,7 +1338,7 @@
     "syntax": "fleeing <object>",
     "docSyntax": "fleeing unit",
     "tags": "[AG]",
-    "description": "Checks if a unit is fleeing. brbr Notes: * Fleeing only affects AI led groups. * Only the group as a whole can flee (or not). * The courage of the AI group is based on the group's leader courage subskill. * Each group has a max strength (summed \"armor\" of all infantry units - plus armor when inside vehicles). * If the group losses by injury/damage or death/destruction are higher than the max strength, multiplied by leader's courage or allowFleeing level , then the group will start fleeing. * As result primarily the AI flees to a nearby \"supply point\" (some friendly units - preferably with medic or engineer, or a vehicle with repair/ammo/fuel cargo). Alternatively it will try to find a safe position within a 600m radius from the initial waypoint (danger, distance, amount of cover positions are taken into account). * After the fleeing has been finished the group's initial strength is reset. * Fleeing units in combatMode red, will be set to yellow when fleeing to avoid engaging enemies while doing so. * While fleeing, the group leader will be set to green, to avoid giving engage or fire orders, unless in combatMode blue already. Also speedMode is set to full. * When reaching their flee point/destination, they will change to combatMode yellow and speedMode normal. * With allowFleeing one can make unit's flee earlier (or essentially never flee). Apply it, overrides the courage subskill influence.",
+    "description": "Checks if a unit is fleeing. brbr \nNotes: * Fleeing only affects AI led groups. * Only the group as a whole can flee (or not). * The courage of the AI group is based on the group's leader courage subskill. * Each group has a max strength (summed \"armor\" of all infantry units - plus armor when inside vehicles). * If the group losses by injury/damage or death/destruction are higher than the max strength, multiplied by leader's courage or allowFleeing level , then the group will start fleeing. * As result primarily the AI flees to a nearby \"supply point\" (some friendly units - preferably with medic or engineer, or a vehicle with repair/ammo/fuel cargo). Alternatively it will try to find a safe position within a 600m radius from the initial waypoint (danger, distance, amount of cover positions are taken into account). * After the fleeing has been finished the group's initial strength is reset. * Fleeing units in combatMode red, will be set to yellow when fleeing to avoid engaging enemies while doing so. * While fleeing, the group leader will be set to green, to avoid giving engage or fire orders, unless in combatMode blue already. Also speedMode is set to full. * When reaching their flee point/destination, they will change to combatMode yellow and speedMode normal. * With allowFleeing one can make unit's flee earlier (or essentially never flee). Apply it, overrides the courage subskill influence.",
     "example": "if (fleeing soldier_1) then {player sideChat \"We have won!\"} else {player sideChat \"Keep fighting!\"};",
     "params": "<object>",
     "returns": "boolean | true | false | false"
@@ -1554,7 +1554,7 @@
     "syntax": "'grpNull'",
     "docSyntax": "'grpNull'",
     "tags": "",
-    "description": "A non-existing Group. To compare non-existent groups use isNull or isEqualTo: * hlc= grpNull nowiki==</nowiki> grpNull; // false * hlisNull grpNull; // true * hlgrpNull isEqualTo grpNull; // true",
+    "description": "A non-existing Group. To compare non-existent groups use isNull or \nisEqualTo: * c= grpNull nowiki==</nowiki> grpNull; // false * isNull grpNull; // true * grpNull isEqualTo grpNull; // true",
     "example": "!isNull grpNull; // false",
     "params": "",
     "returns": "group"
@@ -1662,7 +1662,7 @@
     "syntax": "isNull <object>",
     "docSyntax": "isNull entity",
     "tags": "[AG]",
-    "description": "Checks whether the tested item is null.br Which null type the item has to be equal to depends on the type of game entity tested: {! class=\"wikitable\" style=\"text-align: center\" ! Type ! Object ! Group ! Control ! Display ! Location ! Task ! Script ! Config ! <Diary Record> !- ! Null value ! objNull ! grpNull ! controlNull ! displayNull ! locationNull ! taskNull ! scriptNull ! configNull ! diaryRecordNull !- style=\"font-size: .85em\" ! Since ! GVIofp1.00 ! GVIofp1.00 ! GVIarma11.00 ! GVIarma11.00 ! GVIarma21.00 ! GVIarma21.00 ! GVIarma31.30 ! GVIarma31.54 ! GVIarma32.00 !} Feature important A test via == does 'not' work, because a null value is not equal to anything, not even itself (configNull being the exception). See also isEqualTo.",
+    "description": "Checks whether the tested item is null.br Which null type the item has to be equal to depends on the type of game entity \ntested: {! class=\"wikitable\" style=\"text-\nalign: center\" ! Type ! Object ! Group ! Control ! Display ! Location ! Task ! Script ! Config ! <Diary Record> !- ! Null value ! objNull ! grpNull ! controlNull ! displayNull ! locationNull ! taskNull ! scriptNull ! configNull ! diaryRecordNull !- style=\"font-\nsize: .85em\" ! Since ! GVIofp1.00 ! GVIofp1.00 ! GVIarma11.00 ! GVIarma11.00 ! GVIarma21.00 ! GVIarma21.00 ! GVIarma31.30 ! GVIarma31.54 ! GVIarma32.00 !} Feature important A test via == does 'not' work, because a null value is not equal to anything, not even itself (configNull being the exception). See also isEqualTo.",
     "example": "if (isNull obj) then {hint \"doesn't exist\";};",
     "params": "<object>",
     "returns": "boolean"
@@ -1674,7 +1674,7 @@
     "syntax": "<object> knowsAbout <object>",
     "docSyntax": "who knowsAbout target",
     "tags": "[AL]",
-    "description": "Checks if a group or a side knows about target. * Enemy knowledge is instantly shared among the group units * Units in the same group always perfectly know about each others * AI knowledge cannot check beyond current viewDistance and it resets to zero as soon as the target's distance is over itbrNote: neither fog nor daylight affect this behaviour * Losing sight of a target for more than 120 seconds resets its knowsAbout to zero as well * 'Magic number' is the value that must be reached for a unit to shoot at an enemy (used by \"Detected by\" triggers as well): :{!class=\"wikitable\" ! Game ! GVIofp1.46 ! GVIofpr1.96 ! GVIarma11.18 ! GVIarma21.11 ! GVIarma2oa1.62 ! GVIarma31.82 !- ! Magic value ! style=\"text-align: center\"!0.7 ! style=\"text-align: center\"!0.105 ! style=\"text-align: center\"!? ! style=\"text-align: center\"!? ! style=\"text-align: center\"!? ! style=\"text-align: center\"!? !}",
+    "description": "Checks if a group or a side knows about target. * Enemy knowledge is instantly shared among the group units * Units in the same group always perfectly know about each others * AI knowledge cannot check beyond current viewDistance and it resets to zero as soon as the target's distance is over \nitbrNote: neither fog nor daylight affect this behaviour * Losing sight of a target for more than 120 seconds resets its knowsAbout to zero as well * 'Magic number' is the value that must be reached for a unit to shoot at an enemy (used by \"Detected by\" triggers as well): :{!class=\"wikitable\" ! Game ! GVIofp1.46 ! GVIofpr1.96 ! GVIarma11.18 ! GVIarma21.11 ! GVIarma2oa1.62 ! GVIarma31.82 !- ! Magic value ! style=\"text-\nalign: center\"!0.7 ! style=\"text-\nalign: center\"!0.105 ! style=\"text-\nalign: center\"!? ! style=\"text-\nalign: center\"!? ! style=\"text-\nalign: center\"!? ! style=\"text-\nalign: center\"!? !}",
     "example": "_knowledge = player knowsAbout _target;",
     "params": "<object> <object>",
     "returns": "number"
@@ -1890,7 +1890,7 @@
     "syntax": "name <object>",
     "docSyntax": "name object",
     "tags": "",
-    "description": "When argument is Object, the command returns the name given to a unit using the setIdentity instruction or selected randomly by the game engine if setIdentity has not been used on the unit. If used on vehicle, name of first crew member (in order commander, driver, gunner). If used on an object, \"Error: No unit\" is being returned.br When argument is Location, the location's name is returned. To return the textual value of a location use text command instead.Feature arma3 setName can be used on a person to set name. However in multiplayer name always returns profileName.",
+    "description": "When argument is Object, the command returns the name given to a unit using the setIdentity instruction or selected randomly by the game engine if setIdentity has not been used on the unit. If used on vehicle, name of first crew member (in order commander, driver, gunner). If used on an object, \"\nError: No unit\" is being returned.br When argument is Location, the location's name is returned. To return the textual value of a location use text command instead.Feature arma3 setName can be used on a person to set name. However in multiplayer name always returns profileName.",
     "example": "_name = name player;",
     "params": "<object> <location>",
     "returns": "string"
@@ -1950,7 +1950,7 @@
     "syntax": "'objNull'",
     "docSyntax": "'objNull'",
     "tags": "",
-    "description": "A non-existent Object. To compare non-existent objects use isNull or isEqualTo: * hlc= objNull nowiki==</nowiki> objNull; // false * hlisNull objNull; // true * hlobjNull isEqualTo objNull; // true",
+    "description": "A non-existent Object. To compare non-existent objects use isNull or \nisEqualTo: * c= objNull nowiki==</nowiki> objNull; // false * isNull objNull; // true * objNull isEqualTo objNull; // true",
     "example": "player == player; // false if player is null",
     "params": "",
     "returns": "object"
@@ -1962,7 +1962,7 @@
     "syntax": "<string> objStatus <string>",
     "docSyntax": "objectivenumber objStatus status",
     "tags": "",
-    "description": "Sets the status of an objective that was defined in briefing.html. Status may be one of: * \"ACTIVE\" * \"FAILED\" * \"DONE\" * \"HIDDEN\" To refer to an objective that is named \"OBJ_1\", for example, use only the index number in this command (i.e. \"1\" objStatus \"HIDDEN\").",
+    "description": "Sets the status of an objective that was defined in briefing.html. Status may be one \nof: * \"ACTIVE\" * \"FAILED\" * \"DONE\" * \"HIDDEN\" To refer to an objective that is named \"OBJ_1\", for example, use only the index number in this command (i.e. \"1\" objStatus \"HIDDEN\").",
     "example": "\"1\" objStatus \"DONE\"",
     "params": "<string> <string>",
     "returns": "nothing"
@@ -2022,7 +2022,7 @@
     "syntax": "<object> playMove <string>",
     "docSyntax": "unitName playMove moveName",
     "tags": "[AL] [EG]",
-    "description": "When used on a person, smooth transition to given move will be done.br The difference between playMove and playMoveNow is that playMove adds another move to the move queue, while playMoveNow replaces the whole move queue with new move (see HashLink#Example 2). Featureinformativesee <:Category:Moves> for respective games animations.",
+    "description": "When used on a person, smooth transition to given move will be done.br The difference between playMove and playMoveNow is that playMove adds another move to the move queue, while playMoveNow replaces the whole move queue with new move (see HashLink#Example 2). Featureinformativesee <:\n\tCategory:Moves> for respective games animations.",
     "example": "soldierOne playMove \"Stand\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -2034,7 +2034,7 @@
     "syntax": "playMusic <string>",
     "docSyntax": "playMusic musicName",
     "tags": "[EL]",
-    "description": "Plays music defined in Description.ext's CfgMusic or config.cpp. If the ''musicName'' could not be found a message is logged into the .rpt file: hlMusic <''musicName''> not found. * <Arma 3 CfgMusic> * <Arma 2: CfgMusic> * <ArmA: CfgMusic> Feature Informative To stop the music, use icplayMusic \"\".",
+    "description": "Plays music defined in Description.ext's CfgMusic or config.cpp. If the ''musicName'' could not be found a message is logged into the .rpt \nfile: Music <''musicName''> not found. * <Arma 3 CfgMusic> * <Arma \n2: CfgMusic> * <\nArmA: CfgMusic> Feature Informative To stop the music, use icplayMusic \"\".",
     "example": "playMusic \"RadioAmbient1\";",
     "params": "<string> <string> <number>",
     "returns": "nothing"
@@ -2082,7 +2082,7 @@
     "syntax": "random <number>",
     "docSyntax": "random x",
     "tags": "",
-    "description": "thumb|120px|<#Syntax 2|Syntax&nbsp;2's distribution> {! ! style=\"padding-right: 1em; vertical-align: top; white-space: nowrap\" ! HashLink#Syntax 1 ! generates a random floating point value !- ! style=\"padding-right: 1em; vertical-align: top; white-space: nowrap\" ! HashLink#Syntax 2 ! generates a WikipediaNormal_distributionGaussian DistributionrefTechnically, it is a rescaled {{Wikipedia|Bates distribution}} with n = 4. The distribution is split in two at its midpoint and scaled linearly such that its maximum lies at the specified midpoint.</ref>. It uses the same method as setTriggerTimeout command and is quite useful for e.g spawning loot, making more valuable items more rare !- ! style=\"padding-right: 1em; vertical-align: top; white-space: nowrap\" ! HashLink#Syntax 3 ! generates a WikipediaRandom seedseed-based random number !- ! style=\"padding-right: 1em; vertical-align: top; white-space: nowrap\" ! HashLink#Syntax 4 ! generates a WikipediaRandom seedseed-based random noise ('not' Perlin) texture based on provided seed and returning the value at supplied coordinates !}",
+    "description": "thumb|120px|<#Syntax 2|Syntax&nbsp;2's distribution> {! ! style=\"padding-\nright: 1em; vertical-\nalign: top; white-\nspace: nowrap\" ! HashLink#Syntax 1 ! generates a random floating point value !- ! style=\"padding-\nright: 1em; vertical-\nalign: top; white-\nspace: nowrap\" ! HashLink#Syntax 2 ! generates a WikipediaNormal_distributionGaussian DistributionrefTechnically, it is a rescaled {{Wikipedia|Bates distribution}} with n = 4. The distribution is split in two at its midpoint and scaled linearly such that its maximum lies at the specified midpoint.</ref>. It uses the same method as setTriggerTimeout command and is quite useful for e.g spawning loot, making more valuable items more rare !- ! style=\"padding-\nright: 1em; vertical-\nalign: top; white-\nspace: nowrap\" ! HashLink#Syntax 3 ! generates a WikipediaRandom seedseed-based random number !- ! style=\"padding-\nright: 1em; vertical-\nalign: top; white-\nspace: nowrap\" ! HashLink#Syntax 4 ! generates a WikipediaRandom seedseed-based random noise ('not' Perlin) texture based on provided seed and returning the value at supplied coordinates !}",
     "example": "_rNumber = random 1;",
     "params": "<number> <number> <number> <number> <number> <number> <number> <number> <number>",
     "returns": "number"
@@ -2238,7 +2238,7 @@
     "syntax": "<object> setAmmoCargo <number>",
     "docSyntax": "vehicleName setAmmoCargo ammoCargo",
     "tags": "[AL] [EG]",
-    "description": "Set amount of ammo resources in cargo space of a rearm vehicle. Ammo resource is used to resupply vehicles that take ammo. Soldiers use individual magazines instead. Amount: 1 is full cargo. The uactual</u> 'quantity' to work with is determined by the model's class in CfgVehicles",
+    "description": "Set amount of ammo resources in cargo space of a rearm vehicle. Ammo resource is used to resupply vehicles that take ammo. Soldiers use individual magazines instead. \nAmount: 1 is full cargo. The uactual</u> 'quantity' to work with is determined by the model's class in CfgVehicles",
     "example": "_ammoTruck1 setAmmoCargo 0.5;",
     "params": "<object> <number>",
     "returns": "nothing"
@@ -2262,7 +2262,7 @@
     "syntax": "<object> setCaptive <boolean>",
     "docSyntax": "unitName setCaptive status",
     "tags": "[AL] [EG]",
-    "description": "Mark a unit as captive. If unit is a vehicle, commander is marked. A captive unit: * is seen as belonging to the civilian side * will not be fired upon * will still shoot at its real side's enemies * will not get its weapons removed (see removeAllWeapons) * will not trigger \"detected by\" conditions for its original side. FeatureInformativeThe number used as status can be retrieved by captiveNum to keep track of the captivity status at a finer resolution (e.g. handcuffed, grouped, etc).",
+    "description": "Mark a unit as captive. If unit is a vehicle, commander is marked. A captive \nunit: * is seen as belonging to the civilian side * will not be fired upon * will still shoot at its real side's enemies * will not get its weapons removed (see removeAllWeapons) * will not trigger \"detected by\" conditions for its original side. FeatureInformativeThe number used as status can be retrieved by captiveNum to keep track of the captivity status at a finer resolution (e.g. handcuffed, grouped, etc).",
     "example": "_soldier1 setCaptive true; side _soldier1; // returns civilian side group _soldier1; // returns e.g blufor",
     "params": "<object> <boolean> <object> <number>",
     "returns": "nothing"
@@ -2274,7 +2274,7 @@
     "syntax": "<group> setCombatMode <string>",
     "docSyntax": "group setCombatMode mode",
     "tags": "[AL] [EG]",
-    "description": "Sets AI group combat mode (engagement rules). For individual unit's combat mode see setUnitCombatMode. Mode may be one of the following: * hl\"BLUE\" : Never fire, keep formation * hl\"GREEN\" : Hold fire, keep formation * hl\"WHITE\" : Hold fire, engage at will/loose formation * hl\"YELLOW\" : Fire at will, keep formation * hl\"RED\" : Fire at will, engage at will/loose formation See <Combat Modes> for more information on combat modes.",
+    "description": "Sets AI group combat mode (engagement rules). For individual unit's combat mode see setUnitCombatMode. Mode may be one of the \nfollowing: * hl\"BLUE\" : Never fire, keep formation * hl\"GREEN\" : Hold fire, keep formation * hl\"WHITE\" : Hold fire, engage at will/loose formation * hl\"YELLOW\" : Fire at will, keep formation * hl\"RED\" : Fire at will, engage at will/loose formation See <Combat Modes> for more information on combat modes.",
     "example": "_group1 setCombatMode \"BLUE\";",
     "params": "<group> <string>",
     "returns": "nothing"
@@ -2310,7 +2310,7 @@
     "syntax": "<object> setFace <string>",
     "docSyntax": "person setFace face",
     "tags": "[AG] [EL]",
-    "description": "Set person's face. For a list of available faces, check <:Category:CfgIdentities>.",
+    "description": "Set person's face. For a list of available faces, check <:\n\tCategory:CfgIdentities>.",
     "example": "soldier1 setFace \"WhiteHead_02\"",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -2322,7 +2322,7 @@
     "syntax": "<object> setFaceAnimation <number>",
     "docSyntax": "unit setFaceAnimation blink",
     "tags": "",
-    "description": "Sets facial animation phase (eye blinking), blink is in the range from hl0 to hl1. Feature arma3 This command is not functional in Arma 3",
+    "description": "Sets facial animation phase (eye blinking), blink is in the range from 0 to 1. Feature arma3 This command is not functional in Arma 3",
     "example": "_soldier1 setFaceAnimation 0.5;",
     "params": "<object> <number>",
     "returns": "nothing"
@@ -2430,7 +2430,7 @@
     "syntax": "<object> setGroupId [<string>, <string>, ..., nameParamN]",
     "docSyntax": "group setGroupId [nameFormat, nameParam1, ..., nameParamN]",
     "tags": "[AG] [EL]",
-    "description": "Sets the group radio callsign, how it will be displayed in radio chat. Two groups on the same side 'cannot' have the same callsign (possible on different sides) - see HashLink#Example 4.br The identity setup can consist of format keywords (marked with '%') and param keywords taken from 'CfgWorlds' config. Formatting is almost like using the format command but with some special group keywords (see HashLink#Example 2). br spoiler text=\"Show Arma 3 values table\" {{{!}} class=\"wikitable\" ! %GroupSquad ! %GroupPlatoon ! %GroupCompany ! %GroupNames ! %GroupColors {{!}}- style=\"vertical-align: top\" {{!}} * \"Squad1\" &rarr; 1 * \"Squad2\" &rarr; 2 * \"Squad3\" &rarr; 3 * \"Squad4\" &rarr; 4 {{!}} * \"Platoon1\" &rarr; 1 * \"Platoon2\" &rarr; 2 * \"Platoon3\" &rarr; 3 * \"Platoon4\" &rarr; 4 {{!}} {{Columns|2| * \"CompanyAlpha\" &rarr; Alpha * \"CompanyBravo\" &rarr; Bravo * \"CompanyCharlie\" &rarr; etc. * \"CompanyDelta\" * \"CompanyEcho\" * \"CompanyFoxtrot\" * \"CompanyGolf\" * \"CompanyHotel\" * \"CompanyIndia\" * \"CompanyKilo\" * \"CompanyLima\" * \"CompanyMike\" * \"CompanyNovember\" * \"CompanyOscar\" * \"CompanyPapa\" * \"CompanyQuebec\" * \"CompanyRomeo\" * \"CompanySierra\" * \"CompanyTango\" * \"CompanyUniform\" * \"CompanyVictor\" * \"CompanyWhiskey\" * \"CompanyXray\" &rarr; X-Ray * \"CompanyYankee\" * \"CompanyZulu\" }} {{!}} {{Columns|2| * \"Alpha\" * \"Bravo\" * \"Charlie\" * \"Delta\" * \"Echo\" * \"Foxtrot\" * \"Golf\" * \"Hotel\" * \"November\" * \"Kilo\" * \"Yankee\" * \"Zulu\" * \"Convoy\" * \"Buffalo\" * \"Guardian\" * \"Two\" * \"Three\" * \"Fox\" }} {{!}} * \"GroupColor0\" &rarr; (nothing) * \"GroupColor1\" &rarr; Black * \"GroupColor2\" &rarr; Red * \"GroupColor3\" &rarr; Green * \"GroupColor4\" &rarr; Blue * \"GroupColor5\" &rarr; Yellow * \"GroupColor6\" &rarr; Orange * \"GroupColor7\" &rarr; Pink * \"Six\" &rarr; Six {{!}}} </spoiler> spoiler text=\"Show OFP values table\" {{{!}} class=\"wikitable\" ! Letter ! Colour {{!}}- style=\"vertical-align: top\" {{!}} {{Columns|2| * \"Alpha\" * \"Bravo\" * \"Charlie\" * \"Delta\" * \"Echo\" * \"Foxtrot\" * \"Golf\" * \"Hotel\" * \"Kilo\" * \"Yankee\" * \"Zulu\" * \"Buffalo\" * \"Convoy\" * \"Guardian\" * \"November\" * \"Two\" * \"Three\" * \"Fox\" }} {{!}} * \"GroupColor0\" &rarr; (nothing) * \"GroupColor1\" &rarr; Black * \"GroupColor2\" &rarr; Red * \"GroupColor3\" &rarr; Green * \"GroupColor4\" &rarr; Blue * \"GroupColor5\" &rarr; Yellow * \"GroupColor6\" &rarr; Orange * \"GroupColor7\" &rarr; Pink * \"Six\" &rarr; Six {{!}}} </spoiler> Feature ofp * In 'ofp', the group ID cannot be freely decided and format must be [letter, colour, picture] or [letter, colour] - ''nameFormat'' 'cannot' be a custom text - see HashLink#Example 3. * The radio callsign strings can be overwritten in a mission by writing Stringtable entries of the same name. Some entry names: spoiler * STR_CFG_''GRPNAMES''_'ALPHA' * STR_CFG_''GRPNAMES''_'FOX' * STR_CFG_''GRPCOL''_'BLACK' * STR_CFG_''GRPNAMES''_'SIX' (unlike its name suggests, this is a \"group colour\") * STR_CFG_FIREFLYBASE * STR_CFG_PAPABEAR * STR_CFG_HQ_BASE</spoiler>",
+    "description": "Sets the group radio callsign, how it will be displayed in radio chat. Two groups on the same side 'cannot' have the same callsign (possible on different sides) - see HashLink#Example 4.br The identity setup can consist of format keywords (marked with '%') and param keywords taken from 'CfgWorlds' config. Formatting is almost like using the format command but with some special group keywords (see HashLink#Example 2). br spoiler text=\"Show Arma 3 values table\" {{{!}} class=\"wikitable\" ! %GroupSquad ! %GroupPlatoon ! %GroupCompany ! %GroupNames ! %GroupColors {{!}}- style=\"vertical-\nalign: top\" {{!}} * \"Squad1\" &rarr; 1 * \"Squad2\" &rarr; 2 * \"Squad3\" &rarr; 3 * \"Squad4\" &rarr; 4 {{!}} * \"Platoon1\" &rarr; 1 * \"Platoon2\" &rarr; 2 * \"Platoon3\" &rarr; 3 * \"Platoon4\" &rarr; 4 {{!}} {{Columns|2| * \"CompanyAlpha\" &rarr; Alpha * \"CompanyBravo\" &rarr; Bravo * \"CompanyCharlie\" &rarr; etc. * \"CompanyDelta\" * \"CompanyEcho\" * \"CompanyFoxtrot\" * \"CompanyGolf\" * \"CompanyHotel\" * \"CompanyIndia\" * \"CompanyKilo\" * \"CompanyLima\" * \"CompanyMike\" * \"CompanyNovember\" * \"CompanyOscar\" * \"CompanyPapa\" * \"CompanyQuebec\" * \"CompanyRomeo\" * \"CompanySierra\" * \"CompanyTango\" * \"CompanyUniform\" * \"CompanyVictor\" * \"CompanyWhiskey\" * \"CompanyXray\" &rarr; X-Ray * \"CompanyYankee\" * \"CompanyZulu\" }} {{!}} {{Columns|2| * \"Alpha\" * \"Bravo\" * \"Charlie\" * \"Delta\" * \"Echo\" * \"Foxtrot\" * \"Golf\" * \"Hotel\" * \"November\" * \"Kilo\" * \"Yankee\" * \"Zulu\" * \"Convoy\" * \"Buffalo\" * \"Guardian\" * \"Two\" * \"Three\" * \"Fox\" }} {{!}} * \"GroupColor0\" &rarr; (nothing) * \"GroupColor1\" &rarr; Black * \"GroupColor2\" &rarr; Red * \"GroupColor3\" &rarr; Green * \"GroupColor4\" &rarr; Blue * \"GroupColor5\" &rarr; Yellow * \"GroupColor6\" &rarr; Orange * \"GroupColor7\" &rarr; Pink * \"Six\" &rarr; Six {{!}}} </spoiler> spoiler text=\"Show OFP values table\" {{{!}} class=\"wikitable\" ! Letter ! Colour {{!}}- style=\"vertical-\nalign: top\" {{!}} {{Columns|2| * \"Alpha\" * \"Bravo\" * \"Charlie\" * \"Delta\" * \"Echo\" * \"Foxtrot\" * \"Golf\" * \"Hotel\" * \"Kilo\" * \"Yankee\" * \"Zulu\" * \"Buffalo\" * \"Convoy\" * \"Guardian\" * \"November\" * \"Two\" * \"Three\" * \"Fox\" }} {{!}} * \"GroupColor0\" &rarr; (nothing) * \"GroupColor1\" &rarr; Black * \"GroupColor2\" &rarr; Red * \"GroupColor3\" &rarr; Green * \"GroupColor4\" &rarr; Blue * \"GroupColor5\" &rarr; Yellow * \"GroupColor6\" &rarr; Orange * \"GroupColor7\" &rarr; Pink * \"Six\" &rarr; Six {{!}}} </spoiler> Feature ofp * In 'ofp', the group ID cannot be freely decided and format must be [letter, colour, picture] or [letter, colour] - ''nameFormat'' 'cannot' be a custom text - see HashLink#Example 3. * The radio callsign strings can be overwritten in a mission by writing Stringtable entries of the same name. Some entry \nnames: spoiler * STR_CFG_''GRPNAMES''_'ALPHA' * STR_CFG_''GRPNAMES''_'FOX' * STR_CFG_''GRPCOL''_'BLACK' * STR_CFG_''GRPNAMES''_'SIX' (unlike its name suggests, this is a \"group colour\") * STR_CFG_FIREFLYBASE * STR_CFG_PAPABEAR * STR_CFG_HQ_BASE</spoiler>",
     "example": "group player setGroupId [\"Some name for the group\"]; hint groupId group player; cc\"Some name for the group\" player sideChat \"lalala\"; // Some name for the group (KK): \"lalala\"",
     "params": "<object> <string> <string>",
     "returns": "nothing"
@@ -2442,7 +2442,7 @@
     "syntax": "<object> setIdentity <string>",
     "docSyntax": "person setIdentity identity",
     "tags": "[AG] [EL]",
-    "description": "Sets identity of a person. The identities could be defined in a custom config in Description.ext or in the main config. For a list of available main config values see CfgIdentities. brbr This command is an aggregate of the following commands: setName, setFace, setSpeaker, setNameSound, setPitch, only the values are loaded from the given config. It also includes value for glasses for which currently there is no direct command, instead there is an inventory command addGoggles.",
+    "description": "Sets identity of a person. The identities could be defined in a custom config in Description.ext or in the main config. For a list of available main config values see CfgIdentities. brbr This command is an aggregate of the following \ncommands: setName, setFace, setSpeaker, setNameSound, setPitch, only the values are loaded from the given config. It also includes value for glasses for which currently there is no direct command, instead there is an inventory command addGoggles.",
     "example": "_soldier1 setIdentity \"MyLittleSoldier\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -2454,7 +2454,7 @@
     "syntax": "<string> setMarkerPos position2d",
     "docSyntax": "markerName setMarkerPos pos",
     "tags": "[EG]",
-    "description": "Moves the marker. If position is given in 3D format, hlz coordinate is stored with the marker and will be used when marker is passed to commands like createVehicle, createUnit, createAgent, createMine, setVehiclePosition for example. When Object is used for position, its getPosWorld is used. FeatureInformative'Multiplayer optimisation:' Global marker commands always broadcast the ''entire'' marker state over the network. As such, the number of network messages exchanged when creating or editing a marker can be reduced by performing all but the last operation using local marker commands, then using a global marker command for the last change (and subsequent global broadcast of all changes applied to the marker).",
+    "description": "Moves the marker. If position is given in 3D format, z coordinate is stored with the marker and will be used when marker is passed to commands like createVehicle, createUnit, createAgent, createMine, setVehiclePosition for example. When Object is used for position, its getPosWorld is used. FeatureInformative'Multiplayer optimisation:' Global marker commands always broadcast the ''entire'' marker state over the network. As such, the number of network messages exchanged when creating or editing a marker can be reduced by performing all but the last operation using local marker commands, then using a global marker command for the last change (and subsequent global broadcast of all changes applied to the marker).",
     "example": "\"MarkerOne\" setMarkerPos getMarkerPos \"MarkerTwo\"",
     "params": "<string> position2d",
     "returns": "nothing"
@@ -2538,7 +2538,7 @@
     "syntax": "<object> setSpeedMode <string>",
     "docSyntax": "groupName setSpeedMode mode",
     "tags": "[AL] [EG]",
-    "description": "Sets group speed mode. If unit is passed as param, unit's group is used. Mode may be one of: * '\"UNCHANGED\"' (unchanged) * '\"LIMITED\"' (half speed) * '\"NORMAL\"' (full speed, maintain formation) * '\"FULL\"' (do not wait for any other units in formation)",
+    "description": "Sets group speed mode. If unit is passed as param, unit's group is used. Mode may be one \nof: * '\"UNCHANGED\"' (unchanged) * '\"LIMITED\"' (half speed) * '\"NORMAL\"' (full speed, maintain formation) * '\"FULL\"' (do not wait for any other units in formation)",
     "example": "_groupOne setSpeedMode \"LIMITED\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -2550,7 +2550,7 @@
     "syntax": "<object> setUnitPos <string>",
     "docSyntax": "unit setUnitPos mode",
     "tags": "[AL] [EG]",
-    "description": "Set unit position rules. This command will not change the stance of the human player, even though it will change the output of unitPos command. To change player stance use playAction or playActionNow: codeplayer playAction \"PlayerProne\"; // DOWN player playAction \"PlayerStand\"; // UP player playAction \"PlayerCrouch\"; // MIDDLE</code>",
+    "description": "Set unit position rules. This command will not change the stance of the human player, even though it will change the output of unitPos command. To change player stance use playAction or \nplayActionNow: codeplayer playAction \"PlayerProne\"; // DOWN player playAction \"PlayerStand\"; // UP player playAction \"PlayerCrouch\"; // MIDDLE</code>",
     "example": "_soldier setUnitPos \"UP\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -2562,7 +2562,7 @@
     "syntax": "setViewDistance <number>",
     "docSyntax": "setViewDistance distance",
     "tags": "[EL]",
-    "description": "Set rendering distance. Setting view distance to &lt;= 0 resets the value to the client's options (set in hlOptions → Video → General → Visibility → Overall). FeatureInformativeClient-side max view distance is limited by the server's view distance. FeatureimportantView distance also defines the maximum distance between a unit and any other unit they can know about. Higher view distance will involve more AI simulation cycles for every unit, which causes low performance. {!class=\"wikitable\" !Game !min. scripted !min. UI !default !max. UI !max. scripted !- !arma3 !200 !500 !'1600' !12000 !40000 !- !arma2oa !200 !500 !'2500' !10000 !15000 !- !arma2 !200 !500 !'3000' !10000 !15000 !- !arma1 !200 !500 !'1200' !10000 !? !- !ofp !500 !500 !'900' !5000 !? !}",
+    "description": "Set rendering distance. Setting view distance to &lt;= 0 resets the value to the client's options (set in Options → Video → General → Visibility → Overall). FeatureInformativeClient-side max view distance is limited by the server's view distance. FeatureimportantView distance also defines the maximum distance between a unit and any other unit they can know about. Higher view distance will involve more AI simulation cycles for every unit, which causes low performance. {!class=\"wikitable\" !Game !min. scripted !min. UI !default !max. UI !max. scripted !- !arma3 !200 !500 !'1600' !12000 !40000 !- !arma2oa !200 !500 !'2500' !10000 !15000 !- !arma2 !200 !500 !'3000' !10000 !15000 !- !arma1 !200 !500 !'1200' !10000 !? !- !ofp !500 !500 !'900' !5000 !? !}",
     "example": "setViewDistance 2250;",
     "params": "<number>",
     "returns": "nothing"
@@ -2754,7 +2754,7 @@
     "syntax": "side <object>",
     "docSyntax": "side target",
     "tags": "[AG]",
-    "description": "Returns the side of a unit, vehicle, object or location. * side of a renegade soldier is sideEnemy * side of an empty vehicle is civilian * side of a crewed vehicle is, if present, commander's > gunner's > driver's or > cargo's side, in this order * side of a captive or dead unit is civilian. Use icside group _unit to get the underlying side (see 'Example 2') * you can use playerSide to know the real player's side Feature Informative Converting a side to string will 'not' always return the side command text: e.g icstr resistance ccreturns \"GUER\".br See Side page to see the return value of all side commands.",
+    "description": "Returns the side of a unit, vehicle, object or location. * side of a renegade soldier is sideEnemy * side of an empty vehicle is civilian * side of a crewed vehicle is, if present, commander's > gunner's > driver's or > cargo's side, in this order * side of a captive or dead unit is civilian. Use icside group _unit to get the underlying side (see 'Example 2') * you can use playerSide to know the real player's side Feature Informative Converting a side to string will 'not' always return the side command \ntext: e.g icstr resistance ccreturns \"GUER\".br See Side page to see the return value of all side commands.",
     "example": "sqfif (side player == west) then { hint \"Player is on the West side\" };</sqf>",
     "params": "<object>",
     "returns": "side"
@@ -2826,7 +2826,7 @@
     "syntax": "speed <object>",
     "docSyntax": "speed object",
     "tags": "",
-    "description": "Object speed (in km/h). Returns relative speed of given object along Y axis. An equivalent to:brbrhl3.6 * (velocityModelSpace _obj select 1)",
+    "description": "Object speed (in km/h). Returns relative speed of given object along Y axis. An equivalent \n\tto:brbrhl3.6 * (velocityModelSpace _obj select 1)",
     "example": "if (speed _truck1 >= 100) then {hint \"You're going too fast!\"};",
     "params": "<object>",
     "returns": "number"
@@ -2838,7 +2838,7 @@
     "syntax": "speedMode <object>",
     "docSyntax": "speedMode groupName",
     "tags": "",
-    "description": "Returns speed mode of the group, which can be any of the following: * '\"LIMITED\"' * '\"NORMAL\"' * '\"FULL\"'",
+    "description": "Returns speed mode of the group, which can be any of the \nfollowing: * '\"LIMITED\"' * '\"NORMAL\"' * '\"FULL\"'",
     "example": "_speed = speedMode group player;",
     "params": "<object>",
     "returns": "string"
@@ -2886,7 +2886,7 @@
     "syntax": "<object> switchCamera <string>",
     "docSyntax": "target switchCamera mode",
     "tags": "",
-    "description": "Switch camera to given vehicle / camera. Mode is one of: * '\"INTERNAL\"': 1st person * '\"GUNNER\"': optics / sights * '\"EXTERNAL\"': 3rd person * '\"GROUP\"': group * '\"CARGO\"': same as \"INTERNAL\" If you switch to a unit in a vehicle, this command uses the correct turret. Feature Informative Control over the unit is not given to the player. Use selectPlayer or a combination of switchCamera and remoteControl to achieve this.",
+    "description": "Switch camera to given vehicle / camera. Mode is one \nof: * '\"INTERNAL\"': 1st person * '\"GUNNER\"': optics / sights * '\"EXTERNAL\"': 3rd person * '\"GROUP\"': group * '\"CARGO\"': same as \"INTERNAL\" If you switch to a unit in a vehicle, this command uses the correct turret. Feature Informative Control over the unit is not given to the player. Use selectPlayer or a combination of switchCamera and remoteControl to achieve this.",
     "example": "player switchCamera \"Gunner\";",
     "params": "<object> <string> <object>",
     "returns": "nothing"
@@ -2898,7 +2898,7 @@
     "syntax": "<object> switchLight <string>",
     "docSyntax": "lamp switchLight mode",
     "tags": "[EL]",
-    "description": "Controls whether a lamp is lit or not. Featurearma3This command was originally designed to only work with hlCfgNonAIVehicles class hl\"StreetLamp\" only. Since arma3 v1.92 this command was extended to work with street lights.",
+    "description": "Controls whether a lamp is lit or not. Featurearma3This command was originally designed to only work with CfgNonAIVehicles class hl\"StreetLamp\" only. Since arma3 v1.92 this command was extended to work with street lights.",
     "example": "(object 12345) switchLight \"OFF\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -2910,7 +2910,7 @@
     "syntax": "<object> switchMove <string>",
     "docSyntax": "person switchMove moveName",
     "tags": "[AL] [EG]",
-    "description": "Immediately applies given animation to the unit. For a smooth transition from the current animation, use playMove. Feature Informative see <:Category:Moves> for respective games animations. This command first resets the unit's animation states (including aiming state, gesture state, etc.) then puts the unit in the first frame of the animation (therefore showing no transition). If an invalid animation is provided, the unit's animations will be reset but no new animation will be played (see HashLink#Example 3).",
+    "description": "Immediately applies given animation to the unit. For a smooth transition from the current animation, use playMove. Feature Informative see <:\n\tCategory:Moves> for respective games animations. This command first resets the unit's animation states (including aiming state, gesture state, etc.) then puts the unit in the first frame of the animation (therefore showing no transition). If an invalid animation is provided, the unit's animations will be reset but no new animation will be played (see HashLink#Example 3).",
     "example": "player switchMove \"AmovPpneMstpSrasWrflDnon\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -3127,7 +3127,7 @@
     "docSyntax": "object addAction [title, script, arguments, priority, showWindow, hideOnUse, shortcut, condition, positionInModel, radius, radiusView, showIn3D, available, textDefault, textToolTip]",
     "tags": "[AG] [EL]",
     "description": "Adds an entry to the action menu of an object. The action can only be activated when in proximity to the object 'and' looking at it. Adding an action to the player makes that action available to the player at all times. For event handling of user interaction see inGameUISetEventHandler.",
-    "example": "ccshort and sweet player addAction [\"a useless action that does nothing\", {}]; player addAction [\"<t color='#FF0000'>This Useless Action Is RED</t>\", {hint \"RED\"}]; player addAction [\"Hint Hello!\", { hint format [\"Hello %1!\", name player] }]; player addAction [\"String Exec\", \"hint 'this is also compiled'\"];",
+    "example": "// short and sweet player addAction [\"a useless action that does nothing\", {}]; player addAction [\"<t color='#FF0000'>This Useless Action Is RED</t>\", {hint \"RED\"}]; player addAction [\"Hint Hello!\", { hint format [\"Hello %1!\", name player] }]; player addAction [\"String Exec\", \"hint 'this is also compiled'\"];",
     "params": "agents <string> scheduled <anything> <number> <boolean> <boolean> key unscheduled <number> <number> <number> <number> <string> <string> agents <string> sqs <anything> <number> <boolean> <boolean> key unscheduled <number> <boolean> <string> <string>",
     "returns": "''script'' parameter)"
   },
@@ -3210,7 +3210,7 @@
     "syntax": "<string> setMarkerColor <string>",
     "docSyntax": "markerName setMarkerColor color",
     "tags": "[EG]",
-    "description": "Sets marker color. Marker color names and their corresponding RGBA values for Arma 3 could be found here: <Arma 3: CfgMarkerColors> FeatureInformative'Multiplayer optimisation:' Global marker commands always broadcast the ''entire'' marker state over the network. As such, the number of network messages exchanged when creating or editing a marker can be reduced by performing all but the last operation using local marker commands, then using a global marker command for the last change (and subsequent global broadcast of all changes applied to the marker).",
+    "description": "Sets marker color. Marker color names and their corresponding RGBA values for Arma 3 could be found \nhere: <Arma \n3: CfgMarkerColors> FeatureInformative'Multiplayer optimisation:' Global marker commands always broadcast the ''entire'' marker state over the network. As such, the number of network messages exchanged when creating or editing a marker can be reduced by performing all but the last operation using local marker commands, then using a global marker command for the last change (and subsequent global broadcast of all changes applied to the marker).",
     "example": "\"MarkerOne\" setMarkerColor \"ColorBlack\";",
     "params": "<string> <string>",
     "returns": "nothing"
@@ -3234,7 +3234,7 @@
     "syntax": "<array> setWPPos positionagl",
     "docSyntax": "waypoint setWPPos pos",
     "tags": "",
-    "description": "Sets waypoint position brbr Feature Informative This command is identical to hlsetWaypointPosition [pos, -1] (see command description for more info)",
+    "description": "Sets waypoint position brbr Feature Informative This command is identical to setWaypointPosition [pos, -1] (see command description for more info)",
     "example": "[_groupOne, 1] setWPPos markerPos \"MarkerOne\";",
     "params": "<array> positionagl",
     "returns": "nothing"
@@ -3342,7 +3342,7 @@
     "syntax": "<string> createVehicle <array>",
     "docSyntax": "type createVehicle position",
     "tags": "[EG]",
-    "description": "Creates an empty object of given classname type. See Eden Editor entity, see create3DENEntity. Featurearma3To avoid vehicle randomisation in arma3, set the hlBIS_enableRandomization variable immediately after creating the vehicle: codeprivate _vehicle = \"C_Offroad_01_F\" createVehicle position player; _vehicle setVariable [\"BIS_enableRandomization\", false];</code> Check <Vehicle Customization (VhC)> page for more information and settings.",
+    "description": "Creates an empty object of given classname type. See Eden Editor entity, see create3DENEntity. Featurearma3To avoid vehicle randomisation in arma3, set the BIS_enableRandomization variable immediately after creating the \nvehicle: codeprivate _vehicle = \"C_Offroad_01_F\" createVehicle position player; _vehicle setVariable [\"BIS_enableRandomization\", false];</code> Check <Vehicle Customization (VhC)> page for more information and settings.",
     "example": "_jeep = \"Jeep\" createVehicle position player;",
     "params": "<string> <array> <string> position2d <array> <number> <string>",
     "returns": "object"
@@ -3354,7 +3354,7 @@
     "syntax": "deleteVehicle <object>",
     "docSyntax": "deleteVehicle object",
     "tags": "[AG] [EG]",
-    "description": "Deletes an object. Only objects inserted in the mission editor and objects created during the game's progress can be deleted by this command. Island objects and player cannot be removed.Feature Informative The actual object deletion, when object becomes objNull, happens on the next frame after command execution, but there are some object modifications that happen immediately. For example if the object is unit in a group, it immediately becomes groupless hlisNull group _unit; //truebr Feature Warning Do not use this command for deletion of dead crew members from a vehicle. Doing so may lead to all sorts of bugs and ghost objects left on the map. Instead use deleteVehicleCrew, which was designed with this functionality in mind",
+    "description": "Deletes an object. Only objects inserted in the mission editor and objects created during the game's progress can be deleted by this command. Island objects and player cannot be removed.Feature Informative The actual object deletion, when object becomes objNull, happens on the next frame after command execution, but there are some object modifications that happen immediately. For example if the object is unit in a group, it immediately becomes groupless isNull group _unit; //truebr Feature Warning Do not use this command for deletion of dead crew members from a vehicle. Doing so may lead to all sorts of bugs and ghost objects left on the map. Instead use deleteVehicleCrew, which was designed with this functionality in mind",
     "example": "deleteVehicle _house1;",
     "params": "<object>",
     "returns": "nothing"
@@ -3366,7 +3366,7 @@
     "syntax": "<array> join <group>",
     "docSyntax": "unitArray join group",
     "tags": "[AG] [EG]",
-    "description": "{! class=\"wikitable\" style=\"float: right; font-size: 0.9em; margin: 0 0 0.5em 1.5em\" ! colspan=\"2\" ! Maximum number ofbrunits per group !- ! ofp !! 12 !- ! arma1 !! 144 !- ! arma2!! ? !- ! arma3 !! 3000+ !} Join all units in the array to given group. To have a group member leave a group, join him with the grpNull group (e.g. hl[guy1] join grpNull), but 'beware', as brand new group is created for the leaving unit and this could result in the number of groups in a mission growing out of control.",
+    "description": "{! class=\"wikitable\" style=\"\nfloat: right; font-\nsize: 0.9em; \nmargin: 0 0 0.5em 1.5em\" ! colspan=\"2\" ! Maximum number ofbrunits per group !- ! ofp !! 12 !- ! arma1 !! 144 !- ! arma2!! ? !- ! arma3 !! 3000+ !} Join all units in the array to given group. To have a group member leave a group, join him with the grpNull group (e.g. hl[guy1] join grpNull), but 'beware', as brand new group is created for the leaving unit and this could result in the number of groups in a mission growing out of control.",
     "example": "[_unitOne, _unitTwo] join player;",
     "params": "<array> <group>",
     "returns": "nothing"
@@ -3378,7 +3378,7 @@
     "syntax": "publicVariable global",
     "docSyntax": "publicVariable varName",
     "tags": "[AL] [EG]",
-    "description": "Reliably broadcasts JIP clients with the value they held at the time.br Such variables are persistent and sent to the JIP client before the first batch of client-side Data Types are supported: {! class=\"wikitable\" style=\"text-align: center\" ! Type ! scripts, displays or local objects.br Also, note that <Team Member> is not supported.",
+    "description": "Reliably broadcasts JIP clients with the value they held at the time.br Such variables are persistent and sent to the JIP client before the first batch of client-side Data Types are \nsupported: {! class=\"wikitable\" style=\"text-\nalign: center\" ! Type ! scripts, displays or local objects.br Also, note that <Team Member> is not supported.",
     "example": "TAG_MyPublicVariable = 0; TAG_MyPublicVariable = 1; publicVariable \"TAG_MyPublicVariable\"; // other clients will receive the \"TAG_MyPublicVariable\" variable with a '1' value TAG_MyPublicVariable = 2; // needs to be broadcast again - synchronisation is not automatic",
     "params": "global",
     "returns": "nothing"
@@ -3402,7 +3402,7 @@
     "syntax": "<object> vehicleChat <string>",
     "docSyntax": "vehicleName vehicleChat chatText",
     "tags": "[AG] [EL]",
-    "description": "Types text to the vehicle radio channel. The text will be visible only on the PC where command was executed. If you need the message to show on all computers, you have to execute it globally, see remoteExec. FeatureInformative * Object parameter must be a vehicle, not a player * If you are in a crew seat (i.e. driver, gunner or commander), then it will include that role in the chat name output (Eg: Driver (you_name): \"Message\")",
+    "description": "Types text to the vehicle radio channel. The text will be visible only on the PC where command was executed. If you need the message to show on all computers, you have to execute it globally, see remoteExec. FeatureInformative * Object parameter must be a vehicle, not a player * If you are in a crew seat (i.e. driver, gunner or commander), then it will include that role in the chat name output (\nEg: Driver (you_name): \"Message\")",
     "example": "vehicle player vehicleChat \"Show this text\";",
     "params": "<object> <string>",
     "returns": "nothing"
@@ -3462,7 +3462,7 @@
     "syntax": "<object> animate [<string>, <number>, <boolean>]",
     "docSyntax": "object animate [animationName, phase, speed]",
     "tags": "[AG] [EG]",
-    "description": "Activates given object animation. Animation is defined in CfgModels animations class. Class names listed in CfgVehicles AnimationSources bound to \"Proxy\" controller can also be animated with animate command (see <Arma 3: createVehicle/vehicles>). Featurearma3 * It is recommended that animateSource command is used instead of animate whenever is possible, as it is more efficient and optimised for multiplayer * Since arma3 v1.58 animation names can be obtained with animationNames FeaturewarningMixing animateSource command with animate command to animate the same part may produce some undefined behaviour.",
+    "description": "Activates given object animation. Animation is defined in CfgModels animations class. Class names listed in CfgVehicles AnimationSources bound to \"Proxy\" controller can also be animated with animate command (see <Arma \n3: createVehicle/vehicles>). Featurearma3 * It is recommended that animateSource command is used instead of animate whenever is possible, as it is more efficient and optimised for multiplayer * Since arma3 v1.58 animation names can be obtained with animationNames FeaturewarningMixing animateSource command with animate command to animate the same part may produce some undefined behaviour.",
     "example": "sqf_building animate [\"maindoor\", 1];</sqf>",
     "params": "<object> <string> <number> <boolean>",
     "returns": "nothing"
@@ -3486,7 +3486,7 @@
     "syntax": "buttonAction <number>",
     "docSyntax": "buttonAction idc",
     "tags": "[AL]",
-    "description": "Returns the action assigned to a control of the currently active user dialog. Can be used for buttons and active texts. Read <Arma: GUI Configuration> for more information about user dialogs and controls.",
+    "description": "Returns the action assigned to a control of the currently active user dialog. Can be used for buttons and active texts. Read <\nArma: GUI Configuration> for more information about user dialogs and controls.",
     "example": "buttonSetAction [100, {player exec \"reply.sqs\"}] _action = buttonAction 100; // Returns {player exec \"reply.sqs\"}",
     "params": "<number> <control>",
     "returns": "string"
@@ -3498,7 +3498,7 @@
     "syntax": "buttonSetAction [<number>, sqs]",
     "docSyntax": "buttonSetAction [idc, action]",
     "tags": "[AL] [EL]",
-    "description": "Set the action of a control of the currently active user dialog. The script statement is executed on button release and hl_this is available, but contains \"\"; See <Arma: GUI Configuration> for more information about user dialogs. Works with: * CT_BUTTON * CT_XBUTTON * CT_ACTIVETEXT * CT_SHORTCUTBUTTON",
+    "description": "Set the action of a control of the currently active user dialog. The script statement is executed on button release and _this is available, but contains \"\"; See <\nArma: GUI Configuration> for more information about user dialogs. Works \nwith: * CT_BUTTON * CT_XBUTTON * CT_ACTIVETEXT * CT_SHORTCUTBUTTON",
     "example": "buttonSetAction [100, \"player exec \"\"reply.sqs\"\"\"];",
     "params": "<number> sqs <control> sqs",
     "returns": "nothing"
@@ -3546,7 +3546,7 @@
     "syntax": "closeDialog exitcode",
     "docSyntax": "closeDialog exitcode",
     "tags": "[AL] [EL]",
-    "description": "Close the currently active user dialog with exit code. Most common exit codes are: code#define IDC_OK 1 //emulate \"Ok\" button</code> code#define IDC_CANCEL 2 //emulate \"Cancel\" button</code>",
+    "description": "Close the currently active user dialog with exit code. Most common exit codes \nare: code#define IDC_OK 1 //emulate \"Ok\" button</code> code#define IDC_CANCEL 2 //emulate \"Cancel\" button</code>",
     "example": "closeDialog 2;",
     "params": "<number>",
     "returns": "nothing"
@@ -3570,7 +3570,7 @@
     "syntax": "ctrlEnable [<number>, <boolean>]",
     "docSyntax": "ctrlEnable [idc, enable]",
     "tags": "[AL] [EL]",
-    "description": "Enables or disables a control of the currently active user dialog. Disabled controls cannot be clicked onto. Read <Arma: GUI Configuration> for more information about user dialogs and controls.",
+    "description": "Enables or disables a control of the currently active user dialog. Disabled controls cannot be clicked onto. Read <\nArma: GUI Configuration> for more information about user dialogs and controls.",
     "example": "ctrlEnable [100, false]",
     "params": "<number> <boolean> <control> <boolean>",
     "returns": "nothing"
@@ -3582,7 +3582,7 @@
     "syntax": "ctrlEnabled <number>",
     "docSyntax": "ctrlEnabled idc",
     "tags": "[AL]",
-    "description": "Returns if a control on the currently active user dialog is enabled. Disabled controls cannot be focused. Read <Arma: GUI Configuration> for more information about user dialogs and controls.",
+    "description": "Returns if a control on the currently active user dialog is enabled. Disabled controls cannot be focused. Read <\nArma: GUI Configuration> for more information about user dialogs and controls.",
     "example": "if !(ctrlEnabled 100) then { ctrlEnable [100, true]; };",
     "params": "<number> <control>",
     "returns": "boolean | true | false"
@@ -3594,7 +3594,7 @@
     "syntax": "ctrlSetText [<number>, <string>]",
     "docSyntax": "ctrlSetText [idc, text]",
     "tags": "[AL] [EL]",
-    "description": "Sets the text of a control of the currently active user dialog or display. This command can be used for static texts, buttons, edit lines and active texts as well as for images, where you can use it to set the image path. brRead <Arma: GUI Configuration> for more information about user dialogs and controls. brUse endl to insert line breaks. Since Arma 3 v2.05.147765 supported control types are: * CT_STATIC * CT_EDIT * CT_XKEYDESC * CT_XBUTTON * CT_SHORTCUTBUTTON * CT_STRUCTURED_TEXT * CT_BUTTON * CT_ACTIVETEXT",
+    "description": "Sets the text of a control of the currently active user dialog or display. This command can be used for static texts, buttons, edit lines and active texts as well as for images, where you can use it to set the image path. brRead <\nArma: GUI Configuration> for more information about user dialogs and controls. brUse endl to insert line breaks. Since Arma 3 v2.05.147765 supported control types \nare: * CT_STATIC * CT_EDIT * CT_XKEYDESC * CT_XBUTTON * CT_SHORTCUTBUTTON * CT_STRUCTURED_TEXT * CT_BUTTON * CT_ACTIVETEXT",
     "example": "ctrlSetText [100, \"Hello world\"]; // for Dialogs",
     "params": "<number> <string> <control> <string>",
     "returns": "nothing"
@@ -3606,7 +3606,7 @@
     "syntax": "ctrlShow [<number>, true]",
     "docSyntax": "ctrlShow [idc, show]",
     "tags": "[AL] [EL]",
-    "description": "Shows or hides a control. Read <Arma: GUI Configuration> for more information about user dialogs and controls.",
+    "description": "Shows or hides a control. Read <\nArma: GUI Configuration> for more information about user dialogs and controls.",
     "example": "ctrlShow [100, false];",
     "params": "<number> true <control> <boolean>",
     "returns": "nothing"
@@ -3618,7 +3618,7 @@
     "syntax": "ctrlText <number>",
     "docSyntax": "ctrlText idc",
     "tags": "",
-    "description": "Returns the text of a control of the currently active user dialog. This command can be used on static texts, buttons, edit lines and active texts as well as for images, where it returns the image path. Does not work on HTML control and returns empty string \"\". Since Arma 3 v2.05.147765 supported control types are: * CT_STATIC * CT_EDIT * CT_XKEYDESC * CT_XBUTTON * CT_SHORTCUTBUTTON * CT_STRUCTURED_TEXT * CT_BUTTON * CT_ACTIVETEXT",
+    "description": "Returns the text of a control of the currently active user dialog. This command can be used on static texts, buttons, edit lines and active texts as well as for images, where it returns the image path. Does not work on HTML control and returns empty string \"\". Since Arma 3 v2.05.147765 supported control types \nare: * CT_STATIC * CT_EDIT * CT_XKEYDESC * CT_XBUTTON * CT_SHORTCUTBUTTON * CT_STRUCTURED_TEXT * CT_BUTTON * CT_ACTIVETEXT",
     "example": "_text = ctrlText 100;",
     "params": "<number> <control>",
     "returns": "string"
@@ -3630,7 +3630,7 @@
     "syntax": "ctrlVisible <number>",
     "docSyntax": "ctrlVisible idc",
     "tags": "[AL]",
-    "description": "Returns if a control of the currently active user dialog is shown or not. Read <Arma: GUI Configuration> for more information about user dialogs and controls.",
+    "description": "Returns if a control of the currently active user dialog is shown or not. Read <\nArma: GUI Configuration> for more information about user dialogs and controls.",
     "example": "_bool = ctrlVisible 100;",
     "params": "<number>",
     "returns": "boolean | true | false"
@@ -3702,7 +3702,7 @@
     "syntax": "lbAdd [<number>, <string>]",
     "docSyntax": "lbAdd [idc, text]",
     "tags": "[AL] [EL]",
-    "description": "Adds an item with the given text to the CT_LISTBOX or CT_COMBO or CT_TOOLBOX. FeatureInformative If using hlRscToolBox as template with ctrlCreate, clear it first with lbClear",
+    "description": "Adds an item with the given text to the CT_LISTBOX or CT_COMBO or CT_TOOLBOX. FeatureInformative If using RscToolBox as template with ctrlCreate, clear it first with lbClear",
     "example": "_index = lbAdd [101, \"First item\"];",
     "params": "<number> <string> <control> <string>",
     "returns": "number"
@@ -4110,7 +4110,7 @@
     "syntax": "<object> setObjectTexture [hiddenselection, <string>]",
     "docSyntax": "object setObjectTexture [selectionNumber, texture]",
     "tags": "[AG] [EL]",
-    "description": "Applies given texture to object's selection. See <Retexturing with setObjectTexture> for a short tutorial. FeatureInformative * Not all objects can be textured this way. To find out, run getObjectTextures command on an object. Empty array ic[] usually indicates it cannot be textured. * All textures must have resolution 2^x / 2^y (16x16, 16x32, 64x256, 512x512, ...). The largest texture size commonly supported by graphics cards and RV engine is 4096x4096 * Supported formats: .pac, .paa, .jpg, .jpeg, .ogg, .ogv",
+    "description": "Applies given texture to object's selection. See <Retexturing with setObjectTexture> for a short tutorial. FeatureInformative * Not all objects can be textured this way. To find out, run getObjectTextures command on an object. Empty array ic[] usually indicates it cannot be textured. * All textures must have resolution 2^x / 2^y (16x16, 16x32, 64x256, 512x512, ...). The largest texture size commonly supported by graphics cards and RV engine is 4096x4096 * Supported \nformats: .pac, .paa, .jpg, .jpeg, .ogg, .ogv",
     "example": "_objectname setObjectTexture [0, \"\\pboname\\texture.paa\"]; _objectname setObjectTexture [1, \"\\pboname\\texture2.paa\"];",
     "params": "<object> hiddenselection <string>",
     "returns": "nothing"
@@ -4122,7 +4122,7 @@
     "syntax": "<number> setRain <number>",
     "docSyntax": "time setRain rain",
     "tags": "[SE] [EG]",
-    "description": "Sets rain density smoothly over the given transition time. A transition time of zero means an immediate change. A rain density of zero is no rain, one is maximum rain. Rain is not possible when overcast is less than 0.7. Feature arma3 Since arma3 this command is multiplayer synchronised: * If executed on server, the changes will propagate globally. * If executed on client, the effect is temporary and will soon change to the server setting. Minimum overcast needed for rain in arma3 is '0.5'.",
+    "description": "Sets rain density smoothly over the given transition time. A transition time of zero means an immediate change. A rain density of zero is no rain, one is maximum rain. Rain is not possible when overcast is less than 0.7. Feature arma3 Since arma3 this command is multiplayer \nsynchronised: * If executed on server, the changes will propagate globally. * If executed on client, the effect is temporary and will soon change to the server setting. Minimum overcast needed for rain in arma3 is '0.5'.",
     "example": "60 setRain 1;",
     "params": "<number> <number> rainparticles rainparticles",
     "returns": "nothing"
@@ -4314,7 +4314,7 @@
     "syntax": "comment <string>",
     "docSyntax": "comment text",
     "tags": "",
-    "description": "Defines a comment. See HashLinkSQF Syntax#Comments to learn more about comments. FeatureWarningThis command is evaluated during execution, and as such is infinitely slower than other SQF comment methods (hlcccomment or hlcodecomment/* comment */) which do not exist at runtime). See SQF Syntax for additional documentation on comments. FeatureinformativeIn order to place comments inside trigger activation fields and similar, use a plain string followed by a semicolon as a way to comment; e.g ic\"Some comment\";.",
+    "description": "Defines a comment. See HashLinkSQF Syntax#Comments to learn more about comments. FeatureWarningThis command is evaluated during execution, and as such is infinitely slower than other SQF comment methods (cccomment or codecomment/* comment */) which do not exist at runtime). See SQF Syntax for additional documentation on comments. FeatureinformativeIn order to place comments inside trigger activation fields and similar, use a plain string followed by a semicolon as a way to comment; e.g ic\"Some comment\";.",
     "example": "sqf comment \"This is a commented line\"; // bad \"This is a commented line\"; // good // This is a commented line // perfect </sqf>",
     "params": "<string>",
     "returns": "nothing"

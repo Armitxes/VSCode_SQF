@@ -173,6 +173,10 @@ const fetch = params => requestQueue.fetch(params);
 
                 const errorData = {};
                 try {
+                  /**
+                   * @param {string} text
+                   * @returns {string}
+                   */
                   const formatText = text => {
                     return text
                       .trim()
@@ -207,10 +211,18 @@ const fetch = params => requestQueue.fetch(params);
                   ).join(' ');
                   errorData.tags = tags;
 
-                  const description = formatText(xpath.select('//name[starts-with(., "descr")]', commandDoc).shift()?.nextSibling?.nextSibling?.textContent ?? '').replace(
-                    /<(\w+)>/g,
-                    '$1'
-                  );
+                  const description = formatText(xpath.select('//name[starts-with(., "descr")]', commandDoc).shift()?.nextSibling?.nextSibling?.textContent ?? '')
+                    .replace(/<(\w+)>/g, '$1')
+                    .replace(/pre\/\*\x20/g, '')
+                    .replace(/\x20?\*?\/?<?\/?p?r?e?>?\x20?Wikiplaceholder.*/gi, '')
+                    .replace(/(\w+:\w)/g, '\n\t$1')
+                    .replace(/(\w+:\x20)/g, '\n$1')
+                    .replace(/\bhl(\w+)/g, '$1')
+                    .replace(/\.[\w\s]+see:[\w\s<>:\/]+\.?/g, '.')
+                    .replace(/(\x20br\x20|\x20?)syntaxhighlight\x20lang="cpp"\x20?/g, ' ')
+                    .replace(/\x20?<\/syntaxhighlight>\x20?/g, '')
+                    .replace(/((?<!class\x20\w+\x20{\x20?.+|\t)class\x20\w+\x20{\x20?)(.+(?!};\x20?class))(};)/g, '\n$1\n $2\n$3\n')
+                    .replace(/\x20(class\x20\w+\x20{\x20?)([^}\n]+)(};)/g, '\t$1\n\t\t$2\n\t$3\n');
                   errorData.description = description;
 
                   const example = formatText(
@@ -219,7 +231,11 @@ const fetch = params => requestQueue.fetch(params);
                       .filter(e => /x\d+/.test(e.textContent))
                       .shift()?.nextSibling?.nextSibling?.textContent ?? ''
                   );
-                  errorData.example = (/<code>(?<code>.+)<\/code>/.exec(example)?.groups?.code ?? example).replace(/\w*<(\w+)>/g, '$1').replace(/; cc(\w+)/g, '; // $1').replace(/ Example: /g, '\n');
+                  const parsedExample = (/<code>(?<code>.+)<\/code>/.exec(example)?.groups?.code ?? example)
+                    .replace(/\w*<(\w+)>/g, '$1')
+                    .replace(/(; |^)cc(\w+)/g, '$1// $2')
+                    .replace(/ Example: /g, '\n');
+                  errorData.example = parsedExample;
 
                   const params = xpath
                     .select('//name[starts-with(., "p")]', commandDoc)
@@ -275,7 +291,7 @@ const fetch = params => requestQueue.fetch(params);
                     docSyntax,
                     tags,
                     description,
-                    example: (/<code>(?<code>.+)<\/code>/.exec(example)?.groups?.code ?? example).replace(/\w*<(\w+)>/g, '$1').replace(/; cc(\w+)/g, '; // $1').replace(/ Example: /g, '\n'),
+                    example: parsedExample,
                     params: params
                       .map(p => p?.type?.toLowerCase())
                       .filter(Boolean)
