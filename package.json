@@ -1,6 +1,6 @@
 {
 	"name": "sqf-language",
-	"displayName": "SQF Language Updated",
+	"displayName": "Arma SQF Language",
 	"description": "Full SQF Language support for VS Code. Forked and updated from https://github.com/Armitxes/VSCode_SQF",
 	"icon": "img/logo.png",
 	"version": "2.2.0",

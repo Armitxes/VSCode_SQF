@@ -1,5 +1,3 @@
-<div align='center'><img src="img/logo.png" height='100em'/></div>
-
 # SQF Language
 
 This extension integrates the SQF Language into Visual Studio Code.
