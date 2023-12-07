@@ -18,9 +18,9 @@ from wiki.games import GAMES
 class CommandQuery:
     baseUri = 'https://community.bistudio.com/wiki/Category:'
     path = path.dirname(path.realpath(__file__))
-    invalid_commands = r'(.*(\W|greater|_hash_|_less_|_or_|_and_).*)|^((call|spawn)|(then|do|else|exit|exitWith|for|forEach|if|return|switch|case|default|while|from|to|step|forEachMember|forEachMemberAgent|forEachMemberTeam|breakTo|breakOut|breakWith|continue|continueWith|try|catch|throw|count)|(player|cursorTarget|cursorObject)|(this|_this|_x|_y|_forEachIndex|_exception|_thisEvent|_thisScript|_thisFSM|thisList|thisTrigger|west|east|resistance|civilian|independent|blufor|opfor)|(get|set|select|getOrDefault|#|insert)|(compile|compileFinal|exec|execFSM|execVM|callExtension)|(null|nil|controlNull|displayNull|grpNull|locationNull|netObjNull|objNull|scriptNull|taskNull|teamMemberNull|configNull)|(private)|(true|false))$'
+    invalid_commands = r'(.*(\W|greater|_hash_|_less_|_or_|_and_).*)|^((call|spawn)|(then|do|else|exit|exitWith|for|forEach|forEachReversed|if|return|switch|case|default|while|from|to|step|forEachMember|forEachMemberAgent|forEachMemberTeam|breakTo|breakOut|breakWith|continue|continueWith|try|catch|throw|count)|(player|cursorTarget|cursorObject)|(this|_this|_x|_y|_forEachIndex|_exception|_thisEvent|_thisScript|_thisFSM|thisList|thisTrigger|west|east|resistance|civilian|independent|blufor|opfor)|(get|set|select|getOrDefault|#|insert)|(compile|compileFinal|exec|execFSM|execVM|freeExtension)|(null|nil|controlNull|displayNull|grpNull|locationNull|netObjNull|objNull|scriptNull|taskNull|teamMemberNull|configNull)|(private|privateAll)|(true|false)|(import_\(Config\)|import))$'
 
-    def parse(self, version: str, res: requests.Response):
+    def parse(self, version: str, res: requests.Response) -> None:
         cmds = []
         skipped = 0
 
@@ -69,7 +69,7 @@ class CommandQuery:
                 print(
                     f'Entry for {gamename} "{url}" not found, skipping...')
 
-        self._json_output(game)
+        self._json_output(game) 
 
 
 if (__name__ == '__main__'):

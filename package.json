@@ -3,10 +3,10 @@
 	"displayName": "SQF Language Updated",
 	"description": "Full SQF Language support for VS Code. Forked and updated from https://github.com/Armitxes/VSCode_SQF",
 	"icon": "img/logo.png",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"publisher": "blackfisch",
 	"galleryBanner": {
-		"color": "#647e99",
+		"color": "#162711",
 		"theme": "dark"
 	},
 	"license": "CC-BY-NC-SA-4.0",
@@ -27,8 +27,6 @@
 		"Debuggers"
 	],
 	"activationEvents": [
-		"onLanguage:sqf",
-		"onLanguage:ext",
 		"onDebugResolve:sqf"
 	],
 	"main": "./env/client/init",
@@ -96,17 +94,25 @@
 		},
 		"configurationDefaults": {
 			"[sqf]": {
-				"editor.quickSuggestions": true,
+				"editor.quickSuggestions": {
+					"other": true,
+					"comments": true,
+					"strings": true
+				},
 				"editor.tabSize": 4,
-				"editor.insertSpaces": false,
+				"editor.insertSpaces": true,
 				"editor.detectIndentation": true,
 				"editor.trimAutoWhitespace": true,
 				"editor.autoClosingBrackets": "always"
 			},
 			"[ext]": {
-				"editor.quickSuggestions": true,
+				"editor.quickSuggestions": {
+					"other": true,
+					"comments": false,
+					"strings": true
+				},
 				"editor.tabSize": 4,
-				"editor.insertSpaces": false,
+				"editor.insertSpaces": true,
 				"editor.detectIndentation": true,
 				"editor.trimAutoWhitespace": true,
 				"editor.autoClosingBrackets": "always"
